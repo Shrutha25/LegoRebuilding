@@ -1,0 +1,10 @@
+opencv-python-headless
+numpy
+pandas
+requests
+httpx
+fastapi
+uvicorn[standard]
+python-multipart
+anthropic
+pytest
