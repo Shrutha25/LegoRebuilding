@@ -191,6 +191,11 @@ original spec; they came from real misses on the sample image.
 ## Known limitations
 
 - Touching pieces merge into one detection; spread them apart.
+- Piece detection first assumes the plain sheet reaches the edges of the photo. If that gives an
+  implausible result (e.g. one box covering most of the photo because a wooden table shows around a
+  paper towel), it retries with a colour-based method that copes with uneven light and embossed
+  paper. That fallback finds coloured and dark pieces but can miss pale ones (white, transparent),
+  and ignores anything touching the photo edge. For best results fill the frame with the sheet.
 - Minifigure parts may not match set inventories (e.g. BrickLink `970c00` hips+legs
   assemblies have no Rebrickable equivalent, so they stay unmapped).
 - Random piles rarely complete a whole set, so with the 100% rule most mixed piles get no official

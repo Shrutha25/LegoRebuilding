@@ -3,6 +3,7 @@ from fastapi.testclient import TestClient
 
 from backend import config, main
 from backend.core.index import DataStore
+from backend.core.rebrickable_api import RebrickableAPI
 from tests.fixtures import write_rb_dir
 
 
@@ -11,6 +12,9 @@ def client(tmp_path, monkeypatch):
     store = DataStore(str(write_rb_dir(tmp_path / "rb")))
     store._load()                                   # synchronous for the test
     monkeypatch.setattr(main, "store", store)
+    monkeypatch.setattr(main, "rb_api", RebrickableAPI(""))        # never call the real Rebrickable API in tests
+    monkeypatch.setattr(main, "_llm", None)
+    monkeypatch.setattr(config, "GEMINI_API_KEY", "")              # ...or Gemini, whatever is in .env
     monkeypatch.setattr(store, "start", lambda: None)   # lifespan must not reload
     monkeypatch.setattr(config, "UPLOAD_DIR", tmp_path / "up")
     with TestClient(main.app) as c:
