@@ -11,9 +11,8 @@ load_dotenv(ROOT / ".env")
 DATA_DIR = Path(os.environ.get("RB_DATA_DIR", ROOT / "rb_data"))
 UPLOAD_DIR = Path(os.environ.get("UPLOAD_DIR", ROOT / "tmp_uploads"))
 REBRICKABLE_API_KEY = os.environ.get("REBRICKABLE_API_KEY", "")
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-LLM_MODEL = os.environ.get("LLM_MODEL", "claude-sonnet-5-5")
-LLM_EFFORT = os.environ.get("LLM_EFFORT", "medium")   # set empty for models without effort support
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
 BRICKOGNIZE_URL = os.environ.get("BRICKOGNIZE_URL", "https://api.brickognize.com/predict/parts/")
 
 

@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 
 from backend import config, jobs
 from backend.core import idmap
-from backend.core.ideas import AnthropicLLM, IdeasError, generate_ideas
+from backend.core.ideas import GeminiLLM, IdeasError, generate_ideas
 from backend.core.index import DataStore
 from backend.core.rebrickable_api import RebrickableAPI
 
@@ -222,9 +222,9 @@ def get_llm():
     """Created lazily so the server (and tests) run without an API key."""
     global _llm
     if _llm is None:
-        if not config.ANTHROPIC_API_KEY:
-            raise IdeasError("AI ideas need an ANTHROPIC_API_KEY in the server's .env.", 503)
-        _llm = AnthropicLLM(config.ANTHROPIC_API_KEY, config.LLM_MODEL, config.LLM_EFFORT)
+        if not config.GEMINI_API_KEY:
+            raise IdeasError("AI ideas need a GEMINI_API_KEY in the server's .env.", 503)
+        _llm = GeminiLLM(config.GEMINI_API_KEY, config.GEMINI_MODEL)
     return _llm
 
 

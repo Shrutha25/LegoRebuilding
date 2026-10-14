@@ -4,7 +4,7 @@ from types import SimpleNamespace
 import pytest
 
 from backend.core import ideas as ideas_mod
-from backend.core.ideas import (SCHEMA, AnthropicLLM, IdeasError, aggregate_parts, build_user_prompt,
+from backend.core.ideas import (SCHEMA, GeminiLLM, IdeasError, aggregate_parts, build_user_prompt,
                                 generate_ideas, validate_ideas)
 
 PARTS = [
@@ -22,7 +22,7 @@ def idea(name="Red Truck", pieces=None, steps=None, desc="A truck."):
 
 
 class StubLLM:
-    """Stands in for the Anthropic client."""
+    """Stands in for the LLM."""
 
     def __init__(self, payload):
         self.payload, self.calls = payload, []
@@ -150,67 +150,114 @@ def test_llm_errors_propagate_as_ideas_errors():
     assert e.value.status == 429
 
 
-# ---------------------------------------------------------------- AnthropicLLM request shape (fake client)
-class FakeMessages:
+# ---------------------------------------------------------------- GeminiLLM (fake google-genai client)
+class FakeModels:
     def __init__(self, response=None, error=None):
         self.response, self.error, self.kwargs = response, error, None
 
-    async def create(self, **kwargs):
+    async def generate_content(self, **kwargs):
         self.kwargs = kwargs
         if self.error:
             raise self.error
         return self.response
 
 
-def llm_with(response=None, error=None, effort="medium"):
-    llm = AnthropicLLM("test-key", "claude-sonnet-5-5", effort)
-    llm.client = SimpleNamespace(messages=FakeMessages(response, error))
+def llm_with(response=None, error=None):
+    llm = GeminiLLM("test-key", "gemini-test-model")
+    llm.client = SimpleNamespace(aio=SimpleNamespace(models=FakeModels(response, error)))
     return llm
 
 
-def reply(text="{}", stop="end_turn"):
-    return SimpleNamespace(stop_reason=stop, content=[SimpleNamespace(type="text", text=text)])
+def reply(text='{"ideas": []}', finish="STOP", block=None):
+    return SimpleNamespace(text=text, prompt_feedback=SimpleNamespace(block_reason=block),
+                           candidates=[SimpleNamespace(finish_reason=finish)])
 
 
-def test_request_uses_structured_output_and_configured_model():
+def api_error(code, message="boom", status=""):
+    from google.genai import errors
+    cls = errors.ClientError if code < 500 else errors.ServerError
+    return cls(code, {"error": {"code": code, "message": message, "status": status}})
+
+
+def test_request_uses_json_schema_structured_output_and_configured_model():
     llm = llm_with(reply('{"ideas": []}'))
-    out = asyncio.run(llm.complete("sys", "user", SCHEMA))
-    kw = llm.client.messages.kwargs
+    out = asyncio.run(llm.complete("sys", "user text", SCHEMA))
+    kw = llm.client.aio.models.kwargs
+    cfg = kw["config"]
     assert out == '{"ideas": []}'
-    assert kw["model"] == "claude-sonnet-5-5" and kw["system"] == "sys"
-    assert kw["output_config"]["format"] == {"type": "json_schema", "schema": SCHEMA}
-    assert kw["output_config"]["effort"] == "medium"
-    assert "temperature" not in kw and "tool_choice" not in kw and "thinking" not in kw
+    assert kw["model"] == "gemini-test-model" and kw["contents"] == "user text"
+    assert cfg.system_instruction == "sys"
+    assert cfg.response_mime_type == "application/json"
+    assert cfg.response_json_schema == SCHEMA
+    assert cfg.response_schema is None                      # only one of the two schema params may be set
 
 
-def test_effort_can_be_disabled():
-    llm = llm_with(reply(), effort="")
-    asyncio.run(llm.complete("s", "u", SCHEMA))
-    assert "effort" not in llm.client.messages.kwargs["output_config"]
+def test_enum_and_string_finish_reasons_both_work():
+    from google.genai import types
+    for finish in (types.FinishReason.STOP, "STOP", None):
+        assert asyncio.run(llm_with(reply(finish=finish)).complete("s", "u", SCHEMA)) == '{"ideas": []}'
 
 
-def test_refusal_and_truncation_become_user_facing_errors():
-    for resp, text in [(reply("", "refusal"), "declined"), (reply("{", "max_tokens"), "cut off"), (reply(""), "cut off")]:
-        with pytest.raises(IdeasError) as e:
-            asyncio.run(llm_with(resp).complete("s", "u", SCHEMA))
-        assert text in str(e.value)
+@pytest.mark.parametrize("resp,expect", [
+    (reply("", block="SAFETY"), "safety"),                         # prompt blocked
+    (reply(None, finish="SAFETY"), "safety"),                      # response blocked
+    (reply(None, finish="PROHIBITED_CONTENT"), "safety"),
+    (reply("{", finish="MAX_TOKENS"), "cut off"),
+    (reply(""), "cut off"),
+    (reply(None), "cut off"),
+    (SimpleNamespace(text=None, prompt_feedback=None, candidates=None), "cut off"),   # no candidates at all
+])
+def test_blocked_truncated_and_empty_responses_become_user_facing_errors(resp, expect):
+    with pytest.raises(IdeasError) as e:
+        asyncio.run(llm_with(resp).complete("s", "u", SCHEMA))
+    assert expect in str(e.value) and e.value.status == 502
 
 
-def test_anthropic_errors_are_mapped_without_leaking_details():
-    import anthropic
-    import httpx2 as httpx   # anthropic 1.x uses httpx2; fall back below if this is 0.x
-    req = httpx.Request("POST", "https://api.anthropic.com/v1/messages")
-    cases = [
-        (anthropic.RateLimitError("secret detail", response=httpx.Response(429, request=req), body=None), 429),
-        (anthropic.AuthenticationError("secret detail", response=httpx.Response(401, request=req), body=None), 502),
-        (anthropic.InternalServerError("secret detail", response=httpx.Response(500, request=req), body=None), 502),
-        (anthropic.APITimeoutError(request=req), 504),
-        (anthropic.APIConnectionError(request=req), 502),
-    ]
-    for err, status in cases:
+@pytest.mark.parametrize("err,status,text", [
+    (api_error(400, "API key not valid. Please pass a valid API key.", "INVALID_ARGUMENT"), 502, "GEMINI_API_KEY"),
+    (api_error(401, "bad creds", "UNAUTHENTICATED"), 502, "GEMINI_API_KEY"),
+    (api_error(403, "denied", "PERMISSION_DENIED"), 502, "GEMINI_API_KEY"),
+    (api_error(429, "quota exceeded", "RESOURCE_EXHAUSTED"), 429, "quota"),
+    (api_error(504, "deadline", "DEADLINE_EXCEEDED"), 504, "too long"),
+    (api_error(500, "internal"), 502, "trouble"),
+    (api_error(503, "overloaded", "UNAVAILABLE"), 502, "trouble"),
+    (api_error(400, "something else", "INVALID_ARGUMENT"), 502, "error (400)"),
+])
+def test_gemini_api_errors_map_to_readable_errors(err, status, text):
+    with pytest.raises(IdeasError) as e:
+        asyncio.run(llm_with(error=err).complete("s", "u", SCHEMA))
+    assert e.value.status == status and text in str(e.value)
+    assert "boom" not in str(e.value) and "denied" not in str(e.value)        # provider text is not leaked
+
+
+def test_timeouts_and_connection_errors_are_mapped():
+    import httpx
+    for err, status, text in [(httpx.ReadTimeout("slow"), 504, "too long"),
+                              (TimeoutError(), 504, "too long"),
+                              (httpx.ConnectError("down"), 502, "Could not reach")]:
         with pytest.raises(IdeasError) as e:
             asyncio.run(llm_with(error=err).complete("s", "u", SCHEMA))
-        assert e.value.status == status and "secret detail" not in str(e.value)
+        assert e.value.status == status and text in str(e.value)
+
+
+def test_invalid_json_from_gemini_becomes_a_readable_error():
+    with pytest.raises(IdeasError) as e:
+        asyncio.run(generate_ideas(PARTS, llm_with(reply("Sure! Here are some ideas: ..."))))
+    assert "valid JSON" in str(e.value)
+
+
+def test_schema_is_gemini_compatible():
+    """Only keywords Gemini's response_json_schema supports."""
+    allowed = {"type", "properties", "items", "required", "additionalProperties", "description", "title", "enum"}
+
+    def walk(node):
+        assert set(node) <= allowed, set(node) - allowed
+        for sub in node.get("properties", {}).values():      # property NAMES are not keywords
+            walk(sub)
+        if isinstance(node.get("items"), dict):
+            walk(node["items"])
+    walk(SCHEMA)
+    assert SCHEMA["type"] == "object" and "ideas" in SCHEMA["properties"]       # response shape: {ideas: [...]}
 
 
 def test_module_constants_ask_for_a_spare_idea():

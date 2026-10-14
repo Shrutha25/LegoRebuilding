@@ -6,7 +6,7 @@ httpx
 fastapi
 uvicorn[standard]
 python-multipart
-anthropic
+google-genai
 pytest
 python-dotenv
 pytest-asyncio

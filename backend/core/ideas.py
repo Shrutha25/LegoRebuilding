@@ -1,4 +1,4 @@
-"""AI build ideas: prompt the LLM with the user's exact parts, ask for structured JSON, and
+"""AI build ideas: prompt Gemini with the user's exact parts, ask for structured JSON, and
 drop any idea that uses a piece (or quantity) the user does not have.
 
 The LLM sits behind a one-method interface (`complete`) so tests can stub it.
@@ -171,43 +171,71 @@ def validate_ideas(raw, owned, limit=RETURNED_IDEAS):
 
 
 # ---------------------------------------------------------------- generation
-class AnthropicLLM:
-    """Messages API with structured JSON output (output_config.format)."""
+class GeminiLLM:
+    """Google Gemini via the google-genai SDK, with JSON output constrained to a schema."""
 
-    def __init__(self, api_key, model, effort="medium", timeout=90.0):
-        import anthropic
-        self._anthropic = anthropic
-        self.client = anthropic.AsyncAnthropic(api_key=api_key, timeout=timeout, max_retries=1)
+    def __init__(self, api_key, model, timeout=90.0):
+        import httpx
+        from google import genai
+        from google.genai import errors, types
+        self._errors, self._types, self._httpx = errors, types, httpx
+        self.client = genai.Client(api_key=api_key, http_options=types.HttpOptions(
+            timeout=int(timeout * 1000),                                  # milliseconds
+            retry_options=types.HttpRetryOptions(attempts=2)))            # one retry on transient errors
         self.model = model
-        self.effort = effort
 
     async def complete(self, system, user, schema):
-        a = self._anthropic
-        output_config = {"format": {"type": "json_schema", "schema": schema}}
-        if self.effort:
-            output_config["effort"] = self.effort
+        types, errors, httpx = self._types, self._errors, self._httpx
+        config = types.GenerateContentConfig(
+            system_instruction=system,
+            response_mime_type="application/json",
+            response_json_schema=schema,
+            max_output_tokens=16384,
+        )
         try:
-            resp = await self.client.messages.create(
-                model=self.model, max_tokens=8000, system=system,
-                messages=[{"role": "user", "content": user}],
-                output_config=output_config,
-            )
-        except a.RateLimitError:
-            raise IdeasError("The AI service is busy right now. Please try again in a minute.", 429)
-        except a.AuthenticationError:
-            raise IdeasError("The AI service rejected the API key. Check ANTHROPIC_API_KEY.", 502)
-        except a.APITimeoutError:
+            resp = await self.client.aio.models.generate_content(
+                model=self.model, contents=user, config=config)
+        except errors.APIError as e:
+            raise _map_api_error(e)
+        except (httpx.TimeoutException, TimeoutError):
             raise IdeasError("The AI service took too long. Please try again.", 504)
-        except a.APIConnectionError:
+        except httpx.TransportError:
             raise IdeasError("Could not reach the AI service. Please try again.", 502)
-        except a.APIStatusError as e:
-            raise IdeasError(f"The AI service returned an error ({e.status_code}).", 502)
-        if resp.stop_reason == "refusal":
-            raise IdeasError("The AI service declined this request.", 502)
-        text = next((b.text for b in resp.content if b.type == "text"), "")
-        if resp.stop_reason == "max_tokens" or not text:
+
+        if getattr(resp.prompt_feedback, "block_reason", None):
+            raise IdeasError("The AI service blocked this request for safety reasons. "
+                             "Try again or change your pieces.", 502)
+        cand = (resp.candidates or [None])[0]
+        finish = getattr(cand, "finish_reason", None)
+        reason = str(getattr(finish, "value", finish) or "")
+        if reason in _BLOCKED_FINISH:
+            raise IdeasError("The AI service blocked this response for safety reasons. Please try again.", 502)
+        try:
+            text = resp.text
+        except Exception:
+            text = None
+        if reason == "MAX_TOKENS" or not text:
             raise IdeasError("The AI response was cut off. Please try again.", 502)
         return text
+
+
+_BLOCKED_FINISH = {"SAFETY", "PROHIBITED_CONTENT", "BLOCKLIST", "SPII", "RECITATION"}
+
+
+def _map_api_error(e):
+    """Gemini API errors -> user-facing IdeasError, without leaking provider details."""
+    code = getattr(e, "code", 0) or 0
+    status = (getattr(e, "status", "") or "").upper()
+    msg = (getattr(e, "message", "") or "").lower()
+    if code in (401, 403) or "api key" in msg or status in ("UNAUTHENTICATED", "PERMISSION_DENIED"):
+        return IdeasError("The AI service rejected the API key. Check GEMINI_API_KEY.", 502)
+    if code == 429 or status == "RESOURCE_EXHAUSTED":
+        return IdeasError("The AI service is busy or over its quota. Please try again in a minute.", 429)
+    if code in (408, 504) or status == "DEADLINE_EXCEEDED":
+        return IdeasError("The AI service took too long. Please try again.", 504)
+    if code >= 500:
+        return IdeasError("The AI service is having trouble right now. Please try again.", 502)
+    return IdeasError(f"The AI service returned an error ({code}).", 502)
 
 
 async def generate_ideas(parts, llm):

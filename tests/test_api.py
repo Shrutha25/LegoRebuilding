@@ -144,9 +144,9 @@ def test_ideas_endpoint_validates_and_enriches(client, monkeypatch):
 
 def test_ideas_without_api_key_is_a_clear_503(client, monkeypatch):
     monkeypatch.setattr(main, "_llm", None)
-    monkeypatch.setattr(config, "ANTHROPIC_API_KEY", "")
+    monkeypatch.setattr(config, "GEMINI_API_KEY", "")
     r = client.post("/api/ideas", json={"parts": [{"part_num": "3001", "qty": 1}]})
-    assert r.status_code == 503 and "ANTHROPIC_API_KEY" in r.json()["detail"]
+    assert r.status_code == 503 and "GEMINI_API_KEY" in r.json()["detail"]
 
 
 def test_ideas_llm_failures_become_http_errors_not_crashes(client, monkeypatch):
