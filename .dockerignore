@@ -1,0 +1,9 @@
+.venv
+.git
+rb_data
+tmp_uploads
+__pycache__
+.pytest_cache
+node_modules
+.next
+.env

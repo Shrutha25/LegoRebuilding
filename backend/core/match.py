@@ -9,7 +9,8 @@ import pandas as pd
 import requests
 
 RB_URL = "https://cdn.rebrickable.com/media/downloads/{}.csv.gz"
-RB_FILES = ["sets", "themes", "colors", "inventories", "inventory_parts", "part_relationships"]
+RB_FILES = ["sets", "themes", "colors", "inventories", "inventory_parts", "part_relationships",
+            "parts"]
 
 # Themes that are parts packs, not builds
 SKIP_THEMES = ["supplemental", "service packs", "bulk bricks", "key chains", "magnets",
@@ -17,21 +18,30 @@ SKIP_THEMES = ["supplemental", "service packs", "bulk bricks", "key chains", "ma
 
 
 # ---------------------------------------------------------------- data
-def load_rebrickable(data_dir, refresh=False):
+def download_file(name, data_dir, refresh=False):
+    """Download one Rebrickable CSV into data_dir (skipped if present). Returns its path."""
     os.makedirs(data_dir, exist_ok=True)
+    path = os.path.join(data_dir, f"{name}.csv")
+    if refresh or not os.path.exists(path):
+        print(f"Downloading {name}.csv.gz ...")
+        r = requests.get(RB_URL.format(name), stream=True, timeout=120)
+        r.raise_for_status()
+        gz = path + ".gz"
+        with open(gz, "wb") as f:
+            shutil.copyfileobj(r.raw, f)
+        with gzip.open(gz, "rb") as fi, open(path, "wb") as fo:
+            shutil.copyfileobj(fi, fo)
+        os.remove(gz)
+    return path
+
+
+def load_rebrickable(data_dir, refresh=False, download=True):
+    """Read the CSVs into DataFrames. With download=False, missing files raise FileNotFoundError."""
     out = {}
     for name in RB_FILES:
         path = os.path.join(data_dir, f"{name}.csv")
-        if refresh or not os.path.exists(path):
-            print(f"Downloading {name}.csv.gz ...")
-            r = requests.get(RB_URL.format(name), stream=True, timeout=120)
-            r.raise_for_status()
-            gz = path + ".gz"
-            with open(gz, "wb") as f:
-                shutil.copyfileobj(r.raw, f)
-            with gzip.open(gz, "rb") as fi, open(path, "wb") as fo:
-                shutil.copyfileobj(fi, fo)
-            os.remove(gz)
+        if download:
+            path = download_file(name, data_dir, refresh)
         out[name] = pd.read_csv(path, dtype=str, keep_default_na=False)
     return out
 

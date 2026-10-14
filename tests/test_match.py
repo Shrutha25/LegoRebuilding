@@ -1,35 +1,6 @@
-import pandas as pd
-
 from backend.core.match import (build_set_requirements, canonical_map, rank_sets,
                                 skipped_theme_ids)
-
-
-def df(rows, cols):
-    return pd.DataFrame(rows, columns=cols, dtype=str)
-
-
-def fixture():
-    rels = df([["3001pr1", "3001", "P"], ["3001pr2", "3001pr1", "P"], ["9999", "1111", "R"]],
-              ["child_part_num", "parent_part_num", "rel_type"])
-    themes = df([["1", "Town", ""], ["2", "Supplemental", ""], ["3", "Bulk Sub", "2"]],
-                ["id", "name", "parent_id"])
-    sets = df([["10-1", "Small House", "2020", "1", "http://img/10"],
-               ["20-1", "Parts Pack", "2021", "2", "http://img/20"],
-               ["30-1", "Sub Pack", "2021", "3", "http://img/30"]],
-              ["set_num", "name", "year", "theme_id", "img_url"])
-    colors = df([["1", "Red"], ["2", "Blue"]], ["id", "name"])
-    inventories = df([["100", "1", "10-1"], ["101", "2", "10-1"], ["200", "1", "20-1"],
-                      ["300", "1", "30-1"]], ["id", "version", "set_num"])
-    inv_parts = df([
-        ["100", "3001", "1", "99", "f"],            # old version: must be ignored
-        ["101", "3001pr1", "1", "2", "f"],          # variant -> 3001
-        ["101", "3002", "2", "3", "f"],
-        ["101", "3003", "2", "5", "t"],             # spare: must be excluded
-        ["200", "3001", "1", "10", "f"],
-        ["300", "3001", "1", "10", "f"],
-    ], ["inventory_id", "part_num", "color_id", "quantity", "is_spare"])
-    return {"part_relationships": rels, "themes": themes, "sets": sets, "colors": colors,
-            "inventories": inventories, "inventory_parts": inv_parts}
+from tests.fixtures import fixture
 
 
 def test_variant_merging():

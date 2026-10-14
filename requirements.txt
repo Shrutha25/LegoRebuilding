@@ -8,3 +8,6 @@ uvicorn[standard]
 python-multipart
 anthropic
 pytest
+python-dotenv
+pytest-asyncio
+pydantic>=2
