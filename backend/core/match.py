@@ -133,10 +133,11 @@ def rank_sets(have, req, sets, skip_themes, max_parts, min_parts, min_coverage, 
             "rebrickable": f"https://rebrickable.com/sets/{set_num}/",
             "instructions": f"https://www.lego.com/service/buildinginstructions/{base}",
         })
-    # Complete sets first, biggest build first (total_parts desc), then newest. Sets below 100%
-    # only appear when min_coverage is lowered; they sort after every complete set, by coverage.
-    results.sort(key=lambda r: (not r["complete"], -(r["coverage"] if not r["complete"] else 0),
-                                -r["total_parts"], -int(r["year"] or 0), r["set_num"]))
+    # Rank by parts_you_have * coverage (= have^2 / total). With the default min_coverage of 1.0
+    # every listed set is complete, so this is simply "biggest complete set first". Tie-break on
+    # fewest missing pieces, then newest year. `coverage` stays the displayed number.
+    results.sort(key=lambda r: (-(r["parts_you_have"] ** 2 / r["total_parts"]),
+                                r["missing_count"], -int(r["year"] or 0), r["set_num"]))
     return results[:top]
 
 

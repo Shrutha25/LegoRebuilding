@@ -19,7 +19,6 @@ from backend.core.rebrickable_api import RebrickableAPI
 store = DataStore(config.DATA_DIR)
 rb_api = RebrickableAPI(config.REBRICKABLE_API_KEY)
 IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
-VIDEO_TYPES = {"video/mp4", "video/quicktime"}
 
 
 async def _cleanup_loop():
@@ -60,10 +59,10 @@ def health():
 @app.post("/api/scan")
 async def scan(file: UploadFile = File(...)):
     ctype = (file.content_type or "").lower()
-    if ctype in VIDEO_TYPES:
-        raise HTTPException(501, "Video upload is not available yet; please upload a photo.")
     if ctype not in IMAGE_TYPES:
-        raise HTTPException(415, "Upload a jpg, png or webp image.")
+        if ctype.startswith("video/"):
+            raise HTTPException(415, "Videos aren't supported. Please upload a photo (jpg, png or webp).")
+        raise HTTPException(415, "Unsupported file type. Please upload a photo (jpg, png or webp).")
     data = await file.read(config.MAX_UPLOAD_BYTES + 1)
     if len(data) > config.MAX_UPLOAD_BYTES:
         raise HTTPException(413, "File too large (max 50 MB).")

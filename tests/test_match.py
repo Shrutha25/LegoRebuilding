@@ -81,14 +81,25 @@ def test_equal_size_complete_sets_tie_break_on_newest_year():
     assert [r["set_num"] for r in res] == ["new-1", "mid-1", "old-1"]
 
 
-def test_min_coverage_is_configurable_and_partial_sets_sort_after_complete_ones():
+def test_min_coverage_is_configurable_and_score_is_have_times_coverage():
     have = {**_parts("p", 99), **_parts("q", 8)}
     req = {"big-1": _parts("p", 100), "small-1": _parts("q", 8)}      # big is 99%, small is 100%
     sets = _sets("big-1", "small-1")
     assert [r["set_num"] for r in rank_sets(have, req, sets, set(), 150, 5, 1.0, 10)] == ["small-1"]
     res = rank_sets(have, req, sets, set(), 150, 5, 0.9, 10)
-    assert [r["set_num"] for r in res] == ["small-1", "big-1"]         # complete first, even though smaller
-    assert [r["complete"] for r in res] == [True, False]
+    # score = have * coverage: 99 * 0.99 = 98 beats 8 * 1.0 = 8, so the big near-complete set leads
+    assert [r["set_num"] for r in res] == ["big-1", "small-1"]
+    assert [r["complete"] for r in res] == [False, True]
+
+
+def test_equal_scores_tie_break_on_fewest_missing():
+    # a: have 6 of 18 -> 6*0.333 = 2.0, missing 12.  b: have 4 of 8 -> 4*0.5 = 2.0, missing 4.
+    a = {**_parts("x", 6), **_parts("a", 12)}
+    b = {**_parts("x", 4), **_parts("b", 4)}
+    have = _parts("x", 6)
+    for order in ({"a-1": a, "b-1": b}, {"b-1": b, "a-1": a}):       # insertion order must not matter
+        res = rank_sets(have, order, _sets("a-1", "b-1"), set(), 150, 5, 0.2, 10)
+        assert [r["set_num"] for r in res] == ["b-1", "a-1"]
 
 
 def test_size_and_theme_filters_still_apply_to_complete_sets():

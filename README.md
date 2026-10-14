@@ -5,7 +5,7 @@ Upload a photo of LEGO pieces spread on a plain background. The app detects each
 each set you already own (Rebrickable data).
 
 Status: backend (scan, match, parts search, AI ideas) and mobile-first frontend (upload, review,
-results, AI ideas tab) done. Next: video upload, then polish.
+results, AI ideas tab) done. 
 
 ## Setup
 
@@ -88,7 +88,7 @@ Tests use small fixture CSVs; the one image test uses `lego_pieces.jpg` (expects
 # Health: data_loaded=false while the index is still loading
 curl localhost:8000/api/health
 
-# Scan a photo -> {"job_id": "..."}   (jpg/png/webp, <= 50 MB; video returns 501 for now)
+# Scan a photo -> {"job_id": "..."}   (jpg/png/webp, <= 50 MB; anything else, incl. video, gets a 415)
 curl -F "file=@lego_pieces.jpg;type=image/jpeg" localhost:8000/api/scan
 
 # Poll the job: status is queued|detecting|recognizing|done|error
@@ -132,7 +132,6 @@ curl -X POST localhost:8000/api/ideas -H "Content-Type: application/json" -d '{
 #       "dropped": [{name, reason}]}      (up to 3 ideas; "dropped" lists ideas that failed validation)
 ```
 
-Not implemented yet: video upload.
 
 ### AI ideas
 
@@ -154,14 +153,14 @@ spares excluded; printed/pattern/mold variants merged; latest inventory version 
 parts-pack themes skipped; sets with 5..`max_parts` parts. The server adds an inverted index
 (part → sets) so only sets sharing a part with yours are scored (~0.2 s per request).
 
-**Current rules (changed twice, both approved):**
+**Current rules:**
 
 - **`min_coverage` defaults to 1.0**, set with the `MIN_COVERAGE` environment variable (0-1).
   A 99% set is excluded, a 100% set is included. Lower it later without touching code.
-- **Ranking:** complete sets by `total_parts` descending (biggest build first), tie-break newest
-  year. If `MIN_COVERAGE` is lowered below 1.0, partial sets are listed after every complete
-  one, ordered by coverage. Earlier versions ranked by coverage alone, and then by
-  `parts_you_have × coverage`; both are gone.
+- **Ranking:** by `parts_you_have × coverage` (descending), tie-break fewest missing pieces, then
+  newest year. At the default 100% every listed set is complete, so this is simply "biggest
+  complete set first". If `MIN_COVERAGE` is lowered, near-complete big sets can outrank small
+  complete ones, which is what that score is for. `coverage` stays the number the API reports.
 - **Colour matching is off by default** (shape only), with a "Match colours exactly" toggle.
 - **UI:** set cards show "Uses X of your Y pieces" plus Instructions and Rebrickable links; no
   coverage bar or missing-parts list. The API still returns `coverage`, `complete` and `missing`

@@ -61,7 +61,10 @@ def test_parts_search(client):
 def test_scan_rejects_bad_uploads(client):
     assert client.post("/api/scan", files={"file": ("a.txt", b"hi", "text/plain")}).status_code == 415
     assert client.post("/api/scan", files={"file": ("a.jpg", b"junk", "image/jpeg")}).status_code == 400
-    assert client.post("/api/scan", files={"file": ("a.mp4", b"x", "video/mp4")}).status_code == 501
+    r = client.post("/api/scan", files={"file": ("a.mp4", b"x", "video/mp4")})
+    assert r.status_code == 415 and "Videos aren't supported" in r.json()["detail"]
+    r = client.post("/api/scan", files={"file": ("a.mov", b"x", "video/quicktime")})
+    assert r.status_code == 415
     assert client.get("/api/scan/nope").status_code == 404
 
 

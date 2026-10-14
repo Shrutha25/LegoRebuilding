@@ -14,7 +14,8 @@ Usage:
 Per set:
   coverage = pieces you have toward the set / total pieces in the set
   (spare parts excluded; print/pattern/mold variants treated as the same part)
-Only sets you can build 100% are listed (--min-coverage 1.0). Biggest set first, then newest.
+Only sets you can build 100% are listed (--min-coverage 1.0). Ranked by parts_you_have * coverage,
+which at 100% means biggest set first; then fewest missing, then newest.
 """
 
 import argparse
