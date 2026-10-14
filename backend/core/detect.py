@@ -63,28 +63,41 @@ def find_pieces_on_plain_background(img, min_area_frac=0.0005, pad_frac=0.08):
     return _reading_order(boxes)
 
 
-def find_pieces_by_colour(img, min_area_frac=0.0005, pad_frac=0.08, sat=60, dark=100):
+def find_pieces_by_colour(img, min_area_frac=0.0005, pad_frac=0.08, sat=110, dark=60, grow=0.02,
+                          weak_sat=60, weak_dark=100):
     """Fallback for photos where the plain surface does not fill the frame or is unevenly lit.
 
-    Pieces = saturated or dark pixels. This ignores brightness texture (an embossed paper towel,
-    shading) that fools the background-colour method. Anything touching the photo edge is ignored
-    (the table or frame around the sheet; a piece cut off by the frame can't be identified anyway),
-    and a candidate must be surrounded by light, plain surface. Pale pieces that are neither saturated nor dark (white, transparent)
-    are not found by this method; the original one handles those when the surface fills the photo."""
+    Each piece is found from a strong seed (strongly saturated or very dark pixels), then grown a
+    bounded distance (`grow` = share of the photo's short side) to take in its paler edges. Seeds
+    are used because the surface around a piece picks up a faint colour cast and long shadows,
+    which would bridge neighbouring pieces if every weakly coloured pixel counted. This method also
+    ignores brightness texture (an embossed paper towel). Anything touching the photo edge is
+    ignored (the table or frame around the sheet; a piece cut off by the frame can't be identified
+    anyway), and a candidate must be surrounded by light, plain surface. Pale pieces that are
+    neither strongly coloured nor dark (white, transparent) are not found by this method; the
+    original one handles those when the surface fills the photo."""
     h_img, w_img = img.shape[:2]
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    mask = ((hsv[:, :, 1] > sat) | (hsv[:, :, 2] < dark)).astype(np.uint8) * 255
+    s_ch, v_ch = hsv[:, :, 1], hsv[:, :, 2]
     k = max(3, int(min(h_img, w_img) * 0.004)) | 1
-    mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, np.ones((k, k), np.uint8))
-    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((k, k), np.uint8), iterations=2)
 
-    n, labels, stats, _ = cv2.connectedComponentsWithStats((mask > 0).astype(np.uint8), connectivity=8)
-    for i in range(1, n):
+    seeds = ((s_ch > sat) | (v_ch < dark)).astype(np.uint8) * 255
+    seeds = cv2.morphologyEx(seeds, cv2.MORPH_OPEN, np.ones((k, k), np.uint8))
+    n, labels, stats, _ = cv2.connectedComponentsWithStats((seeds > 0).astype(np.uint8), connectivity=8)
+    for i in range(1, n):                                     # the table / frame around the sheet
         x, y, w, h, _ = stats[i]
         if x <= 0 or y <= 0 or x + w >= w_img or y + h >= h_img:
-            mask[labels == i] = 0
+            seeds[labels == i] = 0
 
-    plain = (hsv[:, :, 1] < 50) & (hsv[:, :, 2] > 110)        # light, unsaturated surface
+    r = max(3, int(min(h_img, w_img) * grow))
+    near = cv2.dilate(seeds, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * r + 1, 2 * r + 1)))
+    weak = ((s_ch > weak_sat) | (v_ch < weak_dark)).astype(np.uint8) * 255
+    mask = cv2.bitwise_or(seeds, cv2.bitwise_and(weak, near))
+    # Re-join fragments of one piece (e.g. the dark pockets between the studs of a grey brick) when
+    # they are closer than the growth distance; pieces further apart than that stay separate.
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * r + 1, 2 * r + 1)))
+
+    plain = (s_ch < 50) & (v_ch > 110)                         # light, unsaturated surface
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     min_area = min_area_frac * h_img * w_img
     boxes = []
@@ -92,6 +105,8 @@ def find_pieces_by_colour(img, min_area_frac=0.0005, pad_frac=0.08, sat=60, dark
         if cv2.contourArea(c) < min_area:
             continue
         x, y, w, h = cv2.boundingRect(c)
+        if x <= 0 or y <= 0 or x + w >= w_img or y + h >= h_img:
+            continue
         m = int(0.15 * max(w, h)) + 4                          # ring just outside the object
         X0, Y0, X1, Y1 = max(0, x - m), max(0, y - m), min(w_img, x + w + m), min(h_img, y + h + m)
         ring = np.ones((Y1 - Y0, X1 - X0), bool)

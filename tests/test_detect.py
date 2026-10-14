@@ -41,6 +41,9 @@ def towel_on_table():
     centres = {}
     for name, (colour, (x0, y0, x1, y1)) in bricks.items():
         cv2.rectangle(img, (x0, y0), (x1, y1), colour, -1)
+        if name == "grey":                                                # studs: real dark bricks have dark shadows between them
+            for yy in range(y0 + 22, y1, 45):
+                cv2.circle(img, ((x0 + x1) // 2, yy), 12, (28, 26, 26), -1)
         centres[name] = ((x0 + x1) // 2, (y0 + y1) // 2)
     return img, centres
 
@@ -91,3 +94,42 @@ def test_implausible_helper():
     assert detect._implausible([], (100, 100, 3))
     assert detect._implausible([(0, 0, 90, 90)], (100, 100, 3))
     assert not detect._implausible([(10, 10, 20, 20)], (100, 100, 3))
+
+
+def crowded_scene():
+    """Photo whose sheet fills the frame, with strong side lighting: each coloured piece casts a long
+    dark shadow and tints the paper around it, which used to bridge neighbouring pieces into one box.
+    Returns (image, centres)."""
+    h, w = 480, 800
+    img = np.full((h, w, 3), 205, np.uint8)
+    pieces = {"blue": ((170, 100, 20), (360, 120, 470, 200)), "brown": ((20, 40, 110), (230, 60, 300, 130)),
+              "yellow": ((110, 240, 235), (80, 300, 190, 400)), "grey": ((70, 66, 66), (260, 300, 560, 390))}
+    for colour, (x0, y0, x1, y1) in pieces.values():
+        # a halo of the piece's colour on the paper and a long dark shadow towards the next piece
+        halo = img.copy()
+        cv2.rectangle(halo, (x0 - 40, y0 - 40), (x1 + 40, y1 + 40), colour, -1)
+        halo = cv2.GaussianBlur(halo, (0, 0), 25)
+        img = cv2.addWeighted(img, 0.82, halo, 0.18, 0)
+        cv2.fillPoly(img, [np.array([[x1, y0 + 8], [x1 + 90, y0 + 40], [x1 + 90, y1 + 40], [x1, y1]])], (120, 120, 118))
+        img = cv2.GaussianBlur(img, (0, 0), 3)
+    centres = {}
+    for name, (colour, (x0, y0, x1, y1)) in pieces.items():
+        cv2.rectangle(img, (x0, y0), (x1, y1), colour, -1)
+        for xx in range(x0 + 18, x1, 40):
+            cv2.circle(img, (xx, (y0 + y1) // 2), 9, tuple(int(c * 0.55) for c in colour), -1)
+        centres[name] = ((x0 + x1) // 2, (y0 + y1) // 2)
+    return img, centres
+
+
+def test_halos_and_shadows_do_not_merge_neighbouring_pieces():
+    img, centres = crowded_scene()
+    boxes = detect.find_pieces_by_colour(img)
+    assert count_per_brick(boxes, centres) == {n: 1 for n in centres}
+    for b in boxes:                                           # no box holds two pieces
+        assert sum(1 for cx, cy in centres.values() if b[0] <= cx <= b[0] + b[2] and b[1] <= cy <= b[1] + b[3]) == 1
+
+
+def test_find_pieces_recovers_from_a_giant_first_result():
+    img, centres = towel_on_table()
+    assert detect._implausible(detect.find_pieces_on_plain_background(img), img.shape)
+    assert len(detect.find_pieces(img)) == 4
