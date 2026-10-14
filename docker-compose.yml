@@ -1,4 +1,7 @@
-# Backend only for now; the frontend service is added with the Next.js app.
+# One-time setup (downloads ~140 MB of Rebrickable data into the rb_data volume):
+#   docker compose run --rm backend python -m backend.core.fetch_data
+# Then:
+#   docker compose up --build        -> app at http://localhost:3000, API at http://localhost:8000
 services:
   backend:
     build:
@@ -11,6 +14,22 @@ services:
       - "8000:8000"
     volumes:
       - rb_data:/data/rb_data      # Rebrickable CSVs + index cache survive rebuilds
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/api/health', timeout=3).status == 200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-}
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
 
 volumes:
   rb_data:

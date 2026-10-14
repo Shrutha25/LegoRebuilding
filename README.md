@@ -55,8 +55,8 @@ and `npx eslint .` should both be clean.
 | Variable | Purpose |
 |---|---|
 | `REBRICKABLE_API_KEY` | Optional. BrickLink→Rebrickable ID lookup when local rules fail. |
-| `ANTHROPIC_API_KEY` | Needed for AI build ideas; without it `/api/ideas` returns a clear 503 and the rest of the app works. |
-| `LLM_MODEL`, `LLM_EFFORT` | Model for ideas (default `claude-sonnet-5-5`) and its effort level (default `medium`; set empty for models without effort support). |
+| `GEMINI_API_KEY` | Needed for AI build ideas (Google AI Studio key); without it `/api/ideas` returns a clear 503 and the rest of the app works. |
+| `GEMINI_MODEL` | Model for ideas (default `gemini-3.1-flash-lite`). `python -m backend.live_check --models` lists the Flash models your key can use. |
 | `BRICKOGNIZE_URL` | Recognition endpoint (no key needed). |
 | `RB_DATA_DIR`, `UPLOAD_DIR` | Data and temp-upload locations. |
 | `MIN_COVERAGE` | Minimum share of a set you must own for it to be suggested (default `1.0` = complete sets only). |
@@ -124,7 +124,7 @@ curl -o thumb.webp "localhost:8000/api/img?url=https%3A%2F%2Fstorage.googleapis.
 ```
 
 ```bash
-# AI build ideas (needs ANTHROPIC_API_KEY). part_num may be any recognized id; name is optional.
+# AI build ideas (needs GEMINI_API_KEY). part_num may be any recognized id; name is optional.
 curl -X POST localhost:8000/api/ideas -H "Content-Type: application/json" -d '{
   "parts": [{"part_num": "3001", "name": "Brick 2 x 4", "color": "Red", "qty": 4},
             {"part_num": "3622", "name": "Brick 1 x 3", "color": "Lavender", "qty": 2}]}'
@@ -135,14 +135,20 @@ curl -X POST localhost:8000/api/ideas -H "Content-Type: application/json" -d '{
 
 ### AI ideas
 
-The model is asked for structured JSON (`output_config.format` with a JSON schema) and sees the
-user's exact parts list. Every idea is then validated server-side: each `pieces_used` entry must
-exist in the user's list, quantities must be positive integers, and the total used per part
-(summed over all entries and colours) cannot exceed what the user owns. An idea that breaks any
-rule is dropped whole. We ask for 4 ideas so dropping one still leaves 3. Part names are
-sanitised before going into the prompt. Failures (no key, rate limit, timeout, refusal,
-truncated or invalid JSON, nothing valid) return a readable error and never crash the server;
-the UI shows an error card with a retry button. Unit tests use a stubbed LLM; none call the API.
+Uses Google Gemini through the official `google-genai` SDK. The model is asked for structured
+JSON (`response_mime_type="application/json"` with a `response_json_schema`) and sees the user's
+exact parts list. Every idea is then validated server-side: each `pieces_used` entry must exist in
+the user's list, quantities must be positive integers, and the total used per part (summed over all
+entries and colours) cannot exceed what the user owns. An idea that breaks any rule is dropped
+whole. We ask for 4 ideas so dropping one still leaves 3. Part names are sanitised before going
+into the prompt, and at most 3 calls run at once.
+
+Failures return a readable error and never crash the server; the UI shows an error card with a
+retry button: missing/invalid key, quota or rate limit, safety block (prompt or response),
+timeout, connection error, truncated output, invalid JSON, or no valid idea. There is no fallback
+model for safety blocks yet. Unit tests use a fake Gemini client; they never call the API.
+`python -m backend.live_check` runs the real thing against a running backend (see the file's
+docstring).
 
 ## Matching
 
@@ -188,6 +194,26 @@ original spec; they came from real misses on the sample image.
 - Brickognize reference thumbnails occasionally 403 upstream; the UI falls back to the Rebrickable
   image from `inventory_parts.csv` (per part and colour), then a neutral placeholder.
 - Photos larger than 2400 px on the long side are downscaled before detection.
+
+## Later
+
+- **Video upload** (sample 1 frame per second, drop blurry frames, use the sharpest). Not in the MVP:
+  `/api/scan` accepts photos only and answers 415 to anything else.
+- A fallback model for AI responses blocked by safety filters.
+- Per-set missing-parts view (the data is in the API; it was removed from the cards on purpose).
+
+## Before going public
+
+- **Per-user rate limiting.** `/api/ideas` calls a paid API and `/api/scan` calls Brickognize.
+  Today the only guard is a cap of 3 concurrent AI calls for the whole server, which does not stop
+  one visitor from using all the quota. Add per-IP or per-session limits (and an upload size/rate
+  limit) before exposing the app.
+- **HTTPS and CORS.** Plain http is fine on a LAN. For a public deployment serve over https and set
+  `CORS_ORIGINS` to the real frontend origin.
+- **Keys.** Keep `.env` out of git (it is gitignored), and rotate any key that has been pasted into
+  a chat, log or screenshot.
+- **Uploads** are stored in a temp dir and deleted after an hour; confirm that is acceptable for
+  your privacy policy.
 
 ## CLIs
 

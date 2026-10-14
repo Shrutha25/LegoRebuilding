@@ -174,7 +174,7 @@ def validate_ideas(raw, owned, limit=RETURNED_IDEAS):
 class GeminiLLM:
     """Google Gemini via the google-genai SDK, with JSON output constrained to a schema."""
 
-    def __init__(self, api_key, model, timeout=90.0):
+    def __init__(self, api_key, model, timeout=45.0):
         import httpx
         from google import genai
         from google.genai import errors, types
