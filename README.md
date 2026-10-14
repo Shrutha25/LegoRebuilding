@@ -5,7 +5,9 @@ Upload a photo of LEGO pieces spread on a plain background. The app detects each
 each set you already own (Rebrickable data).
 
 Status: backend (scan, match, parts search, AI ideas) and mobile-first frontend (upload, review,
-results, AI ideas tab) done. 
+results, AI ideas tab) done. Photos only (video is under "Later").
+
+Quick start with Docker: `cp .env.example .env`, add your `GEMINI_API_KEY`, then see "Docker" below.
 
 ## Setup
 
@@ -65,14 +67,18 @@ and `npx eslint .` should both be clean.
 ### Docker
 
 ```bash
-docker compose build backend
-docker compose run --rm backend python -m backend.core.fetch_data   # fills the rb_data volume once
-docker compose up backend
-docker compose run --rm --no-deps backend python -m pytest -q       # tests, in the container
+cp .env.example .env                                                 # add GEMINI_API_KEY (ideas only)
+docker compose run --rm backend python -m backend.core.fetch_data   # once: fills the rb_data volume
+docker compose up --build                                            # app :3000, API :8000
+docker compose run --rm --no-deps backend python -m pytest -q       # backend tests, in the container
 ```
 
-`rb_data` is a named volume, so the download and index cache survive rebuilds.
-Local and Docker both use Python 3.14.
+`rb_data` is a named volume, so the download and the index cache survive rebuilds (first start
+builds the index in ~6 s, later starts ~0.5 s). The fetch command writes to `$RB_DATA_DIR`, which
+the backend image points at that volume. Open `http://localhost:3000`, or `http://<your-ip>:3000`
+from a phone. The browser talks to the API at `http://<same host>:8000` unless you build with
+`NEXT_PUBLIC_API_URL`. Local and Docker both use Python 3.14. The `.env` file is read by the
+backend container (`env_file`) and is never baked into an image.
 
 ### Tests
 
