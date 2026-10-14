@@ -61,12 +61,18 @@ def prepare_image(data: bytes):
 
 def build_piece(index, box, crop_url, result):
     s = summarize(result) if result and "error" not in result else None
+    if s:                       # attach Brickognize reference images (lets users compare visually)
+        items = result["items"]
+        s["image"] = items[0].get("img_url")
+        for alt, item in zip(s["alternatives"], items[1:]):
+            alt["image"] = item.get("img_url")
     return {
         "index": index, "box": list(map(int, box)), "crop_url": crop_url,
         "part_id": s["part_id"] if s else None,
         "name": s["name"] if s else None,
         "color": s["color"] if s else None,
         "score": s["score"] if s else None,
+        "image": s["image"] if s else None,
         "alternatives": s["alternatives"] if s else [],
         "needs_review": s is None or s["score"] < config.MIN_SCORE,
         "error": (result or {}).get("error"),

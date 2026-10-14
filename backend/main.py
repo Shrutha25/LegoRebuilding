@@ -37,8 +37,13 @@ async def lifespan(app):
 
 
 app = FastAPI(title="LEGO What Can I Build", lifespan=lifespan)
+# localhost and private-network origins are always allowed (phone on the same Wi-Fi);
+# CORS_ORIGINS adds explicit extra origins (e.g. a deployed frontend).
+LAN_ORIGIN = (r"https?://(localhost|127\.0\.0\.1|192\.168\.\d+\.\d+|10\.\d+\.\d+\.\d+"
+              r"|172\.(1[6-9]|2\d|3[01])\.\d+\.\d+)(:\d+)?")
 app.add_middleware(CORSMiddleware,
-                   allow_origins=os.environ.get("CORS_ORIGINS", "http://localhost:3000").split(","),
+                   allow_origins=[o for o in os.environ.get("CORS_ORIGINS", "").split(",") if o],
+                   allow_origin_regex=LAN_ORIGIN,
                    allow_methods=["*"], allow_headers=["*"])
 
 
@@ -137,3 +142,64 @@ async def parts_search(q: str = ""):
     if not store.parts_loaded:
         raise HTTPException(503, store.error or "Parts data is still loading.")
     return {"results": await run_in_threadpool(store.search_parts, q)}
+
+
+class ResolveIn(BaseModel):
+    parts: list[str] = Field(min_length=1, max_length=500)
+
+
+@app.post("/api/parts/resolve")
+async def parts_resolve(body: ResolveIn):
+    """Map recognized (Brickognize) ids to Rebrickable ids so the review screen can show
+    which parts will not be used for matching, plus Rebrickable names/images."""
+    if not store.parts_loaded:
+        raise HTTPException(503, store.error or "Parts data is still loading.")
+    names = store.part_names()
+    images = store.index.part_img_any if store.index else {}
+    out = {}
+    for pid in dict.fromkeys(body.parts):
+        rid, bad = await idmap.resolve(pid, store.known_ids, rb_api.bricklink_to_rebrickable)
+        out[pid] = {"part_num": rid, "unmapped": bad, "name": names.get(rid),
+                    "image": images.get(rid)}
+    return {"results": out}
+
+
+# ------------------------------------------------------------------ image proxy
+# Brickognize serves thumbnails as application/octet-stream, which browsers block when used
+# in <img> (ORB). Re-serve them with a proper image type. Strict allowlist: not an open proxy.
+IMG_HOST = "storage.googleapis.com"
+IMG_PREFIX = "/brickognize-static/"
+IMG_TYPES = {".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg"}
+_img_cache: dict[str, bytes] = {}
+
+
+def _allowed_image(url: str):
+    from urllib.parse import urlparse
+    u = urlparse(url)
+    ext = os.path.splitext(u.path)[1].lower()
+    ok = (u.scheme == "https" and u.hostname == IMG_HOST and u.port is None
+          and u.path.startswith(IMG_PREFIX) and ".." not in u.path and ext in IMG_TYPES)
+    return IMG_TYPES[ext] if ok else None
+
+
+@app.get("/api/img")
+async def image_proxy(url: str):
+    from fastapi import Response
+    ctype = _allowed_image(url)
+    if not ctype:
+        raise HTTPException(400, "Image host not allowed.")
+    data = _img_cache.get(url)
+    if data is None:
+        import httpx
+        try:
+            async with httpx.AsyncClient(timeout=10) as c:
+                r = await c.get(url)
+            r.raise_for_status()
+        except Exception:
+            raise HTTPException(502, "Could not fetch image.")
+        data = r.content
+        if len(data) > 2_000_000:
+            raise HTTPException(502, "Image too large.")
+        if len(_img_cache) < 2000:
+            _img_cache[url] = data
+    return Response(data, media_type=ctype, headers={"Cache-Control": "public, max-age=86400"})

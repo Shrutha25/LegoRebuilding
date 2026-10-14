@@ -65,3 +65,10 @@ def test_cleanup_removes_expired_jobs(tmp_path, monkeypatch):
     job = jobs.new_job()
     jobs.cleanup_expired(now=job.created + config.JOB_TTL_SECONDS + 1)
     assert job.id not in jobs.JOBS and not job.dir.exists()
+
+
+def test_piece_carries_reference_images():
+    res = {"items": [{"id": "3001", "name": "A", "score": 0.9, "img_url": "http://a"},
+                     {"id": "3002", "name": "B", "score": 0.5, "img_url": "http://b"}]}
+    p = jobs.build_piece(0, (1, 2, 3, 4), "/c", res)
+    assert p["image"] == "http://a" and p["alternatives"][0]["image"] == "http://b"

@@ -17,7 +17,8 @@ def recognize_crop(crop, timeout=15):
     try:
         r = requests.post(
             API_URL,
-            params={"predict_color": "true", "top_k_items": 3, "top_k_colors": 1},
+            params={"predict_color": "true", "top_k_items": 3, "top_k_colors": 1,
+                    "min_similarity_items": 0.1},
             files={"query_image": ("piece.jpg", buf.tobytes(), "image/jpeg")},
             timeout=timeout,
         )
@@ -69,7 +70,8 @@ async def recognize_bytes(data, client, url=API_URL, timeout=15, retries=1, back
             async with _sem:
                 r = await client.post(
                     url,
-                    params={"predict_color": "true", "top_k_items": 3, "top_k_colors": 1},
+                    params={"predict_color": "true", "top_k_items": 3, "top_k_colors": 1,
+                            "min_similarity_items": 0.1},
                     files={"query_image": ("piece.jpg", data, "image/jpeg")},
                     timeout=timeout,
                 )

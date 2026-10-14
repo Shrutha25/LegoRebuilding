@@ -4,7 +4,8 @@ Upload a photo of LEGO pieces spread on a plain background. The app detects each
 (OpenCV), identifies it (Brickognize), and suggests official sets ranked by how much of
 each set you already own (Rebrickable data).
 
-Status: backend (scan + match + parts search) done. Frontend, video, AI ideas are next.
+Status: backend (scan, match, parts search) and mobile-first frontend (upload, review, results) done.
+Next: AI ideas, then video, then polish.
 
 ## Setup
 
@@ -26,6 +27,28 @@ second. `/api/scan` works while the data is loading; `/api/match` returns 503 un
 
 Run `python -m backend.core.fetch_data --refresh` to update the catalogue. The cache
 rebuilds itself when the CSVs change.
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev          # binds 0.0.0.0:3000 so a phone on the same Wi-Fi can open it
+```
+
+The frontend talks to the backend at `NEXT_PUBLIC_API_URL`; if unset it uses
+`http://<same host that served the page>:8000`, so nothing needs configuring for a phone.
+Start the backend with `--host 0.0.0.0` (`uvicorn backend.main:app --host 0.0.0.0 --port 8000`).
+The backend allows localhost and private-network origins (192.168.x, 10.x, 172.16-31.x) via CORS.
+
+**Testing on a phone:** put the phone on the same Wi-Fi, find the computer's LAN IP
+(`ipconfig` / `ifconfig`), open `http://<ip>:3000`. Allow ports 3000 and 8000 through the
+firewall if the page does not load. "Take photo" opens the rear camera
+(`<input capture="environment">`). Plain http works because this is a file input, not
+`getUserMedia`.
+
+`npm test` runs the review-screen logic tests (grouping, corrections, merging); `npx tsc --noEmit`
+and `npx eslint .` should both be clean.
 
 ### Environment variables
 
@@ -89,6 +112,15 @@ curl -X POST localhost:8000/api/match -H "Content-Type: application/json" -d '{
 curl "localhost:8000/api/parts/search?q=legs"
 ```
 
+```bash
+# Which recognized ids can be matched? Returns Rebrickable id, name, image, unmapped flag
+curl -X POST localhost:8000/api/parts/resolve -H "Content-Type: application/json"   -d '{"parts": ["41879", "970c00"]}'
+
+# Image proxy (allowlisted to Brickognize thumbnails; their host serves a content type
+# browsers refuse to render in <img>)
+curl -o thumb.webp "localhost:8000/api/img?url=https%3A%2F%2Fstorage.googleapis.com%2Fbrickognize-static%2Fthumbnails%2Fv2.23%2Fpart%2F3622%2F154.webp"
+```
+
 Not implemented yet: `POST /api/ideas`, video upload.
 
 ## Matching
@@ -115,6 +147,8 @@ original spec; they came from real misses on the sample image.
 - Random piles rarely complete a whole set; expect partial coverage.
 - Brickognize's endpoints are marked legacy; the client is isolated in
   `backend/core/recognize.py` so it is easy to swap.
+- Brickognize reference thumbnails occasionally 403 upstream; the UI falls back to an empty tile.
+- Tiny sets (5-10 parts) reach 100% coverage easily and can rank above bigger partial matches.
 - Photos larger than 2400 px on the long side are downscaled before detection.
 
 ## CLIs

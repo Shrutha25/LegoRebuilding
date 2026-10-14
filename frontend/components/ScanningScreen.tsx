@@ -1,0 +1,25 @@
+"use client";
+
+import type { Scan } from "@/lib/types";
+
+export default function ScanningScreen({ scan }: { scan: Scan | null }) {
+  let label = "Uploading photo…";
+  if (scan?.status === "detecting" || scan?.status === "queued") label = "Finding your pieces…";
+  if (scan?.status === "recognizing") label = `Identifying ${scan.total} piece${scan.total === 1 ? "" : "s"}…`;
+
+  return (
+    <div role="status" aria-live="polite" className="flex flex-1 flex-col items-center justify-center gap-6 py-24 text-center">
+      <div className="grid grid-cols-3 gap-2" aria-hidden>
+        {[0, 1, 2, 3, 4, 5].map((i) => (
+          <span
+            key={i}
+            className="h-6 w-9 animate-pulse rounded-sm bg-stud shadow-[inset_0_-3px_0_rgba(0,0,0,0.15)]"
+            style={{ animationDelay: `${i * 150}ms` }}
+          />
+        ))}
+      </div>
+      <p className="text-lg font-medium">{label}</p>
+      <p className="max-w-xs text-sm text-stone-500">This usually takes a few seconds. Each piece is identified separately.</p>
+    </div>
+  );
+}

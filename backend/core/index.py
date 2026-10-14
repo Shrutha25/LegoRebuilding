@@ -162,6 +162,7 @@ class DataStore:
         self.index = None
         self.error = None
         self.load_seconds = None
+        self._names = None
 
     @property
     def parts_loaded(self):
@@ -188,6 +189,11 @@ class DataStore:
                           "python -m backend.core.fetch_data")
         except Exception as e:
             self.error = f"{type(e).__name__}: {e}"
+
+    def part_names(self):
+        if self._names is None and self.parts is not None:
+            self._names = dict(zip(self.parts.part_num, self.parts.name))
+        return self._names or {}
 
     def search_parts(self, q, limit=30):
         if self.parts is None or not q.strip():
