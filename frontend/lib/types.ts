@@ -64,9 +64,21 @@ export type SetMatch = {
   parts_you_have: number;
   coverage: number;
   missing_count: number;
+  complete: boolean;
   missing: MissingPart[];
   rebrickable_url: string;
   instructions_url: string;
 };
 
 export type MatchPart = { part_num: string; color: string | null; qty: number };
+
+export type IdeaPiece = { part_num: string; name: string; qty: number; image: string | null };
+
+export type Idea = {
+  name: string;
+  description: string;
+  pieces_used: IdeaPiece[];
+  steps: string[];
+};
+
+export type IdeaPart = { part_num: string; name: string; color: string | null; qty: number };

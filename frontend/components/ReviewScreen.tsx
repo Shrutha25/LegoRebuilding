@@ -85,6 +85,7 @@ export default function ReviewScreen({
                 key={it.id}
                 item={it}
                 resolved={it.part_id ? resolved[it.part_id] : undefined}
+                resolvedAlts={resolved}
                 selected={it.id === selectedId}
                 rowRef={(el) => {
                   if (el) rowEls.current.set(it.id, el);

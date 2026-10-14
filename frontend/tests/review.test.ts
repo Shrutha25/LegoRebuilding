@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   addManual, changePart, confirmItem, groupPieces, isUnmapped, pieceOwners, removeItem, setQty,
-  toMatchParts,
+  toIdeaParts, toMatchParts,
 } from "../lib/review.ts";
 import type { Piece } from "../lib/types.ts";
 
@@ -80,4 +80,12 @@ test("unmapped and unidentified rows are left out of the match request", () => {
 test("confirming a row clears its review flag", () => {
   const items = groupPieces([piece(0, "3001", "Red", true)]);
   assert.equal(confirmItem(items, items[0].id)[0].needsReview, false);
+});
+
+test("idea parts include unmapped parts but not unidentified pieces", () => {
+  const items = groupPieces([piece(0, "3001", "Red"), piece(1, "970c00", "Black"), piece(2, null, null), piece(3, "3001", "Red")]);
+  const parts = toIdeaParts(items);
+  assert.equal(parts.length, 2);
+  assert.deepEqual(parts.find((p) => p.part_num === "3001"), { part_num: "3001", name: "Part 3001", color: "Red", qty: 2 });
+  assert.ok(parts.some((p) => p.part_num === "970c00"));
 });

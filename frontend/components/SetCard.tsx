@@ -2,13 +2,18 @@
 
 import { useState } from "react";
 import type { SetMatch } from "@/lib/types";
+import Thumb from "./Thumb";
 
 export default function SetCard({ set }: { set: SetMatch }) {
   const [open, setOpen] = useState(false);
   const pct = Math.round(set.coverage * 100);
+  const complete = set.complete;
 
   return (
-    <li className="overflow-hidden rounded-2xl border border-stone-200 bg-white">
+    <li className={`overflow-hidden rounded-2xl border bg-white ${complete ? "border-green-500 ring-1 ring-green-500" : "border-stone-200"}`}>
+      {complete && (
+        <p className="bg-green-600 px-3 py-1.5 text-center text-sm font-bold text-white">Complete – build it now!</p>
+      )}
       <div className="flex gap-3 p-3">
         <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-stone-100">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -45,7 +50,7 @@ export default function SetCard({ set }: { set: SetMatch }) {
             {open ? "Hide" : "Show"} missing parts ({set.missing_count})
           </button>
         ) : (
-          <span className="text-sm font-medium text-green-700">You have every piece!</span>
+          <span className="text-sm font-medium text-green-700">Nothing missing</span>
         )}
         <div className="ml-auto flex gap-1">
           <a href={set.instructions_url} target="_blank" rel="noreferrer" className="h-10 content-center px-2 text-sm font-medium text-brick underline-offset-2 hover:underline">
@@ -61,10 +66,7 @@ export default function SetCard({ set }: { set: SetMatch }) {
         <ul className="grid grid-cols-2 gap-2 border-t border-stone-100 bg-stone-50 p-3 sm:grid-cols-3">
           {set.missing.map((m) => (
             <li key={`${m.part}-${m.color}`} className="flex items-center gap-2 rounded-xl bg-white p-2">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-stone-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {m.image && <img src={m.image} alt="" className="h-full w-full object-contain" loading="lazy" />}
-              </span>
+              <Thumb srcs={[m.image]} label={m.part} className="h-12 w-12" />
               <span className="min-w-0 text-xs">
                 <span className="block font-semibold">
                   {m.qty} × {m.part}

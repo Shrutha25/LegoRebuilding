@@ -73,18 +73,27 @@ export default function Home() {
     [reset],
   );
 
-  // Look up the Rebrickable mapping for every part on the list (flags parts that can't be matched).
-  const missingKey = [...new Set(items.flatMap((i) => (i.part_id ? [i.part_id] : [])))]
-    .filter((id) => !(id in resolved))
-    .join("|");
+  // Look up the Rebrickable mapping for every part on the list (flags parts that can't be matched)
+  // and for every alternative (gives them a Rebrickable image when Brickognize's is missing).
+  const wanted = new Map<string, string | null>();
+  for (const it of items) {
+    if (it.part_id && !wanted.has(it.part_id)) wanted.set(it.part_id, it.color);
+    for (const a of it.alternatives) if (!wanted.has(a.part_id)) wanted.set(a.part_id, it.color);
+  }
+  const missingKey = [...wanted]
+    .filter(([id]) => !(id in resolved))
+    .map(([id, color]) => `${id}${color ?? ""}`)
+    .join("");
   useEffect(() => {
     if (!missingKey) return;
-    const ids = missingKey.split("|");
+    const pairs = missingKey.split("").map((p) => p.split(""));
+    const ids = pairs.map(([id]) => id);
+    const colors = Object.fromEntries(pairs.map(([id, color]) => [id, color || null]));
     let cancelled = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
     const run = async () => {
       try {
-        const r = await resolveParts(ids);
+        const r = await resolveParts(ids, colors);
         if (!cancelled) setResolved((prev) => ({ ...prev, ...r }));
       } catch (e) {
         // Catalogue still loading: try again shortly. Other errors: carry on without it.

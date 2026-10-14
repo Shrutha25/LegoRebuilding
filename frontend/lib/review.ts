@@ -1,4 +1,4 @@
-import type { Alt, Item, MatchPart, Piece, Resolved } from "./types";
+import type { Alt, IdeaPart, Item, MatchPart, Piece, Resolved } from "./types";
 
 const MAX_QTY = 999;
 
@@ -147,4 +147,11 @@ export function pieceOwners(items: Item[]): Map<number, Item> {
   const m = new Map<number, Item>();
   for (const it of items) for (const i of it.pieceIdx) m.set(i, it);
   return m;
+}
+
+/** Every identified row, including parts that can't be matched to sets (they are still real pieces). */
+export function toIdeaParts(items: Item[]): IdeaPart[] {
+  return items
+    .filter((it) => it.part_id)
+    .map((it) => ({ part_num: it.part_id as string, name: it.name, color: it.color, qty: it.qty }));
 }

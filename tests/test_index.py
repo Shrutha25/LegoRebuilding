@@ -77,3 +77,40 @@ def test_datastore_reports_missing_data(tmp_path):
 
 def test_cache_key_covers_all_sources(rb_dir):
     assert len(index_mod.source_key(str(rb_dir))) == 1 + len(index_mod.RB_FILES)
+
+
+def test_index_ranking_equals_rank_sets_on_a_larger_catalogue(tmp_path):
+    """Randomised catalogue: the index (inverted lookup + prefilter) must return exactly what
+    rank_sets returns over every set, in the same order."""
+    import random
+    import pandas as pd
+    rnd = random.Random(7)
+    pool = [f"p{i}" for i in range(40)]
+    sets, invs, rows = [], [], []
+    for n in range(60):
+        sn = f"{n}-1"
+        sets.append([sn, f"Set {n}", str(2000 + n % 20), "1", ""])
+        invs.append([str(n), "1", sn])
+        for p in rnd.sample(pool, rnd.randint(3, 30)):
+            rows.append([str(n), p, "1", str(rnd.randint(1, 3)), "f", ""])
+    rb = fixture()
+    rb["sets"] = pd.DataFrame(sets, columns=["set_num", "name", "year", "theme_id", "img_url"])
+    rb["inventories"] = pd.DataFrame(invs, columns=["id", "version", "set_num"])
+    rb["inventory_parts"] = pd.DataFrame(rows, columns=["inventory_id", "part_num", "color_id", "quantity", "is_spare", "img_url"])
+    rb["parts"] = pd.DataFrame([[p, p] for p in pool], columns=["part_num", "name"])
+    d = tmp_path / "rb"
+    d.mkdir()
+    for name, frame in rb.items():
+        frame.to_csv(d / f"{name}.csv", index=False)
+
+    idx = MatchIndex.build(str(d))
+    canon = canonical_map(rb["part_relationships"])
+    req = build_set_requirements(rb, canon, False)
+    skip = skipped_theme_ids(rb["themes"])
+    for trial in range(10):
+        have = {p: rnd.randint(1, 3) for p in rnd.sample(pool, rnd.randint(3, 25))}
+        for max_parts in (20, 150):
+            expected = rank_sets(have, req, rb["sets"], skip, max_parts, 5, 0.2, 10)
+            got = idx.match([{"part_num": p, "qty": q} for p, q in have.items()], False, max_parts)
+            key = lambda r: (r["set_num"], r["parts_you_have"], r["coverage"], r["complete"])
+            assert [key(r) for r in got] == [key(r) for r in expected], (trial, max_parts)

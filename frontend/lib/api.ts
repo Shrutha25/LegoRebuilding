@@ -1,4 +1,4 @@
-import type { MatchPart, Resolved, Scan, SearchResult, SetMatch } from "./types";
+import type { Idea, IdeaPart, MatchPart, Resolved, Scan, SearchResult, SetMatch } from "./types";
 
 /**
  * Backend base URL. NEXT_PUBLIC_API_URL wins; otherwise assume the backend runs on port 8000
@@ -58,8 +58,8 @@ export async function startScan(file: File): Promise<string> {
 
 export const getScan = (id: string) => call<Scan>(`/api/scan/${id}`);
 
-export const resolveParts = async (parts: string[]) =>
-  (await call<{ results: Record<string, Resolved> }>("/api/parts/resolve", json({ parts }))).results;
+export const resolveParts = async (parts: string[], colors: Record<string, string | null> = {}) =>
+  (await call<{ results: Record<string, Resolved> }>("/api/parts/resolve", json({ parts, colors }))).results;
 
 export const searchParts = async (q: string) =>
   (await call<{ results: SearchResult[] }>(`/api/parts/search?q=${encodeURIComponent(q)}`)).results;
@@ -69,3 +69,5 @@ export const matchSets = (parts: MatchPart[], matchColor: boolean) =>
     "/api/match",
     json({ parts, match_color: matchColor, max_parts: 150 }),
   );
+
+export const getIdeas = (parts: IdeaPart[]) => call<{ ideas: Idea[] }>("/api/ideas", json({ parts }));

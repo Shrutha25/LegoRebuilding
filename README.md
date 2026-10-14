@@ -4,8 +4,8 @@ Upload a photo of LEGO pieces spread on a plain background. The app detects each
 (OpenCV), identifies it (Brickognize), and suggests official sets ranked by how much of
 each set you already own (Rebrickable data).
 
-Status: backend (scan, match, parts search) and mobile-first frontend (upload, review, results) done.
-Next: AI ideas, then video, then polish.
+Status: backend (scan, match, parts search, AI ideas) and mobile-first frontend (upload, review,
+results, AI ideas tab) done. Next: video upload, then polish.
 
 ## Setup
 
@@ -55,7 +55,8 @@ and `npx eslint .` should both be clean.
 | Variable | Purpose |
 |---|---|
 | `REBRICKABLE_API_KEY` | Optional. BrickLink→Rebrickable ID lookup when local rules fail. |
-| `ANTHROPIC_API_KEY`, `LLM_MODEL` | AI build ideas (not wired up yet). |
+| `ANTHROPIC_API_KEY` | Needed for AI build ideas; without it `/api/ideas` returns a clear 503 and the rest of the app works. |
+| `LLM_MODEL`, `LLM_EFFORT` | Model for ideas (default `claude-sonnet-5-5`) and its effort level (default `medium`; set empty for models without effort support). |
 | `BRICKOGNIZE_URL` | Recognition endpoint (no key needed). |
 | `RB_DATA_DIR`, `UPLOAD_DIR` | Data and temp-upload locations. |
 | `CORS_ORIGINS` | Comma-separated allowed origins (default `http://localhost:3000`). |
@@ -121,15 +122,41 @@ curl -X POST localhost:8000/api/parts/resolve -H "Content-Type: application/json
 curl -o thumb.webp "localhost:8000/api/img?url=https%3A%2F%2Fstorage.googleapis.com%2Fbrickognize-static%2Fthumbnails%2Fv2.23%2Fpart%2F3622%2F154.webp"
 ```
 
-Not implemented yet: `POST /api/ideas`, video upload.
+```bash
+# AI build ideas (needs ANTHROPIC_API_KEY). part_num may be any recognized id; name is optional.
+curl -X POST localhost:8000/api/ideas -H "Content-Type: application/json" -d '{
+  "parts": [{"part_num": "3001", "name": "Brick 2 x 4", "color": "Red", "qty": 4},
+            {"part_num": "3622", "name": "Brick 1 x 3", "color": "Lavender", "qty": 2}]}'
+#   -> {"ideas": [{name, description, steps[], pieces_used:[{part_num, name, qty, image}]}],
+#       "dropped": [{name, reason}]}      (up to 3 ideas; "dropped" lists ideas that failed validation)
+```
+
+Not implemented yet: video upload.
+
+### AI ideas
+
+The model is asked for structured JSON (`output_config.format` with a JSON schema) and sees the
+user's exact parts list. Every idea is then validated server-side: each `pieces_used` entry must
+exist in the user's list, quantities must be positive integers, and the total used per part
+(summed over all entries and colours) cannot exceed what the user owns. An idea that breaks any
+rule is dropped whole. We ask for 4 ideas so dropping one still leaves 3. Part names are
+sanitised before going into the prompt. Failures (no key, rate limit, timeout, refusal,
+truncated or invalid JSON, nothing valid) return a readable error and never crash the server;
+the UI shows an error card with a retry button. Unit tests use a stubbed LLM; none call the API.
 
 ## Matching
 
-Unchanged from `suggest_builds.py`: coverage = pieces you have toward the set / total
-pieces in the set; spares excluded; printed/pattern/mold variants merged; latest inventory
-version per set; parts-pack themes skipped; sets with 5..`max_parts` parts and at least 20%
-coverage. The server only adds an inverted index (part → sets) so just sets sharing a part
-with yours are scored (~0.2 s per request).
+From `suggest_builds.py`: coverage = pieces you have toward the set / total pieces in the set;
+spares excluded; printed/pattern/mold variants merged; latest inventory version per set;
+parts-pack themes skipped; sets with 5..`max_parts` parts and at least 20% coverage. The server
+adds an inverted index (part → sets) so only sets sharing a part with yours are scored
+(~0.2 s per request).
+
+**Ranking (changed, approved):** sets are ranked by `parts_you_have × coverage` (descending),
+tie-break fewest missing pieces, then newest. Previously they were ranked by coverage alone,
+which let tiny 7-10 piece sets with 100% coverage bury a set where you own 70% of 58 pieces.
+Coverage is still the number displayed; `min_coverage` and `max_parts` filters are unchanged.
+Sets at 100% get a "Complete – build it now!" badge (`complete: true` in the API).
 
 ### ID mapping (Brickognize → Rebrickable)
 
@@ -147,8 +174,8 @@ original spec; they came from real misses on the sample image.
 - Random piles rarely complete a whole set; expect partial coverage.
 - Brickognize's endpoints are marked legacy; the client is isolated in
   `backend/core/recognize.py` so it is easy to swap.
-- Brickognize reference thumbnails occasionally 403 upstream; the UI falls back to an empty tile.
-- Tiny sets (5-10 parts) reach 100% coverage easily and can rank above bigger partial matches.
+- Brickognize reference thumbnails occasionally 403 upstream; the UI falls back to the Rebrickable
+  image from `inventory_parts.csv` (per part and colour), then a neutral placeholder.
 - Photos larger than 2400 px on the long side are downscaled before detection.
 
 ## CLIs

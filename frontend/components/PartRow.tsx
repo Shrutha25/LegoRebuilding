@@ -5,20 +5,12 @@ import { absUrl, imgSrc } from "@/lib/api";
 import type { PartChoice } from "@/lib/review";
 import type { Item, Resolved } from "@/lib/types";
 import PartPicker from "./PartPicker";
-
-function Thumb({ src, label }: { src: string | null; label: string }) {
-  const [failed, setFailed] = useState(false); // some reference images 404/403 upstream
-  return (
-    <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-stone-100" title={label}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      {src && !failed && <img src={src} alt="" className="h-full w-full object-contain" loading="lazy" onError={() => setFailed(true)} />}
-    </span>
-  );
-}
+import Thumb from "./Thumb";
 
 export default function PartRow({
   item,
   resolved,
+  resolvedAlts,
   selected,
   onSelect,
   onChangePart,
@@ -29,6 +21,7 @@ export default function PartRow({
 }: {
   item: Item;
   resolved: Resolved | undefined;
+  resolvedAlts: Record<string, Resolved>;
   selected: boolean;
   onSelect: () => void;
   onChangePart: (choice: PartChoice) => void;
@@ -41,7 +34,6 @@ export default function PartRow({
   const [searching, setSearching] = useState(false);
   const unmapped = resolved?.unmapped === true;
   const open = item.needsReview || changing;
-  const refImage = item.image ?? resolved?.image ?? null;
 
   const tone = item.needsReview
     ? "border-amber-300 bg-amber-50"
@@ -59,8 +51,8 @@ export default function PartRow({
     <li ref={rowRef} className={`scroll-mt-[44vh] rounded-2xl border p-3 md:scroll-mt-4 ${tone} ${selected ? "ring-2 ring-stone-900" : ""}`}>
       <div className="flex items-start gap-3">
         <button onClick={onSelect} className="flex min-w-0 flex-1 items-start gap-3 text-left" aria-label={`Show ${item.name} in the photo`}>
-          <Thumb src={item.cropUrl ? absUrl(item.cropUrl) : null} label="Your piece" />
-          {refImage && <Thumb src={imgSrc(refImage)} label="Matched part" />}
+          <Thumb srcs={[item.cropUrl ? absUrl(item.cropUrl) : null]} label="Your piece" />
+          <Thumb srcs={[imgSrc(item.image), resolved?.image]} label="Matched part" />
           <span className="min-w-0 flex-1">
             <span className="line-clamp-2 text-sm font-semibold">{item.name}</span>
             <span className="block text-xs text-stone-600">
@@ -101,7 +93,7 @@ export default function PartRow({
                 onClick={() => pick({ part_id: a.part_id, name: a.name, image: a.image })}
                 className="flex w-32 shrink-0 flex-col items-center gap-1 rounded-xl border border-stone-300 bg-white p-2 text-center active:bg-stone-100"
               >
-                <Thumb src={a.image ? imgSrc(a.image) : null} label={a.name} />
+                <Thumb srcs={[imgSrc(a.image), resolvedAlts[a.part_id]?.image]} label={a.name} />
                 <span className="line-clamp-2 text-xs leading-tight">{a.name}</span>
                 <span className="text-[11px] text-stone-500">{a.part_id}</span>
               </button>

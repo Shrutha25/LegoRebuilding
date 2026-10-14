@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field
 
 from backend import config, jobs
 from backend.core import idmap
+from backend.core.ideas import AnthropicLLM, IdeasError, generate_ideas
 from backend.core.index import DataStore
 from backend.core.rebrickable_api import RebrickableAPI
 
@@ -105,6 +106,7 @@ def scan_crop(job_id: str, index: int):
 # ------------------------------------------------------------------ match
 class PartIn(BaseModel):
     part_num: str
+    name: str | None = None
     color: str | None = None
     qty: int = Field(default=1, ge=1, le=10000)
 
@@ -146,6 +148,7 @@ async def parts_search(q: str = ""):
 
 class ResolveIn(BaseModel):
     parts: list[str] = Field(min_length=1, max_length=500)
+    colors: dict[str, str | None] = {}      # optional part id -> colour, for a colour-specific image
 
 
 @app.post("/api/parts/resolve")
@@ -155,12 +158,13 @@ async def parts_resolve(body: ResolveIn):
     if not store.parts_loaded:
         raise HTTPException(503, store.error or "Parts data is still loading.")
     names = store.part_names()
-    images = store.index.part_img_any if store.index else {}
     out = {}
     for pid in dict.fromkeys(body.parts):
         rid, bad = await idmap.resolve(pid, store.known_ids, rb_api.bricklink_to_rebrickable)
-        out[pid] = {"part_num": rid, "unmapped": bad, "name": names.get(rid),
-                    "image": images.get(rid)}
+        color = (body.colors.get(pid) or "").strip().lower() or None
+        # image from Rebrickable's inventory_parts.csv (per part + colour, no API key needed)
+        image = store.index.image_for(rid, color) if store.index else None
+        out[pid] = {"part_num": rid, "unmapped": bad, "name": names.get(rid), "image": image}
     return {"results": out}
 
 
@@ -203,3 +207,42 @@ async def image_proxy(url: str):
         if len(_img_cache) < 2000:
             _img_cache[url] = data
     return Response(data, media_type=ctype, headers={"Cache-Control": "public, max-age=86400"})
+
+
+# ------------------------------------------------------------------ AI ideas
+class IdeasIn(BaseModel):
+    parts: list[PartIn] = Field(min_length=1, max_length=500)
+
+
+_llm = None
+_llm_slots = asyncio.Semaphore(3)         # cap concurrent paid calls
+
+
+def get_llm():
+    """Created lazily so the server (and tests) run without an API key."""
+    global _llm
+    if _llm is None:
+        if not config.ANTHROPIC_API_KEY:
+            raise IdeasError("AI ideas need an ANTHROPIC_API_KEY in the server's .env.", 503)
+        _llm = AnthropicLLM(config.ANTHROPIC_API_KEY, config.LLM_MODEL, config.LLM_EFFORT)
+    return _llm
+
+
+@app.post("/api/ideas")
+async def ideas(body: IdeasIn):
+    names = store.part_names()
+    parts = []
+    for p in body.parts:
+        rid = idmap.resolve_local(p.part_num, store.known_ids) if store.known_ids else None
+        parts.append({"part_num": p.part_num, "color": p.color, "qty": p.qty,
+                      "name": p.name or (names.get(rid) if rid else None)})
+    try:
+        async with _llm_slots:
+            result = await generate_ideas(parts, get_llm())
+    except IdeasError as e:
+        raise HTTPException(e.status, str(e))
+    for idea in result["ideas"]:                      # add images where the catalogue has them
+        for piece in idea["pieces_used"]:
+            rid = idmap.resolve_local(piece["part_num"], store.known_ids) if store.known_ids else None
+            piece["image"] = store.index.image_for(rid, None) if (rid and store.index) else None
+    return result

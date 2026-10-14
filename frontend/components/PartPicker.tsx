@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ApiError, searchParts } from "@/lib/api";
 import type { PartChoice } from "@/lib/review";
 import type { SearchResult } from "@/lib/types";
+import Thumb from "./Thumb";
 
 /** Search the Rebrickable parts catalogue by number or name. */
 export default function PartPicker({
@@ -71,10 +72,7 @@ export default function PartPicker({
               onClick={() => onPick({ part_id: r.part_num, name: r.name, image: r.image })}
               className="flex w-full items-center gap-3 rounded-lg p-2 text-left active:bg-stone-100"
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-stone-100">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {r.image && <img src={r.image} alt="" className="h-full w-full object-contain" loading="lazy" />}
-              </span>
+              <Thumb srcs={[r.image]} label={r.name} className="h-12 w-12" />
               <span className="min-w-0">
                 <span className="line-clamp-2 text-sm font-medium">{r.name}</span>
                 <span className="text-xs text-stone-500">{r.part_num}</span>

@@ -11,9 +11,10 @@ Usage:
   python suggest_builds.py parts_list.csv
   python suggest_builds.py parts_list.csv --max-parts 100 --top 15 --match-color
 
-Score for each set:
+Per set:
   coverage = pieces you have toward the set / total pieces in the set
   (spare parts excluded; print/pattern/mold variants treated as the same part)
+Ranking: parts_you_have * coverage (desc), then fewest missing pieces, then newest.
 """
 
 import argparse

@@ -80,3 +80,68 @@ def test_image_proxy_allowlist(client):
     for u in bad:
         assert client.get("/api/img", params={"url": u}).status_code == 400, u
     assert main._allowed_image("https://storage.googleapis.com/brickognize-static/t/3622/154.webp") == "image/webp"
+
+
+def test_resolve_returns_inventory_image_per_colour(client):
+    r = client.post("/api/parts/resolve", json={"parts": ["3001", "3002"],
+                                                "colors": {"3001": "Red", "3002": "Blue"}}).json()["results"]
+    assert r["3001"]["image"] == "http://img/3001-red"
+    assert r["3002"]["image"] == "http://img/3002-blue"
+    # wrong colour falls back to any known image of the part
+    r = client.post("/api/parts/resolve", json={"parts": ["3001"], "colors": {"3001": "Green"}}).json()["results"]
+    assert r["3001"]["image"] == "http://img/3001-red"
+    # no image known at all -> null (frontend shows a placeholder)
+    r = client.post("/api/parts/resolve", json={"parts": ["3003"]}).json()["results"]
+    assert r["3003"]["image"] is None
+
+
+# ---------------------------------------------------------------- /api/ideas
+class _Stub:
+    def __init__(self, payload):
+        self.payload = payload
+
+    async def complete(self, system, user, schema):
+        import json
+        if isinstance(self.payload, Exception):
+            raise self.payload
+        self.user = user
+        return json.dumps(self.payload)
+
+
+def _idea(name="Brick Tower", pieces=None):
+    return {"name": name, "description": "A tower.", "steps": ["Stack them."],
+            "pieces_used": pieces or [{"part_num": "3001", "qty": 2}]}
+
+
+def test_ideas_endpoint_validates_and_enriches(client, monkeypatch):
+    stub = _Stub({"ideas": [_idea(), _idea("Cheat", [{"part_num": "3001", "qty": 99}])]})
+    monkeypatch.setattr(main, "get_llm", lambda: stub)
+    r = client.post("/api/ideas", json={"parts": [{"part_num": "3001", "color": "Red", "qty": 3}]})
+    assert r.status_code == 200
+    body = r.json()
+    assert [i["name"] for i in body["ideas"]] == ["Brick Tower"]
+    piece = body["ideas"][0]["pieces_used"][0]
+    assert piece["name"] == "Brick 2 x 4"                  # name filled from the catalogue
+    assert piece["image"] == "http://img/3001-red"         # image from inventory_parts
+    assert len(body["dropped"]) == 1
+    assert "Brick 2 x 4 (Red), part 3001" in stub.user
+
+
+def test_ideas_without_api_key_is_a_clear_503(client, monkeypatch):
+    monkeypatch.setattr(main, "_llm", None)
+    monkeypatch.setattr(config, "ANTHROPIC_API_KEY", "")
+    r = client.post("/api/ideas", json={"parts": [{"part_num": "3001", "qty": 1}]})
+    assert r.status_code == 503 and "ANTHROPIC_API_KEY" in r.json()["detail"]
+
+
+def test_ideas_llm_failures_become_http_errors_not_crashes(client, monkeypatch):
+    from backend.core.ideas import IdeasError
+    monkeypatch.setattr(main, "get_llm", lambda: _Stub(IdeasError("busy", 429)))
+    assert client.post("/api/ideas", json={"parts": [{"part_num": "3001", "qty": 1}]}).status_code == 429
+    monkeypatch.setattr(main, "get_llm", lambda: _Stub({"ideas": [_idea(pieces=[{"part_num": "zzz", "qty": 1}])]}))
+    r = client.post("/api/ideas", json={"parts": [{"part_num": "3001", "qty": 1}]})
+    assert r.status_code == 502
+
+
+def test_ideas_validation_errors(client):
+    assert client.post("/api/ideas", json={"parts": []}).status_code == 422

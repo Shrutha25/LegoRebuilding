@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ApiError, matchSets } from "@/lib/api";
-import { toMatchParts } from "@/lib/review";
+import { toIdeaParts, toMatchParts } from "@/lib/review";
 import type { Item, Resolved, SetMatch } from "@/lib/types";
 import IdeasTab from "./IdeasTab";
 import SetCard from "./SetCard";
@@ -30,6 +30,7 @@ export default function ResultsScreen({
   const [attempt, setAttempt] = useState(0);
 
   const parts = useMemo(() => toMatchParts(items, resolved), [items, resolved]);
+  const ideaParts = useMemo(() => toIdeaParts(items), [items]);
   const partsKey = JSON.stringify(parts);
   const requestKey = `${partsKey}|${matchColor}|${attempt}`;
   // Anything not answering the current request (parts/colour toggled, retry) shows as loading.
@@ -80,7 +81,8 @@ export default function ResultsScreen({
       </div>
 
       <div className="mt-4">
-        {tab === "ideas" && <IdeasTab />}
+        {/* always mounted so switching tabs keeps the ideas; it starts only when first opened */}
+        <IdeasTab parts={ideaParts} active={tab === "ideas"} />
 
         {tab === "sets" && (
           <>

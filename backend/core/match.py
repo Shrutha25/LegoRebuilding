@@ -125,6 +125,7 @@ def rank_sets(have, req, sets, skip_themes, max_parts, min_parts, min_coverage, 
             "set_num": set_num, "name": s["name"], "year": s.year,
             "total_parts": total, "parts_you_have": got,
             "coverage": round(cov, 3), "missing_count": total - got,
+            "complete": got == total,
             "missing": [{"part": k if isinstance(k, str) else k[0],
                          "color": None if isinstance(k, str) else k[1], "qty": q}
                         for k, q in sorted(missing.items(), key=lambda x: -x[1])],
@@ -132,8 +133,11 @@ def rank_sets(have, req, sets, skip_themes, max_parts, min_parts, min_coverage, 
             "rebrickable": f"https://rebrickable.com/sets/{set_num}/",
             "instructions": f"https://www.lego.com/service/buildinginstructions/{base}",
         })
-    # Best coverage first; tie-break on fewest missing pieces, then newer sets
-    results.sort(key=lambda r: (-r["coverage"], r["missing_count"], -int(r["year"] or 0)))
+    # Rank by parts_you_have * coverage (= have^2 / total): a big share of a big set beats a
+    # complete 8-piece set. Tie-break on fewest missing pieces, then newer sets.
+    # `coverage` stays the number shown to the user; the filters above are unchanged.
+    results.sort(key=lambda r: (-(r["parts_you_have"] ** 2 / r["total_parts"]),
+                                r["missing_count"], -int(r["year"] or 0)))
     return results[:top]
 
 
