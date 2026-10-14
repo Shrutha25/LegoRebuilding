@@ -16,6 +16,18 @@ LLM_MODEL = os.environ.get("LLM_MODEL", "claude-sonnet-5-5")
 LLM_EFFORT = os.environ.get("LLM_EFFORT", "medium")   # set empty for models without effort support
 BRICKOGNIZE_URL = os.environ.get("BRICKOGNIZE_URL", "https://api.brickognize.com/predict/parts/")
 
+
+
+def parse_min_coverage(raw, default=1.0):
+    """MIN_COVERAGE: fraction of a set that must be covered (1.0 = complete sets only)."""
+    try:
+        return min(1.0, max(0.0, float(raw)))
+    except (TypeError, ValueError):
+        return default
+
+
+MIN_COVERAGE = parse_min_coverage(os.environ.get("MIN_COVERAGE"))
+
 MAX_UPLOAD_BYTES = 50 * 1024 * 1024
 MAX_IMAGE_SIDE = 2400          # larger photos are downscaled before detection
 JOB_TTL_SECONDS = 3600

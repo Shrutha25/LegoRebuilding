@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ApiError, matchSets } from "@/lib/api";
 import { toIdeaParts, toMatchParts } from "@/lib/review";
 import type { Item, Resolved, SetMatch } from "@/lib/types";
@@ -14,6 +14,7 @@ type Outcome =
 type State = Outcome | { kind: "loading" };
 
 const RETRY_MS = 2000;
+const NO_SETS = "No official set can be built 100% with these pieces – here's what you can build instead";
 
 export default function ResultsScreen({
   items,
@@ -28,8 +29,10 @@ export default function ResultsScreen({
   const [matchColor, setMatchColor] = useState(false);
   const [result, setResult] = useState<{ key: string } & Outcome>({ key: "", kind: "catalogue" });
   const [attempt, setAttempt] = useState(0);
+  const autoSwitched = useRef(false);
 
   const parts = useMemo(() => toMatchParts(items, resolved), [items, resolved]);
+  const userPieces = parts.reduce((n, p) => n + p.qty, 0);
   const ideaParts = useMemo(() => toIdeaParts(items), [items]);
   const partsKey = JSON.stringify(parts);
   const requestKey = `${partsKey}|${matchColor}|${attempt}`;
@@ -43,7 +46,13 @@ export default function ResultsScreen({
     const run = async () => {
       try {
         const r = await matchSets(JSON.parse(partsKey), matchColor);
-        if (!cancelled) setResult({ key: requestKey, kind: "done", sets: r.sets });
+        if (cancelled) return;
+        setResult({ key: requestKey, kind: "done", sets: r.sets });
+        // Nothing can be built completely: take the user straight to the AI ideas (once).
+        if (r.sets.length === 0 && !autoSwitched.current) {
+          autoSwitched.current = true;
+          setTab("ideas");
+        }
       } catch (e) {
         if (cancelled) return;
         if (e instanceof ApiError && e.status === 503) {
@@ -60,6 +69,8 @@ export default function ResultsScreen({
       clearTimeout(timer);
     };
   }, [partsKey, matchColor, requestKey]);
+
+  const noSets = state.kind === "done" && state.sets.length === 0;
 
   const tabClass = (active: boolean) =>
     `h-11 flex-1 rounded-xl text-sm font-semibold ${active ? "bg-white shadow-sm" : "text-stone-600"}`;
@@ -82,6 +93,9 @@ export default function ResultsScreen({
 
       <div className="mt-4">
         {/* always mounted so switching tabs keeps the ideas; it starts only when first opened */}
+        {tab === "ideas" && noSets && (
+          <p className="mb-4 rounded-2xl bg-amber-50 p-3 text-sm text-amber-900">{NO_SETS}</p>
+        )}
         <IdeasTab parts={ideaParts} active={tab === "ideas"} />
 
         {tab === "sets" && (
@@ -115,12 +129,9 @@ export default function ResultsScreen({
               </div>
             )}
 
-            {state.kind === "done" && state.sets.length === 0 && (
+            {noSets && (
               <div className="rounded-2xl border border-stone-200 bg-white p-5">
-                <p className="font-semibold">No official set is at least 20% covered by your pieces.</p>
-                <p className="mt-1 text-sm text-stone-600">
-                  That&apos;s normal for a mixed pile: sets need very specific parts. You can still build something with exactly what you have.
-                </p>
+                <p className="font-semibold">{NO_SETS}</p>
                 <button onClick={() => setTab("ideas")} className="mt-4 h-11 rounded-full bg-brick px-5 text-sm font-semibold text-white active:opacity-80">
                   See AI build ideas →
                 </button>
@@ -130,7 +141,7 @@ export default function ResultsScreen({
             {state.kind === "done" && state.sets.length > 0 && (
               <ul className="flex flex-col gap-3">
                 {state.sets.map((s) => (
-                  <SetCard key={s.set_num} set={s} />
+                  <SetCard key={s.set_num} set={s} userPieces={userPieces} />
                 ))}
               </ul>
             )}

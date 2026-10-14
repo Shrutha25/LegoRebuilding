@@ -14,7 +14,7 @@ Usage:
 Per set:
   coverage = pieces you have toward the set / total pieces in the set
   (spare parts excluded; print/pattern/mold variants treated as the same part)
-Ranking: parts_you_have * coverage (desc), then fewest missing pieces, then newest.
+Only sets you can build 100% are listed (--min-coverage 1.0). Biggest set first, then newest.
 """
 
 import argparse
@@ -49,7 +49,7 @@ def main():
     ap.add_argument("--match-color", action="store_true", help="require exact colours")
     ap.add_argument("--max-parts", type=int, default=150)
     ap.add_argument("--min-parts", type=int, default=5)
-    ap.add_argument("--min-coverage", type=float, default=0.2)
+    ap.add_argument("--min-coverage", type=float, default=1.0)
     ap.add_argument("--top", type=int, default=10)
     args = ap.parse_args()
 
@@ -65,7 +65,7 @@ def main():
     print(f"You have {sum(have.values())} pieces ({len(have)} unique).\n")
     if not results:
         print("No official set reaches the coverage threshold - "
-              "try --min-coverage 0.1, or use the LLM ideas.")
+              "try --min-coverage 0.5, or use the LLM ideas.")
     for i, r in enumerate(results, 1):
         print(f"{i:2d}. {r['set_num']:10s} {r['name']} ({r['year']})  "
               f"{r['coverage']:.0%}  have {r['parts_you_have']}/{r['total_parts']}, "

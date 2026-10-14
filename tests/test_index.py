@@ -16,17 +16,23 @@ def test_match_equals_plain_rank_sets(rb_dir):
     rb = fixture()
     canon = canonical_map(rb["part_relationships"])
     req = build_set_requirements(rb, canon, False)
-    expected = rank_sets({"3001": 2, "3002": 1}, req, rb["sets"],
-                         skipped_theme_ids(rb["themes"]), 150, 5, 0.2, 10)
-    got = idx.match([{"part_num": "3001pr1", "qty": 2}, {"part_num": "3002", "qty": 1}], False, 150)
+    skip = skipped_theme_ids(rb["themes"])
+    partial = [{"part_num": "3001pr1", "qty": 2}, {"part_num": "3002", "qty": 1}]
+    # default is complete sets only: 3 of 5 pieces is not enough
+    assert idx.match(partial, False, 150) == []
+    expected = rank_sets({"3001": 2, "3002": 1}, req, rb["sets"], skip, 150, 5, 0.2, 10)
+    got = idx.match(partial, False, 150, min_coverage=0.2)
     assert [r["set_num"] for r in got] == [r["set_num"] for r in expected] == ["10-1"]
-    assert got[0]["coverage"] == expected[0]["coverage"] == 0.6
+    assert got[0]["coverage"] == expected[0]["coverage"] == 0.6 and got[0]["complete"] is False
     assert got[0]["rebrickable_url"].endswith("/10-1/")
+    # the full inventory is complete and found with the defaults
+    full = idx.match([{"part_num": "3001", "qty": 2}, {"part_num": "3002", "qty": 3}], False, 150)
+    assert [(r["set_num"], r["complete"], r["total_parts"]) for r in full] == [("10-1", True, 5)]
 
 
 def test_missing_parts_get_images_and_no_match_returns_empty(rb_dir):
     idx = MatchIndex.build(str(rb_dir))
-    r = idx.match([{"part_num": "3001", "color": "red", "qty": 2}], True, 150)
+    r = idx.match([{"part_num": "3001", "color": "red", "qty": 2}], True, 150, min_coverage=0.2)
     miss = r[0]["missing"]
     assert miss[0]["part"] == "3002" and miss[0]["image"] == "http://img/3002-blue"
     assert idx.match([{"part_num": "nope", "qty": 1}], False, 150) == []
@@ -35,8 +41,8 @@ def test_missing_parts_get_images_and_no_match_returns_empty(rb_dir):
 def test_color_matching_changes_result(rb_dir):
     idx = MatchIndex.build(str(rb_dir))
     wrong = [{"part_num": "3001", "color": "blue", "qty": 2}]
-    assert idx.match(wrong, False, 150)          # part-only: matches
-    assert idx.match(wrong, True, 150) == []     # exact colour: no match
+    assert idx.match(wrong, False, 150, min_coverage=0.2)          # part-only: matches
+    assert idx.match(wrong, True, 150, min_coverage=0.2) == []     # exact colour: no match
 
 
 def test_cache_reused_then_invalidated(rb_dir, monkeypatch):
@@ -107,10 +113,26 @@ def test_index_ranking_equals_rank_sets_on_a_larger_catalogue(tmp_path):
     canon = canonical_map(rb["part_relationships"])
     req = build_set_requirements(rb, canon, False)
     skip = skipped_theme_ids(rb["themes"])
-    for trial in range(10):
-        have = {p: rnd.randint(1, 3) for p in rnd.sample(pool, rnd.randint(3, 25))}
-        for max_parts in (20, 150):
-            expected = rank_sets(have, req, rb["sets"], skip, max_parts, 5, 0.2, 10)
-            got = idx.match([{"part_num": p, "qty": q} for p, q in have.items()], False, max_parts)
-            key = lambda r: (r["set_num"], r["parts_you_have"], r["coverage"], r["complete"])
-            assert [key(r) for r in got] == [key(r) for r in expected], (trial, max_parts)
+    def check(have, label):
+        for min_cov in (0.2, 1.0):
+            for max_parts in (20, 150):
+                expected = rank_sets(have, req, rb["sets"], skip, max_parts, 5, min_cov, 10)
+                got = idx.match([{"part_num": p, "qty": q} for p, q in have.items()], False, max_parts,
+                                min_coverage=min_cov)
+                key = lambda r: (r["set_num"], r["parts_you_have"], r["coverage"], r["complete"])
+                assert [key(r) for r in got] == [key(r) for r in expected], (label, min_cov, max_parts)
+        return rank_sets(have, req, rb["sets"], skip, 150, 5, 1.0, 10)
+
+    for trial in range(10):                       # random piles (rarely complete anything)
+        check({p: rnd.randint(1, 3) for p in rnd.sample(pool, rnd.randint(3, 25))}, ("random", trial))
+    complete_seen = 0
+    for trial in range(10):                       # piles built from real inventories: complete sets exist
+        have = {}
+        for sn in rnd.sample(sorted(req), 2):
+            for part, qty in req[sn].items():
+                have[part] = max(have.get(part, 0), qty)
+        found = check(have, ("inventory", trial))
+        complete_seen += len(found)
+        assert all(r["complete"] for r in found)
+        assert [r["total_parts"] for r in found] == sorted((r["total_parts"] for r in found), reverse=True)
+    assert complete_seen > 0

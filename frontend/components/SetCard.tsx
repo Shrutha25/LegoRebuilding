@@ -1,58 +1,34 @@
 "use client";
 
-import { useState } from "react";
 import type { SetMatch } from "@/lib/types";
 import Thumb from "./Thumb";
 
-export default function SetCard({ set }: { set: SetMatch }) {
-  const [open, setOpen] = useState(false);
-  const pct = Math.round(set.coverage * 100);
-  const complete = set.complete;
-
+/**
+ * An official set the user can build. Sets are listed only when they are 100% covered
+ * (server setting MIN_COVERAGE), so the card says how many of the user's pieces it uses.
+ */
+export default function SetCard({ set, userPieces }: { set: SetMatch; userPieces: number }) {
   return (
-    <li className={`overflow-hidden rounded-2xl border bg-white ${complete ? "border-green-500 ring-1 ring-green-500" : "border-stone-200"}`}>
-      {complete && (
-        <p className="bg-green-600 px-3 py-1.5 text-center text-sm font-bold text-white">Complete – build it now!</p>
-      )}
-      <div className="flex gap-3 p-3">
-        <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-stone-100">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          {set.image && <img src={set.image} alt="" className="h-full w-full object-contain" loading="lazy" />}
-        </div>
-        <div className="min-w-0 flex-1">
-          <h3 className="line-clamp-2 font-semibold leading-snug">{set.name}</h3>
-          <p className="text-xs text-stone-500">
-            {set.set_num} · {set.year}
-          </p>
-          <div
-            role="progressbar"
-            aria-valuenow={pct}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-label={`${pct}% of the set`}
-            className="mt-2 h-3 overflow-hidden rounded-full bg-stone-200"
-          >
-            <div className={`h-full rounded-full ${pct >= 70 ? "bg-green-600" : pct >= 40 ? "bg-amber-500" : "bg-brick"}`} style={{ width: `${pct}%` }} />
-          </div>
-          <p className="mt-1 text-sm">
-            You have <strong>{set.parts_you_have}</strong> / {set.total_parts} pieces <span className="text-stone-500">({pct}%)</span>
-          </p>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-2 border-t border-stone-100 px-3 py-2">
-        {set.missing.length > 0 ? (
-          <button
-            onClick={() => setOpen((o) => !o)}
-            aria-expanded={open}
-            className="h-10 rounded-full border border-stone-300 px-4 text-sm font-medium active:bg-stone-100"
-          >
-            {open ? "Hide" : "Show"} missing parts ({set.missing_count})
-          </button>
-        ) : (
-          <span className="text-sm font-medium text-green-700">Nothing missing</span>
-        )}
-        <div className="ml-auto flex gap-1">
+    <li className="flex gap-3 rounded-2xl border border-stone-200 bg-white p-3">
+      <Thumb srcs={[set.image]} label={set.name} className="h-24 w-24" />
+      <div className="min-w-0 flex-1">
+        <h3 className="line-clamp-2 font-semibold leading-snug">{set.name}</h3>
+        <p className="text-xs text-stone-500">
+          {set.set_num} · {set.year}
+        </p>
+        <p className="mt-2 text-sm">
+          {set.complete ? (
+            <>
+              Uses <strong>{set.total_parts}</strong> of your {userPieces} pieces
+            </>
+          ) : (
+            // Only reachable if the server's MIN_COVERAGE is lowered below 1.0
+            <>
+              You have <strong>{set.parts_you_have}</strong> of the set&apos;s {set.total_parts} pieces
+            </>
+          )}
+        </p>
+        <div className="-ml-2 mt-1 flex flex-wrap">
           <a href={set.instructions_url} target="_blank" rel="noreferrer" className="h-10 content-center px-2 text-sm font-medium text-brick underline-offset-2 hover:underline">
             Instructions
           </a>
@@ -61,22 +37,6 @@ export default function SetCard({ set }: { set: SetMatch }) {
           </a>
         </div>
       </div>
-
-      {open && (
-        <ul className="grid grid-cols-2 gap-2 border-t border-stone-100 bg-stone-50 p-3 sm:grid-cols-3">
-          {set.missing.map((m) => (
-            <li key={`${m.part}-${m.color}`} className="flex items-center gap-2 rounded-xl bg-white p-2">
-              <Thumb srcs={[m.image]} label={m.part} className="h-12 w-12" />
-              <span className="min-w-0 text-xs">
-                <span className="block font-semibold">
-                  {m.qty} × {m.part}
-                </span>
-                {m.color && <span className="block truncate capitalize text-stone-500">{m.color}</span>}
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
     </li>
   );
 }

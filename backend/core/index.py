@@ -18,7 +18,7 @@ from backend.core.match import (RB_FILES, build_set_requirements, canonical_map,
 CACHE_VERSION = 1
 CACHE_NAME = "index_cache.pkl"
 MIN_PARTS = 5
-MIN_COVERAGE = 0.2
+MIN_COVERAGE = 1.0         # library default: only sets that can be built completely
 TOP = 10
 
 
@@ -118,7 +118,7 @@ class MatchIndex:
         return (self.part_imgs.get((part, color or "")) if color is not None else None) \
             or self.part_img_any.get(part)
 
-    def match(self, parts, match_color=False, max_parts=150, top=TOP):
+    def match(self, parts, match_color=False, max_parts=150, top=TOP, min_coverage=MIN_COVERAGE):
         """parts: [{part_num (Rebrickable id), color, qty}] -> ranked sets."""
         have = defaultdict(int)
         for p in parts:
@@ -143,7 +143,7 @@ class MatchIndex:
         if not req:
             return []
         sets = self.sets[self.sets.set_num.isin(cands)]
-        results = rank_sets(have, req, sets, self.skip, max_parts, MIN_PARTS, MIN_COVERAGE, top)
+        results = rank_sets(have, req, sets, self.skip, max_parts, MIN_PARTS, min_coverage, top)
         for r in results:
             for m in r["missing"]:
                 m["image"] = self.image_for(m["part"], m["color"])

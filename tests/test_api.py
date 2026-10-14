@@ -24,10 +24,22 @@ def test_health(client):
 
 def test_match_maps_ids_and_reports_unmapped(client):
     r = client.post("/api/match", json={"parts": [
-        {"part_num": "3001pr1", "qty": 2}, {"part_num": "3002", "qty": 1},
+        {"part_num": "3001pr1", "qty": 2}, {"part_num": "3002", "qty": 3},
         {"part_num": "970c00", "qty": 1}]}).json()
-    assert [s["set_num"] for s in r["sets"]] == ["10-1"]
+    assert [(s["set_num"], s["complete"]) for s in r["sets"]] == [("10-1", True)]
     assert r["unmapped"] == ["970c00"]
+
+
+def test_match_lists_only_complete_sets_by_default(client):
+    partial = {"parts": [{"part_num": "3001", "qty": 2}, {"part_num": "3002", "qty": 2}]}   # 4 of 5
+    assert client.post("/api/match", json=partial).json()["sets"] == []
+
+
+def test_min_coverage_env_setting_is_honoured(client, monkeypatch):
+    partial = {"parts": [{"part_num": "3001", "qty": 2}, {"part_num": "3002", "qty": 2}]}
+    monkeypatch.setattr(config, "MIN_COVERAGE", 0.5)
+    sets = client.post("/api/match", json=partial).json()["sets"]
+    assert [(s["set_num"], s["complete"]) for s in sets] == [("10-1", False)]
 
 
 def test_match_validation(client):

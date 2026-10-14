@@ -133,7 +133,8 @@ async def match(body: MatchIn):
     if not store.data_loaded:
         raise HTTPException(503, store.error or "Set data is still loading; try again shortly.")
     mapped, unmapped = await map_parts(body.parts)
-    sets = await run_in_threadpool(store.index.match, mapped, body.match_color, body.max_parts)
+    sets = await run_in_threadpool(store.index.match, mapped, body.match_color, body.max_parts,
+                                  min_coverage=config.MIN_COVERAGE)
     return {"sets": sets, "unmapped": sorted(set(unmapped)),
             "mapped": {m["original"]: m["part_num"] for m in mapped if m["original"] != m["part_num"]}}
 

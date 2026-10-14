@@ -59,6 +59,7 @@ and `npx eslint .` should both be clean.
 | `LLM_MODEL`, `LLM_EFFORT` | Model for ideas (default `claude-sonnet-5-5`) and its effort level (default `medium`; set empty for models without effort support). |
 | `BRICKOGNIZE_URL` | Recognition endpoint (no key needed). |
 | `RB_DATA_DIR`, `UPLOAD_DIR` | Data and temp-upload locations. |
+| `MIN_COVERAGE` | Minimum share of a set you must own for it to be suggested (default `1.0` = complete sets only). |
 | `CORS_ORIGINS` | Comma-separated allowed origins (default `http://localhost:3000`). |
 
 ### Docker
@@ -104,8 +105,8 @@ curl -X POST localhost:8000/api/match -H "Content-Type: application/json" -d '{
   "parts": [{"part_num": "3001", "color": "Red", "qty": 4},
             {"part_num": "41879", "color": "Sand Green", "qty": 1}],
   "match_color": false, "max_parts": 150}'
-#   -> {"sets": [{set_num, name, year, image, total_parts, parts_you_have, coverage,
-#                 missing_count, missing:[{part, color, qty, image}],
+#   -> {"sets": [{set_num, name, year, image, total_parts, parts_you_have, coverage, complete,
+#                 missing_count, missing:[{part, color, qty, image}],   (only complete sets by default)
 #                 rebrickable_url, instructions_url}],
 #       "unmapped": [ids that could not be mapped], "mapped": {original: rebrickable id}}
 
@@ -146,17 +147,27 @@ the UI shows an error card with a retry button. Unit tests use a stubbed LLM; no
 
 ## Matching
 
+Official sets are suggested **only if you can build them 100%** with your pieces.
+
 From `suggest_builds.py`: coverage = pieces you have toward the set / total pieces in the set;
 spares excluded; printed/pattern/mold variants merged; latest inventory version per set;
-parts-pack themes skipped; sets with 5..`max_parts` parts and at least 20% coverage. The server
-adds an inverted index (part → sets) so only sets sharing a part with yours are scored
-(~0.2 s per request).
+parts-pack themes skipped; sets with 5..`max_parts` parts. The server adds an inverted index
+(part → sets) so only sets sharing a part with yours are scored (~0.2 s per request).
 
-**Ranking (changed, approved):** sets are ranked by `parts_you_have × coverage` (descending),
-tie-break fewest missing pieces, then newest. Previously they were ranked by coverage alone,
-which let tiny 7-10 piece sets with 100% coverage bury a set where you own 70% of 58 pieces.
-Coverage is still the number displayed; `min_coverage` and `max_parts` filters are unchanged.
-Sets at 100% get a "Complete – build it now!" badge (`complete: true` in the API).
+**Current rules (changed twice, both approved):**
+
+- **`min_coverage` defaults to 1.0**, set with the `MIN_COVERAGE` environment variable (0-1).
+  A 99% set is excluded, a 100% set is included. Lower it later without touching code.
+- **Ranking:** complete sets by `total_parts` descending (biggest build first), tie-break newest
+  year. If `MIN_COVERAGE` is lowered below 1.0, partial sets are listed after every complete
+  one, ordered by coverage. Earlier versions ranked by coverage alone, and then by
+  `parts_you_have × coverage`; both are gone.
+- **Colour matching is off by default** (shape only), with a "Match colours exactly" toggle.
+- **UI:** set cards show "Uses X of your Y pieces" plus Instructions and Rebrickable links; no
+  coverage bar or missing-parts list. The API still returns `coverage`, `complete` and `missing`
+  so they are available if `MIN_COVERAGE` is lowered.
+- **Nothing buildable:** the UI shows "No official set can be built 100% with these pieces –
+  here's what you can build instead" and switches to the AI ideas tab automatically (once).
 
 ### ID mapping (Brickognize → Rebrickable)
 
@@ -171,7 +182,8 @@ original spec; they came from real misses on the sample image.
 - Touching pieces merge into one detection; spread them apart.
 - Minifigure parts may not match set inventories (e.g. BrickLink `970c00` hips+legs
   assemblies have no Rebrickable equivalent, so they stay unmapped).
-- Random piles rarely complete a whole set; expect partial coverage.
+- Random piles rarely complete a whole set, so with the 100% rule most mixed piles get no official
+  set and go straight to AI ideas. Lower `MIN_COVERAGE` to see near-misses.
 - Brickognize's endpoints are marked legacy; the client is isolated in
   `backend/core/recognize.py` so it is easy to swap.
 - Brickognize reference thumbnails occasionally 403 upstream; the UI falls back to the Rebrickable
