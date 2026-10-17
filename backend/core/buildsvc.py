@@ -107,7 +107,9 @@ class BuildService:
         for p in parts:                                  # parts the local rules cannot map: ask Rebrickable for the LDraw id (cached)
             await self.parts.ldraw_id_async(str(p.get("part_num") or ""))
         inv, skipped = aibuild.build_inventory(parts, self.parts, self.colours)
-        result = await aibuild.generate_build(inv if match_color else pool_inventory(inv), idea, llm)
+        from backend import timing
+        with timing.stage("aibuild.generate"):
+            result = await aibuild.generate_build(inv if match_color else pool_inventory(inv), idea, llm)
         build = result.build
         if not match_color:                              # planned from part counts; now the real colours
             build = Build(build.title, build.description, recolour(build.parts, {}, inv))

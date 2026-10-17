@@ -128,6 +128,9 @@ BRICKSET_DAILY_CAP = _int(os.environ.get("BRICKSET_DAILY_CAP"), 100)    # API ca
 BRICKSET_MIN_INTERVAL = _float(os.environ.get("BRICKSET_MIN_INTERVAL"), 1.0)   # seconds between two calls
 INSTRUCTIONS_DB = Path(os.environ.get("INSTRUCTIONS_DB", DATA_DIR / "instructions.sqlite"))
 
+# per-request timing log (JSON lines, see backend/timing.py); TIMING_LOG= (empty) switches the file off
+TIMING_LOG = os.environ.get("TIMING_LOG", str(ROOT / "timings.jsonl"))
+
 MAX_UPLOAD_BYTES = 50 * 1024 * 1024
 MAX_IMAGE_SIDE = 2400          # larger photos are downscaled before detection
 JOB_TTL_SECONDS = 3600

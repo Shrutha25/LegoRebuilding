@@ -11,7 +11,7 @@ import time
 from collections import Counter
 from dataclasses import replace
 
-from backend import config
+from backend import config, timing
 from backend.core import aibuild, ldrconv
 from backend.core.buildmodel import Build
 from backend.core.inventory_check import can_build, pool_inventory, recolour
@@ -56,7 +56,8 @@ def store_candidate(svc, inv, shown, match_color=True):
     """Store one chosen build; returns its metadata with the recipe info and the thumbnail URL."""
     cand = shown.candidate
     build = Build(shown.name, shown.description, cand.build.parts)
-    ldr = ldrconv.build_to_ldr(build, inv, author="Brick Finder (recipe build)")
+    with timing.stage("ldr", build=shown.name):
+        ldr = ldrconv.build_to_ldr(build, inv, author="Brick Finder (recipe build)")
     build_id = "ai-" + hashlib.sha1(ldr.encode("utf-8")).hexdigest()[:12]
     meta = {
         "kind": "ai", "title": shown.name, "description": shown.description, "attribution": None,
@@ -70,29 +71,35 @@ def store_candidate(svc, inv, shown, match_color=True):
         "thumb_url": f"/api/builds/{build_id}/thumb.png",
         "match_colour": match_color, "mixed_colours": not match_color,
     }
-    stored = svc._store(build_id, ldr, meta)
+    with timing.stage("ldr.pack", build=shown.name):
+        stored = svc._store(build_id, ldr, meta)
     if svc.thumb(build_id) is None:
-        svc.save_thumb(build_id, render_png(build, inv, svc.colours.hex))
+        with timing.stage("thumbnail", build=shown.name):
+            svc.save_thumb(build_id, render_png(build, inv, svc.colours.hex))
     return stored
 
 
 async def recipe_builds(svc, parts, llm, seed=None, use_ai=True, show=None, match_color=True):
     """parts: [{part_num, name?, color?, qty}]. Returns {"builds": [meta], "unlock": [...], "ai_used", "ai_note", "timings", ...}."""
     t0 = time.perf_counter()
-    for p in parts:                                      # parts the local rules cannot map: ask Rebrickable for the LDraw id (cached)
-        await svc.parts.ldraw_id_async(str(p.get("part_num") or ""))
-    inv, skipped = aibuild.build_inventory(parts, svc.parts, svc.colours)
+    with timing.stage("recipes.inventory"):
+        for p in parts:                                  # parts the local rules cannot map: ask Rebrickable for the LDraw id (cached)
+            await svc.parts.ldraw_id_async(str(p.get("part_num") or ""))
+        inv, skipped = aibuild.build_inventory(parts, svc.parts, svc.colours)
     t1 = time.perf_counter()
     if not inv.parts():
         return {"builds": [], "unlock": [], "ai_used": False, "ai_note": "", "candidate_count": 0, "freeform": False,
                 "skipped_parts": [{"part": p, "reason": r} for p, r in skipped],
                 "timings_ms": {"inventory": round((t1 - t0) * 1000)}}
     plan_inv = inv if match_color else pool_inventory(inv)       # colour ignored: plan from part counts, colour the result afterwards
-    result = await suggest(plan_inv, llm if use_ai else None, inventory_seed(plan_inv) if seed is None else seed, show or config.RECIPE_SHOW,
-                           config.RECIPE_AI_TIMEOUT, use_ai, match_color, RecipeLibrary(config.RECIPE_LIBRARY_DIR), svc.colours.hex)
+    with timing.stage("recipes.suggest"):
+        result = await suggest(plan_inv, llm if use_ai else None, inventory_seed(plan_inv) if seed is None else seed, show or config.RECIPE_SHOW,
+                               config.RECIPE_AI_TIMEOUT, use_ai, match_color, RecipeLibrary(config.RECIPE_LIBRARY_DIR), svc.colours.hex)
     t2 = time.perf_counter()
-    final = [f for f in (finalize(s, inv, match_color) for s in result.shown) if f is not None]    # fewer builds, never invalid ones
-    builds = [store_candidate(svc, inv, s, match_color) for s in final]
+    with timing.stage("recipes.finalize"):
+        final = [f for f in (finalize(s, inv, match_color) for s in result.shown) if f is not None]    # fewer builds, never invalid ones
+    with timing.stage("recipes.store"):
+        builds = [store_candidate(svc, inv, s, match_color) for s in final]
     freeform = False
     if not builds and use_ai and llm is not None and config.AI_FREEFORM_BUILDS:
         extra = await freeform_fallback(svc, parts, inv, llm, match_color)

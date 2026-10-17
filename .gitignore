@@ -22,3 +22,9 @@ corrections/
 recipe_library_study/
 recipe_library_trial/
 docs/recipe-study.log
+
+# timing log, profiler dumps and local benchmark photos
+timings.jsonl
+prof.out
+bench_photos/
+docs/timings/*.jsonl

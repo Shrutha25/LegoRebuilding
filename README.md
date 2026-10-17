@@ -96,6 +96,16 @@ python -m pytest -q
 
 Tests use small fixture CSVs; the one image test uses `lego_pieces.jpg` (expects 42 pieces).
 
+### Timing
+
+Every POST under `/api` and every scan job writes one trace to `timings.jsonl` (`backend/timing.py`; `TIMING_LOG=` switches it off): stages
+for detection, Brickognize, each suggest source, every Gemini request (and its budget wait), the solver, checks, LDraw conversion and thumbnails.
+
+    python -m backend.timing_report --stages                    # p50 / p95 per request and stage
+    python -m backend.bench bench_photos/*.jpg --out docs/timings/bench.json   # the whole flow on real photos (spends Gemini quota)
+
+The measured baseline is in `docs/timings/baseline.md`.
+
 ## API (curl examples)
 
 ```bash

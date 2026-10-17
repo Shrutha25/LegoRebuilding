@@ -1,0 +1,396 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 2523,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 38,
+   "match_ms": 49,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 1436,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 895,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 1,
+    "ai_used": false,
+    "note": "AI concepts unavailable (IdeasError); standard designs are shown.",
+    "concepts": 10,
+    "generated": [],
+    "titles": [
+     "Little Evergreen"
+    ]
+   },
+   "ideas_ms": 4,
+   "ideas_status": 429,
+   "ideas": "The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up.",
+   "total_ms": 4946
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 2167,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 2,
+   "match_ms": 9,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 2,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 126,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": false,
+    "note": "AI concepts unavailable (IdeasError); standard designs are shown.",
+    "concepts": 3,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 3,
+   "ideas_status": 429,
+   "ideas": "The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up.",
+   "total_ms": 2308
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2318,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 2,
+   "match_ms": 24,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 2,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 330,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": false,
+    "note": "AI concepts unavailable (IdeasError); standard designs are shown.",
+    "concepts": 10,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 3,
+   "ideas_status": 429,
+   "ideas": "The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up.",
+   "total_ms": 2679
+  },
+  {
+   "photo": "bench_photos/photo4.jpg",
+   "scan_ms": 2323,
+   "scan_status": "done",
+   "pieces": 13,
+   "detector": "opencv",
+   "rows": 10,
+   "pieces_identified": 13,
+   "resolve_ms": 2,
+   "match_ms": 67,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 4,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 200,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 1,
+    "ai_used": false,
+    "note": "AI concepts unavailable (IdeasError); standard designs are shown.",
+    "concepts": 10,
+    "generated": [],
+    "titles": [
+     "Lone Spruce"
+    ]
+   },
+   "ideas_ms": 3,
+   "ideas_status": 429,
+   "ideas": "The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up.",
+   "total_ms": 2599
+  },
+  {
+   "photo": "bench_photos/photo5.jpg",
+   "scan_ms": 2440,
+   "scan_status": "done",
+   "pieces": 14,
+   "detector": "opencv",
+   "rows": 12,
+   "pieces_identified": 14,
+   "resolve_ms": 3,
+   "match_ms": 49,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 3,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 254,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": false,
+    "note": "AI concepts unavailable (IdeasError); standard designs are shown.",
+    "concepts": 10,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 3,
+   "ideas_status": 429,
+   "ideas": "The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up.",
+   "total_ms": 2752
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 5,
+   "p50": 9.8,
+   "p95": 11.86,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 5,
+   "p50": 2313.7,
+   "p95": 2496.32,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 950.4,
+     "p95": 1231.74,
+     "n": 5
+    },
+    "crops": {
+     "p50": 116.0,
+     "p95": 130.26,
+     "n": 5
+    },
+    "brickognize": {
+     "p50": 7042.1,
+     "p95": 9571.16,
+     "n": 5
+    },
+    "identify": {
+     "p50": 1100.4,
+     "p95": 1323.36,
+     "n": 5
+    },
+    "tiebreak": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 148.3,
+     "p95": 163.01999999999998,
+     "n": 5
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 5,
+   "p50": 0.8,
+   "p95": 29.699999999999992,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/match": {
+   "n": 5,
+   "p50": 47.3,
+   "p95": 61.8,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 5
+    },
+    "sets.match": {
+     "p50": 41.9,
+     "p95": 60.839999999999996,
+     "n": 5
+    },
+    "sets.rank": {
+     "p50": 0.3,
+     "p95": 2.0599999999999996,
+     "n": 5
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 5,
+   "p50": 1.7,
+   "p95": 1148.3199999999997,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 0.2,
+     "p95": 1146.1399999999996,
+     "n": 5
+    },
+    "nearby.match": {
+     "p50": 0.6,
+     "p95": 1.06,
+     "n": 5
+    },
+    "nearby.rank": {
+     "p50": 0.2,
+     "p95": 0.38,
+     "n": 5
+    }
+   }
+  },
+  "/api/builds/recipes": {
+   "n": 5,
+   "p50": 252.4,
+   "p95": 780.9199999999998,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "recipes.inventory": {
+     "p50": 0.1,
+     "p95": 0.18,
+     "n": 5
+    },
+    "gemini.budget_wait": {
+     "p50": 1.0,
+     "p95": 1.5799999999999998,
+     "n": 5
+    },
+    "concepts": {
+     "p50": 1.2,
+     "p95": 8.879999999999999,
+     "n": 5
+    },
+    "solver": {
+     "p50": 232.1,
+     "p95": 349.03999999999996,
+     "n": 5
+    },
+    "checks": {
+     "p50": 0.3,
+     "p95": 0.3,
+     "n": 2
+    },
+    "recipes.suggest": {
+     "p50": 251.8,
+     "p95": 378.71999999999997,
+     "n": 5
+    },
+    "recipes.finalize": {
+     "p50": 0.0,
+     "p95": 0.1,
+     "n": 5
+    },
+    "ldr": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 2
+    },
+    "ldr.pack": {
+     "p50": 3.9000000000000004,
+     "p95": 4.3500000000000005,
+     "n": 2
+    },
+    "thumbnail": {
+     "p50": 22.8,
+     "p95": 24.15,
+     "n": 2
+    },
+    "recipes.store": {
+     "p50": 0.0,
+     "p95": 27.5,
+     "n": 5
+    }
+   }
+  },
+  "/api/ideas": {
+   "n": 5,
+   "p50": 1.6,
+   "p95": 2.5,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "gemini.budget_wait": {
+     "p50": 1.0,
+     "p95": 1.18,
+     "n": 5
+    },
+    "ideas": {
+     "p50": 1.1,
+     "p95": 1.52,
+     "n": 5
+    }
+   }
+  }
+ }
+}

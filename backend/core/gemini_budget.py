@@ -243,12 +243,17 @@ async def generate(client, budget, purpose, model, *, retries=0, **kwargs):
     Each attempt (including each of `retries` retries after a transient 5xx) acquires budget first. Raises
     BudgetRefused when the budget says no; on a 429 the model is marked exhausted before the error is re-raised.
     `budget=None` disables accounting (tests, ad-hoc scripts)."""
+    from backend import timing
     attempt = 0
     while True:
         if budget is not None:
-            await budget.acquire_async(purpose, model)
+            with timing.stage("gemini.budget_wait", purpose=purpose):
+                await budget.acquire_async(purpose, model)
         try:
-            return await client.aio.models.generate_content(model=model, **kwargs)
+            timing.count("gemini_calls")
+            timing.count(f"gemini_calls.{purpose}")
+            with timing.stage(f"gemini.{purpose}", model=model, attempt=attempt):
+                return await client.aio.models.generate_content(model=model, **kwargs)
         except Exception as e:
             if budget is not None and is_quota_error(e):
                 delay = parse_retry_delay(e)

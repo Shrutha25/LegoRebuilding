@@ -7,6 +7,8 @@ import cv2
 import httpx
 import requests
 
+from backend import timing
+
 API_URL = "https://api.brickognize.com/predict/parts/"
 
 
@@ -63,18 +65,21 @@ async def recognize_bytes(data, client, url=API_URL, timeout=15, retries=1, back
         _sem = asyncio.Semaphore(MAX_CONCURRENT)
     key = hashlib.sha256(data).hexdigest()
     if key in _cache:
+        timing.count("brickognize_cache_hits")
         return _cache[key]
     err = "unknown"
     for attempt in range(retries + 1):
         try:
             async with _sem:
-                r = await client.post(
-                    url,
-                    params={"predict_color": "true", "top_k_items": 3, "top_k_colors": 1,
-                            "min_similarity_items": 0.1},
-                    files={"query_image": ("piece.jpg", data, "image/jpeg")},
-                    timeout=timeout,
-                )
+                with timing.stage("brickognize", attempt=attempt):
+                    r = await client.post(
+                        url,
+                        params={"predict_color": "true", "top_k_items": 3, "top_k_colors": 1,
+                                "min_similarity_items": 0.1},
+                        files={"query_image": ("piece.jpg", data, "image/jpeg")},
+                        timeout=timeout,
+                    )
+            timing.count("brickognize_requests")
             r.raise_for_status()
             result = r.json()
             _cache[key] = result

@@ -1,0 +1,412 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 2640,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 52,
+   "match_ms": 72,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 1467,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 14250,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 2,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": [
+     "River Skimmer",
+     "Orchard Bonsai"
+    ]
+   },
+   "ideas_ms": 2680,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 21161
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 2079,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 2,
+   "match_ms": 16,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 4,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 45541,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 2855,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 50498
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2592,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 1,
+   "match_ms": 31,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 3,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 11827,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 3570,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 18024
+  },
+  {
+   "photo": "bench_photos/photo4.jpg",
+   "scan_ms": 2748,
+   "scan_status": "done",
+   "pieces": 13,
+   "detector": "opencv",
+   "rows": 10,
+   "pieces_identified": 13,
+   "resolve_ms": 2,
+   "match_ms": 73,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 4,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 43735,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 1,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": [
+     "Succulent Cluster"
+    ]
+   },
+   "ideas_ms": 4654,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 51216
+  },
+  {
+   "photo": "bench_photos/photo5.jpg",
+   "scan_ms": 2510,
+   "scan_status": "done",
+   "pieces": 14,
+   "detector": "opencv",
+   "rows": 12,
+   "pieces_identified": 14,
+   "resolve_ms": 2,
+   "match_ms": 79,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_ms": 2,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "recipes_ms": 10635,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 4293,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 17522
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 5,
+   "p50": 14.0,
+   "p95": 25.5,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 5,
+   "p50": 2580.4,
+   "p95": 2714.22,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 1077.2,
+     "p95": 1309.62,
+     "n": 5
+    },
+    "crops": {
+     "p50": 115.8,
+     "p95": 144.86,
+     "n": 5
+    },
+    "brickognize": {
+     "p50": 7181.3,
+     "p95": 9726.099999999999,
+     "n": 5
+    },
+    "identify": {
+     "p50": 1137.3,
+     "p95": 1408.7,
+     "n": 5
+    },
+    "tiebreak": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 132.0,
+     "p95": 153.74,
+     "n": 5
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 5,
+   "p50": 0.8,
+   "p95": 40.65999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/match": {
+   "n": 5,
+   "p50": 70.1,
+   "p95": 76.12,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 5
+    },
+    "sets.match": {
+     "p50": 63.3,
+     "p95": 75.30000000000001,
+     "n": 5
+    },
+    "sets.rank": {
+     "p50": 0.2,
+     "p95": 1.8799999999999992,
+     "n": 5
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 5,
+   "p50": 2.2,
+   "p95": 1173.2399999999998,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 0.3,
+     "p95": 1170.8599999999997,
+     "n": 5
+    },
+    "nearby.match": {
+     "p50": 0.9,
+     "p95": 1.0,
+     "n": 5
+    },
+    "nearby.rank": {
+     "p50": 0.3,
+     "p95": 0.5599999999999999,
+     "n": 5
+    }
+   }
+  },
+  "/api/builds/recipes": {
+   "n": 5,
+   "p50": 14247.6,
+   "p95": 45177.86,
+   "gemini_calls": [
+    5,
+    5,
+    5,
+    5,
+    5
+   ],
+   "stages": {
+    "recipes.inventory": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 5
+    },
+    "gemini.budget_wait": {
+     "p50": 31.7,
+     "p95": 1540.9999999999998,
+     "n": 5
+    },
+    "gemini.build": {
+     "p50": 10365.9,
+     "p95": 12737.460000000001,
+     "n": 5
+    },
+    "concepts": {
+     "p50": 2467.8,
+     "p95": 3492.48,
+     "n": 5
+    },
+    "solver": {
+     "p50": 533.7,
+     "p95": 858.34,
+     "n": 5
+    },
+    "checks": {
+     "p50": 0.4,
+     "p95": 0.58,
+     "n": 2
+    },
+    "generate": {
+     "p50": 9437.2,
+     "p95": 41911.06,
+     "n": 5
+    },
+    "recipes.suggest": {
+     "p50": 13716.5,
+     "p95": 45173.04,
+     "n": 5
+    },
+    "recipes.finalize": {
+     "p50": 0.0,
+     "p95": 0.07999999999999999,
+     "n": 5
+    },
+    "ldr": {
+     "p50": 0.1,
+     "p95": 0.19,
+     "n": 2
+    },
+    "ldr.pack": {
+     "p50": 9.3,
+     "p95": 13.439999999999998,
+     "n": 2
+    },
+    "thumbnail": {
+     "p50": 36.05,
+     "p95": 55.355,
+     "n": 2
+    },
+    "recipes.store": {
+     "p50": 0.0,
+     "p95": 61.33999999999999,
+     "n": 5
+    }
+   }
+  },
+  "/api/ideas": {
+   "n": 5,
+   "p50": 3567.2,
+   "p95": 4579.16,
+   "gemini_calls": [
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "stages": {
+    "gemini.budget_wait": {
+     "p50": 572.7,
+     "p95": 1304.4199999999998,
+     "n": 5
+    },
+    "gemini.build": {
+     "p50": 2930.5,
+     "p95": 3449.88,
+     "n": 5
+    },
+    "ideas": {
+     "p50": 3566.4,
+     "p95": 4578.1,
+     "n": 5
+    }
+   }
+  }
+ }
+}

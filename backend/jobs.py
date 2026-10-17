@@ -11,7 +11,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-from backend import config, corrections
+from backend import config, corrections, timing
 from backend.core import segment as seg
 from backend.core import studs as studmod
 from backend.core.gemini_detect import detect_pieces
@@ -192,30 +192,36 @@ def tiebreak(items, results, whole_results, ambiguities, shape=(1 << 30, 1 << 30
 
 
 async def run_photo_job(job: Job, img, recognizer=recognize_crops, detector=None, mode=None, reference=None):
+    trace, token = timing.begin("scan_job", job=job.id)
     try:
         job.status = "detecting"
         job.height, job.width = img.shape[:2]
         cv2.imwrite(str(job.dir / "image.jpg"), img, [cv2.IMWRITE_JPEG_QUALITY, 90])
         if reference is not None:                                # kept with the scan so a bad empty photo can be inspected
             cv2.imwrite(str(job.dir / "reference.jpg"), reference, [cv2.IMWRITE_JPEG_QUALITY, 90])
-        detection = await detect_pieces(img, mode or config.DETECTOR, detector, reference=reference)
+        with timing.stage("detect", mode=mode or config.DETECTOR):
+            detection = await detect_pieces(img, mode or config.DETECTOR, detector, reference=reference)
         boxes = detection.boxes
         job.detector, job.detector_note = detection.mode, detection.note
         items = [Item(tuple(b), detection.piece_for(b)) for b in boxes]
         job.total = len(items)
-        crops = crops_for(img, items)
+        with timing.stage("crops"):
+            crops = crops_for(img, items)
         tie = [a for a in detection.ambiguities[:seg.SEG.max_tiebreaks]
                if all(any(it.region is r for it in items) for r in a.parts)]
         job.status = "recognizing"
-        results = await recognizer(crops + [seg.crop_region(img, a.whole, a.whole.pitch) for a in tie])
+        with timing.stage("identify", crops=len(crops) + len(tie)):
+            results = await recognizer(crops + [seg.crop_region(img, a.whole, a.whole.pitch) for a in tie])
         results, whole_results = list(results[:len(items)]), list(results[len(items):])
         if tie:
-            items, results = tiebreak(items, results, whole_results, tie, img.shape)
+            with timing.stage("tiebreak"):
+                items, results = tiebreak(items, results, whole_results, tie, img.shape)
             job.total = len(items)
-        for i, crop in enumerate(crops_for(img, items)):
-            data = encode_crop(crop)
-            if data:
-                (job.dir / f"crop_{i}.jpg").write_bytes(data)
+        with timing.stage("save_crops"):
+            for i, crop in enumerate(crops_for(img, items)):
+                data = encode_crop(crop)
+                if data:
+                    (job.dir / f"crop_{i}.jpg").write_bytes(data)
         job.items = items
         job.pieces = [build_piece(i, it.box, f"/api/scan/{job.id}/crop/{i}", r, it.piece is not None and it.piece.check)
                       for i, (it, r) in enumerate(zip(items, results))]
@@ -224,6 +230,8 @@ async def run_photo_job(job: Job, img, recognizer=recognize_crops, detector=None
     except Exception as e:                      # surface as a job error, never crash the server
         job.status = "error"
         job.error = f"{type(e).__name__}: {e}"
+    finally:
+        timing.end(trace, token, status=job.status, pieces=len(job.pieces) if job.pieces else 0)
 
 
 class EditError(ValueError):

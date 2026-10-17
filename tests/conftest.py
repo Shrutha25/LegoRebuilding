@@ -28,3 +28,9 @@ def offline_set_info(monkeypatch, tmp_path):
 def tiny_fixture_sets(monkeypatch):
     """The test inventories have a handful of parts; the production minimum (MIN_SET_PARTS=10) is tested explicitly."""
     monkeypatch.setattr(config, "MIN_SET_PARTS", 1)
+
+
+@pytest.fixture(autouse=True)
+def no_timing_file(monkeypatch):
+    """Requests in tests would otherwise append to the real timings.jsonl."""
+    monkeypatch.setattr(config, "TIMING_LOG", "")

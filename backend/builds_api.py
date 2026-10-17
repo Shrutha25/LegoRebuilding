@@ -23,7 +23,7 @@ from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import PlainTextResponse, Response
 from pydantic import BaseModel, Field
 
-from backend import config
+from backend import config, timing
 from backend.core import idmap, omr
 from backend.core.aibuild import BuildError
 from backend.core.buildsvc import BuildService, valid_id
@@ -283,10 +283,13 @@ async def sets_nearby(body: SetBuildIn):
     for p in body.parts:
         rid = idmap.resolve_local(p.part_num, store.known_ids) or p.part_num
         parts.append({"part_num": rid, "color": p.color, "qty": p.qty})
-    matcher = await run_in_threadpool(_get_matcher, store)
-    result = await run_in_threadpool(matcher.match, parts, names, POOL, body.match_color)
-    for key in ("can_build", "almost"):
-        result[key] = await run_in_threadpool(rank_by_instructions, result[key], TOP)
+    with timing.stage("nearby.index"):
+        matcher = await run_in_threadpool(_get_matcher, store)
+    with timing.stage("nearby.match"):
+        result = await run_in_threadpool(matcher.match, parts, names, POOL, body.match_color)
+    with timing.stage("nearby.rank"):
+        for key in ("can_build", "almost"):
+            result[key] = await run_in_threadpool(rank_by_instructions, result[key], TOP)
     for row in result["can_build"] + result["almost"]:                    # the shape SetCard already renders
         row["parts_you_have"] = row["total_parts"] - row["missing_count"]
         row["coverage"] = round(row["parts_you_have"] / max(1, row["total_parts"]), 3)

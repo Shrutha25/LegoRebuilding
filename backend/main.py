@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from backend import builds_api, config, jobs
+from backend import builds_api, config, jobs, timing
 from backend.core import gemini_budget, idmap
 from backend.core.gemini_detect import GeminiDetector
 from backend.core.ideas import GeminiLLM, IdeasError, generate_ideas
@@ -53,6 +53,23 @@ app.add_middleware(CORSMiddleware,
                    allow_origins=[o for o in os.environ.get("CORS_ORIGINS", "").split(",") if o],
                    allow_origin_regex=LAN_ORIGIN,
                    allow_methods=["*"], allow_headers=["*"])
+
+
+@app.middleware("http")
+async def time_requests(request, call_next):
+    """One timing trace per POST under /api (the scan, match, ideas and build requests); see backend/timing.py."""
+    if request.method != "POST" or not request.url.path.startswith("/api/"):
+        return await call_next(request)
+    trace, token = timing.begin(request.url.path)
+    try:
+        response = await call_next(request)
+        route = request.scope.get("route")
+        if route is not None:
+            trace.name = route.path
+        trace.meta["status"] = response.status_code
+        return response
+    finally:
+        timing.end(trace, token)
 
 
 # ------------------------------------------------------------------ health
@@ -209,10 +226,13 @@ async def map_parts(parts):
 async def match(body: MatchIn):
     if not store.data_loaded:
         raise HTTPException(503, store.error or "Set data is still loading; try again shortly.")
-    mapped, unmapped = await map_parts(body.parts)
-    sets = await run_in_threadpool(store.index.match, mapped, body.match_color, body.max_parts, 40,
-                                  min_coverage=config.MIN_COVERAGE)
-    sets = await run_in_threadpool(builds_api.rank_by_instructions, sets, 10)
+    with timing.stage("map_parts"):
+        mapped, unmapped = await map_parts(body.parts)
+    with timing.stage("sets.match"):
+        sets = await run_in_threadpool(store.index.match, mapped, body.match_color, body.max_parts, 40,
+                                      min_coverage=config.MIN_COVERAGE)
+    with timing.stage("sets.rank"):
+        sets = await run_in_threadpool(builds_api.rank_by_instructions, sets, 10)
     return {"sets": sets, "unmapped": sorted(set(unmapped)),
             "mapped": {m["original"]: m["part_num"] for m in mapped if m["original"] != m["part_num"]}}
 
@@ -318,7 +338,8 @@ async def ideas(body: IdeasIn):
                       "name": p.name or (names.get(rid) if rid else None)})
     try:
         async with _llm_slots:
-            result = await generate_ideas(parts, get_llm(), body.match_color)
+            with timing.stage("ideas"):
+                result = await generate_ideas(parts, get_llm(), body.match_color)
     except IdeasError as e:
         raise HTTPException(e.status, str(e))
     for idea in result["ideas"]:                      # add images where the catalogue has them

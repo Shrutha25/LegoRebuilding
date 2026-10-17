@@ -14,7 +14,7 @@ Without Gemini (no key, budget refused, error, nonsense answer) step 2 uses the 
 import logging
 from dataclasses import dataclass, field
 
-from backend import config
+from backend import config, timing
 from backend.recipes import all_recipes
 from backend.recipes.checks import feature_problems, structural_problems
 from backend.recipes.concepts import choose_recipes, feasible_categories, get_concepts, nearest_params
@@ -53,13 +53,15 @@ def build_concept(concept, recipes, inv, facts, tries=3):
             for rot in range(2):
                 reasons = []
                 try:
-                    cand = make_candidate(recipe, params, inv, assign_colours(recipe, facts, rot), facts, reasons)
+                    with timing.stage("solver", recipe=recipe.id):
+                        cand = make_candidate(recipe, params, inv, assign_colours(recipe, facts, rot), facts, reasons)
                 except ValueError as e:
                     cand, reasons = None, [("fill", str(e))]
                 if cand is None:
                     why = reasons[0][1] if reasons else why
                     continue
-                problems = structural_problems(cand.build, inv) + feature_problems(recipe, cand.regions, concept.features)
+                with timing.stage("checks", recipe=recipe.id):
+                    problems = structural_problems(cand.build, inv) + feature_problems(recipe, cand.regions, concept.features)
                 if not problems:
                     return cand, None
                 why = problems[0]
@@ -77,7 +79,8 @@ async def suggest(inv, llm=None, seed=0, show=5, timeout=40.0, use_ai=True, matc
     if not feasible:
         return out
     ai = llm if use_ai else None
-    concepts, out.ai_used, out.ai_note = await get_concepts(ai, inv, facts, feasible, match_color, config.RECIPE_CONCEPTS, timeout, recipes, seed)
+    with timing.stage("concepts"):
+        concepts, out.ai_used, out.ai_note = await get_concepts(ai, inv, facts, feasible, match_color, config.RECIPE_CONCEPTS, timeout, recipes, seed)
     out.concepts = concepts
     taken, built = set(), []
     for c in concepts:
@@ -97,7 +100,8 @@ async def suggest(inv, llm=None, seed=0, show=5, timeout=40.0, use_ai=True, matc
         from backend.recipes.generate import generate_recipe
         failed = [c for c in concepts if c.name in {n for n, _ in out.unbuilt} and c.source == "gemini"]
         for c in failed[:gen_left]:
-            res = await generate_recipe(ai, c, inv, facts, library, hex_of, config.RECIPE_RECOGNISE, timeout=config.RECIPE_GEN_TIMEOUT, recipes=recipes)
+            with timing.stage("generate", concept=c.name):
+                res = await generate_recipe(ai, c, inv, facts, library, hex_of, config.RECIPE_RECOGNISE, timeout=config.RECIPE_GEN_TIMEOUT, recipes=recipes)
             if res.ok and res.candidate is not None:
                 out.generated.append(c.name)
                 built.append(Shown(res.candidate, c.name, c.description, True, c))
