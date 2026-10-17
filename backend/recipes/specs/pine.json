@@ -1,0 +1,16 @@
+{
+  "id": "pine", "title": "Pine tree", "category": "plant", "tags": ["plant", "tapering", "tall"],
+  "nouns": ["pine", "fir", "spruce", "christmas tree", "conifer", "evergreen"],
+  "names": ["Frosted Fir", "Lone Spruce", "Winter Pine", "Little Evergreen"],
+  "roles": [{"name": "needles", "want": "major"}, {"name": "trunk", "want": "dark"}],
+  "params": {"base": {"range": [3, 7], "bind": "w"}, "trunk": {"range": [1, 2]}, "height": {"range": [2, 4], "bind": "h"}},
+  "silhouettes": {"tapering": {"base": "hi", "trunk": 1, "height": "hi"}, "tall-narrow": {"base": "lo", "trunk": 2, "height": "hi"}, "compact": {"base": "lo", "trunk": 1, "height": 2},
+                  "wide-squat": {"base": "hi", "trunk": 1, "height": 2}},
+  "requires": {"min_parts": 8, "min_long": 2, "min_area": 36, "min_build_parts": 4},
+  "derive": {"ts": "1 if base % 2 == 1 else 2"},
+  "parts": [
+    {"name": "trunk", "primitive": "box", "role": "trunk", "args": {"w": "ts", "d": "ts", "layers": "trunk"}, "at": {"x": "(base - ts) // 2", "z": "(base - ts) // 2", "y": 0}},
+    {"name": "needles", "primitive": "cone", "role": "needles", "min_coverage": 0.6, "args": {"base": "base", "layers": "height"}, "attach": {"to": "trunk", "rel": "on_top_of", "anchor": "center"}}
+  ],
+  "features": {"trunk": ["trunk"], "cone": ["needles"]}
+}

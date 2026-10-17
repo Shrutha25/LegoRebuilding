@@ -4,6 +4,7 @@ The scoring itself is `rank_sets` from match.py, unchanged; the index only narro
 the candidate sets to those sharing at least one part with the user's pieces.
 """
 
+import logging
 import os
 import pickle
 import threading
@@ -12,12 +13,14 @@ from collections import defaultdict
 
 import pandas as pd
 
-from backend.core.match import (RB_FILES, build_set_requirements, canonical_map, rank_sets,
+from backend import config
+from backend.core.match import (RB_FILES, build_set_requirements, canonical_map, exclusion_report, rank_sets,
                                 skipped_theme_ids)
 
-CACHE_VERSION = 1
+log = logging.getLogger("lego.index")
+
+CACHE_VERSION = 2
 CACHE_NAME = "index_cache.pkl"
-MIN_PARTS = 5
 MIN_COVERAGE = 1.0         # library default: only sets that can be built completely
 TOP = 10
 
@@ -28,7 +31,7 @@ def _read(data_dir, name):
 
 def source_key(data_dir):
     """Cache key: (name, mtime, size) of every source CSV."""
-    key = [CACHE_VERSION]
+    key = [CACHE_VERSION, config.EXCLUDED_THEMES, config.EXCLUDED_THEME_WORDS]   # the skipped theme ids are cached
     for name in RB_FILES:
         st = os.stat(os.path.join(data_dir, f"{name}.csv"))
         key.append((name, st.st_mtime_ns, st.st_size))
@@ -57,6 +60,13 @@ class MatchIndex:
         self.part_imgs = data["part_imgs"]       # {(part, color_name): url}
         self.part_img_any = data["part_img_any"]  # {part: url}
         self._theme = dict(zip(self.sets.set_num, self.sets.theme_id))
+        nparts = pd.to_numeric(self.sets["num_parts"], errors="coerce").fillna(0) if "num_parts" in self.sets else None
+        self._tiny = set() if nparts is None else set(self.sets.set_num[nparts < config.MIN_SET_PARTS])      # Rebrickable's own count: key rings, polybags...
+
+    def is_buildable(self, set_num):
+        """False for sets in an excluded theme or with fewer than MIN_SET_PARTS parts."""
+        theme = self._theme.get(set_num)
+        return theme is not None and theme not in self.skip and set_num not in self._tiny
 
     # -- build / cache -------------------------------------------------
     @classmethod
@@ -84,6 +94,20 @@ class MatchIndex:
 
     @classmethod
     def load(cls, data_dir):
+        idx = cls._load(data_dir)
+        try:
+            if "num_parts" not in idx.sets:
+                return idx
+            rep = exclusion_report(idx.sets, _read(data_dir, "themes"), idx.skip, config.MIN_SET_PARTS)
+            log.info("set exclusion: %d of %d sets left out (%d by theme, %d with < %d parts); top themes: %s",
+                     rep["excluded"], rep["total"], rep["by_theme"], rep["small"], config.MIN_SET_PARTS,
+                     "; ".join(f"{t} {n}" for t, n in rep["top_themes"]))
+        except Exception as e:                                          # noqa: BLE001  a log line must never stop start-up
+            log.warning("exclusion report failed: %s", e)
+        return idx
+
+    @classmethod
+    def _load(cls, data_dir):
         """Load from the disk cache if it matches the CSVs, else rebuild and re-cache."""
         key = source_key(data_dir)
         path = os.path.join(data_dir, CACHE_NAME)
@@ -135,15 +159,14 @@ class MatchIndex:
         all_req = self.req[match_color]
         req = {}
         for s in cands:
-            theme = self._theme.get(s)
-            if theme is None or theme in self.skip:
+            if not self.is_buildable(s):
                 continue
-            if MIN_PARTS <= sum(all_req[s].values()) <= max_parts:
+            if config.MIN_SET_PARTS <= sum(all_req[s].values()) <= max_parts:
                 req[s] = all_req[s]
         if not req:
             return []
         sets = self.sets[self.sets.set_num.isin(cands)]
-        results = rank_sets(have, req, sets, self.skip, max_parts, MIN_PARTS, min_coverage, top)
+        results = rank_sets(have, req, sets, self.skip, max_parts, config.MIN_SET_PARTS, min_coverage, top)
         for r in results:
             for m in r["missing"]:
                 m["image"] = self.image_for(m["part"], m["color"])

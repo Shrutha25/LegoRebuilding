@@ -1,20 +1,24 @@
 """FastAPI app: /api/scan, /api/match, /api/parts/search, /api/health."""
 
 import asyncio
+import logging
 import os
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from backend import config, jobs
-from backend.core import idmap
+from backend import builds_api, config, jobs
+from backend.core import gemini_budget, idmap
+from backend.core.gemini_detect import GeminiDetector
 from backend.core.ideas import GeminiLLM, IdeasError, generate_ideas
 from backend.core.index import DataStore
 from backend.core.rebrickable_api import RebrickableAPI
+
+log = logging.getLogger("lego.main")
 
 store = DataStore(config.DATA_DIR)
 rb_api = RebrickableAPI(config.REBRICKABLE_API_KEY)
@@ -31,6 +35,10 @@ async def _cleanup_loop():
 async def lifespan(app):
     config.UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
     store.start()                                  # background: scans work while this loads
+    try:
+        log.info("gemini budget: %s", gemini_budget.get_budget().status(_budget_models()))
+    except Exception as e:                         # the budget must never stop the server from starting
+        log.warning("gemini budget unavailable: %s", e)
     task = asyncio.create_task(_cleanup_loop())
     yield
     task.cancel()
@@ -55,9 +63,18 @@ def health():
             "rebrickable_api": rb_api.enabled}
 
 
+def _budget_models():
+    return list(dict.fromkeys([config.GEMINI_MODEL, config.GEMINI_DETECT_MODEL, config.GEMINI_DETECT_FALLBACK_MODEL]))
+
+
+@app.get("/api/debug/gemini-budget")
+def gemini_budget_status():
+    """Per-model Gemini usage today (debugging; not used by the frontend)."""
+    return gemini_budget.get_budget().status(_budget_models())
+
+
 # ------------------------------------------------------------------ scan
-@app.post("/api/scan")
-async def scan(file: UploadFile = File(...)):
+async def _read_photo(file):
     ctype = (file.content_type or "").lower()
     if ctype not in IMAGE_TYPES:
         if ctype.startswith("video/"):
@@ -69,8 +86,26 @@ async def scan(file: UploadFile = File(...)):
     img = await run_in_threadpool(jobs.prepare_image, data)
     if img is None:
         raise HTTPException(400, "Could not read that image.")
+    return img
+
+
+@app.post("/api/reference")
+async def reference_photo(file: UploadFile = File(...)):
+    """A photo of the empty surface (no pieces), taken from the same place as the scans that follow. Scans that name
+    its reference_id find pieces by comparing with it, which works on dark or textured surfaces."""
+    return {"reference_id": jobs.new_reference(await _read_photo(file))}
+
+
+@app.post("/api/scan")
+async def scan(file: UploadFile = File(...), reference_id: str | None = Form(None)):
+    reference = None
+    if reference_id:
+        reference = jobs.get_reference(reference_id)
+        if reference is None:
+            raise HTTPException(404, "The empty-surface photo expired. Please take it again.")
+    img = await _read_photo(file)
     job = jobs.new_job()
-    job.task = asyncio.create_task(jobs.run_photo_job(job, img))   # keep a reference
+    job.task = asyncio.create_task(jobs.run_photo_job(job, img, detector=get_detector(), reference=reference))   # keep a reference
     return {"job_id": job.id}
 
 
@@ -84,6 +119,49 @@ def _job(job_id):
 @app.get("/api/scan/{job_id}")
 def scan_status(job_id: str):
     return _job(job_id).public()
+
+
+class MergeIn(BaseModel):
+    indices: list[int] = Field(min_length=2, max_length=2)
+
+
+class SplitIn(BaseModel):
+    index: int
+    line: list[float] = Field(min_length=4, max_length=4)      # x0, y0, x1, y1 in the photo's own pixels
+
+
+def _job_image(job):
+    import cv2
+    img = cv2.imread(str(job.dir / "image.jpg"))
+    if img is None:
+        raise HTTPException(404, "The photo is gone.")
+    return img
+
+
+@app.post("/api/scan/{job_id}/merge")
+async def scan_merge(job_id: str, body: MergeIn):
+    """Merge two detected pieces into one (their masks are joined) and recognise the merged crop again."""
+    job = _job(job_id)
+    if job.status != "done":
+        raise HTTPException(409, "The scan is not finished.")
+    try:
+        await jobs.merge_pieces(job, _job_image(job), body.indices[0], body.indices[1])
+    except jobs.EditError as e:
+        raise HTTPException(400, str(e))
+    return job.public()
+
+
+@app.post("/api/scan/{job_id}/split")
+async def scan_split(job_id: str, body: SplitIn):
+    """Cut one detected piece along a line and recognise each part."""
+    job = _job(job_id)
+    if job.status != "done":
+        raise HTTPException(409, "The scan is not finished.")
+    try:
+        await jobs.split_piece(job, _job_image(job), body.index, body.line)
+    except jobs.EditError as e:
+        raise HTTPException(400, str(e))
+    return job.public()
 
 
 @app.get("/api/scan/{job_id}/image")
@@ -132,8 +210,9 @@ async def match(body: MatchIn):
     if not store.data_loaded:
         raise HTTPException(503, store.error or "Set data is still loading; try again shortly.")
     mapped, unmapped = await map_parts(body.parts)
-    sets = await run_in_threadpool(store.index.match, mapped, body.match_color, body.max_parts,
+    sets = await run_in_threadpool(store.index.match, mapped, body.match_color, body.max_parts, 40,
                                   min_coverage=config.MIN_COVERAGE)
+    sets = await run_in_threadpool(builds_api.rank_by_instructions, sets, 10)
     return {"sets": sets, "unmapped": sorted(set(unmapped)),
             "mapped": {m["original"]: m["part_num"] for m in mapped if m["original"] != m["part_num"]}}
 
@@ -212,6 +291,7 @@ async def image_proxy(url: str):
 # ------------------------------------------------------------------ AI ideas
 class IdeasIn(BaseModel):
     parts: list[PartIn] = Field(min_length=1, max_length=500)
+    match_color: bool = True          # "Consider color": ideas are checked by (part, colour); off = by part only, tagged "Mixed colors"
 
 
 _llm = None
@@ -224,7 +304,7 @@ def get_llm():
     if _llm is None:
         if not config.GEMINI_API_KEY:
             raise IdeasError("AI ideas need a GEMINI_API_KEY in the server's .env.", 503)
-        _llm = GeminiLLM(config.GEMINI_API_KEY, config.GEMINI_MODEL)
+        _llm = GeminiLLM(config.GEMINI_API_KEY, config.GEMINI_MODEL, budget=gemini_budget.get_budget())
     return _llm
 
 
@@ -238,7 +318,7 @@ async def ideas(body: IdeasIn):
                       "name": p.name or (names.get(rid) if rid else None)})
     try:
         async with _llm_slots:
-            result = await generate_ideas(parts, get_llm())
+            result = await generate_ideas(parts, get_llm(), body.match_color)
     except IdeasError as e:
         raise HTTPException(e.status, str(e))
     for idea in result["ideas"]:                      # add images where the catalogue has them
@@ -246,3 +326,23 @@ async def ideas(body: IdeasIn):
             rid = idmap.resolve_local(piece["part_num"], store.known_ids) if store.known_ids else None
             piece["image"] = store.index.image_for(rid, None) if (rid and store.index) else None
     return result
+
+
+# ------------------------------------------------------------------ 3D building instructions
+builds_api.configure(store, rb_api, get_llm, _llm_slots)
+app.include_router(builds_api.router)
+
+
+# ------------------------------------------------------------------ Gemini piece detection
+_detector = None
+
+
+def get_detector():
+    """None when there is no Gemini key (or DETECTOR=opencv): the scan then uses OpenCV only."""
+    global _detector
+    if config.DETECTOR == "opencv" or not config.GEMINI_API_KEY:
+        return None
+    if _detector is None:
+        _detector = GeminiDetector(config.GEMINI_API_KEY, config.GEMINI_DETECT_MODEL,
+                                   config.GEMINI_DETECT_FALLBACK_MODEL, budget=gemini_budget.get_budget())
+    return _detector

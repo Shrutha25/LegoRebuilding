@@ -12,3 +12,13 @@ crops/
 suggestions.json
 llm_prompt.txt
 tmp_uploads/
+ldraw_data/
+build_cache/
+
+# manual merge/split corrections (user photos)
+corrections/
+
+# recipe generation runs (the committed library, if any, lives in recipe_library/)
+recipe_library_study/
+recipe_library_trial/
+docs/recipe-study.log

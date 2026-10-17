@@ -1,0 +1,23 @@
+{
+  "id": "townhouse", "title": "Townhouse", "category": "building", "tags": ["building", "house", "tall"],
+  "nouns": ["townhouse", "house", "tower house", "villa", "mansion", "manor", "shop", "inn", "building"],
+  "names": ["Corner Townhouse", "Clocktower Inn", "Narrow Manor", "Market Row House"],
+  "roles": [{"name": "wall", "want": "major"}, {"name": "upper", "want": "second"}, {"name": "roof", "want": "neutral"}, {"name": "base", "want": "dark"}],
+  "params": {"width": {"range": [4, 6], "bind": "w"}, "depth": {"range": [4, 5], "bind": "d"}, "floors": {"range": [2, 4], "bind": "h"}},
+  "silhouettes": {"tall-narrow": {"width": "lo", "depth": "lo", "floors": "hi"}, "wide-squat": {"width": "hi", "depth": "hi", "floors": "lo"}, "compact": {"width": "lo", "depth": "mid", "floors": "mid"}},
+  "requires": {"min_parts": 20, "min_long": 4, "min_area": 90},
+  "derive": {"gw": "width + 2", "t": "1 if thin else 2", "dw": "2 if width >= 5 else 1", "doff": "(gw - dw) // 2"},
+  "parts": [
+    {"name": "base", "primitive": "box", "role": "base", "unit": "plate", "min_coverage": 0.85, "args": {"w": "gw", "d": "depth", "layers": 1}, "at": {"x": 0, "z": 0, "y": 0}},
+    {"name": "ground", "primitive": "wall_with_window", "role": "wall", "min_coverage": 0.85,
+     "args": {"w": "gw", "d": "depth", "layers": 2, "thickness": "t", "door_w": "dw", "door_layers": 2, "door_off": "doff", "windows": 0, "door_side": "front"},
+     "attach": {"to": "base", "rel": "on_top_of", "anchor": "center"}},
+    {"name": "upper", "primitive": "wall_with_window", "role": "upper", "min_coverage": 0.85, "args": {"w": "width", "d": "depth", "layers": "floors - 1", "thickness": "t", "door_w": 0, "windows": 1, "window_layer": 0},
+     "attach": {"to": "ground", "rel": "on_top_of", "anchor": "center"}},
+    {"name": "roof", "primitive": "box", "role": "roof", "unit": "plate", "min_coverage": 0.8, "args": {"w": "width + 2", "d": "depth + 2", "layers": 1},
+     "attach": {"to": "upper", "rel": "on_top_of", "anchor": "center"}},
+    {"name": "parapet", "primitive": "box", "role": "roof", "required": false, "args": {"w": "width + 2", "d": "depth + 2", "layers": 1, "thickness": 1},
+     "attach": {"to": "roof", "rel": "on_top_of", "anchor": "center"}}
+  ],
+  "features": {"door": ["ground"], "windows": ["upper"], "roof": ["roof"], "parapet": ["parapet"]}
+}

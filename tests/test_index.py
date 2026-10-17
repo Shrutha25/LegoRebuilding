@@ -82,7 +82,7 @@ def test_datastore_reports_missing_data(tmp_path):
 
 
 def test_cache_key_covers_all_sources(rb_dir):
-    assert len(index_mod.source_key(str(rb_dir))) == 1 + len(index_mod.RB_FILES)
+    assert len(index_mod.source_key(str(rb_dir))) == 3 + len(index_mod.RB_FILES)   # version, theme rules, one entry per CSV
 
 
 def test_index_ranking_equals_rank_sets_on_a_larger_catalogue(tmp_path):

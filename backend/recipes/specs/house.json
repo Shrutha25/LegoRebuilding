@@ -1,0 +1,25 @@
+{
+  "id": "house", "title": "House", "category": "building", "tags": ["building"],
+  "nouns": ["house", "home", "cottage", "cabin", "hut", "villa", "shed", "lodge", "bungalow", "barn"],
+  "names": ["Lantern Cottage", "Hillside Lodge", "Harbour House"],
+  "roles": [{"name": "wall", "want": "major"}, {"name": "roof", "want": "second"}, {"name": "base", "want": "neutral"}],
+  "params": {"width": {"range": [4, 8], "bind": "w"}, "depth": {"range": [4, 6], "bind": "d"}, "wall_layers": {"range": [2, 4], "bind": "h"},
+             "roof": {"range": [0, 1]}},
+  "silhouettes": {"wide-squat": {"width": "hi", "depth": "mid", "wall_layers": "lo", "roof": 1}, "tall-narrow": {"width": "lo", "depth": "lo", "wall_layers": "hi", "roof": 1},
+                  "compact": {"width": "lo", "depth": "mid", "wall_layers": "lo", "roof": 0}, "long-low": {"width": "hi", "depth": "lo", "wall_layers": "lo", "roof": 1}},
+  "requires": {"min_parts": 14, "min_long": 3, "min_area": 50},
+  "variants": {"grid": {"width": [4, 5, 6, 8], "depth": [4, 5, 6], "wall_layers": {"if": "total_area >= 150", "then": [3, 4], "else": [2, 3]}, "roof": [1, 0]}},
+  "derive": {"t": "1 if thin and (width >= 4 and depth >= 4) else 2", "door_w": "2 if width >= 6 else 1", "door_off": "(width - door_w) // 2",
+             "win": "1 if wall_layers >= 3 else 0", "top": "1 + 3 * wall_layers"},
+  "parts": [
+    {"name": "base", "primitive": "box", "role": "base", "unit": "plate", "min_coverage": 0.85, "args": {"w": "width", "d": "depth", "layers": 1}, "at": {"x": 1, "z": 1, "y": 0}},
+    {"name": "walls", "primitive": "wall_with_window", "role": "wall", "min_coverage": 0.85,
+     "args": {"w": "width", "d": "depth", "layers": "wall_layers", "thickness": "t", "door_w": "door_w", "door_layers": "min(2, wall_layers - 1)",
+              "door_off": "door_off", "windows": "win", "window_layer": 1, "door_side": "front"}, "at": {"x": 1, "z": 1, "y": 1}},
+    {"name": "roof", "primitive": "slope_roof", "role": "roof", "unit": "plate", "min_coverage": 0.7, "when": "roof == 1",
+     "args": {"w": "width + 2", "d": "depth + 2", "ridge": "x"}, "at": {"x": 0, "z": 0, "y": "top"}},
+    {"name": "roof", "primitive": "box", "role": "roof", "unit": "plate", "min_coverage": 0.7, "when": "roof == 0",
+     "args": {"w": "width + 2", "d": "depth + 2", "layers": 1}, "at": {"x": 0, "z": 0, "y": "top"}}
+  ],
+  "features": {"door": ["walls"], "windows": ["walls"], "roof": ["roof"]}
+}

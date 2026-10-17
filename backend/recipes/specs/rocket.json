@@ -1,0 +1,23 @@
+{
+  "id": "rocket", "title": "Rocket", "category": "spacecraft", "tags": ["vehicle", "space", "tall"],
+  "nouns": ["rocket", "spaceship", "shuttle", "spacecraft", "starship", "lander"],
+  "names": ["Moon Skipper", "Comet Lander", "Starling One"],
+  "roles": [{"name": "body", "want": "major"}, {"name": "fin", "want": "second"}, {"name": "nose", "want": "second"}, {"name": "base", "want": "neutral"}],
+  "params": {"core_layers": {"range": [3, 8], "bind": "h"}, "fin_layers": {"range": [1, 2]}},
+  "silhouettes": {"tall-narrow": {"core_layers": "hi", "fin_layers": 1}, "compact": {"core_layers": "lo", "fin_layers": 2}, "tapering": {"core_layers": "mid", "fin_layers": 2}},
+  "requires": {"min_parts": 8, "min_long": 2, "min_area": 32, "min_build_parts": 14},
+  "variants": {"grid": {"core_layers": [3, 4, 5, 6], "fin_layers": [1, 2]}},
+  "derive": {"lower": "max(1, core_layers // 2)", "upper": "max(1, core_layers - lower - 1)", "top": "1 + 3 * (lower + 1 + upper)"},
+  "parts": [
+    {"name": "base", "primitive": "box", "role": "base", "unit": "plate", "min_coverage": 0.35, "args": {"w": 4, "d": 4, "layers": 1}, "at": {"x": 0, "z": 0, "y": 0}},
+    {"name": "core-lower", "primitive": "box", "role": "body", "args": {"w": 2, "d": 2, "layers": "lower"}, "at": {"x": 1, "z": 1, "y": 1}},
+    {"name": "stripe", "primitive": "box", "role": "fin", "args": {"w": 2, "d": 2, "layers": 1}, "at": {"x": 1, "z": 1, "y": "1 + 3 * lower"}},
+    {"name": "core-upper", "primitive": "box", "role": "body", "args": {"w": 2, "d": 2, "layers": "upper"}, "at": {"x": 1, "z": 1, "y": "1 + 3 * (lower + 1)"}},
+    {"name": "fins", "primitive": "cells", "role": "fin", "required": false, "kind": "cells",
+     "args": {"cells": [[0, 1], [0, 2], [3, 1], [3, 2], [1, 0], [2, 0], [1, 3], [2, 3]], "layers": "fin_layers"}, "at": {"x": 0, "z": 0, "y": 1}},
+    {"name": "nose", "primitive": "box", "role": "nose", "required": false, "kind": "cells", "args": {"w": 2, "d": 2, "layers": 1}, "at": {"x": 1, "z": 1, "y": "top"}},
+    {"name": "tip", "primitive": "box", "role": "nose", "required": false, "kind": "cells", "args": {"w": 1, "d": 1, "layers": 1}, "at": {"x": 1, "z": 1, "y": "top + 3"}}
+  ],
+  "symmetry": "xz",
+  "features": {"fins": ["fins"], "nose": ["nose", "tip"], "stripe": ["stripe"]}
+}

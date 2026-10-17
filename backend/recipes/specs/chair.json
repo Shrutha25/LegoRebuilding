@@ -1,0 +1,21 @@
+{
+  "id": "chair", "title": "Chair", "category": "furniture", "tags": ["furniture", "legs"],
+  "nouns": ["chair", "armchair", "stool", "seat", "throne", "bench", "sofa"],
+  "names": ["Reading Chair", "Garden Bench", "Cosy Armchair"],
+  "roles": [{"name": "seat", "want": "major"}, {"name": "back", "want": "second"}, {"name": "leg", "want": "dark"}, {"name": "arm", "want": "second"}],
+  "params": {"width": {"range": [2, 6], "bind": "w"}, "depth": {"range": [2, 4], "bind": "d"}, "leg": {"range": [1, 2]}, "back": {"range": [0, 3]}, "arms": {"range": [0, 1]}},
+  "silhouettes": {"compact": {"width": "lo", "depth": "lo", "leg": 1, "back": 2, "arms": 0}, "tall-narrow": {"width": "lo", "depth": "lo", "leg": 2, "back": 3, "arms": 0},
+                  "wide-squat": {"width": "hi", "depth": "mid", "leg": 1, "back": 1, "arms": 1}, "long-low": {"width": "hi", "depth": "lo", "leg": 1, "back": 2, "arms": 0}},
+  "constraint": "(arms == 0 or width >= 3) and (back > 0 or width <= 3)",
+  "requires": {"min_parts": 8, "min_long": 2, "min_area": 22},
+  "parts": [
+    {"name": "legs", "primitive": "posts", "role": "leg", "args": {"x0": 0, "x1": "width - 1", "z0": 0, "z1": "depth - 1", "layers": "leg"}, "at": {"x": 0, "z": 0, "y": 0}},
+    {"name": "seat", "primitive": "box", "role": "seat", "unit": "plate", "args": {"w": "width", "d": "depth", "layers": 2}, "at": {"x": 0, "z": 0, "y": "3 * leg"}},
+    {"name": "back", "primitive": "box", "role": "back", "when": "back > 0", "args": {"w": "width", "d": 1, "layers": "back"},
+     "attach": {"to": "seat", "rel": "on_top_of", "anchor_x": "center", "anchor_z": "start"}},
+    {"name": "arm", "primitive": "box", "role": "arm", "when": "arms == 1", "args": {"w": 1, "d": "depth - 1", "layers": 1},
+     "attach": {"to": "seat", "rel": "on_top_of", "anchor_x": "start", "anchor_z": "end"}, "mirror_x": "width"}
+  ],
+  "symmetry": "x",
+  "features": {"legs": ["legs"], "seat": ["seat"], "back": ["back"], "arms": ["arm"]}
+}

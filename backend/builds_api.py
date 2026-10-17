@@ -1,0 +1,327 @@
+"""HTTP endpoints of the 3D building-instructions viewer (additive: nothing existing is changed).
+
+    POST /api/builds/ai                    an AI build (Gemini, placed on a stud grid, validated and repaired locally) for the pieces
+    POST /api/sets/{set_num}/build         an official set: its LDraw model if the OMR has one, plus the parts list (have / missing)
+    GET  /api/builds/{id}                  build metadata: title, steps with the parts each step adds, attribution
+    GET  /api/builds/{id}/model.mpd        the packed model (only the library files it uses); ?lite=1 drops conditional lines
+    GET  /api/ldraw/LDConfig.ldr           the LDraw colour table the viewer needs
+    POST /api/builds/recipes               recipe builds (backend/recipes): designs the code generates from the pieces, named by Gemini
+    GET  /api/builds/{id}/thumb.png        isometric thumbnail of a recipe build
+    POST /api/sets/nearby                  sets the pieces can build now, and sets that are almost there (with the missing parts)
+    POST /api/sets/instructions            which instructions each set has (3D model / official LEGO link / none); pending ones fill in later
+    GET  /api/dev/recipe-gallery           dev only (RECIPE_GALLERY=1): every recipe on random inventories
+    GET  /api/builds-status                whether the LDraw library is installed (for the UI)
+
+The LDraw parts library itself is never served.
+"""
+
+import csv
+import logging
+
+from fastapi import APIRouter, HTTPException, Query
+from fastapi.concurrency import run_in_threadpool
+from fastapi.responses import PlainTextResponse, Response
+from pydantic import BaseModel, Field
+
+from backend import config
+from backend.core import idmap, omr
+from backend.core.aibuild import BuildError
+from backend.core.buildsvc import BuildService, valid_id
+from backend.core.ideas import IdeasError
+from backend.core.ldmap import ColourMapper, PartMapper
+from backend.core.setmatch import POOL, TOP
+from backend.core.ldraw_lib import DEFAULT_ZIP, LDrawLibrary, LibraryMissing
+
+log = logging.getLogger("lego.builds_api")
+router = APIRouter()
+
+_deps = {}
+_service = None
+_setinfo = None
+
+
+def get_setinfo():
+    """Card states (3D model / official instructions / none), created on first use; lookups run in a background thread."""
+    global _setinfo
+    if _setinfo is None:
+        from backend.core.instructions import InstructionsService
+        from backend.core.setinfo import SetInfo
+        svc = InstructionsService(config.INSTRUCTIONS_DB, config.BRICKSET_API_KEY, config.INSTRUCTIONS_TTL_DAYS,
+                                  config.BRICKSET_DAILY_CAP, config.BRICKSET_MIN_INTERVAL)
+        _setinfo = SetInfo(svc, config.BUILD_CACHE_DIR, config.OMR_BASE_URL)
+    return _setinfo
+
+
+def rank_by_instructions(rows, top):
+    """Annotate match rows with their `instructions` state and sort: state 1, 2, then 3; completeness; part count."""
+    from backend.core.setinfo import rank_key
+    get_setinfo().annotate(rows)
+    return sorted(rows, key=rank_key)[:top]
+
+
+def configure(store, rb_api, get_llm, slots):
+    """Hand the app's shared objects to this module (called once from main.py)."""
+    _deps.update(store=store, rb_api=rb_api, get_llm=get_llm, slots=slots)
+
+
+def reset_service():
+    """Forget the cached service (tests, or after the library was downloaded)."""
+    global _service
+    _service = None
+
+
+def _colour_rows():
+    path = config.DATA_DIR / "colors.csv"
+    if not path.exists():
+        return []
+    with open(path, encoding="utf-8", newline="") as f:
+        return [(r["id"], r["name"], r["rgb"]) for r in csv.DictReader(f)]
+
+
+def get_service():
+    """The build service, created on first use. 503 with a clear message while the LDraw library is not downloaded."""
+    global _service
+    if _service is None:
+        try:
+            lib = LDrawLibrary(config.LDRAW_DIR / DEFAULT_ZIP)
+        except LibraryMissing as e:
+            raise HTTPException(503, f"3D instructions need the LDraw parts library. {e}")
+        store = _deps["store"]
+        known = dict(store.known_ids) if store.known_ids else {}
+        rel_map = dict(store.index.rel_map) if store.index else {}
+        parts = PartMapper(lib, known, rel_map, _deps["rb_api"], config.BUILD_CACHE_DIR / "ldraw_ids.json")
+        _service = BuildService(lib, parts, ColourMapper(lib, _colour_rows()), config.BUILD_CACHE_DIR, config.OMR_BASE_URL)
+    return _service
+
+
+class BuildPartIn(BaseModel):
+    part_num: str = Field(max_length=40)
+    color: str | None = Field(default=None, max_length=40)
+    qty: int = Field(default=1, ge=1, le=999)
+    name: str | None = Field(default=None, max_length=100)
+
+
+class IdeaIn(BaseModel):
+    name: str = Field(default="", max_length=120)
+    description: str = Field(default="", max_length=400)
+
+
+class AiBuildIn(BaseModel):
+    parts: list[BuildPartIn] = Field(min_length=1, max_length=500)
+    idea: IdeaIn | None = None
+    match_color: bool = True          # "Consider color": False counts pieces by part only and colours the build afterwards
+
+
+class SetBuildIn(BaseModel):
+    parts: list[BuildPartIn] = Field(default_factory=list, max_length=500)
+    match_color: bool | None = None   # "Consider color": True counts by (part, colour), False by part only, None reports both
+    set_name: str | None = Field(default=None, max_length=200)
+
+
+@router.get("/api/builds-status")
+def builds_status():
+    ready = (config.LDRAW_DIR / DEFAULT_ZIP).exists()
+    return {"ldraw_library": ready, "hint": None if ready else "Run: python -m backend.core.fetch_ldraw"}
+
+
+@router.post("/api/builds/ai")
+async def ai_build(body: AiBuildIn):
+    svc = get_service()
+    store = _deps["store"]
+    names = store.part_names()
+    parts = []
+    for p in body.parts:
+        rid = idmap.resolve_local(p.part_num, store.known_ids) if store.known_ids else None
+        parts.append({"part_num": p.part_num, "color": p.color, "qty": p.qty, "name": p.name or (names.get(rid) if rid else None)})
+    try:
+        async with _deps["slots"]:
+            return await svc.create_ai_build(parts, body.idea.model_dump() if body.idea else None, _deps["get_llm"](), body.match_color)
+    except (BuildError, IdeasError) as e:
+        raise HTTPException(e.status, str(e))
+
+
+@router.get("/api/builds/{build_id}")
+def build_meta(build_id: str):
+    meta = get_service().meta(build_id) if valid_id(build_id) else None
+    if meta is None:
+        raise HTTPException(404, "Unknown build.")
+    return meta
+
+
+@router.get("/api/builds/{build_id}/model.mpd")
+def build_model(build_id: str, lite: bool = False):
+    text = get_service().mpd(build_id, lite) if valid_id(build_id) else None
+    if text is None:
+        raise HTTPException(404, "Unknown build.")
+    return PlainTextResponse(text, headers={"Cache-Control": "public, max-age=31536000, immutable"})   # ids are content hashes / set numbers
+
+
+@router.get("/api/ldraw/LDConfig.ldr")
+def ldconfig():
+    text = get_service().lib.read("LDConfig.ldr")
+    if text is None:
+        raise HTTPException(404, "LDConfig.ldr is not in the library.")
+    return PlainTextResponse(text, headers={"Cache-Control": "public, max-age=86400"})
+
+
+def set_inventory(set_num, user_parts, store):
+    """The set's parts with how many of each the user has: [{part, name, colour, need, have, missing, image}]."""
+    index = store.index
+    need = (index.req[True].get(set_num) if index else None) or {}
+    names = store.part_names()
+    colours = {c[1].lower(): c[1] for c in _colour_rows()}
+    have = {}
+    for p in user_parts:
+        rid = idmap.resolve_local(p.part_num, store.known_ids) or p.part_num
+        key = index._key(rid, p.color, True)
+        have[key] = have.get(key, 0) + p.qty
+    rows = []
+    for (part, colour), qty in sorted(need.items(), key=lambda kv: (-kv[1], kv[0])):
+        got = min(have.get((part, colour), 0), qty)
+        rows.append({"part": part, "name": names.get(part, part), "colour": colours.get(colour, colour.title()), "need": qty,
+                     "have": got, "missing": qty - got, "image": index.image_for(part, colour)})
+    return rows
+
+
+@router.post("/api/sets/{set_num}/build")
+async def set_build(set_num: str, body: SetBuildIn):
+    store = _deps["store"]
+    if not store.data_loaded:
+        raise HTTPException(503, store.error or "Set data is still loading; try again shortly.")
+    base = set_num.split("-")[0]
+    result = {"set_num": set_num, "name": body.set_name, "available": False, "reason": None, "build": None,
+              "instructions_url": f"https://www.lego.com/service/buildinginstructions/{base}",
+              "inventory": await run_in_threadpool(set_inventory, set_num, body.parts, store)}
+    result["need_total"] = sum(r["need"] for r in result["inventory"])
+    result["have_total"] = sum(r["have"] for r in result["inventory"])
+    try:
+        meta, reason = await get_service().official_build(set_num, body.set_name)
+    except HTTPException:
+        raise
+    except Exception as e:                                                       # noqa: BLE001  the parts list is still useful
+        log.warning("official build for %s failed: %s", set_num, e)
+        meta, reason = None, "error"
+    result["available"], result["reason"], result["build"] = meta is not None, reason, meta
+    result["instructions"] = get_setinfo().info(set_num)
+    return result
+
+
+# ------------------------------------------------------------------ recipe builds, nearby sets, gallery (all additive)
+class RecipesIn(BaseModel):
+    parts: list[BuildPartIn] = Field(min_length=1, max_length=500)
+    use_ai: bool = True
+    match_color: bool = True
+
+
+def _named_parts(parts):
+    store = _deps["store"]
+    names = store.part_names() if store.parts_loaded else {}
+    out = []
+    for p in parts:
+        rid = idmap.resolve_local(p.part_num, store.known_ids) if store.known_ids else None
+        out.append({"part_num": p.part_num, "color": p.color, "qty": p.qty, "name": p.name or (names.get(rid) if rid else None)})
+    return out
+
+
+@router.post("/api/builds/recipes")
+async def recipe_builds_endpoint(body: RecipesIn):
+    from backend.recipes.service import recipe_builds
+    svc = get_service()
+    llm = None
+    if body.use_ai:
+        try:
+            llm = _deps["get_llm"]()
+        except IdeasError:
+            llm = None                                           # no API key: standard names, the builds still work
+    try:
+        async with _deps["slots"]:
+            return await recipe_builds(svc, _named_parts(body.parts), llm, use_ai=body.use_ai, match_color=body.match_color)
+    except (BuildError, IdeasError) as e:
+        raise HTTPException(e.status, str(e))
+
+
+@router.get("/api/builds/{build_id}/thumb.png")
+def build_thumb(build_id: str):
+    png = get_service().thumb(build_id) if valid_id(build_id) else None
+    if png is None:
+        raise HTTPException(404, "No thumbnail for this build.")
+    return Response(png, media_type="image/png", headers={"Cache-Control": "public, max-age=31536000, immutable"})
+
+
+class InstructionsIn(BaseModel):
+    set_nums: list[str] = Field(min_length=1, max_length=60)
+
+
+@router.post("/api/sets/instructions")
+async def sets_instructions(body: InstructionsIn):
+    """{"sets": {set_num: {state: 1|2|3|null, links: [{url, description}], pending}}}: caches only, lookups run in the background."""
+    info = get_setinfo()
+    nums = [s for s in dict.fromkeys(body.set_nums) if omr.valid_set_num(s)]
+    out = {s: info.info(s) for s in nums}
+    info.prefetch([s for s in nums if out[s]["pending"]])
+    return {"sets": out}
+
+
+_matcher = None
+
+
+def _get_matcher(store):
+    global _matcher
+    if _matcher is None:
+        from backend.core.setmatch import SetMatcher
+        _matcher = SetMatcher(store.index, store.parts)
+    return _matcher
+
+
+@router.post("/api/sets/nearby")
+async def sets_nearby(body: SetBuildIn):
+    store = _deps["store"]
+    if not store.data_loaded or not store.parts_loaded:
+        raise HTTPException(503, store.error or "Set data is still loading; try again shortly.")
+    names = store.part_names()
+    parts = []
+    for p in body.parts:
+        rid = idmap.resolve_local(p.part_num, store.known_ids) or p.part_num
+        parts.append({"part_num": rid, "color": p.color, "qty": p.qty})
+    matcher = await run_in_threadpool(_get_matcher, store)
+    result = await run_in_threadpool(matcher.match, parts, names, POOL, body.match_color)
+    for key in ("can_build", "almost"):
+        result[key] = await run_in_threadpool(rank_by_instructions, result[key], TOP)
+    for row in result["can_build"] + result["almost"]:                    # the shape SetCard already renders
+        row["parts_you_have"] = row["total_parts"] - row["missing_count"]
+        row["coverage"] = round(row["parts_you_have"] / max(1, row["total_parts"]), 3)
+        row["complete"] = row["missing_count"] == 0
+        for m in row["missing"]:
+            m["color"] = m["colour"]
+    return result
+
+
+@router.get("/api/dev/recipe-gallery")
+async def recipe_gallery(seed: int = 1, per: int = Query(5, ge=1, le=8)):
+    if not config.RECIPE_GALLERY:
+        raise HTTPException(404, "Set RECIPE_GALLERY=1 to enable the recipe gallery.")
+    import random
+    from backend.core.ldrconv import build_to_ldr
+    from backend.core.render_iso import render_png
+    from backend.recipes import all_recipes
+    from backend.recipes.inventories import random_inventory
+    from backend.recipes.planner import plan_candidates
+    from backend.recipes.suggest import Shown
+    from backend.recipes.service import store_candidate
+    svc = get_service()
+    out = []
+    for recipe in all_recipes():
+        rows = []
+        for i in range(per):
+            s = seed * 1000 + i
+            inv = random_inventory(random.Random(s), random.Random(s).randint(40, 120))
+            cands = await run_in_threadpool(plan_candidates, inv, s, 3, [recipe])
+            summary = ", ".join(f"{c.qty} x {c.part_id} {c.colour}" for c in inv.parts()[:6]) + ("..." if len(inv.parts()) > 6 else "")
+            if not cands:
+                rows.append({"seed": s, "build": None, "inventory": summary, "pieces": sum(c.qty for c in inv.parts())})
+                continue
+            best = cands[0]
+            meta = await run_in_threadpool(store_candidate, svc, inv, Shown(best, best.default_name(), f"{best.part_count} parts", False))
+            rows.append({"seed": s, "build": meta, "inventory": summary, "pieces": sum(c.qty for c in inv.parts())})
+        out.append({"recipe": recipe.id, "name": recipe.title, "rows": rows})
+    return {"recipes": out}

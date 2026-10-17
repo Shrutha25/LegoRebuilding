@@ -1,0 +1,858 @@
+{
+ "11/bridge/gap=2,height=1,width=2": {
+  "build": "dc781f72253dd61a",
+  "regions": "6ced77697e433215"
+ },
+ "11/bridge/gap=2,height=1,width=3": {
+  "build": "02b11744ad002f38",
+  "regions": "a46dd11ea615b46c"
+ },
+ "11/bridge/gap=2,height=1,width=4": {
+  "build": "e9f64a72f2edb7a9",
+  "regions": "4ed8e5f0ba6b884f"
+ },
+ "11/bridge/gap=2,height=2,width=2": {
+  "build": "77b01558f4f2dd88",
+  "regions": "c62821603851babd"
+ },
+ "11/bridge/gap=2,height=2,width=3": {
+  "build": "5da33c656b31ef1a",
+  "regions": "d6d40f8a69ee6ace"
+ },
+ "11/bridge/gap=2,height=2,width=4": {
+  "build": "f23a3e40c34f01e1",
+  "regions": "c1c3244b698b14c1"
+ },
+ "11/bridge/gap=2,height=3,width=2": {
+  "build": "06b66a20a8b59c52",
+  "regions": "3a182474854223f4"
+ },
+ "11/bridge/gap=2,height=3,width=3": {
+  "build": "aa6c0807f75c7c3b",
+  "regions": "fbf8dc01e850b924"
+ },
+ "11/bridge/gap=2,height=3,width=4": {
+  "build": "eb48b45c271690fe",
+  "regions": "faaa86390aefe36a"
+ },
+ "11/bridge/gap=4,height=1,width=2": {
+  "build": "0abf138ddbeb31ab",
+  "regions": "99fa95bb6bc33992"
+ },
+ "11/bridge/gap=4,height=1,width=3": {
+  "build": "849c543b229e16a7",
+  "regions": "e3adf83bbf07cdd2"
+ },
+ "11/bridge/gap=4,height=1,width=4": {
+  "build": "94f250594a78343d",
+  "regions": "d0d55bee490174f4"
+ },
+ "11/bridge/gap=4,height=2,width=2": {
+  "build": "cd49e3f50a1401a7",
+  "regions": "b055e1890cc93a7c"
+ },
+ "11/bridge/gap=4,height=2,width=3": {
+  "build": "288e5b6923ebb3f9",
+  "regions": "50e2df28fc0c2bca"
+ },
+ "11/bridge/gap=4,height=2,width=4": {
+  "build": "9ae994c7edc7f27c",
+  "regions": "475a737a1875dd58"
+ },
+ "11/bridge/gap=4,height=3,width=2": {
+  "build": "ebdb3d0c3acf401a",
+  "regions": "d3f47da232140e85"
+ },
+ "11/bridge/gap=4,height=3,width=3": {
+  "build": "03c571ebe5cb9b1e",
+  "regions": "13f1ebe2bf2c58dd"
+ },
+ "11/bridge/gap=4,height=3,width=4": {
+  "build": "5665e1a66fa9a274",
+  "regions": "1d4bcfb639a0d3ff"
+ },
+ "11/bridge/gap=6,height=1,width=2": {
+  "build": "c574e96a73070223",
+  "regions": "869c73b8863637db"
+ },
+ "11/bridge/gap=6,height=1,width=3": {
+  "build": "f72f76dfd60ec367",
+  "regions": "2ff6c9e7cce324f0"
+ },
+ "11/bridge/gap=6,height=1,width=4": {
+  "build": "b224f242380999ce",
+  "regions": "5f596024f72efc5f"
+ },
+ "11/bridge/gap=6,height=2,width=2": {
+  "build": "815d1b34de324408",
+  "regions": "d71d333a84b7ae9c"
+ },
+ "11/bridge/gap=6,height=2,width=3": {
+  "build": "f7b594bd32d5bd6f",
+  "regions": "624f2c8e0f2e7d01"
+ },
+ "11/bridge/gap=6,height=2,width=4": {
+  "build": "97d73e90cfa75798",
+  "regions": "a9dec9fb5031444a"
+ },
+ "11/bridge/gap=6,height=3,width=2": {
+  "build": "66abad663fc026b3",
+  "regions": "56da7be97fa46922"
+ },
+ "11/bridge/gap=6,height=3,width=3": {
+  "build": "1fbff44e2fc672a9",
+  "regions": "dd37a2cb1ff7e2fa"
+ },
+ "11/bridge/gap=6,height=3,width=4": {
+  "build": "9988b1cde99ee9df",
+  "regions": "c109dda1b0551e09"
+ },
+ "11/car/cabin=1,length=10,width=2": {
+  "build": "338a164797df4966",
+  "regions": "05b4f0d22ddf2ca4"
+ },
+ "11/car/cabin=1,length=10,width=3": {
+  "build": "b41e1154a9660a4c",
+  "regions": "c7b142c1e67edcb8"
+ },
+ "11/car/cabin=1,length=10,width=4": {
+  "build": "4413e1f5eb6e4859",
+  "regions": "36c8b2bd7c30a40c"
+ },
+ "11/car/cabin=1,length=6,width=2": {
+  "build": "457ae96f76260c4d",
+  "regions": "273c80135883db49"
+ },
+ "11/car/cabin=1,length=6,width=3": {
+  "build": "f5a88645290bb2f4",
+  "regions": "d6fbb14fb70639c2"
+ },
+ "11/car/cabin=1,length=8,width=2": {
+  "build": "0042847cee28f3dd",
+  "regions": "03762f265a52d6f3"
+ },
+ "11/car/cabin=1,length=8,width=3": {
+  "build": "27b6f08bf057a8c5",
+  "regions": "c5eada905dbdd7bb"
+ },
+ "11/car/cabin=1,length=8,width=4": {
+  "build": "7c967868dc8655f3",
+  "regions": "e8962a29b79ff5fa"
+ },
+ "11/car/cabin=2,length=10,width=3": {
+  "build": "0056647d30a883b1",
+  "regions": "ed3a15b5f5650c90"
+ },
+ "11/car/cabin=2,length=10,width=4": {
+  "build": "3bd42ee63b9684d8",
+  "regions": "23bc5727a1cad520"
+ },
+ "11/car/cabin=2,length=8,width=3": {
+  "build": "f6599e0225e4383b",
+  "regions": "e5c9fa4b84d9143c"
+ },
+ "11/car/cabin=2,length=8,width=4": {
+  "build": "b7aaa7e13a098742",
+  "regions": "87598d9702ea5b89"
+ },
+ "11/house/depth=4,roof=0,wall_layers=3,width=4": {
+  "build": "8dfbddd320f547c2",
+  "regions": "ebb4bef474b0111d"
+ },
+ "11/house/depth=4,roof=0,wall_layers=3,width=5": {
+  "build": "83d4d1496ffa8ef4",
+  "regions": "b054445417407bfb"
+ },
+ "11/house/depth=4,roof=0,wall_layers=3,width=6": {
+  "build": "67c7fe2b03519533",
+  "regions": "02fb24d6511b58bf"
+ },
+ "11/house/depth=4,roof=0,wall_layers=3,width=8": {
+  "build": "e009ee2e03fcd549",
+  "regions": "1688e1c69c389228"
+ },
+ "11/house/depth=4,roof=0,wall_layers=4,width=4": {
+  "build": "523ab5de34149051",
+  "regions": "c4f72c60f197eea5"
+ },
+ "11/house/depth=4,roof=0,wall_layers=4,width=5": {
+  "build": "12bb990a11b31f0b",
+  "regions": "5711a72099ec3637"
+ },
+ "11/house/depth=4,roof=0,wall_layers=4,width=6": {
+  "build": "be798575820a95f1",
+  "regions": "9f6dce0e23fd1210"
+ },
+ "11/house/depth=4,roof=0,wall_layers=4,width=8": {
+  "build": "58467fd785917584",
+  "regions": "0c16b83e124a233f"
+ },
+ "11/house/depth=4,roof=1,wall_layers=3,width=4": {
+  "build": "f2047b0abd89b284",
+  "regions": "e318b15cea01255f"
+ },
+ "11/house/depth=4,roof=1,wall_layers=3,width=5": {
+  "build": "95178349cfecb559",
+  "regions": "e94c18f08fb50d34"
+ },
+ "11/house/depth=4,roof=1,wall_layers=3,width=6": {
+  "build": "1d5e7ff06d092e88",
+  "regions": "b13840d33ece3373"
+ },
+ "11/house/depth=4,roof=1,wall_layers=3,width=8": {
+  "build": "47579638f0ac9853",
+  "regions": "374fe3d0072831f6"
+ },
+ "11/house/depth=4,roof=1,wall_layers=4,width=4": {
+  "build": "c54b5488ac922b84",
+  "regions": "2d2fec91bc484874"
+ },
+ "11/house/depth=4,roof=1,wall_layers=4,width=5": {
+  "build": "b37ad1a24f6423a6",
+  "regions": "bdff3fcebd763dc1"
+ },
+ "11/house/depth=4,roof=1,wall_layers=4,width=6": {
+  "build": "9616f7cad102006b",
+  "regions": "abf96c648ace0d61"
+ },
+ "11/house/depth=4,roof=1,wall_layers=4,width=8": {
+  "build": "11d9ecf14433a428",
+  "regions": "26087f465e66c506"
+ },
+ "11/house/depth=5,roof=0,wall_layers=3,width=4": {
+  "build": "3586cfe4ccc82e0c",
+  "regions": "261e99ae88fb073f"
+ },
+ "11/house/depth=5,roof=0,wall_layers=3,width=5": {
+  "build": "dc63f210b0080f08",
+  "regions": "5aedc2fc2d477133"
+ },
+ "11/house/depth=5,roof=0,wall_layers=3,width=6": {
+  "build": "d7e337eecf3566df",
+  "regions": "69e7df178c5874a3"
+ },
+ "11/house/depth=5,roof=0,wall_layers=3,width=8": {
+  "build": "339323d5d20e8dee",
+  "regions": "b134893f0de13ef0"
+ },
+ "11/house/depth=5,roof=0,wall_layers=4,width=4": {
+  "build": "df688ffd14954e73",
+  "regions": "3631385cbd2fb559"
+ },
+ "11/house/depth=5,roof=0,wall_layers=4,width=5": {
+  "build": "872bd5f73516e224",
+  "regions": "5a29a27293d89358"
+ },
+ "11/house/depth=5,roof=0,wall_layers=4,width=6": {
+  "build": "fb39532e06a1fec4",
+  "regions": "e39e86d1bd2f4b31"
+ },
+ "11/house/depth=5,roof=0,wall_layers=4,width=8": {
+  "build": "902b54aeac587702",
+  "regions": "071315676c925c44"
+ },
+ "11/house/depth=5,roof=1,wall_layers=3,width=4": {
+  "build": "4a997e619f797143",
+  "regions": "a3fba8d0d7504b08"
+ },
+ "11/house/depth=5,roof=1,wall_layers=3,width=5": {
+  "build": "995b0a196d49c1df",
+  "regions": "ec7f71a71f2bd36f"
+ },
+ "11/house/depth=5,roof=1,wall_layers=3,width=6": {
+  "build": "904d632c0dc6d708",
+  "regions": "bc57b52c608a6fb3"
+ },
+ "11/house/depth=5,roof=1,wall_layers=3,width=8": {
+  "build": "4a7e792c1020ddb0",
+  "regions": "7c79a490dad5ecf8"
+ },
+ "11/house/depth=5,roof=1,wall_layers=4,width=4": {
+  "build": "d6ce8b32ce33ca7c",
+  "regions": "d622d6245f580032"
+ },
+ "11/house/depth=5,roof=1,wall_layers=4,width=5": {
+  "build": "f244ede5585ecc35",
+  "regions": "d8b56b0875468b40"
+ },
+ "11/house/depth=5,roof=1,wall_layers=4,width=6": {
+  "build": "356caf5612191bfd",
+  "regions": "660fe763ab420686"
+ },
+ "11/house/depth=5,roof=1,wall_layers=4,width=8": {
+  "build": "31b51df6985a4b1e",
+  "regions": "8e3d124444e3c6b5"
+ },
+ "11/house/depth=6,roof=0,wall_layers=3,width=4": {
+  "build": "77dfc907bc956ee9",
+  "regions": "a8a628363f245717"
+ },
+ "11/house/depth=6,roof=0,wall_layers=3,width=5": {
+  "build": "23018c7ca1f3d91c",
+  "regions": "ff55bc8523c0f934"
+ },
+ "11/house/depth=6,roof=0,wall_layers=3,width=6": {
+  "build": "0483764494944d1f",
+  "regions": "4e95a79351d1e7b4"
+ },
+ "11/house/depth=6,roof=0,wall_layers=3,width=8": {
+  "build": "c038141a14da95d2",
+  "regions": "fac2fb8fe125e3a6"
+ },
+ "11/house/depth=6,roof=0,wall_layers=4,width=4": {
+  "build": "e6e17da981a74085",
+  "regions": "b89480032a345359"
+ },
+ "11/house/depth=6,roof=0,wall_layers=4,width=5": {
+  "build": "3c9f239d8006bc57",
+  "regions": "5bc316adb0d07f28"
+ },
+ "11/house/depth=6,roof=0,wall_layers=4,width=6": {
+  "build": "2b97e6ae44ff436e",
+  "regions": "4826a3f38a9cccd4"
+ },
+ "11/house/depth=6,roof=0,wall_layers=4,width=8": {
+  "build": "17ba2c68bf19631b",
+  "regions": "1c15d32f0e78a592"
+ },
+ "11/house/depth=6,roof=1,wall_layers=3,width=4": {
+  "build": "8ca7459b7c1264a3",
+  "regions": "d4b5fca5d747ef3c"
+ },
+ "11/house/depth=6,roof=1,wall_layers=3,width=5": {
+  "build": "eb9a55aa01962216",
+  "regions": "38e0f63e887afd0f"
+ },
+ "11/house/depth=6,roof=1,wall_layers=3,width=6": {
+  "build": "548add6883fecd6f",
+  "regions": "8edf75889c004fd9"
+ },
+ "11/house/depth=6,roof=1,wall_layers=3,width=8": {
+  "build": "b62d71a1ef8d5c7f",
+  "regions": "aef2a71e74a460d1"
+ },
+ "11/house/depth=6,roof=1,wall_layers=4,width=4": {
+  "build": "f9191ab6d5e1dcc9",
+  "regions": "224ea19fd1fc29d1"
+ },
+ "11/house/depth=6,roof=1,wall_layers=4,width=5": {
+  "build": "b9cbe22478c5929a",
+  "regions": "dc09fd53a964be45"
+ },
+ "11/house/depth=6,roof=1,wall_layers=4,width=6": {
+  "build": "e5ad9721e2d7332e",
+  "regions": "96310513a924f0d3"
+ },
+ "11/house/depth=6,roof=1,wall_layers=4,width=8": {
+  "build": "ac0fa265ab8bd26a",
+  "regions": "5046b68e99934bce"
+ },
+ "11/rocket/core_layers=3,fin_layers=1": {
+  "build": "9afaf5efc0148fab",
+  "regions": "80710101e92895d4"
+ },
+ "11/rocket/core_layers=3,fin_layers=2": {
+  "build": "9afaf5efc0148fab",
+  "regions": "ddff9964b5bd7fa9"
+ },
+ "11/rocket/core_layers=4,fin_layers=1": {
+  "build": "4c6c47f9093d09de",
+  "regions": "805ea46584db3b66"
+ },
+ "11/rocket/core_layers=4,fin_layers=2": {
+  "build": "4c6c47f9093d09de",
+  "regions": "e24bffb587a172d3"
+ },
+ "11/rocket/core_layers=5,fin_layers=1": {
+  "build": "69406e89a5f041c7",
+  "regions": "ad53469c5ae460eb"
+ },
+ "11/rocket/core_layers=5,fin_layers=2": {
+  "build": "69406e89a5f041c7",
+  "regions": "4e32badbcbc476c1"
+ },
+ "11/rocket/core_layers=6,fin_layers=1": {
+  "build": "a20ee798dba4ccd9",
+  "regions": "5c4ca185960afa14"
+ },
+ "11/rocket/core_layers=6,fin_layers=2": {
+  "build": "a20ee798dba4ccd9",
+  "regions": "ce8903e8ba44452f"
+ },
+ "11/tower/band=1,depth=2,layers=10": {
+  "build": "a18dc3ae0e2c1116",
+  "regions": "721ea0791e1748b6"
+ },
+ "11/tower/band=1,depth=2,layers=4": {
+  "build": "07f18e8bdc8feede",
+  "regions": "f86ab18f9c7941a2"
+ },
+ "11/tower/band=1,depth=2,layers=6": {
+  "build": "cc0bd4760719db26",
+  "regions": "3d177f74e308ecdf"
+ },
+ "11/tower/band=1,depth=2,layers=8": {
+  "build": "b90df414b875528d",
+  "regions": "b54d19e76b856b7d"
+ },
+ "11/tower/band=1,depth=4,layers=10": {
+  "build": "470421c447800246",
+  "regions": "8a7104b450f2282a"
+ },
+ "11/tower/band=1,depth=4,layers=8": {
+  "build": "b8aad779a6de290d",
+  "regions": "8d3e7a7f91a7a61e"
+ },
+ "11/tower/band=2,depth=2,layers=10": {
+  "build": "7ffe577f6b5d2b0f",
+  "regions": "151db9316f72dd2c"
+ },
+ "11/tower/band=2,depth=2,layers=4": {
+  "build": "b2132170960d8d4e",
+  "regions": "4462de185ae294e3"
+ },
+ "11/tower/band=2,depth=2,layers=6": {
+  "build": "dd4a7cf8a375074f",
+  "regions": "75cbc8c3b404b31a"
+ },
+ "11/tower/band=2,depth=2,layers=8": {
+  "build": "ab2d1be6691850be",
+  "regions": "091427b86a1ddc5e"
+ },
+ "11/tower/band=2,depth=4,layers=10": {
+  "build": "81b18fd98e22a09b",
+  "regions": "5da9411f989745eb"
+ },
+ "11/tower/band=2,depth=4,layers=8": {
+  "build": "08b3697d99c7828e",
+  "regions": "6950a730c3eb8c40"
+ },
+ "7/bridge/gap=2,height=1,width=2": {
+  "build": "b4f329058177e4cf",
+  "regions": "6ced77697e433215"
+ },
+ "7/bridge/gap=2,height=1,width=3": {
+  "build": "99eb0605d92eb935",
+  "regions": "a46dd11ea615b46c"
+ },
+ "7/bridge/gap=2,height=1,width=4": {
+  "build": "01ae7cf490b8cc5d",
+  "regions": "4ed8e5f0ba6b884f"
+ },
+ "7/bridge/gap=2,height=2,width=2": {
+  "build": "109b64f6b2fb6e9e",
+  "regions": "c62821603851babd"
+ },
+ "7/bridge/gap=2,height=2,width=3": {
+  "build": "af89ed1a723782a8",
+  "regions": "d6d40f8a69ee6ace"
+ },
+ "7/bridge/gap=2,height=2,width=4": {
+  "build": "033e04aefbc8f8a0",
+  "regions": "c1c3244b698b14c1"
+ },
+ "7/bridge/gap=2,height=3,width=2": {
+  "build": "d655acccebe7d9a9",
+  "regions": "3a182474854223f4"
+ },
+ "7/bridge/gap=2,height=3,width=3": {
+  "build": "caa4306ae573cde1",
+  "regions": "fbf8dc01e850b924"
+ },
+ "7/bridge/gap=2,height=3,width=4": {
+  "build": "e81579adbcc56364",
+  "regions": "faaa86390aefe36a"
+ },
+ "7/bridge/gap=4,height=1,width=2": {
+  "build": "0149355c039afa9d",
+  "regions": "99fa95bb6bc33992"
+ },
+ "7/bridge/gap=4,height=1,width=3": {
+  "build": "4daeb7a73a7cf4e4",
+  "regions": "e3adf83bbf07cdd2"
+ },
+ "7/bridge/gap=4,height=1,width=4": {
+  "build": "3fa38d2d02139b0f",
+  "regions": "d0d55bee490174f4"
+ },
+ "7/bridge/gap=4,height=2,width=2": {
+  "build": "8bbf56df6d71e120",
+  "regions": "b055e1890cc93a7c"
+ },
+ "7/bridge/gap=4,height=2,width=3": {
+  "build": "51651d21559b14a8",
+  "regions": "50e2df28fc0c2bca"
+ },
+ "7/bridge/gap=4,height=2,width=4": {
+  "build": "2daaac867ce40e3f",
+  "regions": "475a737a1875dd58"
+ },
+ "7/bridge/gap=4,height=3,width=2": {
+  "build": "773e1c69a02550b7",
+  "regions": "d3f47da232140e85"
+ },
+ "7/bridge/gap=4,height=3,width=3": {
+  "build": "1fc0f8625fb7a0c4",
+  "regions": "13f1ebe2bf2c58dd"
+ },
+ "7/bridge/gap=4,height=3,width=4": {
+  "build": "10b559f7e91efd56",
+  "regions": "1d4bcfb639a0d3ff"
+ },
+ "7/bridge/gap=6,height=1,width=2": {
+  "build": "53d3db3767598e50",
+  "regions": "869c73b8863637db"
+ },
+ "7/bridge/gap=6,height=1,width=3": {
+  "build": "681663c64ea74538",
+  "regions": "2ff6c9e7cce324f0"
+ },
+ "7/bridge/gap=6,height=1,width=4": {
+  "build": "9dbeba42571dddcd",
+  "regions": "5f596024f72efc5f"
+ },
+ "7/bridge/gap=6,height=2,width=2": {
+  "build": "247f7c189f6fe29e",
+  "regions": "d71d333a84b7ae9c"
+ },
+ "7/bridge/gap=6,height=2,width=3": {
+  "build": "265dcf21bb3c2ad8",
+  "regions": "624f2c8e0f2e7d01"
+ },
+ "7/bridge/gap=6,height=2,width=4": {
+  "build": "ad9d9e96b898e2b9",
+  "regions": "a9dec9fb5031444a"
+ },
+ "7/bridge/gap=6,height=3,width=2": {
+  "build": "577ecdc0e08f19d3",
+  "regions": "56da7be97fa46922"
+ },
+ "7/bridge/gap=6,height=3,width=3": {
+  "build": "9940d86fbcea13dc",
+  "regions": "dd37a2cb1ff7e2fa"
+ },
+ "7/bridge/gap=6,height=3,width=4": {
+  "build": "77c33ea760bf8b7a",
+  "regions": "c109dda1b0551e09"
+ },
+ "7/car/cabin=1,length=10,width=2": {
+  "build": "4567dcccbe51dcfb",
+  "regions": "05b4f0d22ddf2ca4"
+ },
+ "7/car/cabin=1,length=10,width=3": {
+  "build": "da3480c5597c03f2",
+  "regions": "c7b142c1e67edcb8"
+ },
+ "7/car/cabin=1,length=10,width=4": {
+  "build": "30a655551d499678",
+  "regions": "36c8b2bd7c30a40c"
+ },
+ "7/car/cabin=1,length=6,width=2": {
+  "build": "4fb55e353b422359",
+  "regions": "273c80135883db49"
+ },
+ "7/car/cabin=1,length=6,width=3": {
+  "build": "9e309bec2d13e23a",
+  "regions": "d6fbb14fb70639c2"
+ },
+ "7/car/cabin=1,length=8,width=2": {
+  "build": "51bb50961d6d3408",
+  "regions": "03762f265a52d6f3"
+ },
+ "7/car/cabin=1,length=8,width=3": {
+  "build": "cebce4f3f38787fe",
+  "regions": "c5eada905dbdd7bb"
+ },
+ "7/car/cabin=1,length=8,width=4": {
+  "build": "46922247cd6b0033",
+  "regions": "e8962a29b79ff5fa"
+ },
+ "7/car/cabin=2,length=10,width=3": {
+  "build": "a20dd176571b72bf",
+  "regions": "ed3a15b5f5650c90"
+ },
+ "7/car/cabin=2,length=10,width=4": {
+  "build": "a4295b3c3e6505e8",
+  "regions": "23bc5727a1cad520"
+ },
+ "7/car/cabin=2,length=8,width=3": {
+  "build": "5aed9c7d13160ef9",
+  "regions": "e5c9fa4b84d9143c"
+ },
+ "7/car/cabin=2,length=8,width=4": {
+  "build": "03eb82eaa89721fd",
+  "regions": "87598d9702ea5b89"
+ },
+ "7/house/depth=4,roof=0,wall_layers=3,width=4": {
+  "build": "d5d5ec4ed399b190",
+  "regions": "ebb4bef474b0111d"
+ },
+ "7/house/depth=4,roof=0,wall_layers=3,width=5": {
+  "build": "a7095b13a4c21ee9",
+  "regions": "b054445417407bfb"
+ },
+ "7/house/depth=4,roof=0,wall_layers=3,width=6": {
+  "build": "f8f6a77a5bd8e7cb",
+  "regions": "02fb24d6511b58bf"
+ },
+ "7/house/depth=4,roof=0,wall_layers=3,width=8": {
+  "build": "278a5805d0c88d28",
+  "regions": "1688e1c69c389228"
+ },
+ "7/house/depth=4,roof=0,wall_layers=4,width=4": {
+  "build": "9f2d42600b34b5e0",
+  "regions": "c4f72c60f197eea5"
+ },
+ "7/house/depth=4,roof=0,wall_layers=4,width=5": {
+  "build": "b50f746c35e57d32",
+  "regions": "5711a72099ec3637"
+ },
+ "7/house/depth=4,roof=0,wall_layers=4,width=6": {
+  "build": "21c56a3b75dcf07f",
+  "regions": "9f6dce0e23fd1210"
+ },
+ "7/house/depth=4,roof=0,wall_layers=4,width=8": {
+  "build": "b8b21c153757f17f",
+  "regions": "0c16b83e124a233f"
+ },
+ "7/house/depth=4,roof=1,wall_layers=3,width=4": {
+  "build": "f5a37058f877d53b",
+  "regions": "e318b15cea01255f"
+ },
+ "7/house/depth=4,roof=1,wall_layers=3,width=5": {
+  "build": "d73f7fe8f83acc65",
+  "regions": "e94c18f08fb50d34"
+ },
+ "7/house/depth=4,roof=1,wall_layers=3,width=6": {
+  "build": "3f883738d1ebdd0d",
+  "regions": "b13840d33ece3373"
+ },
+ "7/house/depth=4,roof=1,wall_layers=3,width=8": {
+  "build": "e2ab720b3906b4a2",
+  "regions": "374fe3d0072831f6"
+ },
+ "7/house/depth=4,roof=1,wall_layers=4,width=4": {
+  "build": "3d3aae47cad0269f",
+  "regions": "2d2fec91bc484874"
+ },
+ "7/house/depth=4,roof=1,wall_layers=4,width=5": {
+  "build": "7ba2305e614f0b09",
+  "regions": "bdff3fcebd763dc1"
+ },
+ "7/house/depth=4,roof=1,wall_layers=4,width=6": {
+  "build": "68e8be2bc49a5245",
+  "regions": "abf96c648ace0d61"
+ },
+ "7/house/depth=4,roof=1,wall_layers=4,width=8": {
+  "build": "57ce99d63697877c",
+  "regions": "26087f465e66c506"
+ },
+ "7/house/depth=5,roof=0,wall_layers=3,width=4": {
+  "build": "b627b3a4d78cbb22",
+  "regions": "261e99ae88fb073f"
+ },
+ "7/house/depth=5,roof=0,wall_layers=3,width=5": {
+  "build": "0b9aa502b3a2529d",
+  "regions": "5aedc2fc2d477133"
+ },
+ "7/house/depth=5,roof=0,wall_layers=3,width=6": {
+  "build": "ed63c78297108afb",
+  "regions": "69e7df178c5874a3"
+ },
+ "7/house/depth=5,roof=0,wall_layers=3,width=8": {
+  "build": "d7edaacc8a2cceb1",
+  "regions": "b134893f0de13ef0"
+ },
+ "7/house/depth=5,roof=0,wall_layers=4,width=4": {
+  "build": "dd1a5d3709ee0db3",
+  "regions": "3631385cbd2fb559"
+ },
+ "7/house/depth=5,roof=0,wall_layers=4,width=5": {
+  "build": "a52edf4db41b5fb7",
+  "regions": "5a29a27293d89358"
+ },
+ "7/house/depth=5,roof=0,wall_layers=4,width=6": {
+  "build": "d7bd3e70e49f7ea8",
+  "regions": "e39e86d1bd2f4b31"
+ },
+ "7/house/depth=5,roof=0,wall_layers=4,width=8": {
+  "build": "fc6203debdb48208",
+  "regions": "071315676c925c44"
+ },
+ "7/house/depth=5,roof=1,wall_layers=3,width=4": {
+  "build": "db2e89c3c5b0bf41",
+  "regions": "a3fba8d0d7504b08"
+ },
+ "7/house/depth=5,roof=1,wall_layers=3,width=5": {
+  "build": "7bfe409e9e3dff74",
+  "regions": "ec7f71a71f2bd36f"
+ },
+ "7/house/depth=5,roof=1,wall_layers=3,width=6": {
+  "build": "c5dd3b473deb1a08",
+  "regions": "bc57b52c608a6fb3"
+ },
+ "7/house/depth=5,roof=1,wall_layers=3,width=8": {
+  "build": "37610742efc3998b",
+  "regions": "7c79a490dad5ecf8"
+ },
+ "7/house/depth=5,roof=1,wall_layers=4,width=4": {
+  "build": "ccc6a5b11736cf09",
+  "regions": "d622d6245f580032"
+ },
+ "7/house/depth=5,roof=1,wall_layers=4,width=5": {
+  "build": "74046a1ff09f5137",
+  "regions": "d8b56b0875468b40"
+ },
+ "7/house/depth=5,roof=1,wall_layers=4,width=6": {
+  "build": "b52101d4c95cd819",
+  "regions": "660fe763ab420686"
+ },
+ "7/house/depth=5,roof=1,wall_layers=4,width=8": {
+  "build": "4dd9fce6ceee6ff4",
+  "regions": "8e3d124444e3c6b5"
+ },
+ "7/house/depth=6,roof=0,wall_layers=3,width=4": {
+  "build": "8383a40b122f1b0a",
+  "regions": "a8a628363f245717"
+ },
+ "7/house/depth=6,roof=0,wall_layers=3,width=5": {
+  "build": "9e912c9149e02942",
+  "regions": "ff55bc8523c0f934"
+ },
+ "7/house/depth=6,roof=0,wall_layers=3,width=6": {
+  "build": "5efa91325d32cbb8",
+  "regions": "4e95a79351d1e7b4"
+ },
+ "7/house/depth=6,roof=0,wall_layers=3,width=8": {
+  "build": "a38a35506451b92d",
+  "regions": "fac2fb8fe125e3a6"
+ },
+ "7/house/depth=6,roof=0,wall_layers=4,width=4": {
+  "build": "3072f021dacdc4fa",
+  "regions": "b89480032a345359"
+ },
+ "7/house/depth=6,roof=0,wall_layers=4,width=5": {
+  "build": "cc81c4c3841aa5b3",
+  "regions": "5bc316adb0d07f28"
+ },
+ "7/house/depth=6,roof=0,wall_layers=4,width=6": {
+  "build": "4f7bc87cb49548ba",
+  "regions": "4826a3f38a9cccd4"
+ },
+ "7/house/depth=6,roof=0,wall_layers=4,width=8": {
+  "build": "300489e9ee5e179a",
+  "regions": "1c15d32f0e78a592"
+ },
+ "7/house/depth=6,roof=1,wall_layers=3,width=4": {
+  "build": "b3ff47b670c2367e",
+  "regions": "d4b5fca5d747ef3c"
+ },
+ "7/house/depth=6,roof=1,wall_layers=3,width=5": {
+  "build": "4586dd84293d0636",
+  "regions": "38e0f63e887afd0f"
+ },
+ "7/house/depth=6,roof=1,wall_layers=3,width=6": {
+  "build": "d4aefe0b9fdd348d",
+  "regions": "8edf75889c004fd9"
+ },
+ "7/house/depth=6,roof=1,wall_layers=3,width=8": {
+  "build": "b67a9d91e64d218d",
+  "regions": "aef2a71e74a460d1"
+ },
+ "7/house/depth=6,roof=1,wall_layers=4,width=4": {
+  "build": "6ecebc406d468ad0",
+  "regions": "224ea19fd1fc29d1"
+ },
+ "7/house/depth=6,roof=1,wall_layers=4,width=5": {
+  "build": "3c75cc64856f8593",
+  "regions": "dc09fd53a964be45"
+ },
+ "7/house/depth=6,roof=1,wall_layers=4,width=6": {
+  "build": "ee28b7d4c3d76cd2",
+  "regions": "96310513a924f0d3"
+ },
+ "7/house/depth=6,roof=1,wall_layers=4,width=8": {
+  "build": "0e8757bd9ac7a2e8",
+  "regions": "5046b68e99934bce"
+ },
+ "7/rocket/core_layers=3,fin_layers=1": {
+  "build": "e9dad1598ab25b50",
+  "regions": "80710101e92895d4"
+ },
+ "7/rocket/core_layers=3,fin_layers=2": {
+  "build": "82f10bcaa93919f7",
+  "regions": "ddff9964b5bd7fa9"
+ },
+ "7/rocket/core_layers=4,fin_layers=1": {
+  "build": "4fab77634ea2a784",
+  "regions": "805ea46584db3b66"
+ },
+ "7/rocket/core_layers=4,fin_layers=2": {
+  "build": "c2fc78940e5d27d0",
+  "regions": "e24bffb587a172d3"
+ },
+ "7/rocket/core_layers=5,fin_layers=1": {
+  "build": "c49ed5f93375b45c",
+  "regions": "ad53469c5ae460eb"
+ },
+ "7/rocket/core_layers=5,fin_layers=2": {
+  "build": "1edd69093906df8c",
+  "regions": "4e32badbcbc476c1"
+ },
+ "7/rocket/core_layers=6,fin_layers=1": {
+  "build": "0aa1b7802be0b369",
+  "regions": "5c4ca185960afa14"
+ },
+ "7/rocket/core_layers=6,fin_layers=2": {
+  "build": "00221df4c1204ca1",
+  "regions": "ce8903e8ba44452f"
+ },
+ "7/tower/band=1,depth=2,layers=10": {
+  "build": "3eeeb2aff9bfa6ca",
+  "regions": "721ea0791e1748b6"
+ },
+ "7/tower/band=1,depth=2,layers=4": {
+  "build": "7a3047fe264862c8",
+  "regions": "f86ab18f9c7941a2"
+ },
+ "7/tower/band=1,depth=2,layers=6": {
+  "build": "d06ccfe920159b8a",
+  "regions": "3d177f74e308ecdf"
+ },
+ "7/tower/band=1,depth=2,layers=8": {
+  "build": "b0911f799d3817bb",
+  "regions": "b54d19e76b856b7d"
+ },
+ "7/tower/band=1,depth=4,layers=10": {
+  "build": "c38b65083de0dda9",
+  "regions": "8a7104b450f2282a"
+ },
+ "7/tower/band=1,depth=4,layers=8": {
+  "build": "27d42a3269884e97",
+  "regions": "8d3e7a7f91a7a61e"
+ },
+ "7/tower/band=2,depth=2,layers=10": {
+  "build": "236a7642f5ba4bd6",
+  "regions": "151db9316f72dd2c"
+ },
+ "7/tower/band=2,depth=2,layers=4": {
+  "build": "361ff003c634be1b",
+  "regions": "4462de185ae294e3"
+ },
+ "7/tower/band=2,depth=2,layers=6": {
+  "build": "b959916579a1f46f",
+  "regions": "75cbc8c3b404b31a"
+ },
+ "7/tower/band=2,depth=2,layers=8": {
+  "build": "345ffab3af2ccae8",
+  "regions": "091427b86a1ddc5e"
+ },
+ "7/tower/band=2,depth=4,layers=10": {
+  "build": "4063c47a7f1c8fcf",
+  "regions": "5da9411f989745eb"
+ },
+ "7/tower/band=2,depth=4,layers=8": {
+  "build": "bc6f88b176ebf6a6",
+  "regions": "6950a730c3eb8c40"
+ }
+}

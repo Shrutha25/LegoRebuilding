@@ -1,0 +1,19 @@
+{
+  "id": "tower", "title": "Tower", "category": "tower", "tags": ["building", "tall"],
+  "nouns": ["tower", "turret", "lighthouse", "keep", "spire", "belfry", "minaret"],
+  "names": ["Striped Lighthouse", "Watchkeep", "Banded Spire"],
+  "roles": [{"name": "body", "want": "major"}, {"name": "accent", "want": "second"}, {"name": "base", "want": "neutral"}],
+  "params": {"depth": {"range": [2, 4], "bind": "d"}, "layers": {"range": [4, 10], "bind": "h"}, "band": {"range": [1, 2]}},
+  "silhouettes": {"tall-narrow": {"depth": "lo", "layers": "hi", "band": 1}, "wide-squat": {"depth": "hi", "layers": "lo", "band": 2},
+                  "compact": {"depth": "lo", "layers": "mid", "band": 2}},
+  "requires": {"min_parts": 8, "min_long": 2, "min_area": 36},
+  "variants": {"grid": {"depth": [2, 4], "layers": [4, 6, 8, 10], "band": [1, 2]}, "where": "depth == 2 or layers >= 8"},
+  "parts": [
+    {"name": "base", "primitive": "box", "role": "base", "unit": "plate", "min_coverage": 0.35, "args": {"w": 4, "d": "depth + 2", "layers": 1}, "at": {"x": 0, "z": 0, "y": 0}},
+    {"name": "band-{k}", "primitive": "box", "role": ["body", "accent"], "repeat": {"count": "(layers + band - 1) // band", "var": "k"},
+     "args": {"w": 2, "d": "depth", "layers": "min(band, layers - band * k)"}, "at": {"x": 1, "z": 1, "y": "1 + 3 * band * k"}},
+    {"name": "crenellation", "primitive": "checker", "role": "accent", "required": false, "kind": "cells", "args": {"w": 2, "d": "depth", "layers": 1},
+     "at": {"x": 1, "z": 1, "y": "1 + 3 * layers"}}
+  ],
+  "features": {"crenellations": ["crenellation"], "bands": ["band-{k}"]}
+}

@@ -133,7 +133,7 @@ def _idea(name="Brick Tower", pieces=None):
 
 
 def test_ideas_endpoint_validates_and_enriches(client, monkeypatch):
-    stub = _Stub({"ideas": [_idea(), _idea("Cheat", [{"part_num": "3001", "qty": 99}])]})
+    stub = _Stub({"ideas": [_idea(pieces=[{"part_num": "3001", "qty": 2, "colour": "Red"}]), _idea("Cheat", [{"part_num": "3001", "qty": 99, "colour": "Red"}])]})
     monkeypatch.setattr(main, "get_llm", lambda: stub)
     r = client.post("/api/ideas", json={"parts": [{"part_num": "3001", "color": "Red", "qty": 3}]})
     assert r.status_code == 200
@@ -144,6 +144,19 @@ def test_ideas_endpoint_validates_and_enriches(client, monkeypatch):
     assert piece["image"] == "http://img/3001-red"         # image from inventory_parts
     assert len(body["dropped"]) == 1
     assert "Brick 2 x 4 (Red), part 3001" in stub.user
+
+
+def test_ideas_are_filtered_by_the_colour_rule_and_tagged_when_colour_is_ignored(client, monkeypatch):
+    parts = [{"part_num": "3001", "color": "Red", "qty": 3}, {"part_num": "3001", "color": "Blue", "qty": 1}]
+    ideas = {"ideas": [_idea("Red Four", [{"part_num": "3001", "qty": 4, "colour": "Red"}]),          # 4 red 2x4: only 3 are red
+                       _idea("Red Three", [{"part_num": "3001", "qty": 3, "colour": "Red"}]),
+                       _idea("Two Tone", [{"part_num": "3001", "qty": 4}])]}                          # no colour given
+    monkeypatch.setattr(main, "get_llm", lambda: _Stub(ideas))
+    on = client.post("/api/ideas", json={"parts": parts, "match_color": True}).json()
+    assert [i["name"] for i in on["ideas"]] == ["Red Three"] and not on["ideas"][0]["mixed_colours"]
+    off = client.post("/api/ideas", json={"parts": parts, "match_color": False}).json()
+    assert [i["name"] for i in off["ideas"]] == ["Red Four", "Red Three"] or len(off["ideas"]) == 3
+    assert all(i["mixed_colours"] for i in off["ideas"]) and {"Red Four", "Two Tone"} <= {i["name"] for i in off["ideas"]}
 
 
 def test_ideas_without_api_key_is_a_clear_503(client, monkeypatch):
@@ -164,3 +177,45 @@ def test_ideas_llm_failures_become_http_errors_not_crashes(client, monkeypatch):
 
 def test_ideas_validation_errors(client):
     assert client.post("/api/ideas", json={"parts": []}).status_code == 422
+
+
+# ---------------------------------------------------------------- empty-surface reference photo
+def _jpeg(img):
+    import cv2
+    return cv2.imencode(".jpg", img)[1].tobytes()
+
+
+def test_scan_with_an_empty_surface_photo_finds_the_pieces_by_comparing(client, monkeypatch):
+    import time
+
+    from backend import jobs
+    from tests.test_reference import mesh, scene
+
+    async def no_recognition(crops):
+        return [{"error": "skipped"} for _ in crops]
+    monkeypatch.setattr(jobs, "run_photo_job", __import__("functools").partial(jobs.run_photo_job, recognizer=no_recognition))
+
+    r = client.post("/api/reference", files={"file": ("empty.jpg", _jpeg(mesh()), "image/jpeg")})
+    assert r.status_code == 200
+    rid = r.json()["reference_id"]
+    jid = client.post("/api/scan", files={"file": ("bricks.jpg", _jpeg(scene()), "image/jpeg")}, data={"reference_id": rid}).json()["job_id"]
+    for _ in range(100):
+        job = client.get(f"/api/scan/{jid}").json()
+        if job["status"] in ("done", "error"):
+            break
+        time.sleep(0.1)
+    assert job["status"] == "done", job
+    assert len(job["pieces"]) == 5 and job["detector"] == "reference" and "empty-surface" in job["detector_note"]
+
+
+def test_unknown_reference_id_and_bad_reference_photo(client):
+    from tests.test_reference import scene
+    r = client.post("/api/scan", files={"file": ("b.jpg", _jpeg(scene()), "image/jpeg")}, data={"reference_id": "nope"})
+    assert r.status_code == 404 and "expired" in r.json()["detail"]
+    assert client.post("/api/reference", files={"file": ("x.txt", b"hello", "text/plain")}).status_code == 415
+    assert client.post("/api/reference", files={"file": ("x.jpg", b"not an image", "image/jpeg")}).status_code == 400
+
+
+def test_scan_without_a_reference_is_unchanged(client):
+    r = client.post("/api/scan", files={"file": ("b.jpg", _jpeg(__import__("numpy").full((200, 300, 3), 220, "uint8")), "image/jpeg")})
+    assert r.status_code == 200 and "job_id" in r.json()

@@ -1,0 +1,23 @@
+{
+  "id": "boat", "title": "Boat", "category": "boat", "tags": ["vehicle", "water"],
+  "nouns": ["boat", "skiff", "sloop", "ship", "ferry", "tug", "yacht", "canoe"],
+  "names": ["Harbour Skiff", "Little Tern", "Sandbar Sloop", "Lantern Ferry"],
+  "roles": [{"name": "hull", "want": "major"}, {"name": "cabin", "want": "second"}, {"name": "sail", "want": "second"}, {"name": "flag", "want": "neutral"}],
+  "params": {"length": {"range": [6, 12], "bind": "w"}, "width": {"range": [3, 5], "bind": "d"}, "cabin": {"range": [0, 2]}, "mast": {"range": [0, 4]}},
+  "silhouettes": {"long-low": {"length": "hi", "width": "lo", "cabin": 1, "mast": 0}, "tall-narrow": {"length": "mid", "width": "lo", "cabin": 0, "mast": "hi"},
+                  "wide-squat": {"length": "lo", "width": "hi", "cabin": 2, "mast": 0}, "compact": {"length": "lo", "width": "mid", "cabin": 0, "mast": 2}},
+  "constraint": "(cabin == 0 or length >= 8) and (mast == 0 or length >= 8 or cabin == 0) and (cabin > 0 or mast > 0)",
+  "requires": {"min_parts": 8, "min_long": 4, "min_area": 40},
+  "derive": {"cw": "max(2, length // 3)"},
+  "parts": [
+    {"name": "keel", "primitive": "box", "role": "hull", "unit": "plate", "min_coverage": 0.8, "args": {"w": "length - 2", "d": "width - 2", "layers": 1}, "at": {"x": 1, "z": 1, "y": 0}},
+    {"name": "hull", "primitive": "wing", "role": "hull", "unit": "brick", "args": {"span": "length", "chord": "width", "taper": "width - 2", "axis": "x"}, "at": {"x": 0, "z": 0, "y": 1}},
+    {"name": "cabin", "primitive": "box", "role": "cabin", "when": "cabin > 0", "args": {"w": "cw", "d": "width - 2", "layers": "cabin"},
+     "attach": {"to": "hull", "rel": "on_top_of", "anchor_x": "start", "anchor_z": "center", "dx": 1}},
+    {"name": "sail", "primitive": "box", "role": "sail", "when": "mast > 0", "args": {"w": 1, "d": "width - 2", "layers": "mast"},
+     "attach": {"to": "hull", "rel": "on_top_of", "anchor_x": "center", "anchor_z": "center", "dx": 1}},
+    {"name": "flag", "primitive": "box", "role": "flag", "unit": "plate", "required": false, "when": "mast > 0", "args": {"w": 1, "d": 1, "layers": 1},
+     "attach": {"to": "sail", "rel": "on_top_of", "anchor": "center"}}
+  ],
+  "features": {"hull": ["hull"], "cabin": ["cabin"], "sail": ["sail"], "mast": ["sail"]}
+}

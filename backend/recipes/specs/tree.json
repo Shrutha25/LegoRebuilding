@@ -1,0 +1,18 @@
+{
+  "id": "tree", "title": "Tree", "category": "plant", "tags": ["plant", "round"],
+  "nouns": ["tree", "oak", "bush", "shrub", "hedge", "maple", "elm"],
+  "names": ["Old Meadow Oak", "Round Hedge", "Garden Maple", "Lone Elm"],
+  "roles": [{"name": "leaves", "want": "major"}, {"name": "trunk", "want": "dark"}],
+  "params": {"trunk": {"range": [1, 4]}, "crown": {"range": [3, 6], "bind": "w"}, "layers": {"range": [1, 3]}},
+  "silhouettes": {"tall-narrow": {"trunk": "hi", "crown": "lo", "layers": 2}, "wide-squat": {"trunk": 1, "crown": "hi", "layers": 1},
+                  "compact": {"trunk": 1, "crown": "lo", "layers": 2}, "spread": {"trunk": 2, "crown": "hi", "layers": 2}},
+  "requires": {"min_parts": 8, "min_long": 2, "min_area": 40},
+  "derive": {"ts": "1 if crown % 2 == 1 else 2"},
+  "parts": [
+    {"name": "trunk", "primitive": "box", "role": "trunk", "args": {"w": "ts", "d": "ts", "layers": "trunk"}, "at": {"x": "(crown - ts) // 2", "z": "(crown - ts) // 2", "y": 0}},
+    {"name": "crown", "primitive": "cylinder", "role": "leaves", "args": {"diameter": "crown", "layers": "layers"}, "attach": {"to": "trunk", "rel": "on_top_of", "anchor": "center"}},
+    {"name": "crown-top", "primitive": "cylinder", "role": "leaves", "required": false, "when": "crown >= 5", "args": {"diameter": "crown - 2", "layers": 1},
+     "attach": {"to": "crown", "rel": "on_top_of", "anchor": "center"}}
+  ],
+  "features": {"trunk": ["trunk"], "crown": ["crown"]}
+}

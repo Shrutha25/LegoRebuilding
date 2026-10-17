@@ -1,0 +1,32 @@
+{
+  "id": "car", "title": "Car", "category": "vehicle", "tags": ["vehicle", "wheels"],
+  "nouns": ["car", "racer", "buggy", "roadster", "coupe", "van", "truck", "jeep", "cruiser", "kart", "vehicle", "hot rod"],
+  "names": ["Desert Rover", "Street Comet", "Pocket Racer"],
+  "needs": ["wheels"],
+  "notes": "Kept for the regression test. It puts plain bricks at the corners as wheels, which is never shown: real wheel sets cannot be placed yet, so the planner never offers it.",
+  "roles": [{"name": "body", "want": "major"}, {"name": "cabin", "want": "second"}, {"name": "chassis", "want": "neutral"},
+            {"name": "wheel", "want": "dark"}, {"name": "roof", "want": "second"}],
+  "params": {"length": {"range": [4, 10], "bind": "w"}, "width": {"range": [2, 4], "bind": "d"}, "cabin": {"range": [1, 2]}},
+  "silhouettes": {"long-low": {"length": "hi", "width": "lo", "cabin": "lo"}, "compact": {"length": "lo", "width": "mid", "cabin": "lo"},
+                  "wide-squat": {"length": "mid", "width": "hi", "cabin": "lo"}, "tall-narrow": {"length": "mid", "width": "mid", "cabin": "hi"}},
+  "requires": {"min_parts": 8, "min_long": 3, "min_area": 30},
+  "variants": {"grid": {"length": [6, 8, 10], "width": [2, 3, 4], "cabin": [1, 2]},
+               "where": "width * 2 <= length and (cabin == 1 or (length >= 8 and width >= 3))"},
+  "derive": {"cl": "max(2, length // 2)", "cx": "max(0, min(length - cl, (length - cl) // 2 + 1))", "inset": "1 if width >= 4 else 0",
+             "zlast": "width - 1 if width > 2 else 1"},
+  "parts": [
+    {"name": "wheels", "primitive": "posts", "role": "wheel", "kind": "cells", "min_coverage": 0.75, "when": "length >= 8",
+     "args": {"x0": 1, "x1": 2, "x2": "length - 3", "x3": "length - 2", "z0": 0, "z1": "zlast", "layers": 1}},
+    {"name": "wheels", "primitive": "posts", "role": "wheel", "kind": "cells", "min_coverage": 0.75, "when": "length >= 6 and length < 8",
+     "args": {"x0": 0, "x1": 1, "x2": "length - 2", "x3": "length - 1", "z0": 0, "z1": "zlast", "layers": 1}},
+    {"name": "wheels", "primitive": "posts", "role": "wheel", "kind": "cells", "min_coverage": 0.75, "when": "length < 6",
+     "args": {"x0": 0, "x1": "length - 1", "z0": 0, "z1": "zlast", "layers": 1}},
+    {"name": "chassis", "primitive": "box", "role": "chassis", "unit": "plate", "args": {"w": "length", "d": "width", "layers": 1}, "at": {"y": 3}},
+    {"name": "body", "primitive": "box", "role": "body", "args": {"w": "length", "d": "width", "layers": 1}, "at": {"y": 4}},
+    {"name": "cabin", "primitive": "box", "role": "cabin", "kind": "cells", "args": {"w": "cl", "d": "width - 2 * inset", "layers": "cabin"},
+     "at": {"x": "cx", "z": "inset", "y": 7}},
+    {"name": "roof", "primitive": "box", "role": "roof", "unit": "plate", "required": false, "kind": "cells",
+     "args": {"w": "cl", "d": "width - 2 * inset", "layers": 1}, "at": {"x": "cx", "z": "inset", "y": "7 + 3 * cabin"}}
+  ],
+  "features": {"wheels": ["wheels"], "cabin": ["cabin"], "roof": ["roof"]}
+}

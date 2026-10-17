@@ -1,0 +1,21 @@
+{
+  "id": "bridge", "title": "Bridge", "category": "bridge", "tags": ["structure", "span"],
+  "nouns": ["bridge", "crossing", "overpass", "viaduct", "span"],
+  "names": ["Stonefoot Crossing", "Little Span", "Brook Viaduct"],
+  "roles": [{"name": "pillar", "want": "major"}, {"name": "deck", "want": "second"}, {"name": "rail", "want": "neutral"}],
+  "params": {"gap": {"range": [2, 8], "bind": "w"}, "width": {"range": [2, 4], "bind": "d"}, "height": {"range": [1, 3], "bind": "h"}},
+  "silhouettes": {"long-low": {"gap": "hi", "width": "lo", "height": "lo"}, "arch": {"gap": "mid", "width": "mid", "height": "hi"},
+                  "wide-squat": {"gap": "lo", "width": "hi", "height": "lo"}},
+  "requires": {"min_parts": 6, "min_long": 4, "min_area": 28},
+  "variants": {"grid": {"gap": [2, 4, 6, 8], "width": [2, 3, 4], "height": [1, 2, 3]}, "where": "gap <= max(2, longest - 2)"},
+  "derive": {"right": "2 + gap"},
+  "parts": [
+    {"name": "pillar-left", "primitive": "box", "role": "pillar", "args": {"w": 2, "d": "width", "layers": "height"}, "at": {"x": 0, "z": 0, "y": 0}},
+    {"name": "pillar-right", "primitive": "box", "role": "pillar", "args": {"w": 2, "d": "width", "layers": "height"}, "at": {"x": "right", "z": 0, "y": 0}},
+    {"name": "deck", "primitive": "box", "role": "deck", "unit": "plate", "args": {"w": "gap + 2", "d": "width", "layers": 1}, "at": {"x": 1, "z": 0, "y": "3 * height"}},
+    {"name": "rails", "primitive": "rails", "role": "rail", "unit": "plate", "required": false, "kind": "cells",
+     "args": {"length": "gap + 2", "width": "width", "layers": 1}, "at": {"x": 1, "z": 0, "y": "3 * height + 1"}}
+  ],
+  "symmetry": "x",
+  "features": {"pillars": ["pillar-left", "pillar-right"], "deck": ["deck"], "rails": ["rails"]}
+}

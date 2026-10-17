@@ -1,6 +1,7 @@
 """Rebrickable data loading and set matching."""
 
 import gzip
+import logging
 import os
 import shutil
 from collections import defaultdict
@@ -8,14 +9,10 @@ from collections import defaultdict
 import pandas as pd
 import requests
 
+log = logging.getLogger("lego.match")
 RB_URL = "https://cdn.rebrickable.com/media/downloads/{}.csv.gz"
 RB_FILES = ["sets", "themes", "colors", "inventories", "inventory_parts", "part_relationships",
             "parts"]
-
-# Themes that are parts packs, not builds
-SKIP_THEMES = ["supplemental", "service packs", "bulk bricks", "key chains", "magnets",
-               "gear", "books", "collectible minifigures", "promotional"]
-
 
 # ---------------------------------------------------------------- data
 def download_file(name, data_dir, refresh=False):
@@ -60,17 +57,44 @@ def canonical_map(rels):
     return canon
 
 
-def skipped_theme_ids(themes):
+def skipped_theme_ids(themes, names=None, words=None):
+    """Ids of the non-build themes and all their descendants.
+
+    A theme is excluded when its name equals one of `names`, or contains one of `words` (case-insensitive; defaults
+    from config.EXCLUDED_THEMES / EXCLUDED_THEME_WORDS), or when any ancestor is."""
+    from backend import config
+    names = {n.lower() for n in (config.EXCLUDED_THEMES if names is None else names)}
+    words = tuple(w.lower() for w in (config.EXCLUDED_THEME_WORDS if words is None else words))
     themes = themes.set_index("id")
-    bad = set()
-    for tid, row in themes.iterrows():
+
+    def hit(name):
+        name = name.lower()
+        return name in names or any(w in name for w in words)
+
+    bad, direct = set(), {}
+    for tid in themes.index:
         chain, cur = [], tid
-        while cur and cur in themes.index:   # walk up to the root theme
-            chain.append(themes.at[cur, "name"].lower())
+        while cur and cur in themes.index and cur not in chain:   # walk up to the root theme
+            chain.append(cur)
             cur = themes.at[cur, "parent_id"]
-        if any(s in name for name in chain for s in SKIP_THEMES):
+        if any(hit(themes.at[c, "name"]) for c in chain):
             bad.add(tid)
+            if hit(themes.at[tid, "name"]):
+                direct[tid] = themes.at[tid, "name"]
+    log.info("excluded themes (%d with sub-themes; named: %s)", len(bad),
+             ", ".join(f"{n} [{i}]" for i, n in sorted(direct.items(), key=lambda kv: kv[1].lower())))
     return bad
+
+
+def exclusion_report(sets, themes, skip, min_parts, top=10):
+    """How many sets the theme and size rules leave out: {total, excluded, by_theme, small, top_themes [(theme, n)]}."""
+    names = dict(zip(themes["id"], themes["name"]))
+    in_theme = sets[sets.theme_id.isin(skip)]
+    parts = pd.to_numeric(sets.num_parts, errors="coerce").fillna(0)
+    small = sets[(parts < min_parts) & ~sets.theme_id.isin(skip)]
+    counts = in_theme.theme_id.value_counts()
+    return {"total": len(sets), "excluded": len(in_theme) + len(small), "by_theme": len(in_theme), "small": len(small),
+            "top_themes": [(names.get(t, t), int(n)) for t, n in counts.head(top).items()]}
 
 
 # ---------------------------------------------------------------- matching

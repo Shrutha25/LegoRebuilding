@@ -1,0 +1,22 @@
+{
+  "id": "spaceship", "title": "Spaceship", "category": "spacecraft", "tags": ["vehicle", "space", "wings"],
+  "nouns": ["spaceship", "starfighter", "fighter", "cruiser", "shuttle", "starship", "interceptor", "rocket", "spacecraft", "lander"],
+  "names": ["Nova Skiff", "Ion Wasp", "Starling Fighter", "Quiet Comet"],
+  "roles": [{"name": "hull", "want": "major"}, {"name": "wing", "want": "second"}, {"name": "engine", "want": "dark"}, {"name": "canopy", "want": "neutral"}],
+  "params": {"length": {"range": [6, 12], "bind": "w"}, "wing": {"range": [4, 10], "bind": "d"}, "hull": {"range": [1, 2]}, "engines": {"range": [1, 2]}},
+  "silhouettes": {"long-low": {"length": "hi", "wing": "lo", "hull": 1, "engines": 2}, "wide-squat": {"length": "lo", "wing": "hi", "hull": 1, "engines": 2},
+                  "tall-narrow": {"length": "mid", "wing": "lo", "hull": 2, "engines": 1}, "spread": {"length": "mid", "wing": "hi", "hull": 2, "engines": 2}},
+  "constraint": "wing <= longest",
+  "requires": {"min_parts": 10, "min_long": 4, "min_area": 50},
+  "derive": {"top": "3 * hull"},
+  "parts": [
+    {"name": "hull", "primitive": "wing", "role": "hull", "unit": "brick", "args": {"span": "length", "chord": 3, "taper": 2, "axis": "x"}, "at": {"x": 0, "z": 0, "y": 0}},
+    {"name": "hull-upper", "primitive": "wing", "role": "hull", "unit": "brick", "when": "hull == 2", "args": {"span": "length", "chord": 3, "taper": 2, "axis": "x"}, "at": {"x": 0, "z": 0, "y": 3}},
+    {"name": "wings", "primitive": "wing", "role": "wing", "unit": "plate", "min_coverage": 0.8, "args": {"span": "wing", "chord": 3, "taper": 2, "sym": 1}, "at": {"x": 1, "z": "(3 - wing) // 2", "y": "top"}},
+    {"name": "engines", "primitive": "posts", "role": "engine", "required": false, "when": "engines == 2", "args": {"x0": 0, "z0": 0, "z1": 2, "layers": 1}, "at": {"x": 0, "z": 0, "y": "top"}},
+    {"name": "engines", "primitive": "posts", "role": "engine", "required": false, "when": "engines == 1", "args": {"x0": 0, "z0": 1, "layers": 1}, "at": {"x": 0, "z": 0, "y": "top"}},
+    {"name": "canopy", "primitive": "box", "role": "canopy", "required": false, "args": {"w": 2, "d": 1, "layers": 1}, "at": {"x": "length - 2", "z": 1, "y": "top"}}
+  ],
+  "symmetry": "z",
+  "features": {"wings": ["wings"], "engines": ["engines"], "cockpit": ["canopy"]}
+}

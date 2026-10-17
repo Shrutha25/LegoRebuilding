@@ -1,0 +1,24 @@
+{
+  "id": "plane", "title": "Plane", "category": "aircraft", "tags": ["vehicle", "air", "wings"],
+  "nouns": ["plane", "airplane", "jet", "glider", "aircraft", "biplane", "flyer"],
+  "names": ["Cloud Skimmer", "Paper Hawk", "Sky Courier", "Barnstormer"],
+  "roles": [{"name": "body", "want": "major"}, {"name": "wing", "want": "second"}, {"name": "tail", "want": "second"}, {"name": "canopy", "want": "neutral"}],
+  "params": {"length": {"range": [8, 12], "bind": "w"}, "span": {"range": [6, 12], "bind": "d"}, "fw": {"range": [2, 3]}, "fin": {"range": [1, 2], "bind": "h"}},
+  "silhouettes": {"wide-squat": {"length": "lo", "span": "hi", "fw": 3, "fin": 1}, "long-low": {"length": "hi", "span": "mid", "fw": 2, "fin": 1},
+                  "tall-narrow": {"length": "mid", "span": "lo", "fw": 2, "fin": 2}, "spread": {"length": "hi", "span": "hi", "fw": 3, "fin": 2}},
+  "constraint": "span <= longest and span >= length - 2",
+  "requires": {"min_parts": 10, "min_long": 6, "min_area": 50},
+  "derive": {"z0": "(span - fw) // 2", "wx": "length // 2 - 2"},
+  "parts": [
+    {"name": "fuselage", "primitive": "wing", "role": "body", "unit": "brick", "args": {"span": "length", "chord": "fw", "taper": "fw - 1", "axis": "x"}, "at": {"x": 0, "z": "z0", "y": 0}},
+    {"name": "wings", "primitive": "wing", "role": "wing", "unit": "plate", "min_coverage": 0.8,
+     "args": {"span": "span", "chord": 3, "taper": 2, "sym": 1}, "at": {"x": "wx", "z": 0, "y": 3}},
+    {"name": "tailplane", "primitive": "wing", "role": "tail", "unit": "plate", "min_coverage": 0.8,
+     "args": {"span": "fw + 2", "chord": 2, "taper": 0, "sym": 1}, "at": {"x": 0, "z": "z0 - 1", "y": 3}},
+    {"name": "tailfin", "primitive": "box", "role": "tail", "args": {"w": 1, "d": 1, "layers": "fin"},
+     "attach": {"to": "tailplane", "rel": "on_top_of", "anchor_x": "start", "anchor_z": "center"}},
+    {"name": "canopy", "primitive": "box", "role": "canopy", "required": false, "args": {"w": 2, "d": "max(1, fw - 1)", "layers": 1},
+     "at": {"x": "wx + 3", "z": "z0 + (fw - max(1, fw - 1)) // 2", "y": 3}}
+  ],
+  "features": {"wings": ["wings"], "tail": ["tailfin", "tailplane"], "cockpit": ["canopy"]}
+}
