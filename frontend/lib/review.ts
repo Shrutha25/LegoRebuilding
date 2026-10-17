@@ -1,4 +1,4 @@
-import type { Alt, IdeaPart, Item, MatchPart, Piece, Resolved } from "./types";
+import type { Alt, IdeaPart, Item, MatchPart, Piece, Resolved, Scan } from "./types";
 
 const MAX_QTY = 999;
 
@@ -47,6 +47,66 @@ export function groupPieces(pieces: Piece[]): Item[] {
   }
   return sortItems(items);
 }
+
+/**
+ * Pieces are numbered across ALL photos of a session (photo 2 carries on where photo 1 stopped), so a row can own pieces from
+ * several photos and a box number is unique. A scan's piece `index` is shifted by `offset`; crop URLs are unaffected.
+ */
+export function withOffset(scan: Scan, offset: number): Scan {
+  return { ...scan, pieces: scan.pieces.map((p) => ({ ...p, index: p.index + offset })) };
+}
+
+/** First piece number for the next photo: one past the highest number used so far. */
+export const nextOffset = (scans: Scan[]): number =>
+  scans.reduce((n, s) => Math.max(n, ...s.pieces.map((p) => p.index + 1)), 0);
+
+/** Add the pieces of a new photo to the list: identical parts across photos become one row with a qty. */
+export function addPieces(items: Item[], pieces: Piece[]): Item[] {
+  return sortItems(mergeDuplicates([...items, ...groupPieces(pieces)]));
+}
+
+/**
+ * A photo's pieces changed (two merged, or one split): take the old pieces off the list and add the new ones. Rows keep what the
+ * user did to them (a corrected part, a confirmed row); a row whose pieces are all gone disappears.
+ */
+export function replacePieces(items: Item[], oldPieces: Piece[], newPieces: Piece[]): Item[] {
+  const gone = new Set(oldPieces.map((p) => p.index));
+  const kept: Item[] = [];
+  for (const it of items) {
+    const left = it.pieceIdx.filter((i) => !gone.has(i));
+    if (left.length === it.pieceIdx.length) kept.push(it);
+    else if (left.length > 0) kept.push({ ...it, pieceIdx: left, qty: Math.max(1, it.qty - (it.pieceIdx.length - left.length)) });
+  }
+  return addPieces(kept, newPieces);
+}
+
+/** A photo's piece number as the server knows it (each photo numbers its pieces from 0). */
+export const localIndex = (scan: Scan, index: number): number => index - Math.min(...scan.pieces.map((p) => p.index));
+
+/** The piece whose box holds the middle of a line drawn on the photo, else the one the line crosses most. */
+export function pieceUnderLine(scan: Scan, line: [number, number, number, number]): Piece | null {
+  const [x0, y0, x1, y1] = line;
+  let best: Piece | null = null;
+  let bestHits = 0;
+  for (const p of scan.pieces) {
+    const [x, y, w, h] = p.box;
+    let hits = 0;
+    for (let i = 0; i <= 20; i++) {
+      const px = x0 + ((x1 - x0) * i) / 20;
+      const py = y0 + ((y1 - y0) * i) / 20;
+      if (px >= x && px <= x + w && py >= y && py <= y + h) hits++;
+    }
+    if (hits > bestHits) {
+      best = p;
+      bestHits = hits;
+    }
+  }
+  return best;
+}
+
+/** The photo that holds a given (global) piece number. */
+export const scanOfPiece = (scans: Scan[], index: number): number =>
+  Math.max(0, scans.findIndex((s) => s.pieces.some((p) => p.index === index)));
 
 /** Rows that need review first; otherwise keep detection order. */
 export function sortItems(items: Item[]): Item[] {

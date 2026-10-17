@@ -5,7 +5,10 @@ import { ApiError, matchSets } from "@/lib/api";
 import { toIdeaParts, toMatchParts } from "@/lib/review";
 import type { Item, Resolved, SetMatch } from "@/lib/types";
 import IdeasTab from "./IdeasTab";
+import NearbySets from "./NearbySets";
 import SetCard from "./SetCard";
+import { useConsiderColour } from "@/lib/settings";
+import { useRankedSets } from "@/lib/useInstructions";
 
 type Outcome =
   | { kind: "catalogue" } // backend still loading the LEGO catalogue
@@ -15,6 +18,8 @@ type State = Outcome | { kind: "loading" };
 
 const RETRY_MS = 2000;
 const NO_SETS = "No official set can be built 100% with these pieces – here's what you can build instead";
+
+const NO_SET_MATCHES: SetMatch[] = [];
 
 export default function ResultsScreen({
   items,
@@ -26,7 +31,7 @@ export default function ResultsScreen({
   onBack: () => void;
 }) {
   const [tab, setTab] = useState<"sets" | "ideas">("sets");
-  const [matchColor, setMatchColor] = useState(false);
+  const [matchColor, setMatchColor] = useConsiderColour(); // one setting for official sets, designed builds and ideas
   const [result, setResult] = useState<{ key: string } & Outcome>({ key: "", kind: "catalogue" });
   const [attempt, setAttempt] = useState(0);
   const autoSwitched = useRef(false);
@@ -38,6 +43,7 @@ export default function ResultsScreen({
   const requestKey = `${partsKey}|${matchColor}|${attempt}`;
   // Anything not answering the current request (parts/colour toggled, retry) shows as loading.
   const state: State = result.key === requestKey ? result : { kind: "loading" };
+  const { ranked, infoOf } = useRankedSets(state.kind === "done" ? state.sets : NO_SET_MATCHES);
 
   useEffect(() => {
     let cancelled = false;
@@ -73,16 +79,18 @@ export default function ResultsScreen({
   const noSets = state.kind === "done" && state.sets.length === 0;
 
   const tabClass = (active: boolean) =>
-    `h-11 flex-1 rounded-xl text-sm font-semibold ${active ? "bg-white shadow-sm" : "text-stone-600"}`;
+    `h-11 flex-1 rounded-full text-[11px] font-bold uppercase tracking-wide transition ${active ? "bg-ink text-white shadow-[0_8px_18px_-8px_rgba(0,0,0,0.6)]" : "text-zinc-500"}`;
 
   return (
     <div>
-      <button onClick={onBack} className="mb-3 h-10 text-sm font-medium text-stone-600">
+      <button onClick={onBack} className="mb-3 h-10 text-xs font-bold uppercase tracking-widest text-zinc-500">
         ← Back to pieces
       </button>
-      <h1 className="text-xl font-bold">What you can build</h1>
+      <h1 className="title-display text-3xl">
+        What you can <span>build</span>
+      </h1>
 
-      <div role="tablist" className="mt-3 flex gap-1 rounded-2xl bg-stone-200 p-1">
+      <div role="tablist" className="mt-4 flex gap-1 rounded-full border border-white bg-zinc-200/60 p-1 shadow-[inset_0_1px_3px_rgba(0,0,0,0.08)]">
         <button role="tab" aria-selected={tab === "sets"} onClick={() => setTab("sets")} className={tabClass(tab === "sets")}>
           Official sets
         </button>
@@ -91,31 +99,31 @@ export default function ResultsScreen({
         </button>
       </div>
 
+      <label className="mt-4 flex min-h-11 items-center gap-3 text-sm">
+        <input type="checkbox" checked={matchColor} onChange={(e) => setMatchColor(e.target.checked)} className="h-5 w-5 accent-black" />
+        <span>
+          Consider color
+          <span className="block text-xs text-muted">
+            {matchColor ? "Pieces are matched by shape and colour." : "Pieces are matched by shape only; builds get colours from what you have."}
+          </span>
+        </span>
+      </label>
+
       <div className="mt-4">
         {/* always mounted so switching tabs keeps the ideas; it starts only when first opened */}
         {tab === "ideas" && noSets && (
           <p className="mb-4 rounded-2xl bg-amber-50 p-3 text-sm text-amber-900">{NO_SETS}</p>
         )}
-        <IdeasTab parts={ideaParts} active={tab === "ideas"} />
+        <IdeasTab parts={ideaParts} active={tab === "ideas"} matchColour={matchColor} />
 
         {tab === "sets" && (
           <>
-            <label className="mb-4 flex min-h-11 items-center gap-3 text-sm">
-              <input
-                type="checkbox"
-                checked={matchColor}
-                onChange={(e) => setMatchColor(e.target.checked)}
-                className="h-5 w-5 accent-[#d01012]"
-              />
-              Match colours exactly
-            </label>
-
             {(state.kind === "loading" || state.kind === "catalogue") && (
               <div role="status" className="flex flex-col items-center gap-3 py-16 text-center">
-                <span className="h-8 w-8 animate-spin rounded-full border-4 border-stone-300 border-t-brick" />
+                <span className="h-8 w-8 animate-spin rounded-full border-4 border-zinc-300 border-t-ink" />
                 <p className="font-medium">{state.kind === "catalogue" ? "Loading LEGO catalogue…" : "Finding sets…"}</p>
                 {state.kind === "catalogue" && (
-                  <p className="max-w-xs text-sm text-stone-500">The first start takes a little while. We&apos;ll keep trying.</p>
+                  <p className="max-w-xs text-sm text-zinc-500">The first start takes a little while. We&apos;ll keep trying.</p>
                 )}
               </div>
             )}
@@ -130,21 +138,23 @@ export default function ResultsScreen({
             )}
 
             {noSets && (
-              <div className="rounded-2xl border border-stone-200 bg-white p-5">
+              <div className="glass-sm p-5">
                 <p className="font-semibold">{NO_SETS}</p>
-                <button onClick={() => setTab("ideas")} className="mt-4 h-11 rounded-full bg-brick px-5 text-sm font-semibold text-white active:opacity-80">
+                <button onClick={() => setTab("ideas")} className="mt-4 h-11 rounded-full btn-primary px-5 text-sm font-semibold text-white active:opacity-80">
                   See AI build ideas →
                 </button>
               </div>
             )}
 
             {state.kind === "done" && state.sets.length > 0 && (
-              <ul className="flex flex-col gap-3">
-                {state.sets.map((s) => (
-                  <SetCard key={s.set_num} set={s} userPieces={userPieces} />
+              <ul className="grid grid-cols-1 items-start gap-3 lg:grid-cols-2 lg:gap-5">
+                {ranked.map((s) => (
+                  <SetCard key={s.set_num} set={s} userPieces={userPieces} parts={parts} info={infoOf(s)} />
                 ))}
               </ul>
             )}
+
+            {state.kind === "done" && parts.length > 0 && <NearbySets parts={parts} matchColour={matchColor} />}
           </>
         )}
       </div>

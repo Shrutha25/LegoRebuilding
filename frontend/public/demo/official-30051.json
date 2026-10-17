@@ -1,0 +1,640 @@
+{
+ "kind": "set",
+ "title": "X-wing Fighter - Mini",
+ "description": "",
+ "set_num": "30051-1",
+ "attribution": {
+  "authors": [
+   "Jude Parrill"
+  ],
+  "licence": [
+   "Redistributable under CCAL version 2.0 : see CAreadme.txt"
+  ],
+  "source_url": "https://library.ldraw.org/omr/sets?search=30051",
+  "text": "Model from the LDraw Official Model Repository, by Jude Parrill."
+ },
+ "steps_generated": false,
+ "repairs": [],
+ "warnings": [],
+ "skipped_parts": [],
+ "id": "set-30051-1",
+ "steps": [
+  {
+   "index": 0,
+   "parts": [
+    {
+     "ld_part": "3623",
+     "name": "Plate 1 x 3",
+     "colour_code": "19",
+     "colour_name": "Tan",
+     "hex": "#D7BA8C",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "parts": [
+    {
+     "ld_part": "3176",
+     "name": "Plate 3 x 2 with Hole",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "3623",
+     "name": "Plate 1 x 3",
+     "colour_code": "320",
+     "colour_name": "Dark Red",
+     "hex": "#720012",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "parts": [
+    {
+     "ld_part": "60470a",
+     "name": "Plate 1 x 2 with 2 Clips Horizontal (Thick U-Clips)",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "parts": [
+    {
+     "ld_part": "4032b",
+     "name": "Plate 2 x 2 Round with Reduced Axlehole",
+     "colour_code": "19",
+     "colour_name": "Tan",
+     "hex": "#D7BA8C",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "parts": [
+    {
+     "ld_part": "3022",
+     "name": "Plate 2 x 2",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    },
+    {
+     "ld_part": "3623",
+     "name": "Plate 1 x 3",
+     "colour_code": "19",
+     "colour_name": "Tan",
+     "hex": "#D7BA8C",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "parts": [
+    {
+     "ld_part": "3023",
+     "name": "Moved to 3023b",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "parts": [
+    {
+     "ld_part": "3023",
+     "name": "Moved to 3023b",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    },
+    {
+     "ld_part": "54200",
+     "name": "Slope Brick 31 1 x 1 x 0.667",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "parts": [
+    {
+     "ld_part": "3023",
+     "name": "Moved to 3023b",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    },
+    {
+     "ld_part": "60470a",
+     "name": "Plate 1 x 2 with 2 Clips Horizontal (Thick U-Clips)",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 2
+    },
+    {
+     "ld_part": "63864",
+     "name": "Tile 1 x 3",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "parts": [
+    {
+     "ld_part": "2412b",
+     "name": "Tile 1 x 2 Grille with Groove",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    },
+    {
+     "ld_part": "3024",
+     "name": "Plate 1 x 1",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    },
+    {
+     "ld_part": "3794a",
+     "name": "Plate 1 x 2 without Groove with 1 Centre Stud",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "parts": [
+    {
+     "ld_part": "42446",
+     "name": "Bracket 1 x 1 - 1 x 1 Thin with Stud Hole",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "54200",
+     "name": "Slope Brick 31 1 x 1 x 0.667",
+     "colour_code": "40",
+     "colour_name": "Trans Brown",
+     "hex": "#635F52",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "80",
+     "colour_name": "Metallic Silver",
+     "hex": "#767676",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "parts": [
+    {
+     "ld_part": "30162",
+     "name": "Minifig Binoculars with Round Eyepiece",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    },
+    {
+     "ld_part": "3024",
+     "name": "Plate 1 x 1",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "parts": [
+    {
+     "ld_part": "3957a",
+     "name": "Antenna 4H with Rounded Top",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 12,
+   "parts": [
+    {
+     "ld_part": "3062b",
+     "name": "Brick 1 x 1 Round with Hollow Stud",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 13,
+   "parts": [
+    {
+     "ld_part": "3957a",
+     "name": "Antenna 4H with Rounded Top",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "4274",
+     "name": "Technic Pin 1/2",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "57",
+     "colour_name": "Trans Orange",
+     "hex": "#F08F1C",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "parts": [
+    {
+     "ld_part": "3062b",
+     "name": "Brick 1 x 1 Round with Hollow Stud",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "parts": [
+    {
+     "ld_part": "3957a",
+     "name": "Antenna 4H with Rounded Top",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "4274",
+     "name": "Technic Pin 1/2",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "57",
+     "colour_name": "Trans Orange",
+     "hex": "#F08F1C",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "parts": [
+    {
+     "ld_part": "3062b",
+     "name": "Brick 1 x 1 Round with Hollow Stud",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "parts": [
+    {
+     "ld_part": "3957a",
+     "name": "Antenna 4H with Rounded Top",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "4274",
+     "name": "Technic Pin 1/2",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "57",
+     "colour_name": "Trans Orange",
+     "hex": "#F08F1C",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 18,
+   "parts": [
+    {
+     "ld_part": "3062b",
+     "name": "Brick 1 x 1 Round with Hollow Stud",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 19,
+   "parts": [
+    {
+     "ld_part": "4274",
+     "name": "Technic Pin 1/2",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "57",
+     "colour_name": "Trans Orange",
+     "hex": "#F08F1C",
+     "qty": 1
+    },
+    {
+     "ld_part": "6141",
+     "name": "Plate 1 x 1 Round",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "parts": [
+    {
+     "ld_part": "43722",
+     "name": "Moved to 43722a",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    },
+    {
+     "ld_part": "63868",
+     "name": "Plate 1 x 2 with Clip Horizontal on End (Thick C-Clip)",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "parts": [
+    {
+     "ld_part": "43722",
+     "name": "Moved to 43722a",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    },
+    {
+     "ld_part": "6019",
+     "name": "Plate 1 x 1 with Clip Horizontal (Thick U-Clip)",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    },
+    {
+     "ld_part": "61184",
+     "name": "Technic Pin 1/2 with Bar 2L",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "63868",
+     "name": "Plate 1 x 2 with Clip Horizontal on End (Thick C-Clip)",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "parts": [
+    {
+     "ld_part": "6019",
+     "name": "Plate 1 x 1 with Clip Horizontal (Thick U-Clip)",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    },
+    {
+     "ld_part": "61184",
+     "name": "Technic Pin 1/2 with Bar 2L",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "parts": [
+    {
+     "ld_part": "2412b",
+     "name": "Tile 1 x 2 Grille with Groove",
+     "colour_code": "320",
+     "colour_name": "Dark Red",
+     "hex": "#720012",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "parts": [
+    {
+     "ld_part": "43723",
+     "name": "Moved to 43723a",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    },
+    {
+     "ld_part": "63868",
+     "name": "Plate 1 x 2 with Clip Horizontal on End (Thick C-Clip)",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "parts": [
+    {
+     "ld_part": "43723",
+     "name": "Moved to 43723a",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    },
+    {
+     "ld_part": "6019",
+     "name": "Plate 1 x 1 with Clip Horizontal (Thick U-Clip)",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    },
+    {
+     "ld_part": "61184",
+     "name": "Technic Pin 1/2 with Bar 2L",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    },
+    {
+     "ld_part": "63868",
+     "name": "Plate 1 x 2 with Clip Horizontal on End (Thick C-Clip)",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "parts": [
+    {
+     "ld_part": "6019",
+     "name": "Plate 1 x 1 with Clip Horizontal (Thick U-Clip)",
+     "colour_code": "72",
+     "colour_name": "Dark Bluish Grey",
+     "hex": "#646464",
+     "qty": 1
+    },
+    {
+     "ld_part": "61184",
+     "name": "Technic Pin 1/2 with Bar 2L",
+     "colour_code": "71",
+     "colour_name": "Light Bluish Grey",
+     "hex": "#969696",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "parts": [
+    {
+     "ld_part": "2412b",
+     "name": "Tile 1 x 2 Grille with Groove",
+     "colour_code": "320",
+     "colour_name": "Dark Red",
+     "hex": "#720012",
+     "qty": 1
+    }
+   ]
+  }
+ ],
+ "step_count": 28,
+ "part_count": 61,
+ "model_url": "/demo/official-30051.mpd",
+ "lite_model_url": "/demo/official-30051.lite.mpd",
+ "missing_files": []
+}

@@ -1,0 +1,147 @@
+{
+ "kind": "ai",
+ "title": "Little Red Truck",
+ "description": "A small truck with a blue cab, a red box and yellow lights.",
+ "attribution": null,
+ "repairs": [],
+ "warnings": [
+  "the build is 3 separate sub-assemblies"
+ ],
+ "repair_summary": {
+  "dropped": 0,
+  "swapped": 0,
+  "nudged": 0,
+  "steps_regenerated": false,
+  "retried": false,
+  "asked_for": 12
+ },
+ "skipped_parts": [],
+ "id": "ai-26bb9de4360a",
+ "steps": [
+  {
+   "index": 0,
+   "parts": [
+    {
+     "ld_part": "3001",
+     "name": "Brick 2 x 4",
+     "colour_code": "4",
+     "colour_name": "Red",
+     "hex": "#B40000",
+     "qty": 2
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "parts": [
+    {
+     "ld_part": "3001",
+     "name": "Brick 2 x 4",
+     "colour_code": "4",
+     "colour_name": "Red",
+     "hex": "#B40000",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "parts": [
+    {
+     "ld_part": "3001",
+     "name": "Brick 2 x 4",
+     "colour_code": "1",
+     "colour_name": "Blue",
+     "hex": "#1E5AA8",
+     "qty": 1
+    },
+    {
+     "ld_part": "3003",
+     "name": "Brick 2 x 2",
+     "colour_code": "4",
+     "colour_name": "Red",
+     "hex": "#B40000",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "parts": [
+    {
+     "ld_part": "3003",
+     "name": "Brick 2 x 2",
+     "colour_code": "4",
+     "colour_name": "Red",
+     "hex": "#B40000",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "parts": [
+    {
+     "ld_part": "3020",
+     "name": "Plate 2 x 4",
+     "colour_code": "4",
+     "colour_name": "Red",
+     "hex": "#B40000",
+     "qty": 1
+    },
+    {
+     "ld_part": "3022",
+     "name": "Plate 2 x 2",
+     "colour_code": "1",
+     "colour_name": "Blue",
+     "hex": "#1E5AA8",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "parts": [
+    {
+     "ld_part": "3022",
+     "name": "Plate 2 x 2",
+     "colour_code": "1",
+     "colour_name": "Blue",
+     "hex": "#1E5AA8",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "parts": [
+    {
+     "ld_part": "3068b",
+     "name": "Tile 2 x 2 with Groove",
+     "colour_code": "15",
+     "colour_name": "White",
+     "hex": "#F4F4F4",
+     "qty": 1
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "parts": [
+    {
+     "ld_part": "3005",
+     "name": "Brick 1 x 1",
+     "colour_code": "14",
+     "colour_name": "Yellow",
+     "hex": "#FAC80A",
+     "qty": 2
+    }
+   ]
+  }
+ ],
+ "step_count": 8,
+ "part_count": 12,
+ "model_url": "/demo/ai-build.mpd",
+ "lite_model_url": "/demo/ai-build.lite.mpd",
+ "missing_files": []
+}

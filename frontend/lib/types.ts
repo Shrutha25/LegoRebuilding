@@ -1,3 +1,4 @@
+import type { InstructionInfo } from "./instructions";
 export type Alt = {
   part_id: string;
   name: string;
@@ -28,6 +29,8 @@ export type Scan = {
   height: number;
   pieces: Piece[];
   error: string | null;
+  detector?: string;
+  detector_note?: string;
 };
 
 /** One row on the review screen: identical parts grouped together. */
@@ -68,6 +71,7 @@ export type SetMatch = {
   missing: MissingPart[];
   rebrickable_url: string;
   instructions_url: string;
+  instructions?: InstructionInfo;
 };
 
 export type MatchPart = { part_num: string; color: string | null; qty: number };
@@ -79,6 +83,8 @@ export type Idea = {
   description: string;
   pieces_used: IdeaPiece[];
   steps: string[];
+  /** True when the idea was checked by part only ("Consider color" off). */
+  mixed_colours?: boolean;
 };
 
 export type IdeaPart = { part_num: string; name: string; color: string | null; qty: number };

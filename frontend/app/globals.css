@@ -1,18 +1,28 @@
 @import "tailwindcss";
 
+/*
+ * Design system: a white canvas, black ink, frosted-glass surfaces, large radii, soft layered shadows and light uppercase
+ * type (the look of a premium data-art studio). Tokens first, then a handful of component classes the screens share.
+ */
 :root {
-  --background: #faf8f3;
-  --foreground: #1c1917;
-  --brick-red: #d01012;
-  --brick-yellow: #ffd500;
+  --background: #f4f4f6;
+  --foreground: #0b0b0c;
+  --ink: #0b0b0c;
+  --ink-soft: #3b3b42;
+  --muted: #8b8b94;
+  --hairline: rgba(12, 12, 16, 0.08);
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-edge: rgba(255, 255, 255, 0.95);
+  --shadow-lift: 0 1px 0 rgba(255, 255, 255, 0.95) inset, 0 14px 44px -16px rgba(18, 18, 28, 0.22), 0 2px 8px rgba(18, 18, 28, 0.05);
+  --shadow-soft: 0 1px 0 rgba(255, 255, 255, 0.95) inset, 0 8px 24px -12px rgba(18, 18, 28, 0.2), 0 1px 3px rgba(18, 18, 28, 0.06);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brick: var(--brick-red);
-  --color-stud: var(--brick-yellow);
-  --font-sans: var(--font-geist-sans);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-manrope);
 }
 
 html {
@@ -21,12 +31,98 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(1100px 520px at 50% -8%, #ffffff 0%, rgba(255, 255, 255, 0) 70%),
+    radial-gradient(900px 600px at 100% 100%, #e9e9ed 0%, rgba(233, 233, 237, 0) 60%),
+    var(--background);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  letter-spacing: -0.005em;
 }
 
 /* Keep controls clear of the iPhone home indicator */
 .pb-safe {
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+@layer components {
+  /* the big rounded stage every screen sits on (no backdrop filter: fixed bars inside it must stay viewport-fixed) */
+  .stage {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.7));
+    border: 1px solid var(--glass-edge);
+    border-radius: 2rem;
+    box-shadow: var(--shadow-lift);
+  }
+
+  /* frosted glass cards */
+  .glass,
+  .glass-sm {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(18px) saturate(1.5);
+    backdrop-filter: blur(18px) saturate(1.5);
+    border: 1px solid var(--glass-edge);
+    box-shadow: var(--shadow-soft);
+  }
+  .glass {
+    border-radius: 1.75rem;
+  }
+  .glass-sm {
+    border-radius: 1.25rem;
+  }
+
+  /* black pill: the main action */
+  .btn-primary {
+    background: linear-gradient(180deg, #26262b 0%, #0b0b0c 100%);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 10px 24px -10px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.22) inset, 0 16px 30px -10px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+    opacity: 0.92;
+  }
+
+  /* white glass pill: secondary actions */
+  .btn-glass {
+    background: linear-gradient(180deg, #ffffff, #f7f7f9);
+    color: var(--ink);
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow-soft);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+  }
+  .btn-glass:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  /* big two-tone display title: INK word + grey word */
+  .title-display {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    line-height: 1.02;
+    color: var(--ink);
+  }
+  .title-display span {
+    color: #9a9aa3;
+  }
+
+  /* small section label */
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
 }

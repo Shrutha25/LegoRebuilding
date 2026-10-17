@@ -3,16 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test tests/review.test.ts"
+    "test": "node --test tests/review.test.ts tests/ldrawModel.test.ts tests/instructions.test.ts"
   },
   "dependencies": {
+    "@types/three": "^0.186.0",
     "next": "16.4.0",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",

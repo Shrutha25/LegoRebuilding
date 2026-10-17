@@ -38,8 +38,8 @@ export default function PartRow({
   const tone = item.needsReview
     ? "border-amber-300 bg-amber-50"
     : unmapped
-      ? "border-stone-200 bg-stone-100"
-      : "border-stone-200 bg-white";
+      ? "border-zinc-200 bg-zinc-100"
+      : "border-zinc-200 bg-white";
 
   const pick = (c: PartChoice) => {
     onChangePart(c);
@@ -48,22 +48,22 @@ export default function PartRow({
   };
 
   return (
-    <li ref={rowRef} className={`scroll-mt-[44vh] rounded-2xl border p-3 md:scroll-mt-4 ${tone} ${selected ? "ring-2 ring-stone-900" : ""}`}>
+    <li ref={rowRef} className={`scroll-mt-[44vh] rounded-2xl border p-3 md:scroll-mt-4 ${tone} ${selected ? "ring-2 ring-zinc-900" : ""}`}>
       <div className="flex items-start gap-3">
         <button onClick={onSelect} className="flex min-w-0 flex-1 items-start gap-3 text-left" aria-label={`Show ${item.name} in the photo`}>
           <Thumb srcs={[item.cropUrl ? absUrl(item.cropUrl) : null]} label="Your piece" />
           <Thumb srcs={[imgSrc(item.image), resolved?.image]} label="Matched part" />
           <span className="min-w-0 flex-1">
             <span className="line-clamp-2 text-sm font-semibold">{item.name}</span>
-            <span className="block text-xs text-stone-600">
+            <span className="block text-xs text-zinc-600">
               {item.part_id ?? "no match"}
               {item.color ? ` · ${item.color}` : ""}
             </span>
             <span className="mt-1 flex flex-wrap gap-1">
               {item.needsReview && <span className="rounded-full bg-amber-200 px-2 py-0.5 text-xs font-medium text-amber-900">Check this</span>}
-              {unmapped && <span className="rounded-full bg-stone-300 px-2 py-0.5 text-xs font-medium text-stone-700">Not used for matching</span>}
+              {unmapped && <span className="rounded-full bg-zinc-300 px-2 py-0.5 text-xs font-medium text-zinc-700">Not used for matching</span>}
               {item.pieceIdx.length > 0 && (
-                <span className="text-xs text-stone-500">
+                <span className="text-xs text-zinc-500">
                   {item.pieceIdx.length === 1 ? "Piece" : "Pieces"} {item.pieceIdx.slice(0, 6).map((i) => i + 1).join(", ")}
                   {item.pieceIdx.length > 6 ? "…" : ""}
                 </span>
@@ -73,11 +73,11 @@ export default function PartRow({
         </button>
 
         <div className="flex shrink-0 items-center gap-1" aria-label="Quantity">
-          <button onClick={() => onQty(item.qty - 1)} disabled={item.qty <= 1} aria-label="Decrease quantity" className="h-9 w-9 rounded-full border border-stone-300 bg-white text-lg disabled:opacity-30 active:bg-stone-100">
+          <button onClick={() => onQty(item.qty - 1)} disabled={item.qty <= 1} aria-label="Decrease quantity" className="h-9 w-9 rounded-full btn-glass text-lg disabled:opacity-30 active:bg-zinc-100">
             −
           </button>
           <span className="w-7 text-center text-base font-semibold tabular-nums">{item.qty}</span>
-          <button onClick={() => onQty(item.qty + 1)} aria-label="Increase quantity" className="h-9 w-9 rounded-full border border-stone-300 bg-white text-lg active:bg-stone-100">
+          <button onClick={() => onQty(item.qty + 1)} aria-label="Increase quantity" className="h-9 w-9 rounded-full btn-glass text-lg active:bg-zinc-100">
             +
           </button>
         </div>
@@ -85,17 +85,17 @@ export default function PartRow({
 
       {open && !searching && item.alternatives.length > 0 && (
         <div className="mt-3">
-          <p className="mb-1 text-xs font-medium text-stone-600">Or is it one of these?</p>
+          <p className="mb-1 text-xs font-medium text-zinc-600">Or is it one of these?</p>
           <div className="flex gap-2 overflow-x-auto pb-1">
             {item.alternatives.map((a) => (
               <button
                 key={a.part_id}
                 onClick={() => pick({ part_id: a.part_id, name: a.name, image: a.image })}
-                className="flex w-32 shrink-0 flex-col items-center gap-1 rounded-xl border border-stone-300 bg-white p-2 text-center active:bg-stone-100"
+                className="flex w-32 shrink-0 flex-col items-center gap-1 rounded-xl btn-glass p-2 text-center active:bg-zinc-100"
               >
                 <Thumb srcs={[imgSrc(a.image), resolvedAlts[a.part_id]?.image]} label={a.name} />
                 <span className="line-clamp-2 text-xs leading-tight">{a.name}</span>
-                <span className="text-[11px] text-stone-500">{a.part_id}</span>
+                <span className="text-[11px] text-zinc-500">{a.part_id}</span>
               </button>
             ))}
           </div>
@@ -120,7 +120,7 @@ export default function PartRow({
               setChanging(true);
               if (item.alternatives.length === 0) setSearching(true);
             }}
-            className="h-10 rounded-full border border-stone-300 bg-white px-4 text-sm font-medium active:bg-stone-100"
+            className="h-10 rounded-full btn-glass px-4 text-sm font-medium active:bg-zinc-100"
           >
             Change part
           </button>
@@ -131,13 +131,13 @@ export default function PartRow({
               setChanging(false);
               setSearching(false);
             }}
-            className="h-10 rounded-full border border-stone-300 bg-white px-4 text-sm font-medium active:bg-stone-100"
+            className="h-10 rounded-full btn-glass px-4 text-sm font-medium active:bg-zinc-100"
           >
             Done
           </button>
         )}
         {open && !searching && (
-          <button onClick={() => setSearching(true)} className="h-10 rounded-full border border-stone-300 bg-white px-4 text-sm font-medium active:bg-stone-100">
+          <button onClick={() => setSearching(true)} className="h-10 rounded-full btn-glass px-4 text-sm font-medium active:bg-zinc-100">
             Search parts…
           </button>
         )}

@@ -46,7 +46,7 @@ export default function PartPicker({
   }, [term, active]);
 
   return (
-    <div className="rounded-xl border border-stone-300 bg-white p-3 shadow-sm">
+    <div className="rounded-xl btn-glass p-3 shadow-sm">
       <div className="flex gap-2">
         <input
           autoFocus
@@ -54,28 +54,28 @@ export default function PartPicker({
           onChange={(e) => setQ(e.target.value)}
           placeholder="Part number or name, e.g. 3001 or slope"
           inputMode="search"
-          className="h-11 min-w-0 flex-1 rounded-lg border border-stone-300 px-3 text-base outline-none focus:border-stone-500"
+          className="h-11 min-w-0 flex-1 rounded-lg border border-zinc-300 px-3 text-base outline-none focus:border-zinc-500"
         />
-        <button onClick={onClose} className="h-11 rounded-lg px-3 text-sm font-medium text-stone-600 active:bg-stone-100">
+        <button onClick={onClose} className="h-11 rounded-lg px-3 text-sm font-medium text-zinc-600 active:bg-zinc-100">
           Cancel
         </button>
       </div>
       {active && error && <p className="mt-2 text-sm text-red-700">{error}</p>}
-      {active && busy && <p className="mt-2 text-sm text-stone-500">Searching…</p>}
+      {active && busy && <p className="mt-2 text-sm text-zinc-500">Searching…</p>}
       {active && !busy && !error && results.length === 0 && (
-        <p className="mt-2 text-sm text-stone-500">No parts found.</p>
+        <p className="mt-2 text-sm text-zinc-500">No parts found.</p>
       )}
       <ul className="mt-2 flex max-h-72 flex-col overflow-y-auto">
         {(active ? results : []).map((r) => (
           <li key={r.part_num}>
             <button
               onClick={() => onPick({ part_id: r.part_num, name: r.name, image: r.image })}
-              className="flex w-full items-center gap-3 rounded-lg p-2 text-left active:bg-stone-100"
+              className="flex w-full items-center gap-3 rounded-lg p-2 text-left active:bg-zinc-100"
             >
               <Thumb srcs={[r.image]} label={r.name} className="h-12 w-12" />
               <span className="min-w-0">
                 <span className="line-clamp-2 text-sm font-medium">{r.name}</span>
-                <span className="text-xs text-stone-500">{r.part_num}</span>
+                <span className="text-xs text-zinc-500">{r.part_num}</span>
               </span>
             </button>
           </li>

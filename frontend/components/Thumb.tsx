@@ -19,12 +19,12 @@ export default function Thumb({
   const src = srcs.find((s): s is string => !!s && !bad.includes(s));
 
   return (
-    <span className={`flex shrink-0 items-center justify-center overflow-hidden rounded-lg bg-stone-100 ${className}`} title={label}>
+    <span className={`flex shrink-0 items-center justify-center overflow-hidden rounded-lg bg-zinc-100 ${className}`} title={label}>
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={src} alt="" className="h-full w-full object-contain" loading="lazy" onError={() => setBad((b) => [...b, src])} />
       ) : (
-        <svg viewBox="0 0 24 24" className="h-1/2 w-1/2 text-stone-300" fill="currentColor" role="img" aria-label="No image available">
+        <svg viewBox="0 0 24 24" className="h-1/2 w-1/2 text-zinc-300" fill="currentColor" role="img" aria-label="No image available">
           <rect x="3" y="10" width="18" height="9" rx="1.5" />
           <circle cx="8" cy="7.5" r="2" />
           <circle cx="16" cy="7.5" r="2" />
