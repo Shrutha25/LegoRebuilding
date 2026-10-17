@@ -117,3 +117,28 @@ export function isTouchDevice(): boolean {
 }
 
 export const DROP_ANIMATION = process.env.NEXT_PUBLIC_BUILD_ANIMATION === "1";
+
+/** A real LEGO build from the LDraw Official Model Repository: a whole small model or a sub-model of a bigger one. */
+export type SubBuild = {
+  id: string;
+  set_num: string;
+  set_name: string;
+  title: string;
+  parts: number;
+  main: boolean;
+  authors: string[];
+  licence: string[];
+  image: string | null;
+  source_url: string;
+  /** Only on "almost buildable" ones: the parts the pile lacks. */
+  missing_count?: number;
+  missing?: { part: string; name: string; colour: string | null; qty: number }[];
+};
+
+export type SubBuilds = {
+  ready: boolean;
+  available?: boolean;
+  buildable: SubBuild[];
+  almost: SubBuild[];
+  counts: { buildable: number; almost: number; smallest_buildable: number | null; smallest_almost: number | null };
+};

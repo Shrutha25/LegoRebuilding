@@ -8,6 +8,8 @@
     POST /api/builds/recipes               recipe builds (backend/recipes): designs the code generates from the pieces, named by Gemini
     GET  /api/builds/{id}/thumb.png        isometric thumbnail of a recipe build
     POST /api/sets/nearby                  sets the pieces can build now, and sets that are almost there (with the missing parts)
+    POST /api/subbuilds                    real LEGO sub-builds (OMR) the pieces can build now, and ones missing 1-2 parts
+    POST /api/subbuilds/build              the 3D viewer build of one of them
     POST /api/sets/instructions            which instructions each set has (3D model / official LEGO link / none); pending ones fill in later
     GET  /api/dev/recipe-gallery           dev only (RECIPE_GALLERY=1): every recipe on random inventories
     GET  /api/builds-status                whether the LDraw library is installed (for the UI)
@@ -17,6 +19,8 @@ The LDraw parts library itself is never served.
 
 import csv
 import logging
+import threading
+import time
 
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.concurrency import run_in_threadpool
@@ -263,6 +267,55 @@ async def sets_instructions(body: InstructionsIn):
 
 
 _matcher = None
+_omr = {"index": None, "error": None}                       # the OMR sub-build index (backend/core/omr_index.py), built at start-up
+_warm = {"nearby": False, "omr": False, "service": False, "seconds": {}}
+
+
+def warm_indexes(store, wait=600):
+    """Build every index the Suggest sources need, once, at start-up (called in a thread): the nearby-sets matcher, the OMR sub-build index and the LDraw
+    library behind the part and colour mappers. Waits for the catalogue first. Never raises: a source that fails to warm just answers when asked."""
+    t0 = time.time()
+    while not (store.data_loaded and store.parts_loaded) and time.time() - t0 < wait and not store.error:
+        time.sleep(0.2)
+    if not (store.data_loaded and store.parts_loaded):
+        return
+    for name, fn in (("nearby", lambda: _get_matcher(store)), ("service", get_service), ("omr", lambda: _load_omr(store))):   # the OMR index needs the LDraw library
+        t = time.time()
+        try:
+            fn()
+            _warm[name] = True
+        except HTTPException as e:
+            log.info("warm-up of %s skipped: %s", name, e.detail)
+        except Exception as e:                                                        # noqa: BLE001
+            log.warning("warm-up of %s failed: %s: %s", name, type(e).__name__, e)
+        _warm["seconds"][name] = round(time.time() - t, 2)
+    log.info("indexes ready after %.1fs: %s", time.time() - t0, _warm)
+
+
+def start_warmup(store):
+    th = threading.Thread(target=warm_indexes, args=(store,), daemon=True, name="warm-indexes")
+    th.start()
+    return th
+
+
+def _load_omr(store):
+    from backend.core.omr_index import OmrIndex
+    names = dict(zip(store.index.sets.set_num, store.index.sets.name)) if store.index is not None else {}
+    canon, key = None, None
+    try:
+        svc = get_service()
+        canon = svc.canon
+        zip_path = config.LDRAW_DIR / DEFAULT_ZIP
+        key = (zip_path.stat().st_mtime_ns, zip_path.stat().st_size)
+    except HTTPException:                                                              # no LDraw library: part numbers are used as written
+        pass
+    _omr["index"] = OmrIndex.load(config.BUILD_CACHE_DIR / "omr", config.BUILD_CACHE_DIR / "omr_index.pkl", names, canon, key)
+    return _omr["index"]
+
+
+def warm_status():
+    idx = _omr["index"]
+    return {**{k: v for k, v in _warm.items() if k != "seconds"}, "omr_sub_builds": len(idx) if idx is not None else 0, "seconds": _warm["seconds"]}
 
 
 def _get_matcher(store):
@@ -297,6 +350,79 @@ async def sets_nearby(body: SetBuildIn):
         for m in row["missing"]:
             m["color"] = m["colour"]
     return result
+
+
+class SubBuildsIn(BaseModel):
+    parts: list[BuildPartIn] = Field(default_factory=list, max_length=500)
+    match_color: bool = True
+
+
+def _clean(desc):
+    return " ".join(str(desc or "").lstrip("~=_").split())
+
+
+def have_for_omr(parts, svc):
+    """{(ld part, ld colour or None): qty} for the user's pieces: the same part and colour mappers the 3D builds use (local rules only: no network)."""
+    have = {}
+    for p in parts:
+        ld = svc.parts.ldraw_id(p.part_num)
+        if not ld:
+            continue
+        ld = svc.canon(ld)
+        code = svc.colours.code(p.color) if p.color else None
+        have[(ld, code)] = have.get((ld.lower(), code), 0) + p.qty
+    return have
+
+
+def subbuild_rows(rows, svc, store, with_missing):
+    sets = store.index.sets if store.index is not None else None
+    images = dict(zip(sets.set_num, sets.img_url)) if sets is not None else {}
+    out = []
+    for b, missing in rows:
+        row = {"id": b.id, "set_num": b.set_num, "set_name": b.set_name, "title": b.title, "parts": b.parts, "main": b.main,
+               "authors": list(b.authors), "licence": list(b.licence), "image": images.get(b.set_num) or None,
+               "source_url": f"https://library.ldraw.org/omr/sets?search={b.set_num.split('-')[0]}"}
+        if with_missing:
+            row["missing_count"] = sum(q for _, _, q in missing)
+            row["missing"] = [{"part": part, "name": _clean(svc.lib.part_description(part)) or part,
+                               "colour": None if col in (None, 16) else svc.colours.name(col), "qty": q} for part, col, q in missing]
+        out.append(row)
+    return out
+
+
+@router.post("/api/subbuilds")
+async def subbuilds(body: SubBuildsIn):
+    """Real sub-builds from the LDraw Official Model Repository: `buildable` the pieces cover completely, `almost` missing 1-2 parts (listed)."""
+    store = _deps["store"]
+    idx = _omr["index"]
+    if idx is None or not (store.data_loaded and store.parts_loaded):
+        return {"ready": False, "buildable": [], "almost": [], "counts": {}}
+    if len(idx) == 0:
+        return {"ready": True, "available": False, "hint": "Run: python -m backend.core.fetch_omr", "buildable": [], "almost": [], "counts": {}}
+    svc = get_service()
+    with timing.stage("subbuilds.map"):
+        have = await run_in_threadpool(have_for_omr, body.parts, svc)
+    with timing.stage("subbuilds.match"):
+        res = await run_in_threadpool(idx.match, have, body.match_color)
+    with timing.stage("subbuilds.rows"):
+        return {"ready": True, "available": True, "match_colour": body.match_color,
+                "buildable": subbuild_rows(res["buildable"], svc, store, False), "almost": subbuild_rows(res["almost"], svc, store, True),
+                "counts": res["counts"]}
+
+
+class SubBuildIn(BaseModel):
+    id: str = Field(max_length=60)
+    title: str | None = Field(default=None, max_length=200)
+
+
+@router.post("/api/subbuilds/build")
+async def subbuild_build(body: SubBuildIn):
+    """The 3D viewer build (steps, parts, attribution) of one sub-build found by /api/subbuilds."""
+    svc = get_service()
+    meta, reason = await run_in_threadpool(svc.official_submodel, body.id, body.title)
+    if meta is None:
+        raise HTTPException(404 if reason == "none" else 403, "No open 3D model for this build." if reason == "none" else "That model's licence does not allow showing it here.")
+    return meta
 
 
 @router.get("/api/dev/recipe-gallery")

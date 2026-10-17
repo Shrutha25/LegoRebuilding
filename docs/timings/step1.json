@@ -1,0 +1,612 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 2434,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 25,
+   "match_ms": 155,
+   "nearby_ms": 155,
+   "subbuilds_ms": 151,
+   "instant_sources_ms": 156,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "subbuilds_status": 200,
+   "subbuilds": {
+    "ready": true,
+    "buildable": 0,
+    "almost": 0,
+    "smallest_buildable": null,
+    "smallest_almost": null,
+    "shown_buildable": [],
+    "shown_almost": []
+   },
+   "recipes_ms": 13173,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 2,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": [
+     "Coastal Skiff",
+     "Bonsai Specimen"
+    ]
+   },
+   "ideas_ms": 2752,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 18540
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 1711,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 1,
+   "match_ms": 11,
+   "nearby_ms": 34,
+   "subbuilds_ms": 29,
+   "instant_sources_ms": 35,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "subbuilds_status": 200,
+   "subbuilds": {
+    "ready": true,
+    "buildable": 0,
+    "almost": 0,
+    "smallest_buildable": null,
+    "smallest_almost": null,
+    "shown_buildable": [],
+    "shown_almost": []
+   },
+   "recipes_ms": 45977,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 2010,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 49734
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2099,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 1,
+   "match_ms": 48,
+   "nearby_ms": 50,
+   "subbuilds_ms": 48,
+   "instant_sources_ms": 51,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "subbuilds_status": 200,
+   "subbuilds": {
+    "ready": true,
+    "buildable": 0,
+    "almost": 0,
+    "smallest_buildable": null,
+    "smallest_almost": null,
+    "shown_buildable": [],
+    "shown_almost": []
+   },
+   "recipes_ms": 11463,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 5147,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 18761
+  },
+  {
+   "photo": "bench_photos/photo4.jpg",
+   "scan_ms": 1833,
+   "scan_status": "done",
+   "pieces": 13,
+   "detector": "opencv",
+   "rows": 10,
+   "pieces_identified": 13,
+   "resolve_ms": 2,
+   "match_ms": 63,
+   "nearby_ms": 64,
+   "subbuilds_ms": 62,
+   "instant_sources_ms": 65,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "subbuilds_status": 200,
+   "subbuilds": {
+    "ready": true,
+    "buildable": 0,
+    "almost": 0,
+    "smallest_buildable": null,
+    "smallest_almost": null,
+    "shown_buildable": [],
+    "shown_almost": []
+   },
+   "recipes_ms": 43775,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 2,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": [
+     "Bonsai Specimen",
+     "Pine Sapling"
+    ]
+   },
+   "ideas_ms": 3588,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 49262
+  },
+  {
+   "photo": "bench_photos/photo5.jpg",
+   "scan_ms": 2073,
+   "scan_status": "done",
+   "pieces": 14,
+   "detector": "opencv",
+   "rows": 12,
+   "pieces_identified": 14,
+   "resolve_ms": 2,
+   "match_ms": 66,
+   "nearby_ms": 67,
+   "subbuilds_ms": 65,
+   "instant_sources_ms": 68,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "subbuilds_status": 200,
+   "subbuilds": {
+    "ready": true,
+    "buildable": 0,
+    "almost": 0,
+    "smallest_buildable": null,
+    "smallest_almost": null,
+    "shown_buildable": [],
+    "shown_almost": []
+   },
+   "recipes_ms": 11988,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 0,
+    "ai_used": true,
+    "note": "",
+    "concepts": 12,
+    "generated": [],
+    "titles": []
+   },
+   "ideas_ms": 5249,
+   "ideas_status": 200,
+   "ideas": 3,
+   "total_ms": 19381
+  },
+  {
+   "photo": "bench_photos/photo6.jpg",
+   "scan_ms": 2147,
+   "scan_status": "done",
+   "pieces": 17,
+   "detector": "opencv",
+   "rows": 16,
+   "pieces_identified": 17,
+   "resolve_ms": 2,
+   "match_ms": 69,
+   "nearby_ms": 70,
+   "subbuilds_ms": 69,
+   "instant_sources_ms": 71,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "subbuilds_status": 200,
+   "subbuilds": {
+    "ready": true,
+    "buildable": 0,
+    "almost": 0,
+    "smallest_buildable": null,
+    "smallest_almost": null,
+    "shown_buildable": [],
+    "shown_almost": []
+   },
+   "recipes_ms": 265,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 1,
+    "ai_used": false,
+    "note": "AI concepts unavailable (IdeasError); standard designs are shown.",
+    "concepts": 10,
+    "generated": [],
+    "titles": [
+     "Winter Pine"
+    ]
+   },
+   "ideas_ms": 3,
+   "ideas_status": 429,
+   "ideas": "The AI service is at its usage limit right now. Please try again in a minute (about 28s).",
+   "total_ms": 2488
+  },
+  {
+   "photo": "bench_photos/photo7.jpg",
+   "scan_ms": 2144,
+   "scan_status": "done",
+   "pieces": 16,
+   "detector": "opencv",
+   "rows": 13,
+   "pieces_identified": 16,
+   "resolve_ms": 1,
+   "match_ms": 62,
+   "nearby_ms": 62,
+   "subbuilds_ms": 60,
+   "instant_sources_ms": 63,
+   "match_status": 200,
+   "sets": 0,
+   "nearby_status": 200,
+   "nearby": {
+    "can_build": 0,
+    "almost": 0
+   },
+   "subbuilds_status": 200,
+   "subbuilds": {
+    "ready": true,
+    "buildable": 0,
+    "almost": 0,
+    "smallest_buildable": null,
+    "smallest_almost": null,
+    "shown_buildable": [],
+    "shown_almost": []
+   },
+   "recipes_ms": 218,
+   "recipes_status": 200,
+   "recipes": {
+    "builds": 1,
+    "ai_used": false,
+    "note": "AI concepts unavailable (IdeasError); standard designs are shown.",
+    "concepts": 10,
+    "generated": [],
+    "titles": [
+     "Little Evergreen"
+    ]
+   },
+   "ideas_ms": 3,
+   "ideas_status": 429,
+   "ideas": "The AI service is at its usage limit right now. Please try again in a minute (about 26s).",
+   "total_ms": 2430
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 7,
+   "p50": 9.4,
+   "p95": 10.1,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 7,
+   "p50": 2090.7,
+   "p95": 2338.5699999999997,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 812.2,
+     "p95": 1014.4399999999998,
+     "n": 7
+    },
+    "crops": {
+     "p50": 75.4,
+     "p95": 87.38,
+     "n": 7
+    },
+    "brickognize": {
+     "p50": 7897.5,
+     "p95": 9298.06,
+     "n": 7
+    },
+    "identify": {
+     "p50": 1057.5,
+     "p95": 1301.83,
+     "n": 7
+    },
+    "tiebreak": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 82.9,
+     "p95": 100.72,
+     "n": 7
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 7,
+   "p50": 0.5,
+   "p95": 16.699999999999985,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/subbuilds": {
+   "n": 7,
+   "p50": 59.3,
+   "p95": 122.80999999999995,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "subbuilds.map": {
+     "p50": 26.6,
+     "p95": 78.89999999999995,
+     "n": 7
+    },
+    "subbuilds.match": {
+     "p50": 3.8,
+     "p95": 23.679999999999982,
+     "n": 7
+    },
+    "subbuilds.rows": {
+     "p50": 20.3,
+     "p95": 31.239999999999988,
+     "n": 7
+    }
+   }
+  },
+  "/api/match": {
+   "n": 7,
+   "p50": 60.6,
+   "p95": 126.87999999999994,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 7
+    },
+    "sets.match": {
+     "p50": 38.9,
+     "p95": 121.36999999999995,
+     "n": 7
+    },
+    "sets.rank": {
+     "p50": 2.3,
+     "p95": 24.84,
+     "n": 7
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 7,
+   "p50": 61.3,
+   "p95": 127.98999999999995,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 8.4,
+     "p95": 38.379999999999995,
+     "n": 7
+    },
+    "nearby.match": {
+     "p50": 26.5,
+     "p95": 114.92999999999995,
+     "n": 7
+    },
+    "nearby.rank": {
+     "p50": 0.5,
+     "p95": 1.24,
+     "n": 7
+    }
+   }
+  },
+  "/api/builds/recipes": {
+   "n": 7,
+   "p50": 11987.0,
+   "p95": 45314.719999999994,
+   "gemini_calls": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    0,
+    0
+   ],
+   "stages": {
+    "recipes.inventory": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 7
+    },
+    "gemini.budget_wait": {
+     "p50": 26.4,
+     "p95": 2094.009999999999,
+     "n": 7
+    },
+    "gemini.build": {
+     "p50": 10978.0,
+     "p95": 12416.46,
+     "n": 5
+    },
+    "concepts": {
+     "p50": 2762.0,
+     "p95": 3445.9900000000002,
+     "n": 7
+    },
+    "solver": {
+     "p50": 336.5,
+     "p95": 731.74,
+     "n": 7
+    },
+    "checks": {
+     "p50": 0.4,
+     "p95": 0.585,
+     "n": 4
+    },
+    "generate": {
+     "p50": 9361.8,
+     "p95": 41430.58,
+     "n": 5
+    },
+    "recipes.suggest": {
+     "p50": 11986.2,
+     "p95": 45301.99,
+     "n": 7
+    },
+    "recipes.finalize": {
+     "p50": 0.0,
+     "p95": 0.16999999999999993,
+     "n": 7
+    },
+    "ldr": {
+     "p50": 0.0,
+     "p95": 0.08499999999999996,
+     "n": 4
+    },
+    "ldr.pack": {
+     "p50": 5.75,
+     "p95": 7.989999999999998,
+     "n": 4
+    },
+    "thumbnail": {
+     "p50": 24.05,
+     "p95": 33.849999999999994,
+     "n": 4
+    },
+    "recipes.store": {
+     "p50": 20.0,
+     "p95": 40.82,
+     "n": 7
+    }
+   }
+  },
+  "/api/ideas": {
+   "n": 7,
+   "p50": 2750.7,
+   "p95": 5217.35,
+   "gemini_calls": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "stages": {
+    "gemini.budget_wait": {
+     "p50": 185.5,
+     "p95": 2535.9299999999994,
+     "n": 7
+    },
+    "gemini.build": {
+     "p50": 2744.9,
+     "p95": 2967.28,
+     "n": 5
+    },
+    "ideas": {
+     "p50": 2749.8,
+     "p95": 5216.679999999999,
+     "n": 7
+    }
+   }
+  }
+ }
+}

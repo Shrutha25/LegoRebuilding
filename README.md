@@ -350,6 +350,22 @@ Config: `RECIPE_CONCEPTS` (concepts asked, 12), `RECIPE_LIBRARY_DIR`, `RECIPE_GE
 **Unlock hints.** For recipes whose minimum is not met (parts, area, a long enough part) the response lists the smallest additions; recipes
 that need wheels are never hinted. **Nearby sets** use a part to sets index built once from the Rebrickable CSVs: about 1 ms per inventory.
 
+### Real LEGO sub-builds (LDraw OMR)
+
+`POST /api/subbuilds {"parts": [...], "match_color": true}` lists real builds from the LDraw Official Model Repository that the pieces can build:
+whole small models and the sub-models of bigger ones (a vehicle, a figure, a gate) of 6 to 80 parts, as `buildable` (the pieces cover them) and
+`almost` (1-2 parts short, the missing parts listed, shown in a separate section after the buildable ones). The rule is the same as everywhere:
+shape always matters; with "Consider color" on the demand is counted per (part, colour), off per part; a part the model draws in colour 16 takes
+any colour. Renamed LDraw parts (`~Moved to 3139b`) are matched under their current number. Each result carries the author(s), licence and source of
+the model (only CCAL / CC BY models are indexed), and `POST /api/subbuilds/build {"id": "sub-<set>-<block>"}` opens it in the 3D viewer.
+
+    python -m backend.core.fetch_omr [--max-parts 1000]    # once: downloads the models into build_cache/omr/ (about 1,290 files, 110 MB, a minute)
+
+The index (`backend/core/omr_index.py`, about 5,500 sub-builds, a pickle next to the models) and the nearby-sets index are built at start-up in a
+background thread together with the LDraw library (`/api/health` shows `indexes`), so the first Suggest never waits for them; a request takes about
+60 ms. `python -m backend.wheels_report` lists the wheel, tyre and wheel-holder parts in the LDraw library and whether Rebrickable knows them
+(`docs/wheels-in-ldraw.md`).
+
 ### Stud detection
 
 Studs look the same whatever the colour of the piece, so `backend/core/studs.py` finds them on every scan: CLAHE +

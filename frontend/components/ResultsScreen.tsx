@@ -6,6 +6,7 @@ import { toIdeaParts, toMatchParts } from "@/lib/review";
 import type { Item, Resolved, SetMatch } from "@/lib/types";
 import IdeasTab from "./IdeasTab";
 import NearbySets from "./NearbySets";
+import SubBuilds from "./SubBuilds";
 import SetCard from "./SetCard";
 import { useConsiderColour } from "@/lib/settings";
 import { useRankedSets } from "@/lib/useInstructions";
@@ -154,6 +155,7 @@ export default function ResultsScreen({
               </ul>
             )}
 
+            {state.kind === "done" && parts.length > 0 && <SubBuilds parts={ideaParts.map((p) => ({ part_num: p.part_num, name: p.name, color: p.color, qty: p.qty }))} matchColour={matchColor} />}
             {state.kind === "done" && parts.length > 0 && <NearbySets parts={parts} matchColour={matchColor} />}
           </>
         )}

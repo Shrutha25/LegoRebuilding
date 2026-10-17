@@ -34,3 +34,10 @@ def tiny_fixture_sets(monkeypatch):
 def no_timing_file(monkeypatch):
     """Requests in tests would otherwise append to the real timings.jsonl."""
     monkeypatch.setattr(config, "TIMING_LOG", "")
+
+
+@pytest.fixture(autouse=True)
+def no_background_warmup(monkeypatch):
+    """The app's start-up warm-up (nearby-sets, OMR and LDraw indexes) is tested on its own; other tests must not load the real ones."""
+    from backend import builds_api
+    monkeypatch.setattr(builds_api, "start_warmup", lambda store: None)

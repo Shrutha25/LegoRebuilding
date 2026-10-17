@@ -21,7 +21,8 @@ from backend.core.ldraw_lib import pack_mpd
 
 log = logging.getLogger("lego.builds")
 
-_ID = re.compile(r"^(ai-[0-9a-f]{12}|set-[0-9a-z]+(-[0-9]+)?)$", re.I)
+_ID = re.compile(r"^(ai-[0-9a-f]{12}|set-[0-9a-z]+(-[0-9]+)?|sub-[0-9a-z]+-[0-9]+-[0-9]+)$", re.I)
+SUB_ID = re.compile(r"^sub-([0-9a-z]+-[0-9]+)-([0-9]+)$", re.I)
 
 
 def valid_id(build_id):
@@ -35,6 +36,7 @@ class BuildService:
         self.dir.mkdir(parents=True, exist_ok=True)
         self.omr_base = omr_base_url
         self.cache_dir = Path(cache_dir)
+        self._canon = {}
 
     # ---- storage
     def _path(self, build_id, ext):
@@ -127,6 +129,49 @@ class BuildService:
             "match_colour": match_color, "mixed_colours": not match_color,
         }
         return self._store(build_id, ldr, meta)
+
+    def canon(self, part):
+        """The current LDraw number of a part: LDraw leaves a `~Moved to 3139b` stub under the old number (3139), OMR models and our mapper use either."""
+        key = str(part).strip().lower()
+        hit = self._canon.get(key)
+        if hit is not None:
+            return hit
+        out = key
+        for _ in range(3):
+            m = re.match(r"^~Moved to (\S+)", self.lib.part_description(out) or "")
+            if not m:
+                break
+            out = m.group(1).lower().removesuffix(".dat")
+        self._canon[key] = out
+        return out
+
+    # ---- a sub-model (or small model) of an OMR file, found by omr_index
+    def official_submodel(self, sub_id, title):
+        """Metadata of the viewer build for "sub-<set>-<block>", or (None, reason). The model comes from the cached OMR file."""
+        from backend.core import omr_index
+        m = SUB_ID.match(sub_id or "")
+        if not m:
+            return None, "none"
+        existing = self.meta(sub_id.lower())
+        if existing:
+            return existing, None
+        set_num, block = m.group(1), int(m.group(2))
+        path = self.cache_dir / "omr" / f"{set_num}.mpd"
+        if not omr.valid_set_num(set_num) or not path.exists():
+            return None, "none"
+        text = path.read_text(encoding="utf-8", errors="replace")
+        authors, licences = omr.parse_header(text)
+        if not omr.OmrModel(set_num, text, authors, licences).licence_ok:
+            return None, "licence"
+        model = omr_index.extract_model(text, block)
+        ldr = model if ldrconv.has_steps(model) else ldrconv.add_steps(model)
+        meta = {
+            "kind": "set", "title": title or f"Part of LEGO set {set_num}", "description": "", "set_num": set_num,
+            "attribution": {"authors": authors, "licence": licences, "source_url": f"https://library.ldraw.org/omr/sets?search={set_num.split('-')[0]}",
+                            "text": "Model from the LDraw Official Model Repository" + (f", by {', '.join(authors)}" if authors else "") + "."},
+            "steps_generated": not ldrconv.has_steps(model), "repairs": [], "warnings": [], "skipped_parts": [],
+        }
+        return self._store(sub_id.lower(), ldr, meta), None
 
     # ---- official
     async def official_build(self, set_num, set_name=None):

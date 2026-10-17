@@ -35,6 +35,7 @@ async def _cleanup_loop():
 async def lifespan(app):
     config.UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
     store.start()                                  # background: scans work while this loads
+    builds_api.start_warmup(store)                 # background: nearby-sets, sub-build (OMR) and LDraw indexes are ready before the first Suggest
     try:
         log.info("gemini budget: %s", gemini_budget.get_budget().status(_budget_models()))
     except Exception as e:                         # the budget must never stop the server from starting
@@ -77,7 +78,7 @@ async def time_requests(request, call_next):
 def health():
     return {"status": "ok", "data_loaded": store.data_loaded, "parts_loaded": store.parts_loaded,
             "data_error": store.error, "load_seconds": store.load_seconds,
-            "rebrickable_api": rb_api.enabled}
+            "rebrickable_api": rb_api.enabled, "indexes": builds_api.warm_status()}
 
 
 def _budget_models():

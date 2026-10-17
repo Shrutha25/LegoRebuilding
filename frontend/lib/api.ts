@@ -1,5 +1,5 @@
 import type { InstructionInfo } from "./instructions";
-import type { BuildMeta, BuildPartIn, NearbySets, RecipeBuilds, SetBuild } from "./build";
+import type { BuildMeta, BuildPartIn, NearbySets, RecipeBuilds, SetBuild, SubBuilds } from "./build";
 import type { Idea, IdeaPart, MatchPart, Resolved, Scan, SearchResult, SetMatch } from "./types";
 
 /**
@@ -108,3 +108,9 @@ export const getSetBuild = (setNum: string, parts: BuildPartIn[], setName?: stri
 /** Instruction state per set (3D model / official LEGO link / none). Answers from caches; `pending` entries are filled in by a background lookup. */
 export const getSetInstructions = async (setNums: string[]) =>
   (await call<{ sets: Record<string, InstructionInfo> }>("/api/sets/instructions", json({ set_nums: setNums }))).sets;
+
+/** Real LEGO sub-builds (OMR) the pieces can build, and ones missing 1-2 parts. */
+export const getSubBuilds = (parts: BuildPartIn[], matchColor = true) => call<SubBuilds>("/api/subbuilds", json({ parts, match_color: matchColor }));
+
+/** The 3D viewer build (steps, attribution) of one of them. */
+export const getSubBuildModel = (id: string, title?: string) => call<BuildMeta>("/api/subbuilds/build", json({ id, title: title ?? null }));

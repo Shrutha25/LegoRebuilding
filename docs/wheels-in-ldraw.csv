@@ -1,0 +1,786 @@
+part,kind,ldraw_description,in_rebrickable,rebrickable_name,rebrickable_category,app_role
+003437a,wheel,"Sticker  2.3 x  2.4 with White ""181"" and Winged Wheel Logo on Black",False,,,
+100942,wheel,Wheel 37 x 45 Hard-Plastic with  6 Curved Spokes,False,,,
+100942p01,wheel,Wheel 37 x 45 Hard-Plastic with  6 Silver Curved Spokes Pattern,False,,,
+100943,wheel,Technic Steering Wheel Bearing with 2 Towballs,True,Technic Steering Wheel Hub Holder with 2 Ball Joints and 2 Axle Holes,"Technic Steering, Suspension and Engine",other
+100943p01,wheel,Technic Steering Wheel Bearing with 2 Towballs with Dark Bluish Grey Shaft Pattern,False,,,
+105162,tyre,Wheel 13.4 x 24 with Integral Smooth Racing Tyre,True,Wheel Rim 24 x 13.4 with Black Slick Tyre [Hard Rubber],Wheels and Tyres,wheel
+105162p01,tyre,Wheel 13.4 x 24 with Rubber Black Integral Smooth Racing Tyre Pattern,False,,,
+105162p02,tyre,"Wheel 13.4 x 24 with Rubber Black Integral Smooth Racing Tyre with Yellow ""PIRELLI P ZERO"" Pattern",False,,,
+105162p03,tyre,"Wheel 13.4 x 24 with Rubber Black Integral Smooth Racing Tyre with Red ""PIRELLI P ZERO"" Pattern",False,,,
+105162p04,tyre,"Wheel 13.4 x 24 with Rubber Black Integral Smooth Racing Tyre with White ""PIRELLI P ZERO"" Pattern",False,,,
+105645,tyre,Wheel 22 x 50 with Integral Smooth Racing Tyre,False,,,
+105645p01,tyre,Wheel 22 x 50 with Rubber Black Integral Smooth Racing Tyre Pattern,False,,,
+105645p02,tyre,"Wheel 22 x 50 with Rubber Black Integral Smooth Racing Tyre with White ""GOODYEAR EAGLE"" Pattern",False,,,
+10715,wheel,Duplo Car Base  2 x  6 with Wheels with Fake Bolts,False,,,
+10715p01,wheel,Duplo Car Base  2 x  6 with Red Wheels with Fake Bolts,False,,,
+10715p02,wheel,Duplo Car Base  2 x  6 with Yellow Wheels with Fake Bolts,False,,,
+11002,wheel holder,Plate  2 x  2 with 2 Wheel Pins Extended with Wishbones,True,Plate Special 2 x 2 with Wheels Holder Wide [Reinforced Underside],Plates Special,wheel_holder
+110100,tyre,Wheel 14.9 x 24 with Integral Smooth Racing Tyre,True,Wheel Rim 24 x 14.9 Wide with Black Slick Tyre,Wheels and Tyres,wheel
+110100p01,tyre,"Wheel 14.9 x 24 with Rubber Black Integral Smooth Racing Tyre with Yellow ""PIRELLI P ZERO"" Pattern",False,,,
+110100p02,tyre,"Wheel 14.9 x 24 with Rubber Black Integral Smooth Racing Tyre with Red ""PIRELLI P ZERO"" Pattern",False,,,
+110100p03,tyre,"Wheel 14.9 x 24 with Rubber Black Integral Smooth Racing Tyre with White ""PIRELLI P ZERO"" Pattern",False,,,
+110100p04,tyre,Wheel 14.9 x 24 with Rubber Black Integral Smooth Racing Tyre,False,,,
+110638,tyre,Wheel 30 x 50 with Integral Smooth Racing Tyre,False,,,
+110638p01,tyre,"Wheel 30 x 50 with Rubber Black Integral Smooth Racing Tyre with White ""GOODYEAR EAGLE"" Pattern",False,,,
+11094,wheel,Wheel 30 x 64 with  7 Pin Holes and  6 Small Holes,True,"Wheel Hard Plastic, Treaded with 7 Pin Holes and 6 Small Holes",Wheels and Tyres,wheel
+11140,wheel,~Wheel Rim 26 x  7 with Rip Cord Gear Axle,False,,,
+11208,wheel,Wheel Rim 10 x 14 with Fake Bolts and  6 Spokes,True,"Wheel 14mm D. x 9.9mm with Centre Groove, Fake Bolts and 6 Spokes",Wheels and Tyres,wheel
+11208c01,tyre,Wheel Rim 10 x 14 with Fake Bolts and  6 Spokes with Tyre 10/ 32 x 14,False,,,
+11209,tyre,Tyre 10/ 32 x 14,True,Tyre 21 x 9.9,Wheels and Tyres,tyre
+11767,tyre,Motor Inertia Flywheel  4 x  7 x  1 with Metal Wheel and DkAzur Tyre,True,Fly Wheel with Plate 2 x 8 and Dark Azure Tire [Complete Assembly] (Rip Cord Base),Wheels and Tyres,wheel
+11949,wheel,Technic Steering Wheel Bearing w/ 2 Pegholes & 2 Ball Joint Arms,True,Technic Steering Portal with 2 Pin Holes and 2 Ball Joint Arms,"Technic Steering, Suspension and Engine",other
+11950,wheel,Technic Steering Wheel Bearing with  2 Pegholes,True,Technic Steering Portal with 2 Pin Holes,"Technic Steering, Suspension and Engine",other
+11957,tyre,Tyre 19/ 67 x 75 Motorcycle with Motocross Tread,True,Tyre 100.6 x 22 Motorcycle,Wheels and Tyres,tyre
+122c01,wheel,Plate  2 x  2 with Red Wheels (Complete),True,Plate Special 2 x 2 with Wheels Red,Wheels and Tyres,wheel
+122c02,wheel,Plate  2 x  2 with White Wheels (Complete),True,Plate Special 2 x 2 with Wheels White,Wheels and Tyres,wheel
+122c03,wheel,Plate  2 x  2 with Red Wheels and Tyres 6/ 50 x 8 Offset Tread,False,,,
+122c04,wheel,Plate  2 x  2 with White Wheels and Tyres 6/ 50 x 8 Offset Tread,False,,,
+122c05,wheel,Plate  2 x  2 with Red Wheels and Tyres 8/ 75 x 8 Offset Tread,False,,,
+122c06,wheel,Plate  2 x  2 with White Wheels and Tyres 8/ 75 x 8 Offset Tread,False,,,
+122c07,wheel,Plate  2 x  2 with Red Wheels and Wheels 13 x 20 Solid Rubber,False,,,
+12588,wheel,~Duplo Axle for Wheel Rim 11 x 17,False,,,
+12589,wheel,~Duplo Wheel Rim 11 x 17,False,,,
+12589c01,tyre,Duplo Wheel 11 x 17 with Black Tyre 11 / 45 x 17 and Black Attached Axle,False,,,
+12589c02,tyre,Duplo Wheel 11 x 17 with Dark Azure Tyre 11 / 45 x 17 and Black Attached Axle,False,,,
+12589c03,tyre,Duplo Wheel 11 x 17 with Red Tyre 11 / 45 x 17 and Black Attached Axle,False,,,
+12590,tyre,~Duplo Tyre 11 / 45 x 17,False,,,
+12622,wheel holder,Car Base  4 x 10 with Mudguards and Integral Plates with Wheel Pins,False,,,
+12622p01,wheel holder,Car Base  4 x 10 with Mudguards and Integral Light Bluish Grey Plates with Wheel Pins,False,,,
+12622p02,wheel holder,Car Base  4 x 10 with Mudguards and Integral Black Plates with Wheel Pins,False,,,
+13971,wheel,"Wheel Rim  8 x 18 with Deep Centre Groove, Deep Spokes and Peghole",True,Wheel 18 x 8 with Fake Bolts and Deep Spokes with Inner Ring,Wheels and Tyres,wheel
+13971c01,tyre,"Wheel Rim  8 x 18 with Deep Centre Groove, Deep Spokes and Peghole with Tyre  7/ 45x 17 Offset Tread with Middle Band",False,,,
+14639,wheel,Duplo Car Base  2 x  6 with Bottom Tube with Wheels with Fake Bolts,False,,,
+14639p01,wheel,"Duplo Car Base  2 x  6 with Bottom Tube, with Red Wheels with Fake Bolts",False,,,
+14639p02,wheel,"Duplo Car Base  2 x  6 with Bottom Tube, with Yellow Wheels with Fake Bolts",False,,,
+14639p03,wheel,"Duplo Car Base  2 x  6 with Bottom Tube, with Lavender Wheels with Fake Bolts",False,,,
+14639p04,wheel,"Duplo Car Base  2 x  6 with Bottom Tube, with Light Bluish Grey Wheels with Fake Bolts",False,,,
+14639p05,wheel,"Duplo Car Base  2 x  6 with Bottom Tube, with White Wheels with Fake Bolts",False,,,
+14639p06,wheel,"Duplo Car Base  2 x  6 with Bottom Tube, with Medium Azure Wheels with Fake Bolts",False,,,
+14639p07,wheel,"Duplo Car Base  2 x  6 with Bottom Tube, with Orange Wheels with Fake Bolts",False,,,
+14639p08,wheel,"Duplo Car Base  2 x  6 with Bottom Tube, with Light Aqua Wheels with Fake Bolts Pattern",False,,,
+15038,wheel,Wheel Rim 34 x 56 with  6 Spokes and  6 Pegholes,True,Wheel 56 x 34 Technic Racing Medium with 6 Pin Holes,Wheels and Tyres,wheel
+15038c01,tyre,Wheel Rim 34 x 56 with 6 Spokes and 6 Pegholes with Tyre 44/ 58 x 56 R Tractor,False,,,
+15038p01,wheel,Wheel Rim 34 x 56 with  6 Spokes and  6 Pegholes with White Rim Front Pattern,False,,,
+15210d0c,wheel,"Roadsign Clip-on  2 x  2 Square with Wheel and Black ""Air"" on White Background Sticker",False,,,
+15315,wheel,~Duplo Wheel Rim 16 x 21,False,,,
+15315c01,tyre,Duplo Wheel 16 x 21 with Black Tyre 11 / 45 x 17 and Black Attached Axle,False,,,
+15316,wheel,~Duplo Axle for Wheel Rim 16 x 21,False,,,
+15317,tyre,~Duplo Tyre 13 / 50 x 21,False,,,
+15336p01,tyre,Motor Inertia Flywheel  4 x  6 x  2 with Metal Wheel and Orange Tyre Pattern,False,,,
+15336p02,tyre,Motor Inertia Flywheel  4 x  6 x  2 with Metal Wheel and Dark Azure Tyre Pattern,False,,,
+15413,tyre,Tyre 20/ 48 x 30,True,Tyre 49.53 x 20,Wheels and Tyres,tyre
+15458d01,wheel,"Technic Panel  3 x 11 with ""BUCKET WHEEL EXCAVATOR MK III"" and Technical Data Sticker",False,,,
+16091,wheel,Car Steering Wheel 2L Reinforced,True,"Steering Wheel Small, 2 x 2 [Reinforced]",Transportation - Land,vehicle_part
+18352,wheel,Technic Steering Wheel Yoke with Axle Hole and Hollow Stud,True,"Technic Steering Wheel Pilot's Yoke [Hollow Stud, Axle Hole with + Opening]","Technic Steering, Suspension and Engine",other
+18450,tyre,Tyre 44/ 91 x 43 R,True,Tyre 81.6 x 44 R,Wheels and Tyres,tyre
+18459,wheel,"=Wheel Rim  8 x  8 Notched Hole, Reinforced Back with Yellow Ring Pattern",False,,,
+1872,wheel,Wheel Rim 11 x 18 Front with 36 Spokes and Knock-off Hub Nut,False,,,
+18892,wheel holder,Brick  2 x  4 with  2 x  2 x  0.667 Cutout and 2 Wheel Pins,True,"Brick Special 2 x 4 with Wheels Holder, Single Slit with 2 x 2 Recessed and Hole",Transportation - Land,wheel_holder
+18895,wheel,Bike  2 Wheel Motorcycle Fairing Racing,True,"Fairing, Motorcycle, Racing (Sport) Bike",Transportation - Land,vehicle_part
+18895c01,wheel,Bike  2 Wheel Motorcycle with Fairing Racing,False,,,
+18895p01,wheel,Bike  2 Wheel Motorcycle Fairing Racing with Black Windscreen Pattern,False,,,
+18895p02,wheel,Bike  2 Wheel Motorcycle Fairing Racing with Black Windscreen and Gold Police Badge Pattern,False,,,
+18896,wheel,Bike  2 Wheel Motorcycle Frame  2 x  7 x  3 with Clip for Handle,True,"Vehicle Base, Motorcycle Chassis, Clip for Handle",Transportation - Land,vehicle_part
+18976,wheel,Wheel Rim 11 x 18 with Vented Disc Brake,True,Wheel 18 x 12 with Axle Hole and Stud,Wheels and Tyres,wheel
+18976c01,tyre,Wheel Rim 11 x 18 with Vented Disc Brake with Tyre 11.2/ 28 x 17.6 Intermediate,False,,,
+18977,tyre,Tyre 11.2/ 28 x 17.6 Intermediate,True,Tyre 24 x 12 Low Profile,Wheels and Tyres,tyre
+18978a,wheel,Wheel Rim 11 x 18 Front with  5 Spokes,True,Wheel Cover 5 Spoke - for Wheel 18976,Wheels and Tyres,wheel
+18978b,wheel,Wheel Rim 11 x 18 Front with 10 Angled Spokes,True,Wheel Cover 10 Spoke - for Wheel 18976,Wheels and Tyres,wheel
+18979a,wheel,Wheel Rim 11 x 18 Front with  7 Y-Shaped Spokes,True,Wheel Cover 10 Spoke T Shape - for Wheel 18976,Wheels and Tyres,wheel
+18979b,wheel,Wheel Rim 11 x 18 Front with 10 Spokes,True,Wheel Cover 7 Spoke Y Shape - for Wheel 18976,Wheels and Tyres,wheel
+191245a,wheel,Sticker  1.1 x  5.9 with Black Wrench and Three Wheels with Tyres,False,,,
+19215,wheel,Wheel Cover  5 Spoke Thick with Edge Bolts,True,Wheel Cover 5 Spoke Thick with Edge Bolts,Wheels and Tyres,wheel
+192385i,wheel,Sticker  2.3 x  5.9 with Steering Wheel and Yellow Car,False,,,
+195835e,tyre,"Sticker  2.0 x  2.9 with Tyre, Clamp and Screw",False,,,
+20,wheel,~Wheel Centre Small for Steel Axle,False,,,
+21445,wheel holder,Plate  1 x  2 with 1 Wheel Pin,True,"Plate Special 1 x 2 with Wheel Holder, Single Slit",Plates Special,wheel_holder
+2146c01,wheel,Fabuland Skateboard with Yellow Wheels,False,,,
+22253,wheel,Wheel 25 x 28 VR with 35mm Diameter Rear Rim and Complete Cross Axle Hole,True,Wheel 49.6 x 28 VR with X Axle Hole,Wheels and Tyres,wheel
+22253c01,tyre,Wheel 25 x 28 VR with 35mm Diameter Rear Rim and Complete Cross Axle Hole with Tyre 30/ 42 x 28 R Balloon,False,,,
+22253c02,tyre,Wheel 25 x 28 VR with 35mm Diameter Rear Rim and Complete Cross Axle Hole with Tyre 28/ 38 x 28 VR,False,,,
+22410,wheel,Wheel 21 x 37 Hard-Plastic with  7 Pin Holes,True,"Wheel Hard Plastic, Treaded with 7 Pin Holes (37mm D. x 22mm)",Wheels and Tyres,wheel
+22969,wheel,~Wheel 56 x 46 Technic Racing (Obsolete),False,,,
+22969a,wheel,Wheel 56 x 46 Technic Racing,False,,,
+22969ac01,tyre,Wheel 56 x 46 Technic Racing with Tyre 61/ 41 x 54 Off Road,False,,,
+22969ac02,tyre,Wheel 56 x 46 Technic Racing with Tyre 61/ 41 x 54 Power Puller,False,,,
+22969c01,tyre,~Wheel 56 x 46 Technic Racing with Tyre 61/ 41 x 54 Off Road (Obsolete),False,,,
+22969c02,tyre,~Wheel 56 x 46 Technic Racing w Tyre 61/ 41 x 54 Power Puller (Obsolete),False,,,
+2313a,wheel,~Duplo Car Base  2 x  6 Wheel,False,,,
+2313b,wheel,~Duplo Car Base  2 x  6 Wheel with Fake Bolts,False,,,
+2344,wheel,~Train Wheels Pin,True,Train Wheel / Propeller Pin,Wheels and Tyres,wheel
+2346,tyre,Tyre 12/ 50 x 16 Offset Tread,True,Tyre 30 x 10.5 Offset Tread,Wheels and Tyres,tyre
+23798,tyre,Tyre 44/ 58 x 56 R Tractor,True,Tyre 107 x 44 Tractor,Wheels and Tyres,tyre
+23799,tyre,Tyre 44/ 22 x 62 ZR,True,Tyre 81.6 x 44 ZR Technic Straight Tread,Wheels and Tyres,tyre
+23800,wheel,Wheel Rim 42 x 62 with 10 Spokes and  3 Pegholes,True,Wheel 62.3 x 42 Technic Racing Large,Wheels and Tyres,wheel
+23800c01,tyre,Wheel Rim 42 x 62 with 10 Spokes and  3 Pegholes with Tyre 44/ 22 x 62 ZR,False,,,
+23801,wheel,Technic Steering Wheel Bearing with 2 Pegholes and 2 Slotted Axlehole Arms,True,"Technic Steering Wheel Hub Holder with 2 Pin Holes and 2 Axle Holes, Slots","Technic Steering, Suspension and Engine",other
+2405,wheel,Technic Wheel Spindle Axle Driver Bar  5L,True,Technic Axle 5L with 2 CV Joints,"Technic Steering, Suspension and Engine",other
+24055,wheel holder,Vehicle Base  4 x  6 x  1.667 Curved With Two Wheel Pins,True,"Vehicle Base, Carriage 4 x 6 x 1 2/3 with Wheel Clip Pins",Transportation - Land,vehicle_part
+2415,wheel,Plate  2 x  2 with 2 Wheel Clips Angled,True,"Wheel Holder 2 x 2 Thin with Clips, Plane Single",Transportation - Land,wheel_holder
+2415c01,wheel,Plate  2 x  2 with 2 Wheel Clips Angled with Trans Clear Wheel with Type 4/ 80 x  8 Single Smooth Type 1,False,,,
+242,wheel,~Wheel Spoked with Stud,False,,,
+242c01,wheel,Wheel Spoked with Stud (Complete),True,Wheel Spoked with Stud,Wheels and Tyres,wheel
+243,wheel,~Train Wheel Spoked with Cylindrical Rim with 8 LDU Axle Hole,False,,,
+24308a,wheel,Wheel Rim 11 x 18 Front with 10 Parallel Spokes,True,Wheel Cover 10 Spoke (2 Spokes each parallel) - for Wheel 18976,Wheels and Tyres,wheel
+24308b,wheel,Wheel Rim 11 x 18 Front with 10 Y-Spokes,True,Wheel Cover 10 Spoke Y Shape - for Wheel 18976,Wheels and Tyres,wheel
+24314p01,tyre,Wheel  2 x 21 with Wheel Pin Hole with Integral Rubber Black Tyre Pattern,False,,,
+24314p02,tyre,Wheel  2 x 21 with Wheel Pin Hole with Integral Rubber Bright Green Tyre Pattern,False,,,
+24326,wheel holder,Car Base  4 x  4 x  0.667 with 4 Wheel Pins,True,"Vehicle Base 4 x 4 x 2/3 with Wheel Clip Pins, Wedge, 2 x 2 Recessed Center with Hole",Transportation - Land,vehicle_part
+243c01,wheel,Train Wheel Spoked with Cylindrical Rim with Stub Axle,False,,,
+243c02,wheel,~Train Wheels Spoked with Cylindrical Rim with Steel Axle 96 LDU (Obsolete),False,,,
+244,wheel,~Train Wheel Spoked with Conical Rim,False,,,
+244c01,wheel,Train Wheel Spoked with Conical Rim with Stub Axle,False,,,
+244c02,tyre,Train Wheel Spoked with Conical Rim with Stub Axle and Black Tyre,False,,,
+244c03,tyre,Train Wheel Spoked with Conical Rim with Stub Axle and Light Grey Tyre,False,,,
+245,wheel,~Train Wheel 4 Studs with Conical Rim,False,,,
+245c01,wheel,Train Wheel 4 Studs with Conical Rim with Stub Axle,False,,,
+245c02,tyre,Train Wheel 4 Studs with Conical Rim with Stub Axle and Light Grey Tyre,False,,,
+2470,wheel,Wheel  2.8 x 27 with  8 Spokes,True,Wheel Wagon Small (27mm D.),Wheels and Tyres,wheel
+2484,wheel holder,~Car Wheel Holder  2 x  2 with Suspension - Top,False,,,
+2484c01,wheel holder,Car Wheel Holder  2 x  2 with Suspension,True,"Wheel Holder, Sprung 2 x 2",Transportation - Land,wheel_holder
+2485,wheel holder,~Car Wheel Holder  2 x  2 with Suspension - Bottom,False,,,
+24869,wheel,Wheels Roller Coaster,True,Wheel Roller Coaster,Wheels and Tyres,wheel
+2496,wheel,Wheel Trolley,True,Wheel Skateboard / Trolley,Wheels and Tyres,wheel
+2515a,wheel,Wheel 32 x 56 Hard-Plastic without Inner Supports,False,,,
+2515b,wheel,Wheel 32 x 56 Hard-Plastic with Inner Supports,False,,,
+2573,wheel,Wheel 48 x 76 with Tread on Sidewall,True,Wheel Hard Plastic Giant (71mm D. x 47mm),Wheels and Tyres,wheel
+2574c01,wheel,Motor Pull Back  4 x  9 x  2 with 2 Red Wheels with 4 Studs,False,,,
+2593,wheel,Wheel 30 x 35 with Tread on Sidewall,True,Wheel Hard Plastic Medium (35mm D. x 31mm),Wheels and Tyres,wheel
+26021c01,wheel,Train Base  4 x  5 Roller Coaster with Dark Bluish Grey Wheels,False,,,
+2648c01,wheel,Container Lifting Grab Tool Half with Rubber_Black Grip and Red Wheel,False,,,
+2655,wheel,Plate  2 x  2 Round with 2 Wheel Clips,True,"Wheel Holder, Plate, Round 2 x 2 Thin with Clips",Transportation - Land,wheel_holder
+2683c01,wheel,Monorail Motor with White Motor with Chassis and Wheels,False,,,
+2686,wheel,Monorail Wheel Chassis,True,"Wheel Holder, Monorail Bogey Chassis",Transportation - Land,wheel_holder
+2686c01,wheel,Monorail Wheel Chassis Assembly (Complete),True,"Wheel Holder, Monorail Bogey with Bogey Bracket/Pivot",Transportation - Land,wheel_holder
+2686c02,wheel,Monorail Wheel Chassis and Wheels,False,,,
+2688,wheel,~Axle Steel  5 x  67.5 LDU with Two Wheels  1.6 x 10,False,,,
+269,wheel,~Wheel Axle Metal with Notched End,False,,,
+2695,wheel,Wheel Rim 12.7 x 30 Stepped,True,Wheel 30 x 13 Model Team,Wheels and Tyres,wheel
+2695c01,tyre,Wheel Rim 12.7 x 30 Stepped with Tyre 12.7/ 51 x 30,False,,,
+2696,tyre,Tyre 12.7/ 51 x 30,True,Tyre 24 x 13 Model Team,Wheels and Tyres,tyre
+2697,wheel,Monorail Wheel Connector,False,,,
+270c01,wheel,Train Base  6 x 12 Type 1 with Red Wheels (Complete),False,,,
+270c02,wheel,Train Base  6 x 12 Type 1 with Wheels and Magnets (Complete),True,Train Base 6 x 12 Type 1 with Wheels and Magnets [Complete Assembly],Magnets and Holders,other
+27254,wheel,Wheel 37 x 62 with Rocky Spikes and  7 Pegholes,True,Wheel Hard Plastic with Large Cleats and Flanges (Rock Design),Wheels and Tyres,wheel
+2741,wheel,Technic Steering Wheel Large,True,Technic Steering Wheel Large,"Technic Steering, Suspension and Engine",other
+276,wheel,Wheelbarrow for  2 Wheels,False,,,
+276c01,wheel,Wheelbarrow with 2 Yellow Wheels and Red Axle (Complete),True,"Fabuland, Equipment Wheelbarrow with 2 Yellow Wheels and Red Axle [Complete Assembly]","Belville, Scala and Fabuland",other
+277,wheel,Wheelbarrow Wheels with Red Axle,False,,,
+2807,tyre,Tyre Minifig Bicycle (Needs Work),True,Tyre for Bicycle Wheel,Wheels and Tyres,tyre
+2815,tyre,Technic Wedge Belt Wheel Tyre,True,Technic Wedge Belt Wheel Tire,Wheels and Tyres,tyre
+2819,wheel,Technic Steering Wheel Small,True,Technic Steering Wheel Small (3 Studs Diameter),"Technic Steering, Suspension and Engine",other
+28290,tyre,=Tyre 12/ 61 x 11 Balloon,False,,,
+2857,tyre,Tyre 20/ 46 x 30 Off Road,True,Tyre 30 x 20 Solid Balloon,Wheels and Tyres,tyre
+28578,tyre,=Wheel Minifig Bicycle with Integral Rubber Black Tyre,False,,,
+2878,wheel,Train Wheel Bogie Single Axle without Wheelset,True,"Wheel Holder, Train Wheel RC Train",Transportation - Land,wheel_holder
+2878c01,wheel,Train Wheel Bogie Single Axle with Wheelset with Open Centre Wheels,True,"Wheel Holder, Train with Wheels [Complete Assembly]",Transportation - Land,wheelbase
+2878c02,wheel,Train Wheel Bogie Single Axle with Wheelset with Closed Centre Wheels,True,"Wheel Holder, Train with Wheels, RC [Complete Assembly]",Transportation - Land,wheelbase
+2879,wheel,~Train Wheel with Open Centre for Wheel Bogie,True,Train Wheel,Wheels and Tyres,wheel
+2884,wheel,~Monorail Points Inner Wheel,False,,,
+2895,wheel,~Train Wheel  9V with Electrical Contact,False,,,
+2902,tyre,Tyre 17/ 70 x 62 Motorcycle Offroad,True,Tyre 81.6 x 15 Motorcycle,Wheels and Tyres,tyre
+2903,wheel,Wheel Rim 14 x 62 Motorcycle,True,Wheel 61.6 x 13.6 Motorcycle,Wheels and Tyres,wheel
+2903c01,tyre,Wheel Rim 14 x 62 Motorcycle with Tyre 17/ 70 x 62 Motorcycle Offroad,True,"Wheel 81.6 x 15 Motorcycle, with Black Tire 81.6 x 15 Motorcycle (2903 / 2902)",Wheels and Tyres,wheel
+2903c02,tyre,Wheel Rim 14 x 62 Motorcycle with Tyre 14 / 66 x 61 Z Racing,False,,,
+29117a,wheel,Wheel Rim 11 x 18 Front with  5 Wide Spokes,True,Wheel Cover 5 Spoke Wide,Wheels and Tyres,wheel
+29117b,wheel,Wheel Rim 11 x 18 Front with  5 Split Spokes,True,Wheel Cover 5 Spoke Framed,Wheels and Tyres,wheel
+2926,wheel holder,Plate  1 x  4 with 2 Wheel Pins,True,Plate Special 1 x 4 with Wheels Holder,Plates Special,wheel_holder
+2927,wheel,Train Wheel Tiny,True,Train Wheel Small,Wheels and Tyres,wheel
+2994,wheel,Wheel 12 x 20 with Technic Axle Hole and 6 Pegholes,True,Wheel Rim 24 x 14 VR with Center Axle Hole,Wheels and Tyres,wheel
+2995,tyre,Tyre 40/ 48 x 30 Off Road,True,Tyre 68.8 x 40 Balloon Large,Wheels and Tyres,tyre
+2996,wheel,Wheel Rim 30 x 30 with 40mm Diameter Rear Rim,True,Wheel 68.8 x 40 Balloon Large,Wheels and Tyres,wheel
+2996c01,tyre,Wheel Rim 30 x 30 with 40mm Diameter Rear Rim with Tyre 40/ 48 x 30 Off Road,False,,,
+2997,tyre,Tyre 34/ 38 x 56 ZR,True,Tyre 81.6 x 34 ZR Technic Straight Tread,Wheels and Tyres,tyre
+2998,wheel,Wheel Rim 32 x 56 with Peghole and 6 Spokes with Pegholes,True,Wheel 81.6 x 34 Six Spoke,Wheels and Tyres,wheel
+2999,wheel,Technic Large Wheel Hub,True,Technic Steering Wheel Hub Large,"Technic Steering, Suspension and Engine",other
+30027a,wheel,"Wheel Rim  8 x  8 Round Hole, for Wheel Holding Pin",True,Wheel 8 x 9 with Round Hole for Wheel Holder Pin,Wheels and Tyres,wheel
+30027ac01,tyre,"Wheel Rim  8 x  8 Round Hole, for Wheel Holding Pin with Tyre  8/ 40 x  8 Slick Smooth",False,,,
+30027b,wheel,"Wheel Rim  8 x  8 Notched Hole, Two Slots, for Wheel Holding Pin",True,Wheel 8 x 9 with Hole Notched for Wheels Holder Pin,Wheels and Tyres,wheel
+30027bc01,tyre,"Wheel Rim  8 x  8 Notched Hole, Two Slots, for Wheel Holding Pin with Tyre  8/ 40 x  8 Slick Smooth",False,,,
+30027c,wheel,"Wheel Rim  8 x  8 Notched Hole, One Slot, for Wheel Holding Pin",False,,,
+30027d,wheel,"Wheel Rim  8 x  8 Notched Hole, One Slot, Recessed Cross, for Wheel Holding Pin",False,,,
+30028b,tyre,Tyre  8/ 40 x  8 Slick Smooth,False,,,
+3009d0i,wheel,Brick  1 x  6 with Black Wrench and Three Wheels with Tyres Sticker,False,,,
+30155,wheel,Wheel Rim  8 x 18 with 12 Spokes and Peghole,True,Wheel Spoked 2 x 2 with Pin Hole,Wheels and Tyres,wheel
+30155c01,tyre,Wheel Rim  8 x 18 with 12 Spokes and Peghole with Tyre 12/50 x 16 Offset Tread,False,,,
+30187,wheel,~Bike  3 Wheel Motorcycle Body Upper,False,,,
+30187c01,wheel,Bike  3 Wheel Motorcycle with Light_Grey Motor and White Wheels,False,,,
+30187c02,wheel,~Bike  3 Wheel Motorcycle Minifig (Complete),False,,,
+30187c03,wheel,Bike  3 Wheel Motorcycle with Rider (Complete),False,,,
+30187c04,wheel,Bike  3 Wheel Motorcycle Body with Dark Grey Motor (Complete),False,,,
+30187c05,wheel,Bike  3 Wheel Motorcycle Body with Dark Stone Motor (Complete),False,,,
+30187c06,wheel,Bike  3 Wheel Motorcycle Body with Reddish Brown Motor (Complete),False,,,
+30188,wheel,~Bike 3 Wheel Motorcycle Body Lower,False,,,
+30189,wheel,Bike 3 Wheel Motorcycle Forks,True,Tricycle Body Front Fork / Handlebars,Transportation - Land,vehicle_part
+30189c01,wheel,~Bike  3 Wheel Motorcycle Forks with White Wheel (Complete),False,,,
+30190,wheel,Wheel Rim 11.2 x 10.4 with Stub Axles,True,Wheel Centre Wide with Stub Axles [Tricycle],Wheels and Tyres,wheel
+30190c01,tyre,Wheel Centre Wide with Stub Axles with Tyre 12/ 40 x 11 Wide,False,,,
+30285,wheel,Wheel Rim 14.8 x 16.8 with Centre Groove,True,Wheel 18 x 14 with Tread Small Hub,Wheels and Tyres,wheel
+30324,wheel,Wheel Hard with Treads,True,Wheel Hard Plastic Spoked,Wheels and Tyres,wheel
+30391,tyre,Tyre 14/ 50 x 17,True,Tyre 30.4 x 14 Offset Tread,Wheels and Tyres,tyre
+30640,wheel holder,Car Steering Wheel Holder  2 x  2,True,Steering Wheel Holder 2 x 2,Transportation - Land,wheel_holder
+30640c01,wheel holder,Car Steering Wheel Holder  2 x  2 (Complete),False,,,
+30640c02,wheel holder,Car Steering Wheel Holder  2 x  2 with Light Grey Steering Wheel,False,,,
+30648,tyre,Tyre 14/ 25 x 17 Shallow Staggered Treads,True,Tyre 24 x 14 Shallow Tread (Tread Small Hub),Wheels and Tyres,tyre
+30663,wheel,Car Steering Wheel 2L,True,"Steering Wheel Small, 2 x 2",Transportation - Land,vehicle_part
+3068bd03,wheel,Tile  2 x  2 with Fifth Wheel Sticker,False,,,
+30699,tyre,Tyre 14/ 43 x 30 with Grooved Tread,True,Tyre 43.2 x 14,Wheels and Tyres,tyre
+30838,wheel,Wheel Rim  6.4 x 11 with  7 Spokes,True,Wheel 11mm D. x 6mm with 7 Spokes,Wheels and Tyres,wheel
+30838pk0,wheel,Wheel Rim  6.4 x 11 with  7 Spokes with Blue Ring and Five Yellow Dots Pattern,False,,,
+3137c01,wheel,Brick  2 x  2 with Red Wheels (Complete),True,Brick Special 2 x 2 [Red Wheels for Single Tyre],Wheels and Tyres,wheel
+3137c02,wheel,Brick  2 x  2 with Red Double Wheels (Complete),True,Brick Special 2 x 2 [Red Wheels for Dually Tire],Wheels and Tyres,wheel
+3137c03,wheel,Brick  2 x  2 with Red Wheels (Complete) with Tyres  4/ 80 x  8 Single Smooth Type 1,False,,,
+3137c04,wheel,Brick  2 x  2 with Red Double Wheels (Complete) with Tyres  3/100 x  8 Double Smooth,False,,,
+3137c05,wheel,Brick  2 x  2 with Red Wheels (Complete) with Tyres  6/ 50 x  8 Offset Tread,False,,,
+3139b,tyre,Tyre  4/ 80 x  8 Single Smooth Type 1,False,,,
+32003,tyre,Tyre 24/ 65 x 41,True,Tyre 68.8 x 24,Wheels and Tyres,tyre
+32004a,wheel,Wheel Rim 18 x 41 Model Team Type  1,True,Wheel 68.8 x 24 Model Team Type 1 [Circle Holes around Wheel Ring],Wheels and Tyres,wheel
+32004b,wheel,Wheel Rim 18 x 41 Model Team Type  2,True,Wheel 68.8 x 24 Model Team Type 2 [Notched Ring],Wheels and Tyres,wheel
+32004bc01,tyre,Wheel 18 x 41 Model Team with Tyre 68.8 x 24S,False,,,
+32007,wheel,Technic Tread Sprocket Wheel,True,Technic Tread Hub,Wheels and Tyres,wheel
+32019,tyre,Tyre 20/ 64 x 37 S,True,Tyre 62.4 x 20,Wheels and Tyres,tyre
+32020,wheel,Wheel Rim 18 x 37 with 6 Pegholes and Long Axle Bush,True,Wheel 43.2 x 18 with Extended Axle Stem,Wheels and Tyres,wheel
+32020c01,tyre,Wheel Rim 18 x 37 with 6 Pegholes and Long Axle Bush with Rubber Black Tyre 20/ 64 x 37 S,False,,,
+32057,wheel,Wheel Rim 14 x 60 with 3 Spokes and 3 Pegholes,True,Wheel 70 x 14 mm Futuristic,Wheels and Tyres,wheel
+32057c01,tyre,Wheel Rim 14 x 60 with 3 Spokes and 3 Pegholes with Tyre 14/ 20 x 60,False,,,
+32060,wheel,Technic Gear  8 Tooth Timing Wheel,True,Technic Gear Timing Wheel 8 Tooth,Technic Gears,other
+32076,tyre,Tyre 14/ 20 x 60,True,Tyre 70 x 14 Futuristic,Wheels and Tyres,tyre
+32077,wheel,Wheel Rim 28 x 60 with 3 Spokes and 3 Pegholes,True,Wheel 70 x 28 mm Futuristic,Wheels and Tyres,wheel
+32078,tyre,Tyre 28/ 21 x 57,True,Tyre 70 x 28 Futuristic,Wheels and Tyres,tyre
+32089,wheel,Technic Tread Sprocket Wheel 20 Tooth Thin,True,Technic Tread Sprocket Wheel Dual Thin,Wheels and Tyres,wheel
+32123ac01,tyre,Technic Bush  1/2 Smooth with Axle Hole Reduced with Black Tyre  4/ 80 x  8 Single Smooth Type 2,False,,,
+32146,wheel,Wheel 14 x 30 Smooth,True,Wheel 30.4 x 14 Solid Smooth,Wheels and Tyres,wheel
+32180,tyre,Tyre 30/ 42 x 28 R Balloon,True,Tyre 56 x 30 R Balloon,Wheels and Tyres,tyre
+32193,wheel,Wheel 14 x 21 Solid Rubber with Axlehole,True,Wheel Flat with Axle hole,Wheels and Tyres,wheel
+32196,tyre,Tyre 32/ 33 x 61 Racing Wet,True,Tyre 81.6 x 34 ZR Technic Thin Sporty Tread,Wheels and Tyres,tyre
+32197,wheel,Wheel Rim 30 x 61 with 3 Spokes Swirled,True,Wheel 81.6 x 34 ZR Three Spoke Swirl,Wheels and Tyres,wheel
+32219,wheel,Wheel 14 x 30 Znap,True,Wheel 32mm Znap Propeller,Wheels and Tyres,wheel
+32220,wheel,Wheel 16 x 68 Znap,True,Wheel 68mm Znap Propeller (9 x 2),Wheels and Tyres,wheel
+32247,wheel,Wheel 41mm Znap,True,Wheel 41mm Znap Thin Tread,Wheels and Tyres,wheel
+32248,tyre,Wheel 41mm Znap with Black Tyre,False,,,
+32296,tyre,Tyre 50/ 29 x 54 Technic Racing,True,Tyre 81.8 x 50 Technic Racing Large,Wheels and Tyres,tyre
+32296p01,tyre,"Tyre 50/ 29 x 54 with White ""Technic Racing"" Pattern",False,,,
+32298,tyre,Tyre 61/ 41 x 54 Off Road,True,Tyre Technic Power Puller,Wheels and Tyres,tyre
+32298p01,tyre,"Tyre 61/ 41 x 54 Power Puller w/ White ""Technic Power"" Pattern",False,,,
+32494,wheel,Technic Wheel Spindle Axle Driver,True,Technic Steering / CV Joint,"Technic Steering, Suspension and Engine",other
+32495,wheel,Technic Wheel Spindle Steering Arm,True,Technic Steering Gear with 4 Ball Joints,"Technic Steering, Suspension and Engine",other
+32495c01,wheel,Technic Wheel Spindle Steering Arm (Complete),True,Technic 4 Ball Joint Steering Arm With 3 Pin Base [Complete Assembly],"Technic Steering, Suspension and Engine",other
+32496,wheel,Technic Wheel Spindle,True,Technic Wheel Hub 3 Pin,"Technic Steering, Suspension and Engine",other
+33211,wheel,Wheel  3.2 x 43 with 10 Spokes Wooden,True,Wheel Wagon Huge (43mm D.),Wheels and Tyres,wheel
+33212,wheel,Wheel  3.2 x 56 with 10 Spokes Wooden,True,"Wheel Wagon Giant (56mm D., 7 studs Dia.)",Wheels and Tyres,wheel
+3351ap04,wheel,Roadsign Triangular Type 1 with Skidding Car/Spare Wheel Pattern,False,,,
+34337,wheel,Wheel Rim  6.4 x  8 with Slot,True,Wheel 8 x 6 with Slot,Wheels and Tyres,wheel
+3443ac01,wheel,"Train Battery Box Car with Two Contact Holes, Red Switch Lever and Red Wheels (Complete)",False,,,
+3443ac02,wheel,"Train Battery Box Car with Two Contact Holes, Red Switch Lever, Red Wheels and Magnets (Complete)",False,,,
+3443ac03,wheel,"Train Battery Box Car with Two Contact Holes, Red Switch Lever and Black Wheels (Complete)",False,,,
+3443ac04,wheel,"Train Battery Box Car with Two Contact Holes, Red Switch Lever, Black Wheels and Magnets (Complete)",False,,,
+3443bc01,wheel,"Train Battery Box Car with Three Contact Holes, Red Switch Lever and Red Wheels (Complete)",False,,,
+3443bc01d01,wheel,"Train Battery Box Car with Three Contact Holes, Red Switch Lever and Red Wheels with Wagon Door Outline Sticker(Complete)",False,,,
+3443bc02,wheel,"Train Battery Box Car with Three Contact Holes, Red Switch Lever, Red Wheels and Magnets (Complete)",False,,,
+3443bc02d01,wheel,"Train Battery Box Car with Three Contact Holes, Red Switch Lever, Red Wheels and Magnets with Wagon Door Outline Sticker(Complete)",False,,,
+3443bc03,wheel,"Train Battery Box Car with Three Contact Holes, Black Switch Lever and Black Wheels (Complete)",False,,,
+3443bc04,wheel,"Train Battery Box Car with Three Contact Holes, Black Switch Lever, Black Wheels and Magnets (Complete)",False,,,
+3443bc05,wheel,"Train Battery Box Car with Three Contact Holes, Red Switch Lever and Black Wheels (Complete)",False,,,
+3443bc05d01,wheel,"Train Battery Box Car with Three Contact Holes, Red Switch Lever and Black Wheels with ""DB 7722"" Sticker(Complete)",False,,,
+3443bc06,wheel,"Train Battery Box Car with Three Contact Holes, Red Switch Lever, Black Wheels and Magnets (Complete)",False,,,
+3443bc06d01,wheel,"Train Battery Box Car with Three Contact Holes, Red Switch Lever, Black Wheels and Magnets with ""DB 7722"" Sticker(Complete)",False,,,
+3464b,wheel,Wheel Centre with Stub Axles,False,,,
+3464c01,tyre,Wheel Centre with Stub Axles with Tyre  6/ 50 x  8 Offset Tread,False,,,
+3464c02,tyre,Wheel Centre with Stub Axles with Tyre 4/ 80 x 8 Single Smooth Type 1,False,,,
+3464c03,tyre,Wheel Centre with Stub Axles with Tyre 4/ 80 x 8 Single Smooth Type 2,False,,,
+3465a,wheel,~Technic Steering Wheel Bearing 3 Pins Wheel Hub,False,,,
+3465ac01,wheel,Technic Steering Wheel Bearing Wheel Hub and Driving Shaft,False,,,
+3467,wheel holder,~Technic Steering Wheel Bearing with 3 Pins Wheel Holder Driving Shaft,False,,,
+3468,wheel,~Technic Steering Wheel Bearing Body Back,False,,,
+3468c01,wheel,Technic Steering Wheel Bearing Body,False,,,
+3482,wheel,Wheel Rim  8 x 17.5 with Axlehole,True,Wheel with Split Axle hole,Wheels and Tyres,wheel
+3482c01,tyre,Wheel Rim  8 x 17.5 with Axlehole with Black Tyre  7/ 56 x 17 Offset Tread,False,,,
+3482c02,tyre,Wheel Rim  8 x 17.5 with Axlehole with Black Tyre 10/130 x 17,False,,,
+3482c03,tyre,Wheel Rim  8 x 17.5 with Axlehole with Black Tyre  7/ 86 x 17 with Centre Groove,False,,,
+3482c04,tyre,Wheel Rim  8 x 17.5 with Axlehole with Rubber Black Tyre 12/ 50 x 16 Offset Tread,False,,,
+3482c05,tyre,Wheel Rim  8 x 17.5 with Axlehole with Rubber Light Grey Tyre 12/ 50 x 16 Offset Tread,False,,,
+3483,tyre,Tyre  7/ 56 x 17 Offset Tread,True,Tyre Offset Tread 24 x 8,Wheels and Tyres,tyre
+3486,wheel,Wheel 16 x 37 Hard-Plastic with 4 Studs,True,"Wheel Hard Plastic Large, D.36, with 4 Studs",Wheels and Tyres,wheel
+35,wheel,Wheel  8 x 35 with 12 Spokes (Complete),True,Wheel Spoked Large,Wheels and Tyres,wheel
+35189,wheel,Technic Steering Wheel Hub with Brake Disc and  3 Pegholes,True,Brake Disc with CV Ball Joint,"Technic Steering, Suspension and Engine",other
+35578,tyre,Tyre 14/ 70 x 17,True,Tyre Offroad 37 x 14,Wheels and Tyres,tyre
+35b,wheel,~Wheel Axle Metal,False,,,
+35c01,tyre,Wheel  8 x 35 with 12 Spokes with Black Tyre  7/ 50 x 36,False,,,
+36,tyre,Tyre  7/ 50 x 36,True,Tyre Smooth Old Style - Large,Wheels and Tyres,tyre
+3634,tyre,Tyre 10/130 x 17 Offset Tread,True,Tyre 43 x 17,Wheels and Tyres,tyre
+3641,tyre,Tyre  6/ 50 x  8 Offset Tread,True,Tyre 15 x 6 Offset Tread Small,Wheels and Tyres,tyre
+37195,wheel,Wheel Cover 28 Spoke for Wheel 20 x 30,True,Wheel Cover / Hub Cap 28 Spokes 18mm D.,Wheels and Tyres,wheel
+3736,wheel,Technic Pulley Wheel 5D,True,Technic Steering Pulley Large,"Technic Steering, Suspension and Engine",other
+37383,wheel,Wheel Rim 42 x 62 with 10 Spokes and  3 Pins,False,,,
+37383c01,tyre,Wheel Rim 42 x 62 with 10 Spokes and  3 Pins with Tyre 44/ 22 x 62 ZR,False,,,
+37383p01,wheel,Wheel Rim 42 x 62 with 10 Spokes and  3 Pins with Silver Outline Pattern,False,,,
+37383p01c01,tyre,Wheel Rim 42 x 62 with 10 Spokes and  3 Pins with Silver Outline Pattern with Tyre 44/ 22 x 62 ZR,False,,,
+3739,wheel,Wheel 24 x 43 Technic,True,Wheel 24 x 43 Technic,Wheels and Tyres,wheel
+3739c01,tyre,Wheel 24 x 43 Technic with Tyre 24/ 80 x 43 Offset Tread,False,,,
+3740,tyre,Tyre 24/ 80 x 43 Offset Tread,True,Tyre 24 x 43 Technic,Wheels and Tyres,tyre
+3828,wheel,~Car Steering Wheel,False,,,
+3829a,wheel,~Car Steering Wheel Stand,False,,,
+3829c01,wheel,Car Steering Stand and Wheel (Complete),True,Steering Stand 1 x 2 with Black Steering Wheel,Transportation - Land,vehicle_part
+38339,wheel,Train Wheel Bogie With Pin Slots without Wheelset,True,"Wheel Holder, Train Wheel RC Train, Holder, Open Axle",Transportation - Land,wheel_holder
+38339c01,wheel,Train Wheel Bogie With Pin Slots with Wheelset Black,False,,,
+38339c02,wheel,Train Wheel Bogie With Pin Slots with Wheelset Red,False,,,
+38340,wheel,Train Wheel with Pin for Wheel Bogie,True,Train Wheel RC Train 16.6 x 23,Wheels and Tyres,wheel
+3888ac01,wheel,Vehicle Chassis 14 x  6.5 with Tow-Hook and Light-Grey  6 x 20 Wheels,True,"Fabuland, Vehicle Base, Car Chassis 14 x 6.5 with Tow-Hook and Light-Gray Wheels","Belville, Scala and Fabuland",other
+3888ac02,wheel,Vehicle Chassis 14 x  6 with Tow-Hook and Light-Grey  5.5 x 20 Wheels,False,,,
+39367,tyre,Wheel 14 x 48 with 4 Spokes with Integral Tyre,True,Wheel 57 x 14 with 4 Spokes with 2 Holes and Integral Tire [Plain],Wheels and Tyres,wheel
+39367p01,tyre,Wheel 14 x 48 with 4 Spokes with Integral Medium Azure Tyre,False,,,
+39367p02,tyre,Wheel 14 x 48 with 4 Spokes with Integral Black Tyre,False,,,
+39767,wheel holder,Plate  2 x  2 with 2 Wheel Pins Extended with Wishbones Type 2,True,Plate Special 2 x 2 with Wheels Holder Wide [Reinforced Underside Type 2],Plates Special,wheel_holder
+40001,wheel,Technic Steering Wheel Yoke with Reduced Axle Hole and Open Stud,True,"Technic Steering Wheel Pilot's Yoke [Open Stud, Axle Hole with X Opening]","Technic Steering, Suspension and Engine",other
+4003,wheel,Wheelbarrow with 1 Wheel,False,,,
+4003c01,wheel,Wheelbarrow with 1 Wheel (Complete),False,,,
+4066bp0l,tyre,Duplo Brick  1 x  2 x  2 with Light Grey Whitewall Tyre Pattern,False,,,
+4075,wheel,~Wheel 10 x  3,False,,,
+4084,tyre,Tyre  8/ 75 x  8 Offset Tread,True,Tyre 21 x 8 Offset Tread Medium,Wheels and Tyres,tyre
+4091,wheel,~Wheel Fabuland Wheelbarrow,False,,,
+4108,wheel,~Axle for Wheel 10 x  3,False,,,
+4108c01,wheel,~Axle Red with Two Wheels 10 x  3 (Complete),False,,,
+4142,wheel,~Technic Differential Crown Wheel 28 Tooth,False,,,
+4160689,wheel,~_Technic Pulley Wheel 5D White (Obsolete),False,,,
+4179,wheel,~Brick  2 x  4 for Train Wheels Top,False,,,
+4180a,wheel,~Brick  2 x  4 for Train Wheels Base,False,,,
+4180c01,wheel,Brick  2 x  4 Black with Train Wheels Large (Complete),True,"Wheels Train Spoked Small (23mm D.) and Black Brick, Modified 2 x 4 [Black]",Wheels and Tyres,wheel
+4180c02,wheel,Brick  2 x  4 Black with Train Wheels Small (Complete),True,"Brick Special 2 x 4 with Wheels, Freestyle Red",Wheels and Tyres,wheel
+4180c03,wheel,Brick  2 x  4 Black with Wheel Rim 10 x 17.4 with  4 Studs and Freestyle Pinhole,True,"Brick Special 2 x 4 with Wheels, Freestyle White",Wheels and Tyres,wheel
+41850,wheel,Minifig Brick  2 x  2 with Steering Wheel,True,"Racer Driver, Brick Special 2 x 2 No Head",Minifig Upper Body,other
+4185a,wheel,Technic Wedge Belt Wheel - Not Reinforced,False,,,
+4185ac01,tyre,Technic Wedge Belt Wheel (Not Reinforced) with Tyre,False,,,
+4185b,wheel,Technic Wedge Belt Wheel - Reinforced,False,,,
+4185bc01,tyre,Technic Wedge Belt Wheel (Reinforced) with Tyre,False,,,
+41893,tyre,Tyre 36/ 36 x 43 H Off-Road,True,Tyre 68.8 x 36 H,Wheels and Tyres,tyre
+41896,wheel,Wheel Rim 26 x 43 with 6 Spokes and 3 Pegholes,True,Wheel 43.2 x 26 Technic Racing Small with 3 Pinholes,Wheels and Tyres,wheel
+41896c01,tyre,Wheel Rim 26 x 43 with 6 Spokes 3 Pegholes with Tyre 28/ 23 x 43 ZR Street,False,,,
+41897,tyre,Tyre 28/ 23 x 43 ZR Street,True,Tyre 56 x 28 ZR Street,Wheels and Tyres,tyre
+42093,wheel,Duplo Vehicle Base  4 x  4 with  2 x  4 Studs and Black Wheels,True,Duplo Vehicle Base 4 x 4 with 2 x 4 Studs and Black Wheels,"Duplo, Quatro and Primo",other
+4226995,wheel,~_Car Steering Stand and Wheel (Complete) Light Bluish Grey (Obsolete),False,,,
+42511,wheel,Minifig Skateboard with Four Wheel Clips,True,Sports Skateboard with Trolley Wheel Holders,Minifig Accessories,other
+42511c01,wheel,Minifig Skateboard with Black Wheels (Complete),False,,,
+42511c02,wheel,Minifig Skateboard with Yellow Wheels (Complete),False,,,
+42511c03,wheel,Minifig Skateboard with Medium Lavender Wheels (Complete),False,,,
+42511c04,wheel,Minifig Skateboard with Medium Lilac Wheels (Complete),False,,,
+42511c05,wheel,Minifig Skateboard with White Wheels (Complete),False,,,
+42511c06,wheel,Minifig Skateboard with Bright Green Wheels (Complete),False,,,
+42511c07,wheel,Minifig Skateboard with Dark Turquoise Wheels (Complete),False,,,
+42529,wheel,Technic Sprocket Wheel 56.5,True,"Technic Tread Sprocket Wheel Large Diameter 7 Holes, 14 Tooth",Technic Gears,other
+4259,wheel,Wheel Rim 10 x 17.4 with 4 Studs and Freestyle Pinhole,True,Wheel Freestyle with Freestyle Pin Hole,Wheels and Tyres,wheel
+42610,wheel,Wheel Rim  8 x 11.2 with Centre Groove,True,Wheel 11 x 8 with Center Groove,Wheels and Tyres,wheel
+42610c01,tyre,Wheel Rim  8 x 11.2 with Centre Groove and Peghole with Tyre  6.4/ 75 x  8 Shallow Offset Tread,False,,,
+42610c02,tyre,Wheel Rim  8 x 11.2 with Centre Groove and Peghole with Tyre  6/ 30 x 11,False,,,
+42610c03,tyre,Wheel Rim  8 x 11.2 with Centre Groove and Peghole with Tyre  6.4/ 75 x  8 Shallow Offset Tread with Centre Band,False,,,
+42611,tyre,=Tyre  6.4/ 75 x  8 Shallow Offset Tread,False,,,
+4265ac01,tyre,Technic Bush  1/2 Type 1 with Black Tyre  8/ 75 x  8 Offset Tread,False,,,
+4265ac02,tyre,Technic Bush  1/2 Type 1 with Black Tyre  4/ 80 x  8 Single Smooth,False,,,
+4266,wheel,Wheel Rim 20 x 30 Smooth with 6 Pinholes,True,Wheel 20 x 30 Technic,Wheels and Tyres,wheel
+4266c01,tyre,Wheel Rim 20 x 30 Smooth with 6 Pinholes with Tyre 20/ 83 x 30 Offset Tread,False,,,
+4266c02,tyre,Wheel Rim 20 x 30 Smooth with 6 Pinholes with Tyre 20/ 46 x 30 Off Road,False,,,
+4266d01,wheel,Wheel Rim 20 x 30 Smooth with 6 Pinholes with Dark Grey NASA Worm Logo Sticker,False,,,
+4267,tyre,Tyre 20/ 83 x 30 Offset Tread,True,Tyre 30 x 20 Technic,Wheels and Tyres,tyre
+42716,wheel,"Wheel Rim 20 x 30 ""Torq Thrust"" with  5 Spokes and External Ribs",True,Wheel 30 x 20 5-Spoke,Wheels and Tyres,wheel
+42716c01,tyre,"Wheel Rim 20 x 30 ""Torq Thrust"" with  5 Spokes and External Ribs with Tyre 20/ 48 x 30",False,,,
+4288,wheel,Wheel 13 x 20 Solid Rubber with Axle Hole,True,Wheel Balloon with Axle hole,Wheels and Tyres,wheel
+429,wheel,~Train Brick  2 x  4 Holder for Sliding Wheel Brick Top Type 2,False,,,
+429c01,wheel,Train Brick  2 x  4 Holder for Sliding Wheel Brick (Complete),True,"Brick Special 2 x 4, Train Sliding Wheel Holder Brick",Bricks Special,wheel_holder
+433,wheel,~Train Brick  2 x  4 Holder for Sliding Wheel Brick Top Type 1,False,,,
+4362ac01,wheel,Vehicle Chassis 12 x  6 with Tow-Hook and Light-Grey  5.5 x 20 Wheels,False,,,
+4363,wheel,~Wheel  6 x 20 with 10 Spokes,True,Sticker Sheet for Set 606-1,Stickers,other
+43903-f1,wheel,Caterpillar Track 1.7 Wide 20 Tooth (Formed for 2 Wheel Rim 14 x 18),False,,,
+4410,tyre,Tyre 44/ 30 x 56 Smooth Racing,True,Tyre 81.6 x 44 Slick,Wheels and Tyres,tyre
+44292,wheel,Wheel Rim 20 x 30 with 3 Pegholes,True,Wheel 30.4 x 20 with 3 Pinholes,Wheels and Tyres,wheel
+44293,tyre,Wheel 14 x 29 Smooth with Black Tyre (Complete),False,,,
+44308,tyre,Tyre 22/ 30 x 30 H,True,Tyre 43.2 x 22 H,Wheels and Tyres,tyre
+44309,tyre,Tyre 22/ 30 x 30 ZR,True,Tyre 43.2 x 22 ZR,Wheels and Tyres,tyre
+4455,tyre,Tyre 36/ 43 x 56 All-Terrain,True,Tyre 87.9 x 36,Wheels and Tyres,tyre
+44556,wheel,Wheel 22 x 172 with Fins and Inner 168 Tooth Gear,True,Wheel 22 x 172 with Fins and Inner 168 Tooth Gear (Hailfire Droid Wheel),Technic Gears,other
+447,wheel,~Train Wheel 4 Studs with Traction Teeth,False,,,
+44771,tyre,Tyre 35/ 46 x 56 ZR,True,Tyre 68.8 x 36 ZR,Wheels and Tyres,tyre
+44772,wheel,Wheel Rim 34 x 56 with 6 Spokes and 3 Pegholes,True,Wheel 56 x 34 Technic Racing Medium with 3 Pin Holes,Wheels and Tyres,wheel
+44772c01,tyre,Wheel Rim 34 x 56 with 6 Spokes and 3 Pegholes with Tyre 44/ 44 x 56 Off Road,False,,,
+44772c02,tyre,Wheel Rim 34 x 56 with 6 Spokes and 3 Pegholes with Tyre 44/ 58 x 56 R Tractor,False,,,
+44799,tyre,Tyre  7/ 86 x 17 with Centre Groove,True,Tyre with Centre Groove [Tightrope Guide Wheel],Wheels and Tyres,tyre
+447c01,wheel,Train Wheel 4 Studs with Traction Teeth with Stub Axle,False,,,
+4480,wheel,~Bike  2 Wheel Motorcycle Frame  3 x  6 x  3 - Right Side,False,,,
+4480c01,wheel,Bike  2 Wheel Motorcycle Frame  3 x  6 x  3 (Complete),True,"Vehicle Base, Motorcycle Chassis, Frame 3 x 6 x 3",Transportation - Land,vehicle_part
+4480c02,wheel,Bike  2 Wheel Motorcycle with Red Wheels (Complete),False,,,
+4480c03,wheel,Bike  2 Wheel Motorcycle with Trans-Clear Wheels (Complete),False,,,
+4480c04,wheel,"Bike  2 Wheel Motorcycle with TransClear Wheels, Windshield and Lights",False,,,
+4480c05,wheel,"Bike  2 Wheel Motorcycle with Wheels, Windshield, Lights and Rider (Needs work)",False,,,
+4481,wheel,~Bike  2 Wheel Motorcycle Frame  3 x  6 x  3 - Left Side,False,,,
+4482,wheel,~Bike  2 Wheel Motorcycle Forks  3 x  6 x  3,False,,,
+4488,wheel holder,Plate  2 x  2 with 1 Wheel Pin,True,Plate Special 2 x 2 with Wheel Holder,Plates Special,wheel_holder
+4489a,wheel,Wheel  2.8 x 34 with  8 Spokes with Round Hole for Wheel Holding Pin,True,"Wheel Wagon Large (33mm D.), Round Hole For Wheel Holder Pin",Wheels and Tyres,wheel
+4489b,wheel,Wheel  2.8 x 34 with  8 Spokes with Notched Hole for Wheel Holding Pin,True,"Wheel Wagon Large (33mm D.), hole notched for wheels holder pin",Wheels and Tyres,wheel
+450,wheel,~Wheel  6.4 x  8,False,,,
+451b,tyre,Tyre  3/100 x  8 Double Smooth,False,,,
+4544143,wheel,~_Train Wheel Large Traction Band Red (Obsolete),False,,,
+458,tyre,Tyre for Train Wheel for Electric Train Motor 12V,True,Tyre for Train Wheel for Electric Train Motor 12V,Wheels and Tyres,tyre
+458c01,tyre,Tyre for Electric Train 12V Motor Conically Deformed,False,,,
+45917,wheel,Minifig Skateboard with Two Wheel Clips,True,Sports Skateboard with Mag Wheel Holders,Minifig Accessories,other
+45918,wheel,Wheels Skateboard,True,Wheels Skateboard,Wheels and Tyres,wheel
+45982,tyre,Tyre 38/ 50 x 43 Off Road,True,Tyre 81.6 x 38 R Balloon,Wheels and Tyres,tyre
+4600,wheel holder,Plate  2 x  2 with 2 Wheel Pins,True,Plate Special 2 x 2 with Wheel Holders,Plates Special,wheel_holder
+4613,wheel,Vehicle Base 10 x  4 with 4 Wheel Clips,False,,,
+4613c01,wheel,Vehicle Base 10 x  4 with Two Wheels Light Grey,True,Fabuland Airplane Base 10 x 4 with Light Gray Wheels,Transportation - Sea and Air,vehicle_part
+4624,wheel,Wheel Rim  6.4 x  8,True,Wheel 8 x 6,Wheels and Tyres,wheel
+4624c01,tyre,Wheel Rim  6.4 x  8 with Tyre  6/ 50 x  8 Offset Tread,False,,,
+4624c02,tyre,Wheel Rim  6.4 x  8 with Tyre  6/ 50 x  8 Offset Tread with Centre Band,False,,,
+4624c03,tyre,Wheel Rim  6.4 x  8 with Tyre  4/ 80 x  8 Single Smooth Type 1,False,,,
+4624c04,tyre,Wheel Rim  6.4 x  8 with Tyre  8/ 75 x  8 Offset Tread,False,,,
+4624c05,tyre,Wheel Rim  6.4 x  8 with Tyre  4/ 80 x  8 Single Smooth Type 2,False,,,
+46334,wheel,Wheel 16 x 75 Motorcycle Solid,True,Wheel Rim 75 X 15.8,Wheels and Tyres,wheel
+46334c01,tyre,Wheel 17 x 75 Motorcycle Solid with Tyre 21/ 48 x 75 Motorcycle with Racing Tread,False,,,
+46335,tyre,Tyre 38/ 26 x 75,True,Tyre 94.3 x 38 Motorcycle Racing Tread,Wheels and Tyres,tyre
+46434,wheel,Technic Steering Wheel Bearing with Planetary Gear Reduction Wheel Hub,False,,,
+46490,wheel,~Technic Steering Wheel Bearing with Planetary Gear Reduction Body Back,True,Technic Steering Wheel Hub with Planetary Gear Reduction,"Technic Steering, Suspension and Engine",other
+46490c01,wheel,Technic Steering Wheel Bearing with Planetary Gear Reduction with Dark Bluish Grey Wheel Hub,False,,,
+46490c02,wheel,Technic Steering Wheel Bearing with Planetary Gear Reduction Body,False,,,
+4715,wheel,Stretcher Wheels,True,Equipment Stretcher Wheels,Minifig Accessories,other
+4719c03,tyre,Minifig Bicycle with Integral Tyre Wheels,False,,,
+4720,wheel,Wheel Minifig Bicycle,True,Wheel Bicycle without Tire,Wheels and Tyres,tyre
+47576,wheel,Wheel  5 x 17.5 with Solid Spokes and Axlehole,True,"Wheel Hockey Puck, Small",Wheels and Tyres,wheel
+4779,wheel,Fabuland Ferris Wheel Axle,True,"Fabuland Ferris Wheel Axle Half, 4 x 4 Plate","Supports, Girders and Cranes",other
+4782,wheel,Fabuland Ferris Wheel Seat,True,"Fabuland, Ferris Wheel Seat","Belville, Scala and Fabuland",other
+4783,wheel,Fabuland Ferris Wheel Axle Support,True,Fabuland Ferris Wheel Axle Support 2 x 6 x 3,"Supports, Girders and Cranes",other
+4788,wheel,Fabuland Paddle Wheeler Wheel,True,"Fabuland, Paddle-Wheeler Wheel","Belville, Scala and Fabuland",other
+4789,wheel holder,Fabuland Paddle Wheeler Wheel Holder,True,"Fabuland, Paddle-Wheeler Wheel-Holder","Belville, Scala and Fabuland",other
+4789c01,wheel,Fabuland Paddle Wheeler with Yellow Wheel,False,,,
+4790,wheel,Boat Ship Wheel with Unslotted Pin,True,Boat / Ship Wheel / Helm,Transportation - Sea and Air,vehicle_part
+4790c01,wheel,Boat Ship Wheel with Unslotted Pin and Technic Brick  1 x  2,False,,,
+4790c02,wheel,Technic Brick  1 x  2 with Brown Boat Ship Wheel with Unslotted Pin,False,,,
+4790c03,wheel,Technic Brick  1 x  4 with Brown Boat Ship Wheel with Unslotted Pin,False,,,
+4790c04,wheel,Technic Brick  1 x  2 with Reddish Brown Boat Ship Wheel with Unslotted Pin,False,,,
+4796c01,wheel,Vehicle Chassis  8 x  6 with Tow-Hook and Light-Grey Wheels,True,"Fabuland, Vehicle Base, Car Chassis 8 x 6 with Hitch [Complete Assembly]","Belville, Scala and Fabuland",other
+4870,wheel holder,Plate  2 x  2 with 2 Wheel Pins,True,Wheel Holder 2 x 2 Thin with Split Wheel Clip Pins,Transportation - Land,wheel_holder
+49098,tyre,Wheel Rim 11 x 18 Side with Tyre Widener,True,Hub Cap 24mm without Tube,Wheels and Tyres,wheel
+49098py0,tyre,"Wheel Rim 11 x 18 Side with Tyre Widener with Yellow ""Chevrolet Camaro"" Pattern",False,,,
+49098py1,tyre,"Wheel Rim 11 x 18 Side with Tyre Widener with Blue ""Pirelli Cinturato"" Pattern",False,,,
+49294,wheel,Wheel Rim 34 x 56 with  6 Double Spokes and  6 Pegholes,True,"Wheel 56 x 34 Technic Racing Medium with 6 Pin Holes, Open Spokes",Wheels and Tyres,wheel
+49294c01,tyre,Wheel Rim 34 x 56 with  6 Double Spokes and  6 Pegholes with Tyre 35/ 42 x 56 Racing,False,,,
+49295,tyre,Wheel 14 x 80 with  4 Spokes with Integral Tyre,True,"Wheel 88 x 14 with 4 Spokes with 4 Holes, 4 Inserts and Integral Tire [Plain]",Wheels and Tyres,wheel
+49295p01,tyre,Wheel 14 x 80 with  4 Spokes with Integral Medium Azure Tyre,False,,,
+49295p02,tyre,Wheel 14 x 80 with  4 Spokes with Integral Black Tyre,False,,,
+49295p03,tyre,Wheel 14 x 80 with  4 Spokes with Integral Red Tyre Pattern,False,,,
+49649c01,wheel,Minifig Shopping Cart with Black Wheels,False,,,
+497a,wheel,~Wheel Rim  8 x 18 with 4 Studs,False,,,
+497c01,wheel,Wheel Rim  8 x 18 with 4 Studs and Notched Axle,False,,,
+50254,wheel,Train Wheel Small with Notched Hole,True,"Train Wheel Small, hole notched for wheels holder pin",Wheels and Tyres,wheel
+50859a,wheel,Bike  2 Wheel Motorcycle Frame  2 x  6 x  3 with Short Pins,True,"Vehicle Base, Motorcycle Chassis, Short Fairing Mounts",Transportation - Land,vehicle_part
+50859ac01,wheel,Bike  2 Wheel Motorcycle Frame (Short Pins) with Light Bluish Grey Wheels,False,,,
+50859b,wheel,Bike  2 Wheel Motorcycle Frame  2 x  6 x  3 with Long Pins,True,"Vehicle Base, Motorcycle Chassis, Long Fairing Mounts",Transportation - Land,vehicle_part
+50859bc01,wheel,Bike  2 Wheel Motorcycle Frame (Long Pins) with Light Bluish Grey Wheels,False,,,
+50860,wheel,Bike  2 Wheel Motorcycle Body with Dirt Bike Fairing,True,"Fairing, Motorcycle, Dirt Bike",Transportation - Land,vehicle_part
+50860c01,wheel,Bike  2 Wheel Motorcycle with Dirt Bike Fairing (Complete),False,,,
+50861,tyre,Tyre  6/ 58 x 14 Offset Tread,True,Tyre 21 x 6 City Motorcycle,Wheels and Tyres,tyre
+50862,wheel,Wheel  6 x 14 Spoked with Stub Axles,True,Wheel Centre 15 x 6 City Motorcycle with Stub Axles,Wheels and Tyres,wheel
+50862c01,tyre,Wheel  6 x 14 Spoked with Stub Axles with Tyre  6/ 58 x 14 Offset Tread,False,,,
+50944,wheel,Wheel Rim  6.4 x 11 with  5 Spokes,True,Wheel 11 x 6 mm with Five Spokes [Plain],Wheels and Tyres,wheel
+50944c01,tyre,Wheel Rim  6.4 x 11 with 5 Spokes with Tyre  6.4/ 75 x  8 Shallow Offset Tread,False,,,
+50944c02,tyre,Wheel Rim  6.4 x 11 with 5 Spokes with Tyre  6/ 30 x 11,False,,,
+50944p01,wheel,Wheel Rim  6.4 x 11 with  5 Spokes with Metallic Silver Outline Pattern,False,,,
+50944p01c01,tyre,Wheel Rim  6.4 x  11 with  5 Spokes with Metallic Silver Outline Pattern with Tyre  6/ 30 x  11,False,,,
+50944p02,wheel,Wheel Rim  6.4 x 11 with  5 Spokes with Metallic Gold Outline Pattern,False,,,
+50945,tyre,=Tyre  6/ 30 x 11,False,,,
+50951,tyre,Tyre  6/ 30 x 11,True,Tyre 14 x 6 Solid Smooth,Wheels and Tyres,tyre
+50965,wheel,Wheel Cover  5 Spoke for Wheel 34 x 56,True,Wheel Cover 5 Spoke with Centre Stud - 56mm D.,Wheels and Tyres,wheel
+51011,tyre,Tyre  6.4/ 75 x  8 Shallow Offset Tread,True,Tyre 17.5 x 6 with Shallow Staggered Treads,Wheels and Tyres,tyre
+51377,wheel,Wheel Rim 14 x 18 with  8 Spokes,True,Wheel 18 x 14 Spoked,Wheels and Tyres,wheel
+51377c01,tyre,Wheel Centre Large Wide 8 Spokes with Tyre Shallow Staggered,False,,,
+51377c02,tyre,Wheel Centre Large Wide with 8 Spokes with Tyre 30.4 x 14,False,,,
+51378,wheel,Wheel Rim 20 x 75 with 6 Double Spokes,True,Wheel Technic Street Bike,Wheels and Tyres,wheel
+51719,wheel,=Wheel Rim  6.4 x 11 with  5 Spokes with Metallic Silver Outline Pattern,False,,,
+51719c01,tyre,Wheel Rim  6.4 x 11 with 5 Spokes and Silver Pattern with Tyre  6.4/ 75 x  8 Shallow Offset Tread,False,,,
+52035,wheel,Bike  2 Wheel Motorcycle Body  4 x  8 x  4 with Fairing,True,"Fairing, Motorcycle, Modern",Transportation - Land,vehicle_part
+52035c01,wheel,Bike  2 Wheel Motorcycle with Touring Bike Fairing (Complete),False,,,
+52395,wheel,Boat Ship Wheel with Pin,False,,,
+52985,tyre,Tyre 27/ 48 x 43,True,Tyre 68.7 x 27 S,Wheels and Tyres,tyre
+539,tyre,Tyre for Wheel 41mm Znap,True,Tyre for Wheel 41mm Znap,Wheels and Tyres,tyre
+53992-f1,wheel,Caterpillar Track 2.5 Wide with 36 Ridges (Formed for 2 Wheel Rim 20 x 30),False,,,
+53992-f2,wheel,Caterpillar Track 2.5 Wide with 36 Ridges (Formed for 3 Wheel Rim 20 x 30 Scalene),False,,,
+53992-f3,wheel,Caterpillar Track 2.5 Wide with 36 Ridges (Formed for 3 Wheel Rim 20 x 30 Isosceles),False,,,
+54086,wheel,Wheel Cover  5 Spoke for Wheel 20 x 30,True,Wheel Cover 5 Spoke without Centre Stud - 35mm D.,Wheels and Tyres,wheel
+54087,wheel,Wheel Rim 20 x 30 with  6 Spokes and No Pegholes,True,Wheel 30.4 x 20 without Pinholes and with Unreinforced Rim,Wheels and Tyres,wheel
+54120,tyre,Tyre 44/ 44 x 56 Off Road,True,Tyre 94.8 x 44 R Balloon,Wheels and Tyres,tyre
+5428,wheel,Wheel Rim 41 x 75 with  10 Spokes and  3 Pins,True,Wheel 75 x 41 McLaren P1,Wheels and Tyres,wheel
+54725,wheel,~Electric Mindstorms NXT Motor Drive Wheel,False,,,
+54725c01,wheel,~Wheel Double for Electric Mindstorms NXT Motor,False,,,
+55423,wheel,Train Wheel for RC Train w Technic Axle Hole and Rubber Ring,False,,,
+55817,wheel,Wheel 21 x 56 with 8 Spokes Armoured,True,Wheel Wagon Viking with 12 Holes [7 Studs Diameter],Wheels and Tyres,wheel
+55889,wheel,Wheel 12 x 18 Smooth,True,Wheel 18 x 14 with Pin Hole,Wheels and Tyres,wheel
+55976,tyre,Tyre 26/ 52 x 30 Off Road,True,Tyre 56 x 26 Balloon,Wheels and Tyres,tyre
+55978,tyre,Tyre 22/ 14 x 30 ZR,True,Tyre 37 x 22 ZR,Wheels and Tyres,tyre
+55981,wheel,Wheel Rim 14 x 18 with Holes on Both Sides (Needs Work),True,"Wheel 18 x 14 with Pin Hole, Fake Bolts and Shallow Spokes",Wheels and Tyres,wheel
+55981c01,tyre,Wheel Rim 14 x 18 with Holes on Both Sides with Tyre 14/ 50 x 17 with Centre Band,True,"Wheel 18 x 14 with Pin Hole, Fake Bolts and Shallow Spokes With Black Tyre, Pin with Axle",Wheels and Tyres,wheel
+55981c02,tyre,Wheel Rim 14 x 18 with Holes on Both Sides with Tyre 14/ 70 x 17,False,,,
+55981c03,tyre,Wheel Rim 14 x 18 with Holes on Both Sides with Tyre 14/ 54 x 15 VR,False,,,
+55981c04,tyre,Wheel Rim 14 x 18 with Holes on Both Sides with Tyre 18/ 56 x 17 Off-Road with Offset Centre,False,,,
+55981c05,tyre,Wheel Rim 14 x 18 with Holes on Both Sides with Tyre 14/ 26 x 18 Shallow Staggered Treads with Middle Band,False,,,
+55981c06,tyre,Wheel Rim 14 x 18 with Holes on Both Sides with Tyre 14.3/ 27 x  6.4 Shallow Staggered Treads,False,,,
+55982,wheel,Wheel Rim 14 x 18 with Axlehole,True,"Wheel 18mm x 14mm with Axle Hole, Fake Bolts and Shallow Spokes",Wheels and Tyres,wheel
+56145,wheel,Wheel Rim 20 x 30 with  6 Dual Spokes and External Ribs,True,"Wheel 30.4 x 20 without Pinholes, with Reinforced Rim",Wheels and Tyres,wheel
+56145c01,tyre,"Wheel Rim 20 x 30, 6 Spokes, Ribs with Tyre 43.2 x 26 Balloon Small",False,,,
+56145c02,tyre,"Wheel Rim 20 x 30, 6 Spokes, Ribs with Tyre 22/ 30 x 30 ZR",False,,,
+56145c03,tyre,"Wheel Rim 20 x 30, 6 Spokes, Ribs with Tyre 26/ 52 x 30 Off Road",False,,,
+5650,wheel,Wheel Rim 20 x 30 with  5 Holes,True,Wheel 30.4 x 20 with 5 holes,Wheels and Tyres,wheel
+56890,tyre,Tyre 12/ 61 x 11 Balloon,True,Tyre 24 x 12 R Balloon,Wheels and Tyres,tyre
+56891,tyre,Tyre 18/ 56 x 17 Off-Road with Offset Centre,True,Tyre 37 x 18 R Balloon,Wheels and Tyres,tyre
+56897,tyre,Tyre 11/ 65 x 18 Offset,True,Tyre 30 x 10.5 Offset Tread [Centre Band],Wheels and Tyres,tyre
+56898,tyre,Tyre 14/ 43 x 30 with Offset Tread,True,Tyre 43.2 x 14 Offset Tread,Wheels and Tyres,tyre
+56902,wheel,Wheel Rim  8 x 18 with Deep Centre Groove and Peghole,True,Wheel 18 x 8 with Fake Bolts and Shallow Spokes,Wheels and Tyres,wheel
+56902c01,tyre,Wheel Rim  8 x 18 with Deep Centre Groove and Peghole with Tyre  7/ 45 x 17 Offset Tread with Middle Band,False,,,
+56903,wheel,Wheel Rim  8 x 18 with Deep Centre Groove and Axle Hole,True,Wheel 18 x 8 with Fake Bolts and Shallow Spokes and Axle Hole,Wheels and Tyres,wheel
+56903c01,tyre,Wheel Rim  8 x 18 with Deep Centre Groove and Axle Hole with Tyre  7/ 45 x 17 Offset Tread with Middle Band,False,,,
+56904,wheel,Wheel Rim 14 x 30 with 6 Spokes and No Pegholes,True,Wheel 30 x 14,Wheels and Tyres,wheel
+56904c01,tyre,Wheel Rim 14 x 30 with 6 Spokes and No Pegholes with Tyre 14/ 43 x 30,False,,,
+56907,tyre,Tyre 35/ 42 x 56 Racing,True,Tyre 81.6 x 36 R,Wheels and Tyres,tyre
+56908,wheel,Wheel Rim 26 x 43 with 6 Spokes and 6 Pegholes,True,Wheel 43.2 x 26 Technic Racing Small with 6 Pinholes,Wheels and Tyres,wheel
+56908c01,tyre,Wheel Rim 26 x 43 with 6 Spokes and 6 Pegholes with Tyre 38/ 50 x 43 Off Road,False,,,
+56908c02,tyre,Wheel Rim 26 x 43 with 6 Spokes and 6 Pegholes with Tyre 44/ 91 x 43 R,False,,,
+56908c03,tyre,Wheel Rim 26 x 43 with 6 Spokes and 6 Pegholes with Tyre 28/ 23 x 43 ZR Street,False,,,
+574,tyre,Tyre 10/130 x 17 Offset Tread for Technic Gear 9 Tooth,False,,,
+57519,wheel,Technic Sprocket Wheel  40.4,True,Technic Tread Sprocket Wheel Large 10 Tooth,Technic Gears,other
+57520,wheel,Technic Sprocket Wheel 25.4,True,Technic Tread Sprocket Wheel Small 6 Tooth,Technic Gears,other
+57520p01,wheel,Technic Sprocket Wheel 25.4 with Bionicle Life Counter Pattern,False,,,
+57877c01,wheel,~Axle Steel  5 x 100 LDU with Two Train Wheels with Closed Centres,False,,,
+57878,wheel,Train Wheel with Closed Centre for Wheel Bogie,True,Train Wheel RC Train,Wheels and Tyres,wheel
+579c03,wheel,Electric Train Motor  4.5V  4 x 12 x  4 Black Base Red Wheels,False,,,
+579p01c03,wheel,"Electric Train Motor  4.5V  4 x 12 x  4 Patterned, Red Wheels",False,,,
+58088,wheel,Wheel Cover  7 Spoke Forked for Wheel 34 x 56,True,Wheel Cover 7 Spoke with Axle Hole - 56mm D. [Fits 44772],Wheels and Tyres,wheel
+58090,tyre,Tyre 14/ 50 x 17 VR,True,Tyre 30.4 x 14 VR Solid,Wheels and Tyres,tyre
+59521,wheel,Wheel 28 x 158 with 3 Spokes,True,Wheel Hard Plastic Spoked Giant Thin 160 x 28,Wheels and Tyres,wheel
+59895,tyre,Tyre  4/ 80 x  8 Single Smooth Type 2,True,Tyre 14 x 4 Smooth Small Single [New Style],Wheels and Tyres,tyre
+6009312a,wheel,Sticker  1.8 x  1.8 with Metallic Silver Fifth Wheel on Grey Face,False,,,
+6014a,wheel,Wheel Rim 12 x 11 with Round Hole,True,Wheel 11 x 12 with Hole Round for Wheels Holder Pin,Wheels and Tyres,wheel
+6014ac01,tyre,Wheel Rim 12 x 11 with Round Hole with Tyre 12/ 40 x 11 Wide,False,,,
+6014b,wheel,Wheel Rim 12 x 11 with Notched Hole,True,Wheel 11 x 12 with Hole Notched for Wheels Holder Pin,Wheels and Tyres,wheel
+6014bc01,tyre,Wheel Rim 12 x 11 with Notched Hole with Tyre 12/ 40 x 11 Wide,False,,,
+6014bc02,tyre,Wheel Rim 12 x 11 with Notched Hole with Tyre 12/ 40 x 11 Wide with Centre Band,False,,,
+6014bc03,tyre,Wheel Rim 12 x 11 with Notched Hole with Tyre 12/ 61 x 11 Balloon,False,,,
+6015,tyre,Tyre 12/ 40 x 11 Wide,True,Tyre 21 x 12 with Offset Tread Small Wide,Wheels and Tyres,tyre
+60208,wheel,Wheel Rim 16 x 31 with 6 Pegholes,True,"Wheel 31 x 15 Technic, 7 Pin Holes",Wheels and Tyres,wheel
+60700,tyre,=Tyre 12/ 40 x 11 Wide,True,Tyre 21 x 12 with Offset Tread Small Wide and Beveled Tread Edge,Wheels and Tyres,tyre
+6118,wheel,Wheel 23 x 24 with Tread on Sidewall,True,Wheel Hard Plastic Small (22mm D. x 24mm),Wheels and Tyres,wheel
+61254,tyre,Tyre  7/ 45 x 17 Offset Tread with Middle Band,True,Tyre Offset Tread with Center Band 23 x 7,Wheels and Tyres,tyre
+61480,tyre,Tyre 34/ 37 x 43 Off Road,True,Tyre 68.7 x 34 R,Wheels and Tyres,tyre
+61481,tyre,Tyre 26/ 24 x 30 Sand Racing,True,Tyre 43.2 x 26 Balloon Small,Wheels and Tyres,tyre
+61483,wheel holder,Technic Pin with 2 Wheel Pins,True,Technic Pin with Dual Wheels Holder,Transportation - Sea and Air,vehicle_part
+6148328e,wheel,"Sticker  1.8 x  1.8 with Wheel and Black ""Air"" on White Background",False,,,
+6155286x,wheel,"Sticker  2.7 x  5.7 with White ""BUCKET WHEEL EXCAVATOR MK III"" and Technical Data",False,,,
+6157,wheel holder,Plate  2 x  2 with 2 Wheel Pins Extended without Wishbones,True,Plate Special 2 x 2 with Wheels Holder Wide,Plates Special,wheel_holder
+61738,wheel,Wheel Cover  5 Spoke for Wheel 20 x 30 with Red Edge Pattern,False,,,
+6230,tyre,~Wheel  4 x 10 with Integral Rubber Black Tyre,True,Tyre Smooth Small with White Hollow Fixed Center (Space Shuttle Wheel),Wheels and Tyres,tyre
+62359,wheel,Wheel Cover  7 Spoke for Wheel 14 x 18,True,Wheel Cover 7 Spoke for Wheel 55982,Wheels and Tyres,wheel
+6248,wheel,Wheel Rim 10 x 17.4 with 4 Studs and Technic Peghole,True,Wheel Freestyle with 2 x 2 Studs and Pin Hole,Wheels and Tyres,wheel
+62701,wheel,Wheel Cover  9 Spoke for Wheel 14 x 17,True,Wheel Cover 9 Spoke - 24mm D.,Wheels and Tyres,wheel
+6292,tyre,Duplo Tyre 25/ 53 x 19,True,Duplo Toolo Tyre / Tire,"Duplo, Quatro and Primo",other
+6357,wheel,~Wheel  6.8 x 18 Solid for Duplo Vehicle Base,False,,,
+64248,tyre,Wheel Minifig Bicycle with Black Tyre,False,,,
+64711,wheel,Wheel 20 x 64 with Spikes and 13 Pegholes,True,Wheel Hard Plastic with Small Cleats,Wheels and Tyres,wheel
+64712,wheel,Wheel 32 x 64 Conical with Spikes and Inner 48 Tooth Gear,True,Wheel Hard Plastic with Small Cleats and Flanges,Wheels and Tyres,wheel
+6527,wheel,Duplo Wheel with 2 Belt Groves,True,Duplo Technic Wedge Belt Wheel,"Duplo, Quatro and Primo",other
+65766,wheel,Technic Steering Wheel Bearing with 2 Pegholes and 2 Solid Axlehole Arms,True,"Technic Steering Wheel Hub Holder with 2 Pin Holes and 2 Axle Holes, No Slots","Technic Steering, Suspension and Engine",other
+6577c01,tyre,Technic Bush  1/2 Type 2 with Black Tyre  6/ 50 x  8 Offset Tread,False,,,
+6578,tyre,Tyre 14/ 36 x 20 VR,True,Tyre 30.4 x 14 VR,Wheels and Tyres,tyre
+6578c01,tyre,Tyre 14/ 36 x 20 VR (Deformed to 10/ 67 x 24),False,,,
+6579,tyre,Tyre 26/ 36 x 22 Off Road,True,Tyre 43.2 x 28 Balloon Small,Wheels and Tyres,tyre
+6580a,wheel,Wheel Rim 23 x 22 Offroad with Axlehole,True,Wheel 43.2 x 28 Balloon Small with + Shape Axle Hole,Wheels and Tyres,wheel
+6580ac01,tyre,Wheel Rim 23 x 22 Off Road with Axlehole with Tyre 26/ 36 x 22 Off Road,False,,,
+6580b,wheel,Wheel Rim 23 x 22 Offroad with Split Axlehole,False,,,
+6580bc01,tyre,Wheel Rim 23 x 22 Off Road with Split Axlehole with Tyre 26/ 36 x 22 Off Road,False,,,
+6581,tyre,Tyre 20/ 40 x 33 Off Road,True,Tyre 20 x 30 Balloon Medium 49.6 x 20,Wheels and Tyres,tyre
+6582,wheel,Wheel Rim 20 x 33 with  6 Pinholes,True,Wheel 20 x 30 Balloon Medium,Wheels and Tyres,wheel
+6582c01,tyre,Wheel Rim 20 x 33 with  6 Pinholes with Tyre 20/ 40 x 33 Off Road,False,,,
+65834,tyre,Wheel 14 x 35 with 4 Spokes with Integral Tyre,False,,,
+65834p01,tyre,Wheel 14 x 35 with 4 Spokes with Integral Medium Azure Tyre,False,,,
+65834p02,tyre,Wheel 14 x 35 with 4 Spokes with Integral Rubber Black Tyre Pattern,False,,,
+6594,tyre,Tyre 28/ 38 x 28 VR,True,Tyre 49.6 x 28 VR,Wheels and Tyres,tyre
+6595,wheel,Wheel 25 x 28 VR with 35mm Diameter Rear Rim and Partial Cross Axle Hole,True,Wheel 49.6 x 28 VR (36.8 x 26) with Axle Hole,Wheels and Tyres,wheel
+6595c01,tyre,Wheel 25 x 28 VR with 35mm Diameter Rear Rim and Partial Cross Axle Hole with Tyre 30/ 42 x 28 R Balloon,False,,,
+6595c02,tyre,Wheel 25 x 28 VR with 35mm Diameter Rear Rim and Partial Cross Axle Hole with Tyre 28/ 38 x 28 VR,False,,,
+6596,tyre,Tyre 14 / 66 x 61 Z Racing,True,Tyre 81.6 x 14.2 Motorcycle Z Racing Tread,Wheels and Tyres,tyre
+6600,tyre,Wheel  4 x 21 with Three Spokes and Integral Rubber Tyre,False,,,
+6600p01,tyre,Wheel  4 x 21 with Three Spokes and Integral Rubber Black Tyre Pattern,False,,,
+6615,wheel,Technic Wheel Spindle Axle Driver Bar  4L,True,Technic Axle 4L with 2 CV Joints,"Technic Steering, Suspension and Engine",other
+66155,wheel,Wheel Rim 20 x 30 with  3 Dual Angled Spokes and  4L Hub,True,Wheel 30 x 20 with Center Axle Holes,Wheels and Tyres,wheel
+66155c01,tyre,Wheel Rim 20 x 30 with  3 Dual Angled Spokes and  4L Hub with Tyre 26/ 24 x 30 Sand Racing,False,,,
+66727,wheel,Wheel Rim 11 x 18 with Drilled Disc Brake,True,Wheel 18 x 12 with Pin Hole and Stud,Wheels and Tyres,wheel
+66727c01,tyre,Wheel Rim 11 x 18 with Drilled Disc Brake with Tyre 11.2/ 28 x 17.6 Intermediate,False,,,
+67140,tyre,Tyre 23/ 41 x 75 Motorcycle with Racing Tread,True,Tyre 94.2 x 22 Motorcycle Racing Tread,Wheels and Tyres,tyre
+67811,wheel,Car Steering Wheel  5 x  5 with Two Spokes and  2 x  2 Stud Centre with Axlehole,True,Steering Wheel with 4 Studs on Center,Transportation - Land,vehicle_part
+683,wheel,~Wheel  5.5 x 20 with 10 Spokes,False,,,
+68327,wheel,Wheel 16 x 40 with  7 Pin Holes,True,Wheel 41 x 15,Wheels and Tyres,wheel
+68577,wheel,Wheel Rim 42 x 62 with 20 Spokes and  3 Pins,True,Wheel 62.3 x 42 Lamborghini,Wheels and Tyres,wheel
+68577c01,tyre,Wheel Rim 42 x 62 with 20 Spokes and  3 Pins with Tyre 44/ 22 x 62 ZR,False,,,
+69636,wheel,Technic Steering Wheel Bearing with  4 Pegholes and Shock Absorber Socket,True,Technic Steering Portal with 2 Pin Holes and 2 Axle Holes,"Technic Steering, Suspension and Engine",other
+69909,tyre,Tyre 28/ 57 x 43 Off Road,True,Tyre 75 x 28 Off Road,Wheels and Tyres,tyre
+69912,tyre,Tyre 35/ 55 x 43 R Tractor,True,Tyre 81 x 35 Tractor,Wheels and Tyres,tyre
+69963,wheel holder,Car Wheel Holder Plate  2 x  4 for Tilt Steering,True,Plate Special 2 x 4 with Steering Bar,Plates Special,plate_special
+69963c01,wheel holder,Car Wheel Holder Plate  2 x  4 with Black Axle for Tilt Steering,False,,,
+69964,wheel holder,Car Wheel Holder Axle 3.3L for Tilt Steering,True,Vehicle Axle with Steering Clip and Pins,"Technic Steering, Suspension and Engine",other
+70081c01,wheel,~Axle Steel  6 x 108 with Two Wheels  6 x 20,False,,,
+70081c02,wheel,~Axle Steel  6 x 108 with Two Wheels  5.5 x 20 with 10 Spokes,False,,,
+7039,wheel,Wheel Rim  8 x 18 with 4 Studs and Cylindrical Axle,True,Wheel Old with 4 Studs,Wheels and Tyres,wheel
+7039c01,tyre,"Wheel Rim  8 x 18 with 4 Studs, Cylindrical Axle with LightGrey Tyre 7.2/ 45 x 8.8",False,,,
+7039c02,tyre,"Wheel Rim  8 x 18 with 4 Studs, Cylindrical Axle with Black Tyre 7.2/ 45 x 8.8",False,,,
+7039c03,tyre,"Wheel Rim  8 x 18 with 4 Studs, Cylindrical Axle with Tyre 7/ 56 x 17 Offset Tread",False,,,
+70490,tyre,Tyre 14/ 68 x 30,True,Tyre 49.5 x 14,Wheels and Tyres,tyre
+70695,tyre,Tyre 26/ 49 x 30 Tractor,True,Tyre 56 x 26 Tractor,Wheels and Tyres,tyre
+70720c01,wheel,~Axle Steel  5 x 112 LDU with Conical Ends with Two Train Wheels with Open Centres,True,Axle Steel 5 x 112 LDU with Conical Ends with Two Train Wheels 9V,Wheels and Tyres,wheel
+71372-f1,wheel,Technic Tread (Formed for 2 Sprocket Wheels),False,,,
+71372-f2,wheel,"Technic Tread (Formed for 3 Sprocket Wheels, Triangular Shape 1)",False,,,
+71372-f3,wheel,"Technic Tread (Formed for 3 Sprocket Wheels, Triangular Shape 2)",False,,,
+71372-f4,wheel,"Technic Tread (Formed for 3 Sprocket Wheels, Triangular Shape 3)",False,,,
+715,wheel,Wheel Rim  8 x 35 with 12 Studs with Axle (Complete),True,Wheel Old with 12 Studs,Wheels and Tyres,wheel
+715c01,tyre,Wheel Rim  8 x 35 with 12 Studs with Axle and Light Grey Tyre,False,,,
+715c02,tyre,Wheel Rim  8 x 35 with 12 Studs with Axle with Black Tyre Large,False,,,
+71720,wheel,Wheel 24 x 107 Motorcycle with  7 Spokes,True,Wheel 107.1 x 24 Motorcycle,Wheels and Tyres,wheel
+71720c01,tyre,Wheel 24 x 107 Motorcycle with  7 Spokes with Tyre 27/ 48 x 107 Motorcycle with Racing Tread,False,,,
+71720c02,tyre,Wheel 24 x 107 Motorcycle with  7 Spokes with Tyre 37/ 38 x 107 Motorcycle with Racing Tread,False,,,
+71721,tyre,Tyre 27/ 48 x 107 Motorcycle with Racing Tread,True,"Tyre Motorcycle Racing Tread, Narrow",Wheels and Tyres,tyre
+71722,tyre,Tyre 37/ 38 x 107 Motorcycle with Racing Tread,True,Tyre Motorcycle Racing Tread,Wheels and Tyres,tyre
+71735c01,wheel,Technic Tread Cybermaster (Formed for 5 Sprocket Wheel 20 Tooth),False,,,
+71965-f1,wheel,Caterpillar Track 1.7 Wide 28 Tooth (Formed for 2 Wheel Rim 14 x 18),False,,,
+72206,tyre,~Wheel 11 x 24 with Integral Rubber Tyre,True,Wheel Rim 24 x 12 with Black Tyre,Wheels and Tyres,wheel
+72206p01,tyre,Wheel 11 x 24 with Integral Rubber Black Tyre,False,,,
+72210a,wheel,Wheel Rim 11 x 24 Front with  5 Spokes,True,Wheel Cover 5 Spoke,Wheels and Tyres,wheel
+72210b,wheel,Wheel Rim 11 x 24 Front with  9 Spokes,True,Wheel Cover 9 Spoke - for Wheel 72206,Wheels and Tyres,wheel
+7222,wheel holder,Technic Axle with  4 Wheel Pins,True,"Landing Gear with 4 Wheel Holders, Axle",Transportation - Sea and Air,vehicle_part
+73081,wheel,~_Car Steering Stand and Wheel Black (Obsolete),False,,,
+73389,wheel,Wheel Rim 41 x 75 with  5 Spokes and  3 Pins #2 (Right),False,,,
+73398,wheel,Wheel Rim 41 x 75 with  5 Spokes and  3 Pins #1 (Left),False,,,
+736c01,wheel,Train Base  6 x 16 Type 1 with Red Wheels (Complete),False,,,
+736c02,wheel,Train Base  6 x 16 Type 1 with Wheels and Magnets (Complete),True,Train Base 6 x 16 Type I with Wheels and Red and Blue Magnets,Magnets and Holders,other
+74214,tyre,Wheel 7 x 24 with Fake Bolts and 6 Spokes with Integral Rubber Tyre,True,Wheel Rim 24 x 7 with Black Tyre,Wheels and Tyres,wheel
+74214p01,tyre,Wheel 7 x 24 with Fake Bolts and 6 Spokes with Integral Rubber Black Tyre,False,,,
+74572,wheel,Motor Pull Back  4 x  9 x  2 with 2 Red Wheels and Black Tyres  7/ 56 x 17 Offset Tread,False,,,
+74656,wheel,Duplo Car Base  2 x  6 with Wheels,False,,,
+74656p01,wheel,Duplo Car Base  2 x  6 with Red Wheels,False,,,
+74656p02,wheel,Duplo Car Base  2 x  6 with Yellow Wheels,False,,,
+74656p03,wheel,Duplo Car Base  2 x  6 with Black Wheels,False,,,
+74967,wheel,"Wheel Rim  8 x  8 Notched Hole, Reinforced Back",True,"Wheel 8 x 9 with Hole Notched for Wheels Holder Pin, Re-inforced Back",Wheels and Tyres,wheel
+74967c01,tyre,"Wheel Rim  8 x  8 Notched Hole, Reinforced Back with Tyre  8/ 40 x  8 Slick Smooth",False,,,
+74967p01,wheel,"Wheel Rim  8 x  8 Notched Hole, Reinforced Back with Yellow Ring Pattern",False,,,
+74967p01c01,tyre,"Wheel Rim  8 x  8 Notched Hole, Reinforced Back with Yellow Ring Pattern with Tyre  8/ 40 x  8 Slick Smooth",False,,,
+75545,tyre,Plate  2 x  2 with Stub Axles with White Wheels with Integral Tyre,False,,,
+77598,wheel,Plate  2 x  2 x  0.667 with Wheel Fork,True,Wheel Fork with 2 x 2 Plate,Transportation - Land,vehicle_part
+7860,tyre,Tyre 13/ 75 x 56,True,Tyre 75 x 13,Wheels and Tyres,tyre
+7877,wheel,Wheel Rim 13 x 56 with 12 Spokes and Axlehole,True,Wheel 56 x13 with Spokes,Wheels and Tyres,wheel
+7896,wheel,Car Mudguard  2 x  4 with Rounded Wheel Arches,True,"Wheel Arch, Mudguard 2 x 4 Studded, Rounded Arch",Transportation - Land,vehicle_part
+8,wheel,Plate  2 x  2 with 2 Wheel Clips Perpendicular,True,Plate Special 2 x 2 with Wheel Holder Bottom,Transportation - Land,wheel_holder
+80279,tyre,Tyre 44/ 15 x 75,True,Tyre 87.9 x 44 Low,Wheels and Tyres,tyre
+80441,tyre,Wheel  2 x 21 with Technic Pin Hole with Integral Rubber Tyre,False,,,
+80441p01,tyre,Wheel  2 x 21 with Technic Pin Hole with Integral Rubber Black Tyre Pattern,False,,,
+80441p02,tyre,Wheel  2 x 21 with Technic Pin Hole with Integral Rubber Tan Tyre Pattern,False,,,
+80542,tyre,Tyre 20 / 33 x 62 Motorcycle,True,Tyre 75 x 20 Motorcycle,Wheels and Tyres,tyre
+817c01,wheel,Trailer for Legoland Car with Red Wheel Hubs (Complete),True,"Vehicle Base, Trailer 4 x 8 Bed with Red Wheels",Transportation - Land,wheelbase
+817c02,wheel,Trailer for Legoland Car with White Wheel Hubs (Complete),True,"Vehicle Base, Trailer 4 x 8 Bed with White Wheels",Transportation - Land,wheelbase
+817c03,wheel,Trailer for Legoland Car with Red Wheel Hubs (Complete) with Tyres  4/ 80 x  8 Single Smooth Type 1,False,,,
+817c04,wheel,Trailer for Legoland Car with White Wheel Hubs (Complete) with Tyres  6/ 50 x  8 Offset Tread,False,,,
+827,wheel,Tractor Chassis with Steering Wheel and Steering Linkage,True,"Vehicle Base, Tractor Chassis [Complete Assembly]",Transportation - Land,vehicle_part
+84772,wheel,Wheel 20 x 62 Motorcycle Solid,True,Wheel 62.3 x 20.3 Motorcycle [Plain],Wheels and Tyres,wheel
+84772p01,wheel,Wheel 20 x 62 Motorcycle Solid with White Outer Rim Pattern,False,,,
+84772p01c01,tyre,Wheel 20 x 62 Motorcycle Solid with White Outer Rim Pattern with Tyre 20 / 33 x 62 Motorcycle,False,,,
+85489a,wheel,Train Wheel Large with Axlehole and Pinhole,False,,,
+85489ac01,wheel,Train Wheel Large With Axle Pinhole and Red Traction Band,False,,,
+85489b,wheel,Train Wheel Large with Axlehole and Pinhole without Flange,False,,,
+85543-f5,wheel,Rubber Belt Round 15 /  1.6 (Formed for Technic Bush - Wheel Rim  8 x 11.2 with Centre Groove),False,,,
+85544,wheel,Train Wheel Large Traction Band,True,Technic Rubber Belt Medium [24mm ID] [Round Cross Section],"String, Bands and Reels",other
+85983,wheel,Bike  2 Wheel Motorcycle Body with Vintage Fairing,True,"Fairing, Motorcycle, Vintage",Transportation - Land,vehicle_part
+85983c01,wheel,Bike  2 Wheel Motorcycle with Vintage Bike Fairing (Complete),False,,,
+85983p01,wheel,Bike  2 Wheel Motorcycle Body with Vintage Fairing with Dark Bluish Grey Pattern,False,,,
+85983p02,wheel,Bike  2 Wheel Motorcycle Body with Vintage Fairing with Dark Red Pattern,False,,,
+86652,wheel,Wheel Rim 18 x 37 with 6 Pegholes and Short Axle Bush,True,Wheel 43.2 x 18 with Flush Axle Stem,Wheels and Tyres,wheel
+86652c01,tyre,Wheel Rim 18 x 37 with 6 Pegholes and Short Axle Bush with Rubber Black Tyre 20/ 64 x 37 S,False,,,
+867,wheel,Wheel Train for 12V Electric Motor,True,Wheel Train for 12V Electric Motor,Wheels and Tyres,wheel
+87079p0a,tyre,"Tile  2 x  4 with Tire Half with ""Jo's Garage"" and ""BY ACCIDENT WE MEET"" Pattern",False,,,
+874,wheel,Tractor Chassis Steering Wheel,False,,,
+87414,tyre,Tyre  6/ 50 x  8 Offset Tread with Centre Band,True,Tyre 15 x 6 Offset Tread Small with Band around Center,Wheels and Tyres,tyre
+87697,tyre,Tyre 12/ 40 x 11 Wide with Centre Band,True,Tyre 21 x 12 with Offset Tread Small Wide and Center Band,Wheels and Tyres,tyre
+88422,wheel,=Minifig Skateboard with Four Wheel Clips,False,,,
+88516,tyre,Tyre 21/ 48 x 75 Motorcycle with Racing Tread,True,"Tyre 94.2 x 22 Motorcycle Racing Tread, Narrow",Wheels and Tyres,tyre
+88517,wheel,Wheel 17 x 75 Motorcycle with Holes in Rim,True,Wheel 75 x 17 Motorcycle,Wheels and Tyres,wheel
+88517c01,tyre,Wheel 17 x 75 Motorcycle with Holes in Rim w Tyre 19/ 67 x 75,False,,,
+88517c02,tyre,Wheel 17 x 75 Motorcycle with Holes in Rim with Tyre 23/ 41 x 75 Motorcycle with Racing Tread,False,,,
+88517c03,tyre,Wheel 17 x 75 Motorcycle with Holes in Rim with Tyre 21/ 48 x 75 Motorcycle with Racing Tread,False,,,
+89201,tyre,Tyre 14/ 25 x 17 Shallow Staggered Treads with Middle Band,True,"Tyre 24 x 14 Shallow Tread (Tread Small Hub), Band Around Center of Tread",Wheels and Tyres,tyre
+8c01,tyre,Plate  2 x  2 with 2 Wheel Clips Perpendicular with Wheel Red with Tyre 6/ 50 x  8 Offset Tread,False,,,
+8c02,tyre,Plate  2 x  2 with 2 Wheel Clips Perpendicular with Red Wheel with Tyre 4/ 80 x  8 Single Smooth Type 1,False,,,
+90840,wheel,Train Wheel 50 mm with Axlehole and Pinhole,True,"Train Wheel RC Train, Spoked with Technic Axle Hole and Counterweight, 50mm diameter [Flanged Driver]",Wheels and Tyres,wheel
+92402,tyre,Tyre 14/ 50 x 17 with Centre Band,True,Tyre 30.4 x 14 Offset Tread [Centre Band],Wheels and Tyres,tyre
+92409,tyre,Tyre  6.4/ 75 x  8 Shallow Offset Tread with Centre Band,True,Tyre 17.5 x 6 with Shallow Staggered Treads and Middle Band,Wheels and Tyres,tyre
+92851,tyre,Wheel Minifig Bicycle with Integral Rubber Black Tyre,True,"Wheel Bicycle, Fixed Black Tire",Wheels and Tyres,tyre
+92909,wheel,Technic Steering Wheel Hub for Portal Axle,True,Technic Steering Hub for Portal Axle,"Technic Steering, Suspension and Engine",other
+92912,tyre,Tyre 38/ 76 x 56,True,Tyre 94.3 x 38 R,Wheels and Tyres,tyre
+93593,wheel,Wheel Rim  6.4 x 11 with 8 Straight Spokes,True,Wheel 11 x 6 with 8 Spokes,Wheels and Tyres,wheel
+93594,wheel,Wheel Rim  6.4 x 11 without Spokes,True,Wheel 11 x 6 with Smooth Hubcap,Wheels and Tyres,wheel
+93595,wheel,Wheel Rim  6.4 x 11 with  8 Y-Shaped Spokes,True,Wheel 11 x 6 with 8 'Y' Spokes [Plain],Wheels and Tyres,wheel
+93595c01,tyre,Wheel Rim  6.4 x 11 with  8 Y-Shaped Spokes with Tyre  6.4/ 75 x  8 Shallow Offset Tread with Centre Band,False,,,
+93595p01,wheel,Wheel Rim  6.4 x 11 with  8 Y-Shaped Spokes and Silver Pattern,False,,,
+93595p02,wheel,Wheel Rim  6.4 x 11 with  8 Y-Shaped Spokes and Gold Pattern,False,,,
+93595p03,wheel,Wheel Rim  6.4 x 11 with  8 Y-Shaped Spokes and Black Pattern,False,,,
+9551,wheel,~_Car Steering Stand and Wheel (Complete) White (Obsolete),False,,,
+9552,wheel,~_Car Steering Stand and Wheel (Complete) Red (Obsolete),False,,,
+9553,wheel,~_Car Steering Stand and Wheel (Complete) Yellow (Obsolete),False,,,
+9556,wheel,~_Car Steering Stand and Wheel (Complete) Grey (Obsolete),False,,,
+9566,wheel,~_Car Steering Stand and Wheel (Complete) Blue (Obsolete),False,,,
+98288,wheel,Wheelbarrow with Two Studs and 2 Wheel Clips,True,Equipment Wheelbarrow,Minifig Accessories,other
+995,wheel,~Train Wheel Large with Pin Axle Hole,True,Train Wheel Large with Pin Axle Hole,Other,other
+996,wheel,~Train Wheel Small with Pin Axle Hole,True,Train Wheel Small with Pin Axle Hole,Other,other
+t1041,wheel,| Rotacaster Holonomic Wheel Roller,False,,,
+t1042,wheel,| Rotacaster Holonomic Wheel 48mm Frame,False,,,
+t1042c01,wheel,| Rotacaster Holonomic Wheel 48mm,False,,,
+t1043,wheel,| Rotacaster Holonomic Wheel Hub with Axlehole,False,,,
+t1070,wheel,| BBB Train Wheel XL Flanged Driver 17.6 mm,False,,,
+t1071,wheel,| BBB Train Wheel Medium Flanged Driver 24.0 mm,False,,,
+t1072,wheel,| BBB Train Wheel Flanged Driver 30.4 mm,False,,,
+t1073,wheel,| BBB Train Wheel XL Flanged Driver 36.8 mm,False,,,
+t1074,wheel,| BBB Train Wheel Medium Blind Driver 24.0 mm,False,,,
+t1075,wheel,| BBB Train Wheel Blind Driver 30.4 mm,False,,,
+t1076,wheel,| BBB Train Wheel XL Blind Driver 36.8 mm,False,,,
+t1077,wheel,| BBB Train Wheel XXL Flanged Driver 43.2 mm,False,,,
+t1078,wheel,| BBB Train Wheel XXL Blind Driver 43.2 mm,False,,,
+u9030,wheel,~Wheel 14 x 29 Smooth,False,,,
+u9031,tyre,~Tyre 36.8 x 14 ZR (Hard Rubber),False,,,
+u9049,wheel,~Wheel  8 x 35 with 12 Spokes,False,,,
+u9070,wheel holder,~Car Wheel Holder  2 x  2 with Suspension - Spring,False,,,
+u9081,tyre,~Tyre  7/ 22 x 26 Racing Slick,False,,,
+u9081c01,tyre,Wheel Rim 26 x  7 with Rip Cord Gear Axle [494] and Tyre [16],False,,,
+u9131,tyre,Tyre  7.2/ 45 x 8.8,False,,,
+u9132c01,wheel,~Axle Steel  4 x  72 LDU with Two Wheels  4 x  8,False,,,
+u9132c02,wheel,~Axle Steel  4 x 72 with Two Wheels  6.4 x  8,False,,,
+u9132c03,wheel,~Axle Steel  4 x 72 LDU with Two Wheels  4 x  8 with Tyres  4/ 80 x  8 Single Smooth Type 1,False,,,
+u9132c04,wheel,~Axle Steel  4 x  72 LDU with Two Wheels  6.4 x  8 with Tyres  3/100 x  8 Double Smooth,False,,,
+u9132c05,wheel,~Axle Steel  4 x  72 LDU with Two Wheels  4 x  8 with Tyres  6/ 50 x  8 Offset Tread,False,,,
+u9133c01,wheel,~Axle Steel  4 x 114 LDU with Two Wheels  4 x  8,False,,,
+u9155c01,wheel,Fabuland Hand Truck with Yellow Wheels (Complete),False,,,
+u9163,wheel,Wheel  8 x 19 with Integral Axle,False,,,
+u9167,wheel,Wheel  4 x 19 with Stub Axles,False,,,
+u9170c01,wheel,Fabuland Stroller with Red Wheels (Complete),False,,,
+u9170c02,wheel,Fabuland Stroller with Yellow Wheels (Complete),False,,,
+u9186,wheel,~Wheel  1.6 x 10 for Monorail Motor and Chassis,False,,,
+u9204c01,wheel,Fabuland Scooter with Grey Wheels and Black Handlebars,False,,,
+u9205,wheel,~Fabuland Tricycle with 1 Front Wheel Chassis,False,,,
+u9205c01,wheel,"Fabuland Tricycle, 1 Front Wheel, Grey Wheels, Black Handlebars",False,,,
+u9206,wheel,~Fabuland Tricycle with 2 Front Wheels Chassis,False,,,
+u9206c01,wheel,"Fabuland Tricycle, 2 Front Wheels, Grey Wheels, Black Handlebars",False,,,
+u9236c02,wheel,Motor Windup  4 x 10 x  3 with Red Wheels,False,,,
+u9236c03,wheel,Motor Windup  4 x 10 x  3 with Red Wheels and Red Key,False,,,
+u9237,wheel,~Wheel Rim  8 x 35 with 12 Studs,False,,,
+u9241,wheel,~Train Wheel for RC Train with Technic Axle Hole,False,,,
+u9242,wheel,~Rubber Ring for Train Wheel for RC Train with Technic Axle Hole,False,,,
+u9337,wheel,~Technic Steering Wheel Bearing Body Front,False,,,
+u9476,wheel,~Technic Steering Wheel Bearing with Planetary Gear Reduction Body Front,False,,,
+u9477,wheel,Technic Steering Wheel Bearing with Planetary Gear Reduction Driving Shaft,False,,,
+u9550,wheel,~Train Wheel Spoked with Cylindrical Rim with 6 LDU Axle Hole,False,,,
+u9550c01,wheel,~Train Wheels Spoked with Cylindrical Rim with Axle Steel  6 x 96 LDU,False,,,
+u9579a,wheel,~Train Brick  2 x  4 x  1.333 Sliding Wheel Block Housing - Type A,False,,,
+u9579b,wheel,~Train Brick  2 x  4 x  1.333 Sliding Wheel Block - Type B,False,,,
+u9580,wheel,~Train Brick  2 x  4 x  1.333 Sliding Wheel Block - Weight,False,,,
+u9581,wheel,~Train Brick  2 x  4 x  1.333 Sliding Wheel Block - Cover,False,,,
+u9582a,wheel,Train Brick  2 x  4 x  1.333 Sliding Wheel Block - Type A,False,,,
+u9582b,wheel,Train Brick  2 x  4 x  1.333 Sliding Wheel Block - Type B with Ledge,False,,,
+u9582bc01,tyre,Train Brick  2 x  4 x  1.333 Sliding Wheel Block - Type B with Black Conical Wheels with Black Tyre,False,,,
