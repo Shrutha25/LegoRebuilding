@@ -1,0 +1,222 @@
+{
+ "inventory": {
+  "seed": 5,
+  "size": 140,
+  "parts": 140,
+  "colours": [
+   "Lime",
+   "Reddish Brown",
+   "Black",
+   "Dark Red"
+  ]
+ },
+ "old": [
+  {
+   "name": "Lime Car",
+   "recipe": "car",
+   "params": {
+    "length": 6,
+    "width": 3,
+    "cabin": 1
+   },
+   "parts": 22
+  },
+  {
+   "name": "Lime Car",
+   "recipe": "car",
+   "params": {
+    "length": 10,
+    "width": 3,
+    "cabin": 1
+   },
+   "parts": 25
+  },
+  {
+   "name": "Lime Car",
+   "recipe": "car",
+   "params": {
+    "length": 10,
+    "width": 3,
+    "cabin": 2
+   },
+   "parts": 33
+  },
+  {
+   "name": "Lime Tower",
+   "recipe": "tower",
+   "params": {
+    "depth": 4,
+    "layers": 10,
+    "band": 2
+   },
+   "parts": 24
+  },
+  {
+   "name": "Lime Bridge",
+   "recipe": "bridge",
+   "params": {
+    "gap": 4,
+    "width": 3,
+    "height": 3
+   },
+   "parts": 21
+  }
+ ],
+ "old_mean_iou": 0.279,
+ "new": {
+  "ai_used": false,
+  "note": "",
+  "concepts": 10,
+  "builds": [
+   {
+    "name": "Paper Hawk",
+    "recipe": "plane",
+    "category": "aircraft",
+    "params": {
+     "length": 8,
+     "span": 6,
+     "fw": 3,
+     "fin": 1
+    },
+    "parts": 12,
+    "silhouette": "wide-squat"
+   },
+   {
+    "name": "Little Span",
+    "recipe": "bridge",
+    "category": "bridge",
+    "params": {
+     "gap": 6,
+     "width": 2,
+     "height": 1
+    },
+    "parts": 7,
+    "silhouette": "long-low"
+   },
+   {
+    "name": "Brookside Cabin",
+    "recipe": "cottage",
+    "category": "building",
+    "params": {
+     "width": 8,
+     "depth": 5,
+     "floors": 2
+    },
+    "parts": 60,
+    "silhouette": "wide-squat"
+   },
+   {
+    "name": "Greywatch Wall",
+    "recipe": "castle",
+    "category": "castle",
+    "params": {
+     "length": 16,
+     "height": 2,
+     "thick": 2,
+     "span": 4
+    },
+    "parts": 32,
+    "silhouette": "long-low"
+   },
+   {
+    "name": "Garden Bench",
+    "recipe": "chair",
+    "category": "furniture",
+    "params": {
+     "width": 3,
+     "depth": 2,
+     "leg": 1,
+     "back": 2,
+     "arms": 0
+    },
+    "parts": 10,
+    "silhouette": "compact"
+   }
+  ],
+  "categories": [
+   "aircraft",
+   "bridge",
+   "building",
+   "castle",
+   "furniture"
+  ],
+  "mean_iou": 0.116
+ },
+ "new_gemini": {
+  "ai_used": true,
+  "note": "",
+  "concepts": 12,
+  "builds": [
+   {
+    "name": "Desert Outpost",
+    "recipe": "cottage",
+    "category": "building",
+    "params": {
+     "width": 7,
+     "depth": 6,
+     "floors": 3
+    },
+    "parts": 68,
+    "silhouette": "wide-squat"
+   },
+   {
+    "name": "Forest Canopy Watchtower",
+    "recipe": "tower",
+    "category": "tower",
+    "params": {
+     "depth": 4,
+     "layers": 10,
+     "band": 1
+    },
+    "parts": 22,
+    "silhouette": "tall-narrow"
+   },
+   {
+    "name": "River Crossing Arch",
+    "recipe": "bridge",
+    "category": "bridge",
+    "params": {
+     "gap": 6,
+     "width": 4,
+     "height": 3
+    },
+    "parts": 19,
+    "silhouette": "arch"
+   },
+   {
+    "name": "Swamp Crawler Mech",
+    "recipe": "robot",
+    "category": "robot",
+    "params": {
+     "width": 6,
+     "legs": 1,
+     "torso": 2,
+     "antenna": 0
+    },
+    "parts": 16,
+    "silhouette": "wide-squat"
+   },
+   {
+    "name": "Ancient Fortress Wall",
+    "recipe": "castle",
+    "category": "castle",
+    "params": {
+     "length": 16,
+     "height": 3,
+     "thick": 3,
+     "span": 4
+    },
+    "parts": 62,
+    "silhouette": "long-low"
+   }
+  ],
+  "categories": [
+   "bridge",
+   "building",
+   "castle",
+   "robot",
+   "tower"
+  ],
+  "mean_iou": 0.135
+ }
+}

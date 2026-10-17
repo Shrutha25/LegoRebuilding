@@ -1,0 +1,468 @@
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stealth Interceptor' failed at fill (attempt 0): ["with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: fuselage (12/16 studs filled, needs 90%), wings (0/24 studs filled, needs 90%), cockpit (0/4 studs filled, needs 90%), tail-fin (0/5 studs filled, needs 90%), nose (0/4 studs filled, needs 90%); nothing at all of wings, cockpit, tail-fin, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stealth Interceptor' failed at schema (attempt 1): ["part 'tail-fin': attach.anchor must be one of ('center', 'start', 'end'), got 'back'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stealth Interceptor' failed at fill (attempt 2): ["with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: fuselage (12/16 studs filled, needs 90%), wings (0/24 studs filled, needs 90%), cockpit (0/4 studs filled, needs 90%), tail-fin (0/5 studs filled, needs 90%), nose (0/4 studs filled, needs 90%); nothing at all of wings, cockpit, tail-fin, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stealth Interceptor' failed at fill (attempt 3): ["with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: wings (0/24 studs filled, needs 90%), cockpit (0/4 studs filled, needs 90%), tail-fin (0/5 studs filled, needs 90%), nose (0/8 studs filled, needs 90%); nothing at all of wings, cockpit, tail-fin, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+30 concepts (30 from Gemini) in ['aircraft', 'animal', 'boat', 'bridge', 'building', 'castle', 'furniture', 'plant', 'robot', 'spacecraft', 'tower']
+[ 1/30] 'Stealth Interceptor'              aircraft   FAIL attempts=4 failed at fill   45.8s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 18:41:57', 'concept': 'Skyward Predator', 'category': 'aircraft', 'attempt': 0, 'answer': 'A log bridge', 'matched': False, 'looks_like': 'bridge', 'recipe': 'gen-skyward-predator-2016b5'}
+INFO lego.recipes.generate: recipe for 'Skyward Predator' failed at recognizability (attempt 0): ["A viewer shown only a picture of the model said it looks like 'A log bridge', not a aircraft. Make the shape clearly a aircraft (Skyward Predator): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Skyward Predator' failed at schema (attempt 1): ["part 'nose': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'front_of'", "part 'intake_l': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'left_of'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[ 2/30] 'Skyward Predator'                 aircraft   FAIL attempts=3 failed at gemini   79.0s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Mossy Forest Fox' failed at fill (attempt 0): ["with {'length': 8, 'width': 4, 'height': 2}: required parts could not be filled from the inventory: legs (1/4 studs filled, needs 90%), body (0/32 studs filled, needs 90%), neck (0/1 studs filled, needs 90%), head (0/8 studs filled, needs 90%), tail (0/4 studs filled, needs 90%); nothing at all of body, neck, head, tail could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Mossy Forest Fox' failed at schema (attempt 1): ["part 'legs_front': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'", "part 'legs_back': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Mossy Forest Fox' failed at fill (attempt 2): ["with {'length': 8, 'width': 4, 'height': 2}: required parts could not be filled from the inventory: legs_front (0/1 studs filled, needs 90%), legs_back (0/1 studs filled, needs 90%); nothing at all of legs_front, legs_back could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[ 3/30] 'Mossy Forest Fox'                 animal     FAIL attempts=4 failed at gemini  126.2s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[ 4/30] 'Sentry Sentinel'                  animal     FAIL attempts=1 failed at gemini   37.0s
+INFO lego.recipes.generate: Gemini usage limit: waiting 14s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[ 5/30] 'Coastal Skiff'                    boat       FAIL attempts=1 failed at gemini   26.5s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO lego.recipes.generate: Gemini usage limit: waiting 14s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[ 6/30] 'Obsidian Viaduct'                 bridge     FAIL attempts=1 failed at gemini   56.1s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 504 Gateway Timeout"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-riverside-quay-84b05b {'width': 6, 'span': 8, 'height': 2} needed repair (8 actions): ['part 11: overlapped another part, moved by (0,-1) studs', 'part 14: overlapped another part, moved by (0,-1) studs', 'part 23: overlapped another part, moved by (0,1) studs']
+WARNING lego.recipes: recipe gen-riverside-quay-84b05b {'width': 6, 'span': 7, 'height': 2} needed repair (8 actions): ['part 11: overlapped another part, moved by (0,-1) studs', 'part 14: overlapped another part, moved by (0,-1) studs', 'part 24: overlapped another part, moved by (0,2) studs']
+WARNING lego.recipes: recipe gen-riverside-quay-84b05b {'width': 6, 'span': 6, 'height': 2} needed repair (8 actions): ['part 9: overlapped another part, moved by (0,-1) studs', 'part 11: overlapped another part, moved by (0,-1) studs', 'part 21: overlapped another part, moved by (0,1) studs']
+WARNING lego.recipes: recipe gen-riverside-quay-84b05b {'width': 5, 'span': 8, 'height': 2} needed repair (12 actions): ['part 9: overlapped another part, moved by (0,-1) studs', 'part 10: overlapped another part, moved by (0,-1) studs', 'part 17: overlapped another part, moved by (0,1) studs']
+INFO lego.recipes.generate: recipe for 'Riverside Quay' failed at structure (attempt 0): ["with {'width': 6, 'span': 8, 'height': 2}: the build falls into 3 separate pieces; every brick must connect to the rest through studs"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Riverside Quay' failed at schema (attempt 1): ["with {'width': 4, 'span': 4, 'height': 1}: not allowed in a recipe expression: 'span/2-1'", "with {'width': 5, 'span': 6, 'height': 1}: not allowed in a recipe expression: 'span/2-1'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[ 7/30] 'Riverside Quay'                   bridge     FAIL attempts=3 failed at gemini  149.1s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO lego.recipes.generate: Gemini usage limit: waiting 23s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[ 8/30] "Warden's Keep"                    building   FAIL attempts=1 failed at gemini   46.7s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[ 9/30] 'Ironclad Stronghold'              castle     FAIL attempts=1 failed at gemini   29.6s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO lego.recipes.generate: Gemini usage limit: waiting 18s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[10/30] 'High Throne'                      furniture  FAIL attempts=1 failed at gemini   29.1s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Ancient Pine' failed at fill (attempt 0): ["with {'width': 6, 'height': 8}: required parts could not be filled from the inventory: crown (40/56 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[11/30] 'Ancient Pine'                     plant      FAIL attempts=2 failed at gemini   46.9s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[12/30] 'Industrial Assembler'             robot      FAIL attempts=1 failed at gemini   42.4s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[13/30] 'Interstellar Scout'               spacecraft FAIL attempts=1 failed at gemini   66.1s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Signal Relay Obelisk' failed at schema (attempt 0): ["feature 'bands' lists parts that do not exist: ['band-0', 'band-1', 'band-2']; the parts are ['band-', 'crenellations', 'foundation', 'shaft']"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[14/30] 'Signal Relay Obelisk'             tower      FAIL attempts=2 failed at gemini   45.5s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO lego.recipes.generate: Gemini usage limit: waiting 16s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Market Gazebo' failed at fill (attempt 0): ["with {'width': 8, 'depth': 8}: required parts could not be filled from the inventory: base (12/64 studs filled, needs 90%), pillar2 (0/3 studs filled, needs 90%), pillar3 (0/3 studs filled, needs 90%), pillar4 (0/3 studs filled, needs 90%), arch1 (0/14 studs filled, needs 90%), roof_base (12/64 studs filled, needs 90%), parapet (5/32 studs filled, needs 90%); nothing at all of pillar2, pillar3, pillar4, arch1 could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[15/30] 'Market Gazebo'                    building   FAIL attempts=2 failed at gemini   62.9s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 18:56:53', 'concept': 'Cliffside Hermitage', 'category': 'building', 'attempt': 0, 'answer': 'A small house', 'matched': True, 'looks_like': 'building', 'recipe': 'gen-cliffside-hermitage-419b40'}
+[16/30] 'Cliffside Hermitage'              building   OK   attempts=1 stored   85.8s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[17/30] 'Fortified Outpost'                castle     FAIL attempts=1 failed at gemini   22.3s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO lego.recipes.generate: Gemini usage limit: waiting 18s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[18/30] 'Meadow Watchtower'                tower      FAIL attempts=1 failed at gemini   45.6s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[19/30] 'Arboreal Fern'                    plant      FAIL attempts=1 failed at gemini   26.7s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO lego.recipes.generate: Gemini usage limit: waiting 22s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[20/30] 'Swamp Crawler'                    robot      FAIL attempts=1 failed at gemini   33.1s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[21/30] 'Deep Sea Vessel'                  boat       FAIL attempts=1 failed at gemini   29.7s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO lego.recipes.generate: Gemini usage limit: waiting 20s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[22/30] 'Highland Ravine Crossing'         bridge     FAIL attempts=1 failed at gemini   32.8s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+[23/30] 'Stellar Scout'                    spacecraft FAIL attempts=1 failed at gemini   25.7s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO lego.recipes.generate: Gemini usage limit: waiting 22s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Armored Transport' failed at fill (attempt 0): ["with {'length': 10, 'span': 8, 'height': 3}: required parts could not be filled from the inventory: wing-main (0/20 studs filled, needs 90%), tail-stab (0/6 studs filled, needs 90%), cockpit (0/4 studs filled, needs 90%); nothing at all of wing-main, tail-stab, cockpit could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Armored Transport' failed at schema (attempt 1): ["part 'tail-stab': attach.anchor must be one of ('center', 'start', 'end'), got 'back'", "part 'cockpit': attach.anchor must be one of ('center', 'start', 'end'), got 'front'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+[24/30] 'Armored Transport'                aircraft   FAIL attempts=3 failed at gemini  159.3s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+[25/30] 'Stone Golem'                      animal     FAIL attempts=1 failed at gemini   96.1s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+[26/30] 'Oak Study Chair'                  furniture  FAIL attempts=1 failed at gemini   96.1s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+[27/30] 'Coastal Watchhouse'               building   FAIL attempts=1 failed at gemini   96.1s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+[28/30] 'Bridge Gatehouse'                 castle     FAIL attempts=1 failed at gemini   96.1s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+[29/30] 'Orbital Relay'                    spacecraft FAIL attempts=1 failed at gemini   96.1s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+INFO lego.recipes.generate: Gemini usage limit: waiting 12s
+[30/30] 'Articulated Walker'               robot      FAIL attempts=1 failed at gemini   96.0s
+
+stage            attempts passed/reached     concepts passed (ever)   passed on first try
+schema            11/17   64.7%          8/9    88.9%            8/9    88.9%
+fill               3/11   27.3%          3/9    33.3%            3/9    33.3%
+inventory          3/3   100.0%          3/9    33.3%            3/9    33.3%
+structure          2/3    66.7%          2/9    22.2%            2/9    22.2%
+recognizability    1/2    50.0%          1/9    11.1%            1/9    11.1%
+
+final: 1/30 concepts ended with a recipe that passed everything; 1 stored in the library; 45 recipe calls to Gemini (28 failed because Gemini itself errored, not counted above). Report: docs/recipe-study.json

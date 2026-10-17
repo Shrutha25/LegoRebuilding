@@ -1,0 +1,2266 @@
+{
+ "inventory": {
+  "seed": 5,
+  "size": 140,
+  "parts": 140,
+  "colours": [
+   "Lime",
+   "Reddish Brown",
+   "Black",
+   "Dark Red"
+  ]
+ },
+ "concepts": [
+  {
+   "name": "Desert Outpost",
+   "category": "building",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": true,
+   "stored": true,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": null,
+     "errors": [],
+     "answer": "a house",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Ancient Fortress Wall",
+   "category": "castle",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 12, 'height': 4, 'thick': 4}: required parts could not be filled from the inventory: tower-mirror (53/80 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 12, 'height': 4, 'thick': 3}: required parts could not be filled from the inventory: tower-mirror (40/45 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 12, 'height': 4, 'thick': 3}: required parts could not be filled from the inventory: tower (27/144 studs filled, needs 70%), tower-mirror (0/144 studs filled, needs 70%); nothing at all of tower-mirror could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'tower': attach.to must name an EARLIER part, got None",
+      "part 'tower': unknown attach key 'on_top_of'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Sentry Watchtower",
+   "category": "tower",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "schema",
+     "errors": [
+      "the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 787)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'Shrek', not a tower. Make the shape clearly a tower (Sentry Watchtower): add its characteristic parts and proportions."
+     ],
+     "answer": "Shrek",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'layers': 8, 'depth': 4, 'width': 4}: required parts could not be filled from the inventory: body-1 (0/16 studs filled, needs 90%), body-2 (0/16 studs filled, needs 90%), body-4 (0/16 studs filled, needs 90%), body-5 (0/16 studs filled, needs 90%), body-7 (0/16 studs filled, needs 90%), roof_base (0/36 studs filled, needs 90%), spire (0/8 studs filled, needs 90%); nothing at all of body-1, body-2, body-4, body-5, body-7, roof_base, spire could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'tower_body': attach.to must name an EARLIER part, got None",
+      "part 'tower_body': unknown attach key 'on_top_of'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)",
+      "part 'roof_base': attach.to must name an EARLIER part, got None"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Deep Forest Pine",
+   "category": "plant",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": true,
+   "stored": true,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": null,
+     "errors": [],
+     "answer": "tree",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Arched Footbridge",
+   "category": "bridge",
+   "silhouette": "arch",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'span': 8, 'width': 4, 'height': 3}: required parts could not be filled from the inventory: pillar-right (0/24 studs filled, needs 90%); nothing at all of pillar-right could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'span': 8, 'width': 4, 'height': 3}: required parts could not be filled from the inventory: pillar-right (0/24 studs filled, needs 90%); nothing at all of pillar-right could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'span': 8, 'width': 4, 'height': 3}: required parts could not be filled from the inventory: pillar-left (0/24 studs filled, needs 90%), arch (44/96 studs filled, needs 90%), pillar-right (16/24 studs filled, needs 90%), deck (0/48 studs filled, needs 90%); nothing at all of pillar-left, deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'deck': attach.to must name an EARLIER part, got None",
+      "part 'deck': attach.anchor must be one of ('center', 'start', 'end'), got 'bottom'",
+      "part 'deck': unknown attach key 'on_top_of'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Mecha Scout",
+   "category": "robot",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'depth': 4, 'height': 6}: required parts could not be filled from the inventory: arm (0/3 studs filled, needs 90%), arm-mirror (0/3 studs filled, needs 90%); nothing at all of arm, arm-mirror could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'depth': 4, 'height': 6}: required parts could not be filled from the inventory: torso (0/72 studs filled, needs 90%), arm (0/3 studs filled, needs 90%), arm-mirror (0/3 studs filled, needs 90%), head (0/12 studs filled, needs 90%); nothing at all of torso, arm, arm-mirror, head could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'depth': 4, 'height': 6}: required parts could not be filled from the inventory: arm (0/2 studs filled, needs 90%), arm-mirror (1/2 studs filled, needs 90%); nothing at all of arm could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'A snail', not a robot. Make the shape clearly a robot (Mecha Scout): add its characteristic parts and proportions."
+     ],
+     "answer": "A snail",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Cargo Sloop",
+   "category": "boat",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'steam train', not a boat. Make the shape clearly a boat (Cargo Sloop): add its characteristic parts and proportions."
+     ],
+     "answer": "steam train",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 4, 'mast': 5}: required parts could not be filled from the inventory: bow (0/8 studs filled, needs 90%); nothing at all of bow could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 4, 'mast': 5}: required parts could not be filled from the inventory: bow (0/8 studs filled, needs 90%); nothing at all of bow could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'A steam train', not a boat. Make the shape clearly a boat (Cargo Sloop): add its characteristic parts and proportions."
+     ],
+     "answer": "A steam train",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Stellar Interceptor",
+   "category": "spacecraft",
+   "silhouette": "tapering",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'width': 8}: required parts could not be filled from the inventory: engines (0/2 studs filled, needs 90%); nothing at all of engines could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'canopy': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'width': 8}: required parts could not be filled from the inventory: engines (0/4 studs filled, needs 90%); nothing at all of engines could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'engines': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'back'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Crouching Jungle Cat",
+   "category": "animal",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'turtle', not a animal. Make the shape clearly a animal (Crouching Jungle Cat): add its characteristic parts and proportions."
+     ],
+     "answer": "turtle",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 3, 'tail': 4}: required parts could not be filled from the inventory: paws (1/4 studs filled, needs 90%), body (0/48 studs filled, needs 90%), shoulders (0/12 studs filled, needs 90%), head (0/12 studs filled, needs 90%); nothing at all of body, shoulders, head could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'A foot', not a animal. Make the shape clearly a animal (Crouching Jungle Cat): add its characteristic parts and proportions."
+     ],
+     "answer": "A foot",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'front_leg_l': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'",
+      "part 'front_leg_l': attach.anchor_x must be one of ('center', 'start', 'end'), got 'left'",
+      "part 'front_leg_r': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Heavy Cargo Hauler",
+   "category": "aircraft",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'alligator', not a aircraft. Make the shape clearly a aircraft (Heavy Cargo Hauler): add its characteristic parts and proportions."
+     ],
+     "answer": "alligator",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'nose': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'front_of'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'span': 10, 'bodyw': 4, 'fin': 2}: required parts could not be filled from the inventory: nose (0/16 studs filled, needs 90%), tailplane (0/12 studs filled, needs 80%), tailfin (0/4 studs filled, needs 90%); nothing at all of nose, tailplane, tailfin could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'span': 10, 'bodyw': 4, 'fin': 2}: required parts could not be filled from the inventory: nose (0/16 studs filled, needs 90%), wings (0/34 studs filled, needs 80%), tailplane (0/12 studs filled, needs 80%), tailfin (0/4 studs filled, needs 90%); nothing at all of nose, wings, tailplane, tailfin could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Lounge Armchair",
+   "category": "furniture",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'depth': 6, 'height': 4}: required parts could not be filled from the inventory: seat (64/72 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 5, 'depth': 5, 'height': 4}: required parts could not be filled from the inventory: seat (0/50 studs filled, needs 90%); nothing at all of seat could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "structure",
+     "errors": [
+      "with {'width': 5, 'depth': 5, 'height': 4}: the build falls into 2 separate pieces; every brick must connect to the rest through studs"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'legs': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Mountain Villa",
+   "category": "building",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": true,
+   "stored": false,
+   "store_note": "too similar to 'cottage' (shape IoU 0.77 > 0.6)",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": null,
+     "errors": [],
+     "answer": "A house",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Glacial Monument",
+   "category": "tower",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 8, 'layers': 4}: required parts could not be filled from the inventory: band-2 (55/64 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 8, 'layers': 4}: required parts could not be filled from the inventory: tier-1 (0/49 studs filled, needs 90%), tier-2 (0/36 studs filled, needs 90%), tier-3 (0/25 studs filled, needs 90%); nothing at all of tier-1, tier-2, tier-3 could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "schema",
+     "errors": [
+      "part 'tier-1': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)",
+      "part 'tier-2': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)",
+      "part 'tier-3': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'avocado', not a tower. Make the shape clearly a tower (Glacial Monument): add its characteristic parts and proportions."
+     ],
+     "answer": "avocado",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Stealth Interceptor",
+   "category": "aircraft",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "schema",
+     "errors": [
+      "the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 1138)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: fuselage (12/16 studs filled, needs 90%), wings (0/16 studs filled, needs 90%), tailplane (0/8 studs filled, needs 90%), nose (0/4 studs filled, needs 90%); nothing at all of wings, tailplane, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "schema",
+     "errors": [
+      "part 'wings': attach.to must name an EARLIER part, got None",
+      "part 'wings': unknown attach key 'on_top_of'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)",
+      "part 'tailplane': attach.to must name an EARLIER part, got None"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: fuselage (12/16 studs filled, needs 90%), wings (14/16 studs filled, needs 90%), tailplane (0/8 studs filled, needs 90%), nose (0/4 studs filled, needs 90%); nothing at all of tailplane, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Forest Stalker",
+   "category": "animal",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "schema",
+     "errors": [
+      "the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 1027)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 12, 'width': 4, 'leg': 1, 'tail': 2}: required parts could not be filled from the inventory: legs (3/4 studs filled, needs 90%), body (74/96 studs filled, needs 90%), head (0/16 studs filled, needs 90%), tail (0/2 studs filled, needs 90%); nothing at all of head, tail could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "schema",
+     "errors": [
+      "part 'legs': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 12, 'width': 4, 'leg': 1, 'tail': 2}: no part could be placed at all with these pieces"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "River Skiff",
+   "category": "boat",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'avocado', not a boat. Make the shape clearly a boat (River Skiff): add its characteristic parts and proportions."
+     ],
+     "answer": "avocado",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "role 'cabin': want must be one of ('major', 'second', 'dark', 'neutral')"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "schema",
+     "errors": [
+      "part 'hull_walls': attach.anchor_x must be one of ('center', 'start', 'end'), got 'left'",
+      "part 'hull_walls': attach.anchor_z must be one of ('center', 'start', 'end'), got 'back'",
+      "part 'bow': unknown primitive 'wedge'; use one of ['arch', 'box', 'cells', 'checker', 'cone', 'cylinder', 'head', 'leg', 'pillar', 'posts', 'rails', 'slope_roof', 'stairs', 'tapered_box', 'wall_with_window', 'wheel_axle', 'wing']"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'bow': slope_roof has no argument 'layers'; it takes ['d', 'w']"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Canyon Viaduct",
+   "category": "bridge",
+   "silhouette": "arch",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'span': 14, 'height': 5}: required parts could not be filled from the inventory: central-arch (35/224 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "with {'width': 4, 'span': 6, 'height': 2}: not allowed in a recipe expression: '(span / 2) - 1'",
+      "with {'width': 6, 'span': 10, 'height': 4}: not allowed in a recipe expression: '(span / 2) - 1'",
+      "with {'width': 8, 'span': 14, 'height': 6}: not allowed in a recipe expression: '(span / 2) - 1'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'span': 14, 'height': 5}: the build has 106 parts, it needs 8 to 80"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'span': 10, 'height': 4}: required parts could not be filled from the inventory: deck (60/120 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Moorland Cottage",
+   "category": "building",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 8, 'depth': 8, 'floors': 3}: required parts could not be filled from the inventory: base (44/64 studs filled, needs 90%), roof (0/300 studs filled, needs 90%), chimney (0/2 studs filled, needs 90%); nothing at all of roof, chimney could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 8, 'depth': 8, 'floors': 3}: required parts could not be filled from the inventory: base (44/64 studs filled, needs 90%), roof (0/300 studs filled, needs 90%), chimney (0/2 studs filled, needs 90%); nothing at all of roof, chimney could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 8, 'depth': 8, 'floors': 3}: required parts could not be filled from the inventory: base (44/64 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 8, 'depth': 8, 'floors': 3}: required parts could not be filled from the inventory: base (44/64 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Border Fortress",
+   "category": "castle",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 10, 'depth': 10, 'height': 5}: required parts could not be filled from the inventory: base (48/100 studs filled, needs 90%), wall-back (0/50 studs filled, needs 90%), wall-left (5/40 studs filled, needs 90%), wall-right (0/40 studs filled, needs 90%), gate (0/12 studs filled, needs 90%), crenellation (1/50 studs filled, needs 90%); nothing at all of wall-back, wall-right, gate could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'wall-front': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)",
+      "part 'wall-back': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)",
+      "part 'wall-left': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 10, 'depth': 10, 'height': 4}: required parts could not be filled from the inventory: wall-back (0/40 studs filled, needs 90%), wall-right (0/32 studs filled, needs 90%), tower-r (0/20 studs filled, needs 90%); nothing at all of wall-back, wall-right, tower-r could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 10, 'depth': 10, 'height': 4}: required parts could not be filled from the inventory: wall-back (0/40 studs filled, needs 90%), wall-right (0/32 studs filled, needs 90%), tower-r (0/20 studs filled, needs 90%); nothing at all of wall-back, wall-right, tower-r could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Executive Armchair",
+   "category": "furniture",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "structure",
+     "errors": [
+      "with {'width': 4, 'depth': 4, 'leg': 1, 'back': 3}: the build falls into 3 separate pieces; every brick must connect to the rest through studs"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'legs': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 4, 'depth': 4, 'leg': 1, 'back': 3}: no part could be placed at all with these pieces"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 4, 'depth': 4, 'leg': 1, 'back': 2}: required parts could not be filled from the inventory: seat (0/32 studs filled, needs 90%); nothing at all of seat could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Ancient Pine",
+   "category": "plant",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": true,
+   "stored": false,
+   "store_note": "too similar to 'gen-deep-forest-pine-88a8ab' (shape IoU 1.00 > 0.6)",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": null,
+     "errors": [],
+     "answer": "tree",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Maintenance Droid",
+   "category": "robot",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "schema",
+     "errors": [
+      "with {'width': 4, 'height': 7}: cannot read expression ':torso_h': invalid syntax",
+      "with {'width': 4, 'height': 8}: cannot read expression ':torso_h': invalid syntax"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 4, 'height': 7}: required parts could not be filled from the inventory: arm (6/8 studs filled, needs 90%), arm-mirror (6/8 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 4, 'height': 7}: required parts could not be filled from the inventory: arm (3/4 studs filled, needs 90%), arm-mirror (3/4 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 4, 'height': 7}: required parts could not be filled from the inventory: torso (0/48 studs filled, needs 90%), arm (0/8 studs filled, needs 90%), arm-mirror (0/8 studs filled, needs 90%), head (0/8 studs filled, needs 90%); nothing at all of torso, arm, arm-mirror, head could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Deep Space Probe",
+   "category": "spacecraft",
+   "silhouette": "tapering",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 12, 'width': 6, 'body_height': 3}: required parts could not be filled from the inventory: fins (10/12 studs filled, needs 90%), engines (2/4 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'A stapler', not a spacecraft. Make the shape clearly a spacecraft (Deep Space Probe): add its characteristic parts and proportions."
+     ],
+     "answer": "A stapler",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 12, 'width': 6, 'mast_height': 3}: required parts could not be filled from the inventory: engine (0/4 studs filled, needs 90%), panel_right (0/8 studs filled, needs 90%); nothing at all of engine, panel_right could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'engine': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Coastal Watchtower",
+   "category": "tower",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "schema",
+     "errors": [
+      "with {'depth': 4, 'layers': 14, 'band': 1}: part 'band-{k}' repeats 14 times (max 12)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'tree stump', not a tower. Make the shape clearly a tower (Coastal Watchtower): add its characteristic parts and proportions."
+     ],
+     "answer": "tree stump",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "schema",
+     "errors": [
+      "part 'roof': unknown primitive 'pyramid'; use one of ['arch', 'box', 'cells', 'checker', 'cone', 'cylinder', 'head', 'leg', 'pillar', 'posts', 'rails', 'slope_roof', 'stairs', 'tapered_box', 'wall_with_window', 'wheel_axle', 'wing']"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'roof': slope_roof has no argument 'layers'; it takes ['d', 'w']"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Highland Stag",
+   "category": "animal",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "schema",
+     "errors": [
+      "the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 1061)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 6, 'width': 3, 'height': 8}: required parts could not be filled from the inventory: legs (4/16 studs filled, needs 90%), body (0/36 studs filled, needs 90%), head (0/8 studs filled, needs 90%), antlers (0/4 studs filled, needs 90%); nothing at all of body, head, antlers could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 6, 'width': 3, 'height': 8}: required parts could not be filled from the inventory: head (0/8 studs filled, needs 90%), antlers (0/4 studs filled, needs 90%); nothing at all of head, antlers could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "schema",
+     "errors": [
+      "part 'head': attach.anchor must be one of ('center', 'start', 'end'), got 'front'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Harbor Tugboat",
+   "category": "boat",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 6, 'height': 3}: required parts could not be filled from the inventory: cabin (0/32 studs filled, needs 90%), mast (0/3 studs filled, needs 90%); nothing at all of cabin, mast could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 6, 'height': 3}: required parts could not be filled from the inventory: deck (0/60 studs filled, needs 90%), cabin (0/32 studs filled, needs 90%), mast (0/3 studs filled, needs 90%); nothing at all of deck, cabin, mast could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 6, 'height': 3}: required parts could not be filled from the inventory: deck (0/60 studs filled, needs 90%), cabin (0/32 studs filled, needs 90%), mast (0/3 studs filled, needs 90%); nothing at all of deck, cabin, mast could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 6, 'height': 3}: required parts could not be filled from the inventory: deck (0/60 studs filled, needs 90%), cabin (0/32 studs filled, needs 90%), mast (0/3 studs filled, needs 90%); nothing at all of deck, cabin, mast could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Footbridge in the Woods",
+   "category": "bridge",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 12, 'width': 4, 'height': 2}: required parts could not be filled from the inventory: pillar-end-left (0/6 studs filled, needs 90%), pillar-end-right (0/6 studs filled, needs 90%), deck (24/48 studs filled, needs 90%), rail (20/24 studs filled, needs 90%); nothing at all of pillar-end-left, pillar-end-right could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'deck': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 4, 'height': 1}: required parts could not be filled from the inventory: pillar-start-left (0/3 studs filled, needs 90%), pillar-end-left (0/3 studs filled, needs 90%), pillar-end-right (0/3 studs filled, needs 90%), deck (0/40 studs filled, needs 90%); nothing at all of pillar-start-left, pillar-end-left, pillar-end-right, deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 4, 'height': 1}: required parts could not be filled from the inventory: pillar-start-left (0/3 studs filled, needs 90%), pillar-end-left (0/3 studs filled, needs 90%), pillar-end-right (0/3 studs filled, needs 90%), deck (0/40 studs filled, needs 90%); nothing at all of pillar-start-left, pillar-end-left, pillar-end-right, deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Forest Lookout",
+   "category": "tower",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'A beehive', not a tower. Make the shape clearly a tower (Forest Lookout): add its characteristic parts and proportions."
+     ],
+     "answer": "A beehive",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'platform': role must be one of ['body', 'roof', 'base']"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "schema",
+     "errors": [
+      "with {'width': 4, 'height': 10}: unknown name 'w' in 'w'",
+      "with {'width': 5, 'height': 12}: unknown name 'w' in 'w'",
+      "with {'width': 6, 'height': 14}: unknown name 'w' in 'w'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'A person wearing a hat', not a tower. Make the shape clearly a tower (Forest Lookout): add its characteristic parts and proportions."
+     ],
+     "answer": "A person wearing a hat",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Stout Armored Walker",
+   "category": "robot",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'height': 6}: required parts could not be filled from the inventory: arm (0/6 studs filled, needs 90%), arm-mirror (0/6 studs filled, needs 90%); nothing at all of arm, arm-mirror could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "structure",
+     "errors": [
+      "with {'width': 6, 'height': 6}: the build falls into 3 separate pieces; every brick must connect to the rest through studs"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "schema",
+     "errors": [
+      "part 'leg': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'",
+      "part 'arm': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'on_side_of'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'height': 6}: required parts could not be filled from the inventory: leg (0/8 studs filled, needs 90%), leg-mirror (0/8 studs filled, needs 90%), arm (0/4 studs filled, needs 90%), arm-mirror (0/4 studs filled, needs 90%); nothing at all of leg, leg-mirror, arm, arm-mirror could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "River Sloop",
+   "category": "boat",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "schema",
+     "errors": [
+      "the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 857)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 4, 'mast': 4}: required parts could not be filled from the inventory: hull-base (12/40 studs filled, needs 90%), hull-deck (0/32 studs filled, needs 90%); nothing at all of hull-deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 4, 'mast': 4}: required parts could not be filled from the inventory: hull-deck (0/64 studs filled, needs 90%); nothing at all of hull-deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'width': 4, 'mast': 4}: required parts could not be filled from the inventory: hull-deck (0/80 studs filled, needs 90%); nothing at all of hull-deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  }
+ ],
+ "pass_rates": {
+  "schema": {
+   "attempts_reached": 108,
+   "attempts_passed": 76,
+   "concepts_passed": 30,
+   "concepts_passed_first_try": 23,
+   "concepts": 30,
+   "skipped": 0
+  },
+  "fill": {
+   "attempts_reached": 76,
+   "attempts_passed": 20,
+   "concepts_passed": 17,
+   "concepts_passed_first_try": 10,
+   "concepts": 30,
+   "skipped": 0
+  },
+  "inventory": {
+   "attempts_reached": 20,
+   "attempts_passed": 20,
+   "concepts_passed": 17,
+   "concepts_passed_first_try": 10,
+   "concepts": 30,
+   "skipped": 0
+  },
+  "structure": {
+   "attempts_reached": 20,
+   "attempts_passed": 17,
+   "concepts_passed": 14,
+   "concepts_passed_first_try": 9,
+   "concepts": 30,
+   "skipped": 0
+  },
+  "recognizability": {
+   "attempts_reached": 17,
+   "attempts_passed": 4,
+   "concepts_passed": 4,
+   "concepts_passed_first_try": 4,
+   "concepts": 30,
+   "skipped": 0
+  },
+  "final": {
+   "ok": 4,
+   "concepts": 30,
+   "stored": 2,
+   "recipe_calls": 108,
+   "gemini_service_errors": 0,
+   "concepts_without_a_working_gemini": 0
+  }
+ }
+}

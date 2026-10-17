@@ -1,0 +1,491 @@
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:34:35', 'concept': 'Desert Outpost', 'category': 'building', 'attempt': 0, 'answer': 'a house', 'matched': True, 'looks_like': 'building', 'recipe': 'gen-desert-outpost-422b64'}
+30 concepts (30 from Gemini) in ['aircraft', 'animal', 'boat', 'bridge', 'building', 'castle', 'furniture', 'plant', 'robot', 'spacecraft', 'tower']
+[ 1/30] 'Desert Outpost'                   building   OK   attempts=1 stored   17.3s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Ancient Fortress Wall' failed at fill (attempt 0): ["with {'length': 12, 'height': 4, 'thick': 4}: required parts could not be filled from the inventory: tower-mirror (53/80 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-ancient-fortress-wall-9ffb23 {'length': 12, 'height': 3, 'thick': 3} needed repair (47 actions): ['part 6: overlapped another part, moved by (-1,0) studs', 'part 7: overlapped another part, moved by (0,-1) studs', 'part 10: overlapped another part, moved by (0,-1) studs']
+INFO lego.recipes.generate: recipe for 'Ancient Fortress Wall' failed at fill (attempt 1): ["with {'length': 12, 'height': 4, 'thick': 3}: required parts could not be filled from the inventory: tower-mirror (40/45 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Ancient Fortress Wall' failed at fill (attempt 2): ["with {'length': 12, 'height': 4, 'thick': 3}: required parts could not be filled from the inventory: tower (27/144 studs filled, needs 70%), tower-mirror (0/144 studs filled, needs 70%); nothing at all of tower-mirror could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Ancient Fortress Wall' failed at schema (attempt 3): ["part 'tower': attach.to must name an EARLIER part, got None", "part 'tower': unknown attach key 'on_top_of'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"]
+[ 2/30] 'Ancient Fortress Wall'            castle     FAIL attempts=4 failed at schema   44.2s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Sentry Watchtower' failed at schema (attempt 0): ['the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 787)']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:35:39', 'concept': 'Sentry Watchtower', 'category': 'tower', 'attempt': 1, 'answer': 'Shrek', 'matched': False, 'looks_like': None, 'recipe': 'gen-sentry-watchtower-39017e'}
+INFO lego.recipes.generate: recipe for 'Sentry Watchtower' failed at recognizability (attempt 1): ["A viewer shown only a picture of the model said it looks like 'Shrek', not a tower. Make the shape clearly a tower (Sentry Watchtower): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Sentry Watchtower' failed at fill (attempt 2): ["with {'layers': 8, 'depth': 4, 'width': 4}: required parts could not be filled from the inventory: body-1 (0/16 studs filled, needs 90%), body-2 (0/16 studs filled, needs 90%), body-4 (0/16 studs filled, needs 90%), body-5 (0/16 studs filled, needs 90%), body-7 (0/16 studs filled, needs 90%), roof_base (0/36 studs filled, needs 90%), spire (0/8 studs filled, needs 90%); nothing at all of body-1, body-2, body-4, body-5, body-7, roof_base, spire could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Sentry Watchtower' failed at schema (attempt 3): ["part 'tower_body': attach.to must name an EARLIER part, got None", "part 'tower_body': unknown attach key 'on_top_of'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"]
+[ 3/30] 'Sentry Watchtower'                tower      FAIL attempts=4 failed at schema   38.7s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:36:14', 'concept': 'Deep Forest Pine', 'category': 'plant', 'attempt': 0, 'answer': 'tree', 'matched': True, 'looks_like': 'plant', 'recipe': 'gen-deep-forest-pine-88a8ab'}
+[ 4/30] 'Deep Forest Pine'                 plant      OK   attempts=1 stored   16.6s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Arched Footbridge' failed at fill (attempt 0): ["with {'span': 8, 'width': 4, 'height': 3}: required parts could not be filled from the inventory: pillar-right (0/24 studs filled, needs 90%); nothing at all of pillar-right could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Arched Footbridge' failed at fill (attempt 1): ["with {'span': 8, 'width': 4, 'height': 3}: required parts could not be filled from the inventory: pillar-right (0/24 studs filled, needs 90%); nothing at all of pillar-right could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Arched Footbridge' failed at fill (attempt 2): ["with {'span': 8, 'width': 4, 'height': 3}: required parts could not be filled from the inventory: pillar-left (0/24 studs filled, needs 90%), arch (44/96 studs filled, needs 90%), pillar-right (16/24 studs filled, needs 90%), deck (0/48 studs filled, needs 90%); nothing at all of pillar-left, deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Arched Footbridge' failed at schema (attempt 3): ["part 'deck': attach.to must name an EARLIER part, got None", "part 'deck': attach.anchor must be one of ('center', 'start', 'end'), got 'bottom'"]
+[ 5/30] 'Arched Footbridge'                bridge     FAIL attempts=4 failed at schema   38.9s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Mecha Scout' failed at fill (attempt 0): ["with {'width': 6, 'depth': 4, 'height': 6}: required parts could not be filled from the inventory: arm (0/3 studs filled, needs 90%), arm-mirror (0/3 studs filled, needs 90%); nothing at all of arm, arm-mirror could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Mecha Scout' failed at fill (attempt 1): ["with {'width': 6, 'depth': 4, 'height': 6}: required parts could not be filled from the inventory: torso (0/72 studs filled, needs 90%), arm (0/3 studs filled, needs 90%), arm-mirror (0/3 studs filled, needs 90%), head (0/12 studs filled, needs 90%); nothing at all of torso, arm, arm-mirror, head could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Mecha Scout' failed at fill (attempt 2): ["with {'width': 6, 'depth': 4, 'height': 6}: required parts could not be filled from the inventory: arm (0/2 studs filled, needs 90%), arm-mirror (1/2 studs filled, needs 90%); nothing at all of arm could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-mecha-scout-6b5bf7 {'width': 6, 'depth': 4, 'height': 6} needed repair (3 actions): ['part 11: overlapped another part, moved by (0,1) studs', 'part 14: overlapped another part, moved by (-1,0) studs', 'part 14: hung 3 plates in the air, lowered onto its support']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:37:46', 'concept': 'Mecha Scout', 'category': 'robot', 'attempt': 3, 'answer': 'A snail', 'matched': False, 'looks_like': None, 'recipe': 'gen-mecha-scout-6b5bf7'}
+INFO lego.recipes.generate: recipe for 'Mecha Scout' failed at recognizability (attempt 3): ["A viewer shown only a picture of the model said it looks like 'A snail', not a robot. Make the shape clearly a robot (Mecha Scout): add its characteristic parts and proportions."]
+[ 6/30] 'Mecha Scout'                      robot      FAIL attempts=4 failed at recognizability   53.1s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-cargo-sloop-855a14 {'length': 10, 'width': 4, 'mast': 5} needed repair (4 actions): ['part 22: overlapped another part, moved by (0,-1) studs', 'part 25: overlapped another part, moved by (0,-1) studs', 'part 22: hung 1 plates in the air, lowered onto its support']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:38:03', 'concept': 'Cargo Sloop', 'category': 'boat', 'attempt': 0, 'answer': 'steam train', 'matched': False, 'looks_like': 'vehicle', 'recipe': 'gen-cargo-sloop-855a14'}
+INFO lego.recipes.generate: recipe for 'Cargo Sloop' failed at recognizability (attempt 0): ["A viewer shown only a picture of the model said it looks like 'steam train', not a boat. Make the shape clearly a boat (Cargo Sloop): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Cargo Sloop' failed at fill (attempt 1): ["with {'length': 10, 'width': 4, 'mast': 5}: required parts could not be filled from the inventory: bow (0/8 studs filled, needs 90%); nothing at all of bow could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Cargo Sloop' failed at fill (attempt 2): ["with {'length': 10, 'width': 4, 'mast': 5}: required parts could not be filled from the inventory: bow (0/8 studs filled, needs 90%); nothing at all of bow could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-cargo-sloop-434843 {'length': 10, 'width': 4, 'mast': 5} needed repair (4 actions): ['part 22: overlapped another part, moved by (0,-1) studs', 'part 26: overlapped another part, moved by (0,-1) studs', 'part 22: hung 1 plates in the air, lowered onto its support']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:38:29', 'concept': 'Cargo Sloop', 'category': 'boat', 'attempt': 3, 'answer': 'A steam train', 'matched': False, 'looks_like': 'vehicle', 'recipe': 'gen-cargo-sloop-434843'}
+INFO lego.recipes.generate: recipe for 'Cargo Sloop' failed at recognizability (attempt 3): ["A viewer shown only a picture of the model said it looks like 'A steam train', not a boat. Make the shape clearly a boat (Cargo Sloop): add its characteristic parts and proportions."]
+[ 7/30] 'Cargo Sloop'                      boat       FAIL attempts=4 failed at recognizability   42.9s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stellar Interceptor' failed at fill (attempt 0): ["with {'length': 8, 'width': 8}: required parts could not be filled from the inventory: engines (0/2 studs filled, needs 90%); nothing at all of engines could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stellar Interceptor' failed at schema (attempt 1): ["part 'canopy': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stellar Interceptor' failed at fill (attempt 2): ["with {'length': 8, 'width': 8}: required parts could not be filled from the inventory: engines (0/4 studs filled, needs 90%); nothing at all of engines could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stellar Interceptor' failed at schema (attempt 3): ["part 'engines': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'back'"]
+[ 8/30] 'Stellar Interceptor'              spacecraft FAIL attempts=4 failed at schema   44.1s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:39:54', 'concept': 'Crouching Jungle Cat', 'category': 'animal', 'attempt': 0, 'answer': 'turtle', 'matched': False, 'looks_like': None, 'recipe': 'gen-crouching-jungle-cat-ce504c'}
+INFO lego.recipes.generate: recipe for 'Crouching Jungle Cat' failed at recognizability (attempt 0): ["A viewer shown only a picture of the model said it looks like 'turtle', not a animal. Make the shape clearly a animal (Crouching Jungle Cat): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Crouching Jungle Cat' failed at fill (attempt 1): ["with {'length': 10, 'width': 3, 'tail': 4}: required parts could not be filled from the inventory: paws (1/4 studs filled, needs 90%), body (0/48 studs filled, needs 90%), shoulders (0/12 studs filled, needs 90%), head (0/12 studs filled, needs 90%); nothing at all of body, shoulders, head could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:40:25', 'concept': 'Crouching Jungle Cat', 'category': 'animal', 'attempt': 2, 'answer': 'A foot', 'matched': False, 'looks_like': None, 'recipe': 'gen-crouching-jungle-cat-7d41db'}
+INFO lego.recipes.generate: recipe for 'Crouching Jungle Cat' failed at recognizability (attempt 2): ["A viewer shown only a picture of the model said it looks like 'A foot', not a animal. Make the shape clearly a animal (Crouching Jungle Cat): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Crouching Jungle Cat' failed at schema (attempt 3): ["part 'front_leg_l': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'", "part 'front_leg_l': attach.anchor_x must be one of ('center', 'start', 'end'), got 'left'"]
+[ 9/30] 'Crouching Jungle Cat'             animal     FAIL attempts=4 failed at schema   83.1s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:40:59', 'concept': 'Heavy Cargo Hauler', 'category': 'aircraft', 'attempt': 0, 'answer': 'alligator', 'matched': False, 'looks_like': None, 'recipe': 'gen-heavy-cargo-hauler-9e8c03'}
+INFO lego.recipes.generate: recipe for 'Heavy Cargo Hauler' failed at recognizability (attempt 0): ["A viewer shown only a picture of the model said it looks like 'alligator', not a aircraft. Make the shape clearly a aircraft (Heavy Cargo Hauler): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Heavy Cargo Hauler' failed at schema (attempt 1): ["part 'nose': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'front_of'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Heavy Cargo Hauler' failed at fill (attempt 2): ["with {'length': 10, 'span': 10, 'bodyw': 4, 'fin': 2}: required parts could not be filled from the inventory: nose (0/16 studs filled, needs 90%), tailplane (0/12 studs filled, needs 80%), tailfin (0/4 studs filled, needs 90%); nothing at all of nose, tailplane, tailfin could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Heavy Cargo Hauler' failed at fill (attempt 3): ["with {'length': 10, 'span': 10, 'bodyw': 4, 'fin': 2}: required parts could not be filled from the inventory: nose (0/16 studs filled, needs 90%), wings (0/34 studs filled, needs 80%), tailplane (0/12 studs filled, needs 80%), tailfin (0/4 studs filled, needs 90%); nothing at all of nose, wings, tailplane, tailfin could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[10/30] 'Heavy Cargo Hauler'               aircraft   FAIL attempts=4 failed at fill   50.5s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Lounge Armchair' failed at fill (attempt 0): ["with {'width': 6, 'depth': 6, 'height': 4}: required parts could not be filled from the inventory: seat (64/72 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Lounge Armchair' failed at fill (attempt 1): ["with {'width': 5, 'depth': 5, 'height': 4}: required parts could not be filled from the inventory: seat (0/50 studs filled, needs 90%); nothing at all of seat could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-lounge-armchair-9dde56 {'width': 5, 'depth': 5, 'height': 4} needed repair (12 actions): ['part 16: overlapped another part, moved by (-1,0) studs', 'part 18: overlapped another part, moved by (0,1) studs', 'part 20: overlapped another part, moved by (-1,0) studs']
+WARNING lego.recipes: recipe gen-lounge-armchair-9dde56 {'width': 5, 'depth': 5, 'height': 3} needed repair (12 actions): ['part 16: overlapped another part, moved by (-1,0) studs', 'part 18: overlapped another part, moved by (0,1) studs', 'part 20: overlapped another part, moved by (-1,0) studs']
+WARNING lego.recipes: recipe gen-lounge-armchair-9dde56 {'width': 5, 'depth': 4, 'height': 4} needed repair (12 actions): ['part 13: overlapped another part, moved by (-1,0) studs', 'part 15: overlapped another part, moved by (0,1) studs', 'part 17: overlapped another part, moved by (-1,0) studs']
+WARNING lego.recipes: recipe gen-lounge-armchair-9dde56 {'width': 5, 'depth': 5, 'height': 2} needed repair (8 actions): ['part 16: overlapped another part, moved by (-1,0) studs', 'part 18: overlapped another part, moved by (0,1) studs', 'part 20: overlapped another part, moved by (-1,0) studs']
+INFO lego.recipes.generate: recipe for 'Lounge Armchair' failed at structure (attempt 2): ["with {'width': 5, 'depth': 5, 'height': 4}: the build falls into 2 separate pieces; every brick must connect to the rest through studs"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Lounge Armchair' failed at schema (attempt 3): ["part 'legs': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"]
+[11/30] 'Lounge Armchair'                  furniture  FAIL attempts=4 failed at schema   44.9s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-mountain-villa-e4353f {'width': 8, 'depth': 5, 'floors': 3} needed repair (3 actions): ['part 53: overlapped another part, moved by (0,-2) studs', 'part 53: hung 11 plates in the air, lowered onto its support', 'part 69: hung 1 plates in the air, lowered onto its support']
+WARNING lego.recipes: recipe gen-mountain-villa-e4353f {'width': 7, 'depth': 6, 'floors': 3} needed repair (9 actions): ['part 50: overlapped another part, moved by (1,1) studs', 'part 51: overlapped another part, moved by (0,1) studs', 'part 54: overlapped another part, moved by (0,1) studs']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:42:36', 'concept': 'Mountain Villa', 'category': 'building', 'attempt': 0, 'answer': 'A house', 'matched': True, 'looks_like': 'building', 'recipe': 'gen-mountain-villa-e4353f'}
+[12/30] 'Mountain Villa'                   building   OK   attempts=1 dup: too similar to 'cottage' (shape IoU 0.77 > 0.6)   24.8s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Glacial Monument' failed at fill (attempt 0): ["with {'width': 8, 'layers': 4}: required parts could not be filled from the inventory: band-2 (55/64 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Glacial Monument' failed at fill (attempt 1): ["with {'width': 8, 'layers': 4}: required parts could not be filled from the inventory: tier-1 (0/49 studs filled, needs 90%), tier-2 (0/36 studs filled, needs 90%), tier-3 (0/25 studs filled, needs 90%); nothing at all of tier-1, tier-2, tier-3 could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Glacial Monument' failed at schema (attempt 2): ["part 'tier-1': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)", "part 'tier-2': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 504 Gateway Timeout"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:44:54', 'concept': 'Glacial Monument', 'category': 'tower', 'attempt': 3, 'answer': 'avocado', 'matched': False, 'looks_like': None, 'recipe': 'gen-glacial-monument-eecd9b'}
+INFO lego.recipes.generate: recipe for 'Glacial Monument' failed at recognizability (attempt 3): ["A viewer shown only a picture of the model said it looks like 'avocado', not a tower. Make the shape clearly a tower (Glacial Monument): add its characteristic parts and proportions."]
+[13/30] 'Glacial Monument'                 tower      FAIL attempts=4 failed at recognizability  138.0s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stealth Interceptor' failed at schema (attempt 0): ['the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 1138)']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stealth Interceptor' failed at fill (attempt 1): ["with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: fuselage (12/16 studs filled, needs 90%), wings (0/16 studs filled, needs 90%), tailplane (0/8 studs filled, needs 90%), nose (0/4 studs filled, needs 90%); nothing at all of wings, tailplane, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stealth Interceptor' failed at schema (attempt 2): ["part 'wings': attach.to must name an EARLIER part, got None", "part 'wings': unknown attach key 'on_top_of'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stealth Interceptor' failed at fill (attempt 3): ["with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: fuselage (12/16 studs filled, needs 90%), wings (14/16 studs filled, needs 90%), tailplane (0/8 studs filled, needs 90%), nose (0/4 studs filled, needs 90%); nothing at all of tailplane, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[14/30] 'Stealth Interceptor'              aircraft   FAIL attempts=4 failed at fill   45.8s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Forest Stalker' failed at schema (attempt 0): ['the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 1027)']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Forest Stalker' failed at fill (attempt 1): ["with {'length': 12, 'width': 4, 'leg': 1, 'tail': 2}: required parts could not be filled from the inventory: legs (3/4 studs filled, needs 90%), body (74/96 studs filled, needs 90%), head (0/16 studs filled, needs 90%), tail (0/2 studs filled, needs 90%); nothing at all of head, tail could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Forest Stalker' failed at schema (attempt 2): ["part 'legs': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Forest Stalker' failed at fill (attempt 3): ["with {'length': 12, 'width': 4, 'leg': 1, 'tail': 2}: no part could be placed at all with these pieces"]
+[15/30] 'Forest Stalker'                   animal     FAIL attempts=4 failed at fill   46.4s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:46:47', 'concept': 'River Skiff', 'category': 'boat', 'attempt': 0, 'answer': 'avocado', 'matched': False, 'looks_like': None, 'recipe': 'gen-river-skiff-e359c9'}
+INFO lego.recipes.generate: recipe for 'River Skiff' failed at recognizability (attempt 0): ["A viewer shown only a picture of the model said it looks like 'avocado', not a boat. Make the shape clearly a boat (River Skiff): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'River Skiff' failed at schema (attempt 1): ["role 'cabin': want must be one of ('major', 'second', 'dark', 'neutral')"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'River Skiff' failed at schema (attempt 2): ["part 'hull_walls': attach.anchor_x must be one of ('center', 'start', 'end'), got 'left'", "part 'hull_walls': attach.anchor_z must be one of ('center', 'start', 'end'), got 'back'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'River Skiff' failed at schema (attempt 3): ["part 'bow': slope_roof has no argument 'layers'; it takes ['d', 'w']"]
+[16/30] 'River Skiff'                      boat       FAIL attempts=4 failed at schema   44.7s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Canyon Viaduct' failed at fill (attempt 0): ["with {'width': 6, 'span': 14, 'height': 5}: required parts could not be filled from the inventory: central-arch (35/224 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Canyon Viaduct' failed at schema (attempt 1): ["with {'width': 4, 'span': 6, 'height': 2}: not allowed in a recipe expression: '(span / 2) - 1'", "with {'width': 6, 'span': 10, 'height': 4}: not allowed in a recipe expression: '(span / 2) - 1'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Canyon Viaduct' failed at fill (attempt 2): ["with {'width': 6, 'span': 14, 'height': 5}: the build has 106 parts, it needs 8 to 80"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Canyon Viaduct' failed at fill (attempt 3): ["with {'width': 6, 'span': 10, 'height': 4}: required parts could not be filled from the inventory: deck (60/120 studs filled, needs 90%)"]
+[17/30] 'Canyon Viaduct'                   bridge     FAIL attempts=4 failed at fill   60.4s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Moorland Cottage' failed at fill (attempt 0): ["with {'width': 8, 'depth': 8, 'floors': 3}: required parts could not be filled from the inventory: base (44/64 studs filled, needs 90%), roof (0/300 studs filled, needs 90%), chimney (0/2 studs filled, needs 90%); nothing at all of roof, chimney could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Moorland Cottage' failed at fill (attempt 1): ["with {'width': 8, 'depth': 8, 'floors': 3}: required parts could not be filled from the inventory: base (44/64 studs filled, needs 90%), roof (0/300 studs filled, needs 90%), chimney (0/2 studs filled, needs 90%); nothing at all of roof, chimney could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Moorland Cottage' failed at fill (attempt 2): ["with {'width': 8, 'depth': 8, 'floors': 3}: required parts could not be filled from the inventory: base (44/64 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Moorland Cottage' failed at fill (attempt 3): ["with {'width': 8, 'depth': 8, 'floors': 3}: required parts could not be filled from the inventory: base (44/64 studs filled, needs 90%)"]
+[18/30] 'Moorland Cottage'                 building   FAIL attempts=4 failed at fill   34.0s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Border Fortress' failed at fill (attempt 0): ["with {'width': 10, 'depth': 10, 'height': 5}: required parts could not be filled from the inventory: base (48/100 studs filled, needs 90%), wall-back (0/50 studs filled, needs 90%), wall-left (5/40 studs filled, needs 90%), wall-right (0/40 studs filled, needs 90%), gate (0/12 studs filled, needs 90%), crenellation (1/50 studs filled, needs 90%); nothing at all of wall-back, wall-right, gate could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Border Fortress' failed at schema (attempt 1): ["part 'wall-front': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)", "part 'wall-back': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Border Fortress' failed at fill (attempt 2): ["with {'width': 10, 'depth': 10, 'height': 4}: required parts could not be filled from the inventory: wall-back (0/40 studs filled, needs 90%), wall-right (0/32 studs filled, needs 90%), tower-r (0/20 studs filled, needs 90%); nothing at all of wall-back, wall-right, tower-r could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Border Fortress' failed at fill (attempt 3): ["with {'width': 10, 'depth': 10, 'height': 4}: required parts could not be filled from the inventory: wall-back (0/40 studs filled, needs 90%), wall-right (0/32 studs filled, needs 90%), tower-r (0/20 studs filled, needs 90%); nothing at all of wall-back, wall-right, tower-r could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[19/30] 'Border Fortress'                  castle     FAIL attempts=4 failed at fill   35.6s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-executive-armchair-d84674 {'width': 4, 'depth': 4, 'leg': 1, 'back': 3} needed repair (8 actions): ['part 10: overlapped another part, moved by (-1,0) studs', 'part 11: overlapped another part, moved by (0,1) studs', 'part 12: overlapped another part, moved by (-1,0) studs']
+WARNING lego.recipes: recipe gen-executive-armchair-d84674 {'width': 4, 'depth': 4, 'leg': 1, 'back': 2} needed repair (8 actions): ['part 10: overlapped another part, moved by (-1,0) studs', 'part 11: overlapped another part, moved by (0,1) studs', 'part 12: overlapped another part, moved by (-1,0) studs']
+WARNING lego.recipes: recipe gen-executive-armchair-d84674 {'width': 5, 'depth': 4, 'leg': 1, 'back': 3} needed repair (8 actions): ['part 13: overlapped another part, moved by (-1,0) studs', 'part 15: overlapped another part, moved by (0,1) studs', 'part 16: overlapped another part, moved by (-1,0) studs']
+WARNING lego.recipes: recipe gen-executive-armchair-d84674 {'width': 4, 'depth': 5, 'leg': 1, 'back': 3} needed repair (10 actions): ['part 13: overlapped another part, moved by (-1,0) studs', 'part 14: overlapped another part, moved by (0,1) studs', 'part 15: overlapped another part, moved by (-1,0) studs']
+INFO lego.recipes.generate: recipe for 'Executive Armchair' failed at structure (attempt 0): ["with {'width': 4, 'depth': 4, 'leg': 1, 'back': 3}: the build falls into 3 separate pieces; every brick must connect to the rest through studs"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Executive Armchair' failed at schema (attempt 1): ["part 'legs': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Executive Armchair' failed at fill (attempt 2): ["with {'width': 4, 'depth': 4, 'leg': 1, 'back': 3}: no part could be placed at all with these pieces"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Executive Armchair' failed at fill (attempt 3): ["with {'width': 4, 'depth': 4, 'leg': 1, 'back': 2}: required parts could not be filled from the inventory: seat (0/32 studs filled, needs 90%); nothing at all of seat could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[20/30] 'Executive Armchair'               furniture  FAIL attempts=4 failed at fill   31.3s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:50:13', 'concept': 'Ancient Pine', 'category': 'plant', 'attempt': 0, 'answer': 'tree', 'matched': True, 'looks_like': 'plant', 'recipe': 'gen-ancient-pine-f0afa8'}
+[21/30] 'Ancient Pine'                     plant      OK   attempts=1 dup: too similar to 'gen-deep-forest-pine-88a8ab' (shape IoU 1.00 > 0.6)   19.8s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Maintenance Droid' failed at schema (attempt 0): ["with {'width': 4, 'height': 7}: cannot read expression ':torso_h': invalid syntax", "with {'width': 4, 'height': 8}: cannot read expression ':torso_h': invalid syntax"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Maintenance Droid' failed at fill (attempt 1): ["with {'width': 4, 'height': 7}: required parts could not be filled from the inventory: arm (6/8 studs filled, needs 90%), arm-mirror (6/8 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Maintenance Droid' failed at fill (attempt 2): ["with {'width': 4, 'height': 7}: required parts could not be filled from the inventory: arm (3/4 studs filled, needs 90%), arm-mirror (3/4 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Maintenance Droid' failed at fill (attempt 3): ["with {'width': 4, 'height': 7}: required parts could not be filled from the inventory: torso (0/48 studs filled, needs 90%), arm (0/8 studs filled, needs 90%), arm-mirror (0/8 studs filled, needs 90%), head (0/8 studs filled, needs 90%); nothing at all of torso, arm, arm-mirror, head could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[22/30] 'Maintenance Droid'                robot      FAIL attempts=4 failed at fill   49.4s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Deep Space Probe' failed at fill (attempt 0): ["with {'length': 12, 'width': 6, 'body_height': 3}: required parts could not be filled from the inventory: fins (10/12 studs filled, needs 90%), engines (2/4 studs filled, needs 90%)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-deep-space-probe-a44d33 {'length': 10, 'width': 4, 'body_height': 3} needed repair (2 actions): ['part 6: overlapped another part, moved by (0,1) studs', 'part 8: overlapped another part, moved by (0,1) studs']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:51:51', 'concept': 'Deep Space Probe', 'category': 'spacecraft', 'attempt': 1, 'answer': 'A stapler', 'matched': False, 'looks_like': None, 'recipe': 'gen-deep-space-probe-a44d33'}
+INFO lego.recipes.generate: recipe for 'Deep Space Probe' failed at recognizability (attempt 1): ["A viewer shown only a picture of the model said it looks like 'A stapler', not a spacecraft. Make the shape clearly a spacecraft (Deep Space Probe): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Deep Space Probe' failed at fill (attempt 2): ["with {'length': 12, 'width': 6, 'mast_height': 3}: required parts could not be filled from the inventory: engine (0/4 studs filled, needs 90%), panel_right (0/8 studs filled, needs 90%); nothing at all of engine, panel_right could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Deep Space Probe' failed at schema (attempt 3): ["part 'engine': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"]
+[23/30] 'Deep Space Probe'                 spacecraft FAIL attempts=4 failed at schema  104.4s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Coastal Watchtower' failed at schema (attempt 0): ["with {'depth': 4, 'layers': 14, 'band': 1}: part 'band-{k}' repeats 14 times (max 12)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:53:11', 'concept': 'Coastal Watchtower', 'category': 'tower', 'attempt': 1, 'answer': 'tree stump', 'matched': False, 'looks_like': 'plant', 'recipe': 'gen-coastal-watchtower-a6fa9c'}
+INFO lego.recipes.generate: recipe for 'Coastal Watchtower' failed at recognizability (attempt 1): ["A viewer shown only a picture of the model said it looks like 'tree stump', not a tower. Make the shape clearly a tower (Coastal Watchtower): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Coastal Watchtower' failed at schema (attempt 2): ["part 'roof': unknown primitive 'pyramid'; use one of ['arch', 'box', 'cells', 'checker', 'cone', 'cylinder', 'head', 'leg', 'pillar', 'posts', 'rails', 'slope_roof', 'stairs', 'tapered_box', 'wall_with_window', 'wheel_axle', 'wing']"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Coastal Watchtower' failed at schema (attempt 3): ["part 'roof': slope_roof has no argument 'layers'; it takes ['d', 'w']"]
+[24/30] 'Coastal Watchtower'               tower      FAIL attempts=4 failed at schema   38.3s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Highland Stag' failed at schema (attempt 0): ['the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 1061)']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Highland Stag' failed at fill (attempt 1): ["with {'length': 6, 'width': 3, 'height': 8}: required parts could not be filled from the inventory: legs (4/16 studs filled, needs 90%), body (0/36 studs filled, needs 90%), head (0/8 studs filled, needs 90%), antlers (0/4 studs filled, needs 90%); nothing at all of body, head, antlers could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Highland Stag' failed at fill (attempt 2): ["with {'length': 6, 'width': 3, 'height': 8}: required parts could not be filled from the inventory: head (0/8 studs filled, needs 90%), antlers (0/4 studs filled, needs 90%); nothing at all of head, antlers could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Highland Stag' failed at schema (attempt 3): ["part 'head': attach.anchor must be one of ('center', 'start', 'end'), got 'front'"]
+[25/30] 'Highland Stag'                    animal     FAIL attempts=4 failed at schema   42.2s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Harbor Tugboat' failed at fill (attempt 0): ["with {'length': 10, 'width': 6, 'height': 3}: required parts could not be filled from the inventory: cabin (0/32 studs filled, needs 90%), mast (0/3 studs filled, needs 90%); nothing at all of cabin, mast could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Harbor Tugboat' failed at fill (attempt 1): ["with {'length': 10, 'width': 6, 'height': 3}: required parts could not be filled from the inventory: deck (0/60 studs filled, needs 90%), cabin (0/32 studs filled, needs 90%), mast (0/3 studs filled, needs 90%); nothing at all of deck, cabin, mast could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Harbor Tugboat' failed at fill (attempt 2): ["with {'length': 10, 'width': 6, 'height': 3}: required parts could not be filled from the inventory: deck (0/60 studs filled, needs 90%), cabin (0/32 studs filled, needs 90%), mast (0/3 studs filled, needs 90%); nothing at all of deck, cabin, mast could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Harbor Tugboat' failed at fill (attempt 3): ["with {'length': 10, 'width': 6, 'height': 3}: required parts could not be filled from the inventory: deck (0/60 studs filled, needs 90%), cabin (0/32 studs filled, needs 90%), mast (0/3 studs filled, needs 90%); nothing at all of deck, cabin, mast could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[26/30] 'Harbor Tugboat'                   boat       FAIL attempts=4 failed at fill   37.6s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Footbridge in the Woods' failed at fill (attempt 0): ["with {'length': 12, 'width': 4, 'height': 2}: required parts could not be filled from the inventory: pillar-end-left (0/6 studs filled, needs 90%), pillar-end-right (0/6 studs filled, needs 90%), deck (24/48 studs filled, needs 90%), rail (20/24 studs filled, needs 90%); nothing at all of pillar-end-left, pillar-end-right could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 504 Gateway Timeout"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Footbridge in the Woods' failed at schema (attempt 1): ["part 'deck': unknown attach key 'on'; attach takes only ['anchor', 'anchor_x', 'anchor_z', 'dx', 'dy', 'dz', 'rel', 'side', 'to'] (offsets are dx, dz, dy)"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Footbridge in the Woods' failed at fill (attempt 2): ["with {'length': 10, 'width': 4, 'height': 1}: required parts could not be filled from the inventory: pillar-start-left (0/3 studs filled, needs 90%), pillar-end-left (0/3 studs filled, needs 90%), pillar-end-right (0/3 studs filled, needs 90%), deck (0/40 studs filled, needs 90%); nothing at all of pillar-start-left, pillar-end-left, pillar-end-right, deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Footbridge in the Woods' failed at fill (attempt 3): ["with {'length': 10, 'width': 4, 'height': 1}: required parts could not be filled from the inventory: pillar-start-left (0/3 studs filled, needs 90%), pillar-end-left (0/3 studs filled, needs 90%), pillar-end-right (0/3 studs filled, needs 90%), deck (0/40 studs filled, needs 90%); nothing at all of pillar-start-left, pillar-end-left, pillar-end-right, deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[27/30] 'Footbridge in the Woods'          bridge     FAIL attempts=4 failed at fill   89.9s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 503 Service Unavailable"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:56:34', 'concept': 'Forest Lookout', 'category': 'tower', 'attempt': 0, 'answer': 'A beehive', 'matched': False, 'looks_like': None, 'recipe': 'gen-forest-lookout-79877d'}
+INFO lego.recipes.generate: recipe for 'Forest Lookout' failed at recognizability (attempt 0): ["A viewer shown only a picture of the model said it looks like 'A beehive', not a tower. Make the shape clearly a tower (Forest Lookout): add its characteristic parts and proportions."]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Forest Lookout' failed at schema (attempt 1): ["part 'platform': role must be one of ['body', 'roof', 'base']"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Forest Lookout' failed at schema (attempt 2): ["with {'width': 4, 'height': 10}: unknown name 'w' in 'w'", "with {'width': 5, 'height': 12}: unknown name 'w' in 'w'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recognizability: {'time': '2026-10-16 19:57:00', 'concept': 'Forest Lookout', 'category': 'tower', 'attempt': 3, 'answer': 'A person wearing a hat', 'matched': False, 'looks_like': None, 'recipe': 'gen-forest-lookout-95eb5f'}
+INFO lego.recipes.generate: recipe for 'Forest Lookout' failed at recognizability (attempt 3): ["A viewer shown only a picture of the model said it looks like 'A person wearing a hat', not a tower. Make the shape clearly a tower (Forest Lookout): add its characteristic parts and proportions."]
+[28/30] 'Forest Lookout'                   tower      FAIL attempts=4 failed at recognizability   46.0s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stout Armored Walker' failed at fill (attempt 0): ["with {'width': 6, 'height': 6}: required parts could not be filled from the inventory: arm (0/6 studs filled, needs 90%), arm-mirror (0/6 studs filled, needs 90%); nothing at all of arm, arm-mirror could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+WARNING lego.recipes: recipe gen-stout-armored-walker-34323f {'width': 6, 'height': 6} needed repair (15 actions): ['part 5: overlapped another part, moved by (-2,0) studs', 'part 7: overlapped another part, moved by (-1,0) studs', 'part 8: overlapped another part, moved by (1,0) studs']
+WARNING lego.recipes: recipe gen-stout-armored-walker-34323f {'width': 6, 'height': 5} needed repair (15 actions): ['part 5: overlapped another part, moved by (-2,0) studs', 'part 7: overlapped another part, moved by (-1,0) studs', 'part 8: overlapped another part, moved by (1,0) studs']
+WARNING lego.recipes: recipe gen-stout-armored-walker-34323f {'width': 6, 'height': 7} needed repair (15 actions): ['part 5: overlapped another part, moved by (-2,0) studs', 'part 7: overlapped another part, moved by (-1,0) studs', 'part 8: overlapped another part, moved by (1,0) studs']
+WARNING lego.recipes: recipe gen-stout-armored-walker-34323f {'width': 5, 'height': 6} needed repair (19 actions): ['part 4: overlapped another part, moved by (-2,0) studs', 'part 6: overlapped another part, moved by (-1,0) studs', 'part 7: overlapped another part, moved by (1,0) studs']
+INFO lego.recipes.generate: recipe for 'Stout Armored Walker' failed at structure (attempt 1): ["with {'width': 6, 'height': 6}: the build falls into 3 separate pieces; every brick must connect to the rest through studs"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stout Armored Walker' failed at schema (attempt 2): ["part 'leg': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'", "part 'arm': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'on_side_of'"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'Stout Armored Walker' failed at fill (attempt 3): ["with {'width': 6, 'height': 6}: required parts could not be filled from the inventory: leg (0/8 studs filled, needs 90%), leg-mirror (0/8 studs filled, needs 90%), arm (0/4 studs filled, needs 90%), arm-mirror (0/4 studs filled, needs 90%); nothing at all of leg, leg-mirror, arm, arm-mirror could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[29/30] 'Stout Armored Walker'             robot      FAIL attempts=4 failed at fill   27.8s
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'River Sloop' failed at schema (attempt 0): ['the recipe text is not valid JSON (Expecting property name enclosed in double quotes at position 857)']
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'River Sloop' failed at fill (attempt 1): ["with {'length': 10, 'width': 4, 'mast': 4}: required parts could not be filled from the inventory: hull-base (12/40 studs filled, needs 90%), hull-deck (0/32 studs filled, needs 90%); nothing at all of hull-deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'River Sloop' failed at fill (attempt 2): ["with {'length': 10, 'width': 4, 'mast': 4}: required parts could not be filled from the inventory: hull-deck (0/64 studs filled, needs 90%); nothing at all of hull-deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+INFO google_genai.models: AFC is enabled with max remote calls: 10.
+INFO httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent "HTTP/1.1 200 OK"
+INFO lego.recipes.generate: recipe for 'River Sloop' failed at fill (attempt 3): ["with {'length': 10, 'width': 4, 'mast': 4}: required parts could not be filled from the inventory: hull-deck (0/80 studs filled, needs 90%); nothing at all of hull-deck could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"]
+[30/30] 'River Sloop'                      boat       FAIL attempts=4 failed at fill   41.6s
+
+stage            attempts passed/reached     concepts passed (ever)   passed on first try
+schema            76/108  70.4%         30/30  100.0%           23/30   76.7%
+fill              20/76   26.3%         17/30   56.7%           10/30   33.3%
+inventory         20/20  100.0%         17/30   56.7%           10/30   33.3%
+structure         17/20   85.0%         14/30   46.7%            9/30   30.0%
+recognizability    4/17   23.5%          4/30   13.3%            4/30   13.3%
+
+final: 4/30 concepts ended with a recipe that passed everything; 2 stored in the library; 108 recipe calls to Gemini (0 failed because Gemini itself errored, not counted above). Report: docs/recipe-study.json

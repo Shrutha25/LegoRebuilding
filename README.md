@@ -61,6 +61,14 @@ and `npx eslint .` should both be clean.
 | `GEMINI_MODEL` | Model for ideas (default `gemini-3.1-flash-lite`). `python -m backend.live_check --models` lists the Flash models your key can use. |
 | `BRICKOGNIZE_URL` | Recognition endpoint (no key needed). |
 | `RB_DATA_DIR`, `UPLOAD_DIR` | Data and temp-upload locations. |
+| `DETECTOR` | Piece detection: `opencv` (default for now), `gemini`, or `hybrid` (Gemini boxes plus any OpenCV boxes Gemini missed). See "Piece detection". |
+| `GEMINI_DETECT_MODEL`, `GEMINI_DETECT_FALLBACK_MODEL` | Model for detection (default `gemini-3.1-flash-lite`), separate from `GEMINI_MODEL`; the fallback is tried on 503/504. |
+| `GEMINI_RPM`, `GEMINI_RPD`, `GEMINI_MODEL_LIMITS` | Per-model Gemini limits (placeholders; check Google's published limits). See "Gemini quota budget". |
+| `DETECTION_DAILY_SHARE`, `BUILD_RESERVE`, `BUILD_RESERVE_FRAC`, `BUILD_MAX_WAIT` | How the daily quota is split between detection and AI ideas. |
+| `GEMINI_RESET_TIME`, `GEMINI_RESET_TZ`, `GEMINI_BUDGET_DB` | When the daily counters reset (default 00:00 America/Los_Angeles) and where they are stored. |
+| `BRICKSET_API_KEY`, `INSTRUCTIONS_TTL_DAYS`, `BRICKSET_DAILY_CAP`, `MIN_SET_PARTS`, `EXCLUDED_THEMES`, `EXCLUDED_THEME_WORDS` | Which sets are matched and whether a set card links to official LEGO instructions (Brickset `getInstructions2`, cached in SQLite, links only). See `.env.example`. |
+| `LDRAW_DIR`, `BUILD_CACHE_DIR`, `OMR_BASE_URL`, `BUILD_MAX_PARTS`, `BUILD_MAX_DROP_FRACTION`, `BUILD_STEP_SIZE` | 3D building instructions (see "3D building instructions"); frontend flag `NEXT_PUBLIC_BUILD_ANIMATION`. |
+| `STUDS_ENABLED`, `STUD_TILT_STRETCH`, `DETECT_DEBUG_DIR` | Stud detection switch (default on); vertical stretch for photos taken at ~45 degrees (default 1.5, 1 = top-down); folder for debug overlays. See "Stud detection". |
 | `MIN_COVERAGE` | Minimum share of a set you must own for it to be suggested (default `1.0` = complete sets only). |
 | `CORS_ORIGINS` | Comma-separated allowed origins (default `http://localhost:3000`). |
 
@@ -97,10 +105,16 @@ curl localhost:8000/api/health
 # Scan a photo -> {"job_id": "..."}   (jpg/png/webp, <= 50 MB; anything else, incl. video, gets a 415)
 curl -F "file=@lego_pieces.jpg;type=image/jpeg" localhost:8000/api/scan
 
+# Optional: a photo of the EMPTY surface, then scan with its id; pieces are found by what changed
+#   curl -F file=@empty.jpg http://localhost:8000/api/reference      -> {"reference_id": "..."}
+#   curl -F file=@bricks.jpg -F reference_id=... http://localhost:8000/api/scan
+#   (unknown or expired id -> 404; the id lasts 6 hours; detector is then "reference")
 # Poll the job: status is queued|detecting|recognizing|done|error
 curl localhost:8000/api/scan/JOB_ID
 #   pieces[]: {index, box:[x,y,w,h], crop_url, part_id, name, color, score,
-#              alternatives[], needs_review, error}   (+ width/height of the image)
+#              alternatives[], needs_review, error}
+#   (+ detector: opencv|gemini|hybrid actually used, detector_note: why it fell back, if it did)
+#              (+ width/height of the image)
 
 # The (possibly downscaled) photo and each crop
 curl -o photo.jpg localhost:8000/api/scan/JOB_ID/image
@@ -156,6 +170,197 @@ model for safety blocks yet. Unit tests use a fake Gemini client; they never cal
 `python -m backend.live_check` runs the real thing against a running backend (see the file's
 docstring).
 
+### Piece detection (opencv / gemini / hybrid)
+
+OpenCV finds pieces by colour, which fails on some real photos (a piece lying on another, pale or
+clear pieces, uneven light). `DETECTOR` chooses how pieces are found:
+
+- `opencv` - the colour-based detector only (`backend/core/detect.py`).
+- `gemini` - ask Gemini for one bounding box per piece (`box_2d = [ymin, xmin, ymax, xmax]`,
+  normalised 0-1000; converted to pixels, y first), via structured JSON output.
+- `hybrid` - both, merged: every Gemini box is kept; an OpenCV box is added only where Gemini found
+  nothing (IoU < 0.3 *and* not mostly inside a Gemini box); anything over 25% of the photo is dropped;
+  Gemini boxes get 8% padding before cropping for Brickognize.
+
+A Gemini failure, a 20 s timeout or a missing key never fails a scan: it falls back to OpenCV, logs a
+warning, and records why in the scan result (`detector`, `detector_note`). On a 503/504 the call is
+retried once with `GEMINI_DETECT_FALLBACK_MODEL`. The thinking level is adapted per model (not every
+model accepts "minimal").
+
+**Evaluating:** put photos in `tests/real_photos/` named with the true piece count at the end
+(`white_on_white_18.jpg`), optionally with `white_on_white_18.points.json` (true piece centres,
+`[[x, y], ...]`) for exact missed/extra/merged numbers, then run
+
+```bash
+python -m backend.eval_detect                      # table + annotated images in tests/real_photos/out/
+python -m backend.eval_detect --models gemini-3.1-flash-lite,gemini-3.6-flash   # compare models
+```
+
+Results are cached, so re-running costs no API calls. Annotated examples from the first evaluation are
+in `docs/detection-eval/`.
+
+**Quota:** a Google API key on the free tier allows only about **20 requests per model per day**. Every
+hybrid/gemini scan uses one detection request (plus one for AI ideas if opened, which shares
+`gemini-3.1-flash-lite`). See "Gemini quota budget" for how the two share it; enable billing in Google AI
+Studio for real use.
+
+### Gemini quota budget
+
+Every Gemini request goes through `backend/core/gemini_budget.py`, which counts requests per model (last 60 s and
+since the daily reset, default midnight America/Los_Angeles) in a SQLite file, safe across restarts, threads and
+worker processes. Retries and fallback-model attempts each count.
+
+- **build** (AI ideas) has priority: it may use everything that remains and waits up to `BUILD_MAX_WAIT` s for a
+  per-minute slot, then fails with a clear 429 message.
+- **detection** may use at most `DETECTION_DAILY_SHARE` (0.3) of a model's daily limit, never the last
+  `BUILD_RESERVE` (20% of the limit) requests, and is skipped at once when the minute window is full: the scan uses
+  OpenCV and `detector_note` says `gemini skipped: <reason>`.
+- On HTTP 429 the model is paused until the retry delay in the error, or the next reset.
+
+The limits are placeholders (`GEMINI_RPM`, `GEMINI_RPD`, per model `GEMINI_MODEL_LIMITS`): check them against
+Google's current published limits. Usage is logged at startup and shown by `GET /api/debug/gemini-budget`.
+
+### Several photos in one list
+
+A piece the same colour as the surface is easy to miss. After the first photo the review screen has **+ Add photo**:
+photograph those pieces on a surface of a different colour, and their pieces join the same list (identical parts across
+photos become one row with a quantity). Piece numbers continue across photos, the photo viewer has a tab per photo, and
+**Next: find builds** uses the combined list. Only photograph pieces that are not on the list yet, or they are counted twice
+(each row's quantity can be edited, and rows deleted). **Start over** clears every photo.
+
+### Dark or textured surfaces, and the reference background
+
+- A dim surface (most of the photo below value 110, e.g. dark grey mesh) makes the **surface method lead**: the colour
+  seeds there are the mesh's pockets and the pieces' shadows, which bridge neighbouring pieces. Colour boxes are added
+  only where the surface method saw nothing. Surface boxes much bigger than the photo's typical box and holding two
+  clearly different colours (a lime plate against a red brick) are split, and shadow slivers are ignored. Known limit:
+  a near-black piece on dark mesh.
+- On light surfaces, a colour box that holds two or more surface boxes is replaced by them.
+- **Reference background** (`backend/core/reference.py`): with a photo of the same empty surface taken from the same
+  place, the pieces are what differs from it. The reference is aligned (ORB homography, else translation) and brought to
+  the photo's exposure, cast shadows (darker, same chroma) are ignored, and the rest is thresholded above the surface's
+  own noise. `detect.analyse(img, reference=empty)` uses it alone (no colour, no studs); try it with
+  `python -m backend.eval_reference empty.jpg bricks.jpg`, or through the API (`POST /api/reference`, then `POST /api/scan`
+  with `reference_id`). **In the app it is step 1 of every photo**: "Step 1 · Photo of the empty background", then "Step 2 ·
+  Photo with the pieces" (disabled until step 1 is done; each photo of pieces uses its own empty photo, so an added photo on a
+  different background starts with a new empty photo). It needs both photos from the same spot and light; when a handheld
+  pair does not line up, the scan falls back to normal detection and shows a warning.
+  **Pieces must not touch**: one blob is one piece, so a brick with two colours stays
+  whole (`split_touching=True` in `ReferenceConfig` brings back cutting touching pieces by colour).
+  Pieces the same colour as the surface (black on black mesh, white on white paper) are found by structure instead of
+  colour: on a textured surface the pattern vanishes under smooth plastic (local correlation with the empty photo
+  collapses); on a plain surface the piece brings edges, studs and shading that were not there. These cues switch
+  themselves off when they fire on a third of the photo (camera moved, light changed).
+
+### 3D building instructions
+
+After picking a build, **"See it built in 3D, step by step"** (AI idea) or **"View building steps in 3D"** (official set) opens a viewer
+(three.js, loaded only when opened) that shows the model step by step: the parts added in this step in full colour with an outline,
+earlier parts faded, a callout with a rendered thumbnail, count, name and colour of each new part, a progress bar you can tap or drag,
+Previous/Next (or swipe the instruction panel, or arrow keys), drag to rotate (kept from step to step), pinch/scroll to zoom,
+Reset view, and a finished-model screen (turning slowly, "Build again" / "Back to suggestions"). `NEXT_PUBLIC_BUILD_ANIMATION=1`
+drops new parts in. Phones get a lighter model (no conditional edge lines, no environment map, lower pixel ratio).
+
+Everything is converted to ONE format, an LDraw model with `0 STEP` lines, and rendered by one viewer.
+
+- **Setup:** `python -m backend.core.fetch_ldraw` (one-off, ~146 MB zip of the official LDraw parts library into `ldraw_data/`).
+  Without it the endpoints answer 503 with that command. The library is never served: `ldraw_lib.pack_mpd` writes one `.mpd` per
+  build with only the files it uses (named the way three.js' LDrawLoader looks them up) and caches it by build id in `build_cache/`.
+- **Official sets:** the model comes from the LDraw Official Model Repository (`https://library.ldraw.org/library/omr/<set number>.mpd`,
+  same set numbers as Rebrickable). Only models whose header licence is CCAL / CC BY are used; their authors and licence are shown in
+  the viewer. A model with no steps gets generated steps (flagged in the viewer). If there is no model the card shows the parts list
+  (have / missing against your pieces) and a button to LEGO's own instructions page; LEGO's PDFs and images are never fetched or
+  re-hosted. The inventory comes from the Rebrickable CSVs the app already uses (the same data as the API, without rate limits); the
+  Rebrickable API (`REBRICKABLE_API_KEY`) is used only to look up LDraw ids for parts the local rules cannot map.
+- **AI builds:** Gemini (budget purpose `build`) places parts on a stud grid (`x, z` studs, `y` plates, rotation 0/90/180/270, step);
+  `buildmodel.py` validates it locally (inventory and counts, no overlaps, every part resting on studs, step order, one structure or
+  reported sub-assemblies) and repairs it (snap, nudge overlaps, swap to an inventory equivalent, lower hanging parts, drop what rests
+  on nothing). Only if more than `BUILD_MAX_DROP_FRACTION` (0.2) of the parts had to be dropped is Gemini asked once more, with the
+  problems in the prompt. Bad or missing steps are regenerated bottom-up, 1-3 close parts per step. `ldrconv.py` writes the LDraw file
+  (1 stud = 20 LDU, 1 plate = 8 LDU, -Y up, origin at the top-middle of each part; checked against the real part geometry in tests).
+  Supported parts: plain bricks, plates and tiles (`partdims.py` is the one table of sizes).
+- **Mapping** (`ldmap.py`): our part ids -> LDraw files (the id, the Rebrickable id, its parent for print/pattern variants, suffix
+  rewrites, Rebrickable external ids; cached in `build_cache/ldraw_ids.json`, misses are logged) and colour names/ids -> LDraw colour
+  codes through LDConfig (all 274 Rebrickable colours map). Of the pieces in Rebrickable's sets 97.1% have an LDraw file (43.3% of all
+  catalogue part numbers: the rest are stickers, prints and minifigure parts).
+- **API (new):** `POST /api/builds/ai`, `POST /api/sets/{set}/build`, `GET /api/builds/{id}`, `GET /api/builds/{id}/model.mpd[?lite=1]`,
+  `GET /api/ldraw/LDConfig.ldr`, `GET /api/builds-status`. Existing endpoints are unchanged.
+- **Demo:** `/viewer-demo?build=ai|set&step=N` (or `&done=1`) shows two bundled builds without the backend (`python -m
+  tests.make_demo_builds` regenerates them; screenshots in `docs/viewer/`).
+
+### Recipe builds (concepts first, the code builds)
+
+Free-form AI placement could not guarantee that a build looks like its name, so Gemini never places a brick. A request goes through
+`backend/recipes/suggest.py`:
+
+1. **Feasible categories**: which kinds of models the pieces support (enough parts, a long enough part, enough studs). Vehicles are never
+   offered: they need wheel sets the 3D grid cannot place yet, and plain bricks are never shown as wheels.
+2. **Concepts (Stage A, `concepts.py`)**: Gemini proposes 10-15 concepts as JSON (name, category, one-line description, silhouette, bounding
+   box in studs, required features), limited to the feasible categories and told they must differ in silhouette and structure, not colour.
+   A name that is just a colour and a category ("Red House") is dropped. Without Gemini, the recipes' own silhouettes and names are used.
+3. **Construction (Stage B)**: a concept goes to a recipe of its category (the recipe library first); the recipe's parameters follow the
+   concept's silhouette and bounding box (the nearest allowed setting); the **filler** tiles it from the inventory (`filler.py`, unchanged
+   rules: largest part first, running bond, parts resting on studs, counts never exceeded) and now prefers the right part role per region:
+   slope bricks for gable roofs (when the inventory has enough), tiles for smooth tops, round bricks and cones for cylinders and trees.
+4. **Checks**: inventory (`can_build`), structure (validator, one connected piece) and the features the concept asked for (`checks.py`).
+   A build that fails is dropped.
+
+    POST /api/builds/recipes   {"parts": [...], "use_ai": true, "match_color": true}  ->  builds (viewer format + recipe + concept info), hints
+    GET  /api/builds/{id}/thumb.png          isometric thumbnail (cached)
+    POST /api/sets/nearby      {"parts": [...], "match_color": true}  ->  "can_build" and "almost" with the missing parts
+    GET  /api/dev/recipe-gallery             every recipe on random inventories (RECIPE_GALLERY=1); page: /recipe-gallery
+
+**Recipes are JSON** (`backend/recipes/specs/*.json`, schema in `schema.py`): named parts, each a primitive shape with an size in studs given
+as an expression, a colour role and a position (`at`, or `attach` on_top_of / in_front_of / behind / beside an earlier part), parameters
+with ranges, silhouette presets, required features and symmetry. Expressions are a tiny safe language (`expr.py`). The primitives
+(`primitives.py`): box, wall_with_window, tapered_box, slope_roof, arch, pillar, leg, cylinder, cone, wing, stairs, head, posts, checker,
+cells, rails and wheel_axle (unsupported). Adding one is a decorated function. There are 17 recipes in 11 buildable categories (building,
+tower, bridge, spacecraft, boat, aircraft, robot, animal, plant, castle, furniture) plus the legacy car, which is kept for the regression
+test (`tests/test_schema_regression.py`: the five converted recipes give byte-identical regions and builds) and never offered.
+
+**Part roles** (`backend/core/partroles.py`, data `backend/data/part_roles.json`) come from Rebrickable's `parts.csv` and
+`part_categories.csv` (`python -m backend.core.fetch_part_roles`, committed): brick, plate, tile, slope, round, cone, arch, wheel, wheelbase ...
+Slopes, round bricks, a cone and round tiles are in the grid with dimensions checked against the LDraw geometry (`tests/test_shapes.py`);
+slopes carry their LDraw origin and the direction they fall to.
+
+**On-demand recipes** (`generate.py`): when too few concepts could be built, Gemini may write a NEW recipe JSON for a concept. Code checks it
+at five stages (schema, fill, inventory, structure+features, recognizability); on failure the specific errors go back for up to 3 repairs;
+a recipe that still fails is dropped. Recognizability renders a thumbnail and asks Gemini vision "What is this LEGO model?" without the name or
+category; every answer is logged (`recognizability.jsonl` in the library folder). Recipes that pass go to the **library**
+(`RECIPE_LIBRARY_DIR`, `library.py`), unless their voxel shape has IoU > 0.6 with a recipe of the same category. Measured run:
+`python -m backend.recipes.study --concepts 30` (pass rate per stage, `docs/study-runs/`). Side by side with the old output:
+`python -m backend.recipes.examples` (`docs/examples/`).
+
+Config: `RECIPE_CONCEPTS` (concepts asked, 12), `RECIPE_LIBRARY_DIR`, `RECIPE_GEN_PER_REQUEST` (new recipes Gemini may write per request, 1;
+0 = never), `RECIPE_GEN_TIMEOUT`, `RECIPE_RECOGNISE`. `AI_FREEFORM_BUILDS` stays off by default and is not developed further.
+
+**Does it look like its name?** `python -m backend.recipes.qa` renders every recipe on 20 random realistic inventories into grids of 4
+(`docs/recipes/qa/`), asks a Gemini vision model "yes / partly / no" per picture and writes `docs/recipes/qa-report.md`.
+
+**Unlock hints.** For recipes whose minimum is not met (parts, area, a long enough part) the response lists the smallest additions; recipes
+that need wheels are never hinted. **Nearby sets** use a part to sets index built once from the Rebrickable CSVs: about 1 ms per inventory.
+
+### Stud detection
+
+Studs look the same whatever the colour of the piece, so `backend/core/studs.py` finds them on every scan: CLAHE +
+`HoughCircles` on a 1024 px copy, each circle validated (rim edge all round, same plastic outside as inside,
+colour against the surface model), the photo's dominant stud radius learnt, and a stud kept only with a same-coloured
+neighbour one pitch (1.67 diameters) away, or with very high confidence (a 1 x 1). Studs are grouped into pieces
+(pitch, orientation, dimensions such as 2 x 4, box). They are used to:
+
+- seed the colour method (`find_pieces_by_colour`): a stud group merges with the colour seeds it sits on, and a pale
+  piece with no colour seed becomes a seed of its own;
+- split boxes that hold two groups of different colour or different lattice, and merge boxes that are parts of one
+  group (a pale piece found as its body plus one box per stud);
+- give each box a stud score. Boxes without studs (tiles, slopes, side-on pieces) are never dropped for that, except
+  small, weakly coloured, stud-less blobs (shadows, folds);
+- hand `stud_count`, `pitch_px`, grid dims and stud radius to `Detection.stud_info` (not part of the API JSON) and to
+  `shadow.analyse(..., stud_info=)`, which then uses the measured pitch as its ruler.
+
+All thresholds are in one `StudConfig` block at the top of `studs.py`. `STUDS_ENABLED=0` switches it off; a failure in
+any stud step is logged and the scan continues without studs. `DETECT_DEBUG_DIR=dir` saves an overlay per scan, and
+`python -m backend.eval_studs` prints before/after counts and overlays for the photos in `tests/real_photos/`.
+
 ## Matching
 
 Official sets are suggested **only if you can build them 100%** with your pieces.
@@ -191,11 +396,35 @@ original spec; they came from real misses on the sample image.
 ## Known limitations
 
 - Touching pieces merge into one detection; spread them apart.
-- Piece detection first assumes the plain sheet reaches the edges of the photo. If that gives an
-  implausible result (e.g. one box covering most of the photo because a wooden table shows around a
-  paper towel), it retries with a colour-based method that copes with uneven light and embossed
-  paper. That fallback finds coloured and dark pieces but can miss pale ones (white, transparent),
-  and ignores anything touching the photo edge. For best results fill the frame with the sheet.
+- OpenCV detection runs two methods and combines them. The background-colour method assumes the
+  border of the photo is the plain surface; it finds white and transparent pieces, but returns junk
+  (e.g. one box for the whole photo) when wood or a table shows around a paper towel, so it is trusted
+  only when its result is plausible. The colour method finds pieces from strongly coloured or dark
+  seeds, copes with uneven light, embossed paper and close neighbours (a yellow brick and a brown
+  round piece 20 px apart stay two pieces, a bar lying on a plate of a different colour stays separate),
+  and splits boxes the first method merged. Its limits: pieces that overlap *and* share a colour merge,
+  pale pieces (white, pale grey, transparent) may get a partial box or be missed when the first method
+  is not trusted, and anything whose solid body touches the photo edge is ignored. For best results
+  fill the frame with the sheet and leave a few centimetres between pieces. `DETECTOR=hybrid` adds
+  Gemini detection on top (see "Piece detection").
+- Background colour: the surface can be light or dark, neutral or coloured, as long as it is one colour
+  all over (wood grain and towel texture are fine). Nothing assumes a white sheet: "is this ordinary
+  surface?" is always answered against the surface the photo actually has. A *surface method* learns
+  it (k-means in Lab colour; the largest cluster plus clusters of similar chroma and lightness, which
+  absorbs grain) and treats whatever differs as a piece. It always runs. When over a third of the photo
+  is strongly saturated or very dark (wood, black cloth) it is the only method; otherwise it fills gaps
+  the colour methods leave (white/grey pieces on a coloured surface) but never adds a blob that merely
+  surrounds pieces already found, and overlapping fragments of one piece are joined.
+  `tests/background_sweep.py` generates the same nine pieces (white to black, with shadows, noise and a
+  lighting gradient) on 62 uniform backgrounds and `tests/test_backgrounds.py` runs them all: 58 are
+  perfect. Known limits (also listed in the test): a **black piece on a mid-brightness saturated
+  surface** is about the colour of that surface's deep shadows and can be missed; a piece nearly the
+  colour of the surface (green on bright green) is missed; a dark grey piece on a mid-dark saturated
+  blue surface can split in two. Shadows are included in boxes and pieces that touch can merge.
+- Brick vs plate: from straight above the two look alike, so recognition sometimes calls a brick a
+  plate (or the reverse) with high confidence. The app does not try to correct this; the user can pick
+  the other one under "Change part". (An experimental shadow-based check exists in
+  `backend/core/shadow.py` but is not used by the app.)
 - Minifigure parts may not match set inventories (e.g. BrickLink `970c00` hips+legs
   assemblies have no Rebrickable equivalent, so they stay unmapped).
 - Random piles rarely complete a whole set, so with the 100% rule most mixed piles get no official
@@ -230,3 +459,9 @@ original spec; they came from real misses on the sample image.
 
 The original scripts still work: `python recognize_pieces.py lego_pieces.jpg --debug`
 then `python suggest_builds.py parts_list.csv` (they now import from `backend/core/`).
+
+## Detection: masks, split and merge rules
+
+Every OpenCV detection is a mask (`backend/core/segment.py`). A connected region is one piece unless a split rule has evidence (seam, stud grids, colour, shape, size); neighbours that are really one piece are merged and re-checked; a split the evidence only just supports is flagged and settled by a Brickognize tie-break (at most `SEG_MAX_TIEBREAKS` per scan), otherwise shown as "check this". In the review screen, "Merge" and "Split" fix what is left; each correction is stored in `corrections/` (git-ignored) for the test set. All thresholds, with defaults, are in `docs/detection/metrics.md` and can be overridden with `SEG_<NAME>` environment variables. Before/after metrics and debug overlays: `python -m tests.detection.report`.
+
+The detector engine is chosen with `DETECT_ENGINE`: `mask` (the default: the mask pipeline above, `analyse_masks`) or `legacy` (the earlier box logic). Merge / Split in the review screen work with both.

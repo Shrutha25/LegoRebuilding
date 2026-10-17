@@ -1,0 +1,1023 @@
+{
+ "inventory": {
+  "seed": 5,
+  "size": 140,
+  "parts": 140,
+  "colours": [
+   "Lime",
+   "Reddish Brown",
+   "Black",
+   "Dark Red"
+  ]
+ },
+ "concepts": [
+  {
+   "name": "Stealth Interceptor",
+   "category": "aircraft",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: fuselage (12/16 studs filled, needs 90%), wings (0/24 studs filled, needs 90%), cockpit (0/4 studs filled, needs 90%), tail-fin (0/5 studs filled, needs 90%), nose (0/4 studs filled, needs 90%); nothing at all of wings, cockpit, tail-fin, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'tail-fin': attach.anchor must be one of ('center', 'start', 'end'), got 'back'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: fuselage (12/16 studs filled, needs 90%), wings (0/24 studs filled, needs 90%), cockpit (0/4 studs filled, needs 90%), tail-fin (0/5 studs filled, needs 90%), nose (0/4 studs filled, needs 90%); nothing at all of wings, cockpit, tail-fin, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'span': 8}: required parts could not be filled from the inventory: wings (0/24 studs filled, needs 90%), cockpit (0/4 studs filled, needs 90%), tail-fin (0/5 studs filled, needs 90%), nose (0/8 studs filled, needs 90%); nothing at all of wings, cockpit, tail-fin, nose could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Skyward Predator",
+   "category": "aircraft",
+   "silhouette": "spread",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "recognizability",
+     "errors": [
+      "A viewer shown only a picture of the model said it looks like 'A log bridge', not a aircraft. Make the shape clearly a aircraft (Skyward Predator): add its characteristic parts and proportions."
+     ],
+     "answer": "A log bridge",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'nose': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'front_of'",
+      "part 'intake_l': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'left_of'",
+      "part 'intake_r': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'right_of'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Mossy Forest Fox",
+   "category": "animal",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'width': 4, 'height': 2}: required parts could not be filled from the inventory: legs (1/4 studs filled, needs 90%), body (0/32 studs filled, needs 90%), neck (0/1 studs filled, needs 90%), head (0/8 studs filled, needs 90%), tail (0/4 studs filled, needs 90%); nothing at all of body, neck, head, tail could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'legs_front': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'",
+      "part 'legs_back': attach.rel must be one of ('on_top_of', 'in_front_of', 'behind', 'beside', 'at'), got 'under'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 8, 'width': 4, 'height': 2}: required parts could not be filled from the inventory: legs_front (0/1 studs filled, needs 90%), legs_back (0/1 studs filled, needs 90%); nothing at all of legs_front, legs_back could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 3,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Sentry Sentinel",
+   "category": "animal",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Coastal Skiff",
+   "category": "boat",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Obsidian Viaduct",
+   "category": "bridge",
+   "silhouette": "arch",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Riverside Quay",
+   "category": "bridge",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "structure",
+     "errors": [
+      "with {'width': 6, 'span': 8, 'height': 2}: the build falls into 3 separate pieces; every brick must connect to the rest through studs"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "with {'width': 4, 'span': 4, 'height': 1}: not allowed in a recipe expression: 'span/2-1'",
+      "with {'width': 5, 'span': 6, 'height': 1}: not allowed in a recipe expression: 'span/2-1'",
+      "with {'width': 6, 'span': 8, 'height': 2}: not allowed in a recipe expression: 'span/2-1'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Warden's Keep",
+   "category": "building",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Ironclad Stronghold",
+   "category": "castle",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "High Throne",
+   "category": "furniture",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Ancient Pine",
+   "category": "plant",
+   "silhouette": "tapering",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 6, 'height': 8}: required parts could not be filled from the inventory: crown (40/56 studs filled, needs 90%)"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Industrial Assembler",
+   "category": "robot",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Interstellar Scout",
+   "category": "spacecraft",
+   "silhouette": "tapering",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Signal Relay Obelisk",
+   "category": "tower",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "schema",
+     "errors": [
+      "feature 'bands' lists parts that do not exist: ['band-0', 'band-1', 'band-2']; the parts are ['band-', 'crenellations', 'foundation', 'shaft']"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Market Gazebo",
+   "category": "building",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'width': 8, 'depth': 8}: required parts could not be filled from the inventory: base (12/64 studs filled, needs 90%), pillar2 (0/3 studs filled, needs 90%), pillar3 (0/3 studs filled, needs 90%), pillar4 (0/3 studs filled, needs 90%), arch1 (0/14 studs filled, needs 90%), roof_base (12/64 studs filled, needs 90%), parapet (5/32 studs filled, needs 90%); nothing at all of pillar2, pillar3, pillar4, arch1 could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Cliffside Hermitage",
+   "category": "building",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": true,
+   "stored": true,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": null,
+     "errors": [],
+     "answer": "A small house",
+     "reached": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "passed": [
+      "schema",
+      "fill",
+      "inventory",
+      "structure",
+      "recognizability"
+     ],
+     "skipped": [],
+     "service_error": false
+    }
+   ]
+  },
+  {
+   "name": "Fortified Outpost",
+   "category": "castle",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Meadow Watchtower",
+   "category": "tower",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Arboreal Fern",
+   "category": "plant",
+   "silhouette": "spread",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Swamp Crawler",
+   "category": "robot",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Deep Sea Vessel",
+   "category": "boat",
+   "silhouette": "long-low",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Highland Ravine Crossing",
+   "category": "bridge",
+   "silhouette": "arch",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Stellar Scout",
+   "category": "spacecraft",
+   "silhouette": "tapering",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is having trouble right now. Please try again."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Armored Transport",
+   "category": "aircraft",
+   "silhouette": "spread",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "fill",
+     "errors": [
+      "with {'length': 10, 'span': 8, 'height': 3}: required parts could not be filled from the inventory: wing-main (0/20 studs filled, needs 90%), tail-stab (0/6 studs filled, needs 90%), cockpit (0/4 studs filled, needs 90%); nothing at all of wing-main, tail-stab, cockpit could be placed: a part above the ground must overlap the top of an earlier part, so give it an 'attach' on_top_of that part or an 'at' whose y is where that part ends"
+     ],
+     "answer": null,
+     "reached": [
+      "schema",
+      "fill"
+     ],
+     "passed": [
+      "schema"
+     ],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 1,
+     "stage": "schema",
+     "errors": [
+      "part 'tail-stab': attach.anchor must be one of ('center', 'start', 'end'), got 'back'",
+      "part 'cockpit': attach.anchor must be one of ('center', 'start', 'end'), got 'front'"
+     ],
+     "answer": null,
+     "reached": [
+      "schema"
+     ],
+     "passed": [],
+     "skipped": [],
+     "service_error": false
+    },
+    {
+     "n": 2,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Stone Golem",
+   "category": "animal",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Oak Study Chair",
+   "category": "furniture",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Coastal Watchhouse",
+   "category": "building",
+   "silhouette": "wide-squat",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Bridge Gatehouse",
+   "category": "castle",
+   "silhouette": "arch",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Orbital Relay",
+   "category": "spacecraft",
+   "silhouette": "compact",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  },
+  {
+   "name": "Articulated Walker",
+   "category": "robot",
+   "silhouette": "tall-narrow",
+   "source": "gemini",
+   "ok": false,
+   "stored": false,
+   "store_note": "",
+   "attempts": [
+    {
+     "n": 0,
+     "stage": "gemini",
+     "errors": [
+      "Gemini failed: IdeasError: The AI service is at its usage limit right now. Please try again in a minute, or tomorrow if the daily limit is used up."
+     ],
+     "answer": null,
+     "reached": [],
+     "passed": [],
+     "skipped": [],
+     "service_error": true
+    }
+   ]
+  }
+ ],
+ "pass_rates": {
+  "schema": {
+   "attempts_reached": 17,
+   "attempts_passed": 11,
+   "concepts_passed": 8,
+   "concepts_passed_first_try": 8,
+   "concepts": 9,
+   "skipped": 0
+  },
+  "fill": {
+   "attempts_reached": 11,
+   "attempts_passed": 3,
+   "concepts_passed": 3,
+   "concepts_passed_first_try": 3,
+   "concepts": 9,
+   "skipped": 0
+  },
+  "inventory": {
+   "attempts_reached": 3,
+   "attempts_passed": 3,
+   "concepts_passed": 3,
+   "concepts_passed_first_try": 3,
+   "concepts": 9,
+   "skipped": 0
+  },
+  "structure": {
+   "attempts_reached": 3,
+   "attempts_passed": 2,
+   "concepts_passed": 2,
+   "concepts_passed_first_try": 2,
+   "concepts": 9,
+   "skipped": 0
+  },
+  "recognizability": {
+   "attempts_reached": 2,
+   "attempts_passed": 1,
+   "concepts_passed": 1,
+   "concepts_passed_first_try": 1,
+   "concepts": 9,
+   "skipped": 0
+  },
+  "final": {
+   "ok": 1,
+   "concepts": 30,
+   "stored": 1,
+   "recipe_calls": 45,
+   "gemini_service_errors": 28,
+   "concepts_without_a_working_gemini": 21
+  }
+ }
+}
