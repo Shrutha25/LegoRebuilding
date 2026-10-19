@@ -11,13 +11,13 @@ import type { BuildMeta } from "@/lib/build";
  * checks that every brick reaches the ground). Nothing here ships: the routes return 404 outside `next dev`.
  */
 type Design = {
-  id: string; gid: string; thumb: string; prompt: string; category: string; seed: number; bricks: number; seconds: number;
+  id: string; gid: string; thumb: string; tag: string; prompt: string; category: string; seed: number; bricks: number; seconds: number;
   rollbacks: number; connected: boolean; single_piece: boolean; linked_pieces: number; linked_sizes: number[];
 };
 type Decision = "approved" | "rejected";
-type Filter = "all" | "undecided" | "approved" | "rejected" | "not-one-piece";
+type Filter = "all" | "undecided" | "approved" | "rejected" | "standard" | "small" | "not-one-piece";
 
-const FILTERS: [Filter, string][] = [["all", "All"], ["undecided", "Undecided"], ["approved", "Approved"], ["rejected", "Rejected"], ["not-one-piece", "Not one piece"]];
+const FILTERS: [Filter, string][] = [["all", "All"], ["undecided", "Undecided"], ["approved", "Approved"], ["rejected", "Rejected"], ["standard", "Standard"], ["small", "Small"], ["not-one-piece", "Not one piece"]];
 
 export default function Curate() {
   const [designs, setDesigns] = useState<Design[] | null>(null);
@@ -64,6 +64,8 @@ export default function Curate() {
       undecided: all.filter((d) => !decisions[d.id]).length,
       approved: all.filter((d) => decisions[d.id] === "approved").length,
       rejected: all.filter((d) => decisions[d.id] === "rejected").length,
+      standard: all.filter((d) => d.tag === "standard").length,
+      small: all.filter((d) => d.tag === "small").length,
       "not-one-piece": all.filter((d) => !d.single_piece).length,
     } satisfies Record<Filter, number>;
   }, [designs, decisions]);
@@ -71,7 +73,11 @@ export default function Curate() {
   const shown = useMemo(
     () =>
       (designs ?? []).filter((d) =>
-        filter === "all" ? true : filter === "undecided" ? !decisions[d.id] : filter === "not-one-piece" ? !d.single_piece : decisions[d.id] === filter,
+        filter === "all" ? true
+        : filter === "undecided" ? !decisions[d.id]
+        : filter === "not-one-piece" ? !d.single_piece
+        : filter === "standard" || filter === "small" ? d.tag === filter
+        : decisions[d.id] === filter,
       ),
     [designs, decisions, filter],
   );
@@ -112,6 +118,7 @@ export default function Curate() {
               <img src={d.thumb} alt={`${d.category}, seed ${d.seed}`} className="aspect-[13/11] w-full rounded-xl bg-white object-contain" />
               <p className="mt-2 text-sm font-bold">
                 {d.category} <span className="font-normal text-zinc-500">· seed {d.seed}</span>
+                {d.tag === "small" && <span className="ml-2 rounded-full bg-black/10 px-2 py-0.5 text-[10px] font-bold uppercase">small</span>}
               </p>
               <p className="line-clamp-2 text-[11px] text-zinc-500">{d.prompt}</p>
               <p className="mt-1 text-xs text-muted">

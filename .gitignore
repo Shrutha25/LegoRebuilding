@@ -35,3 +35,6 @@ experiments/brickgpt/repo/
 experiments/brickgpt/gallery/
 experiments/brickgpt/*.log
 experiments/brickgpt/library/
+
+# BrickGPT experiment: downloaded StableText2Brick parquet files and the converted dataset library
+experiments/brickgpt/dataset/

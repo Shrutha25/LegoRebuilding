@@ -1,0 +1,19 @@
+{
+  "part_ids": {"3005": "1x1", "3004": "1x2", "3010": "1x4", "3009": "1x6", "3008": "1x8", "3003": "2x2", "3001": "2x4", "2456": "2x6"},
+  "max_bricks": 60,
+  "max_bbox": [20, 20, 20],
+  "analyse_max_bricks": 80,
+  "report_cutoffs": [40, 50, 60, 80],
+  "min_caption_chars": 3,
+  "min_stability": null,
+  "dedupe": {"bbox_tolerance": 1},
+  "shortlist_max": 400,
+  "near_missing_max": 3,
+  "synsets": {
+    "02801938": "basket", "02818832": "bed", "02828884": "bench", "02843684": "birdhouse", "02871439": "bookshelf",
+    "02876657": "bottle", "02880940": "bowl", "02924116": "bus", "02942699": "camera", "02958343": "car",
+    "03001627": "chair", "03467517": "guitar", "03593526": "jar", "03797390": "mug", "03928116": "piano",
+    "03991062": "flowerpot", "04256520": "sofa", "04379243": "table", "04460130": "tower", "04468005": "train",
+    "04530566": "watercraft"
+  }
+}

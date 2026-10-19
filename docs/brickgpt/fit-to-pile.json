@@ -1,24 +1,100 @@
 {
  "summary": {
-  "real_pile": {
+  "real_pile/all": {
+   "designs": 43,
    "buildable": 0,
-   "nearly": 1,
-   "within_10": 2
-  },
-  "small": {
-   "buildable": 1,
-   "nearly": 0,
+   "buildable_one_piece": 0,
+   "nearly": 2,
+   "nearly_one_piece_if_bought": 2,
    "within_10": 3
   },
-  "medium": {
+  "real_pile/standard": {
+   "designs": 32,
+   "buildable": 0,
+   "buildable_one_piece": 0,
+   "nearly": 1,
+   "nearly_one_piece_if_bought": 1,
+   "within_10": 2
+  },
+  "real_pile/small": {
+   "designs": 11,
+   "buildable": 0,
+   "buildable_one_piece": 0,
+   "nearly": 1,
+   "nearly_one_piece_if_bought": 1,
+   "within_10": 1
+  },
+  "small/all": {
+   "designs": 43,
    "buildable": 2,
+   "buildable_one_piece": 2,
+   "nearly": 0,
+   "nearly_one_piece_if_bought": 0,
+   "within_10": 4
+  },
+  "small/standard": {
+   "designs": 32,
+   "buildable": 1,
+   "buildable_one_piece": 1,
+   "nearly": 0,
+   "nearly_one_piece_if_bought": 0,
+   "within_10": 3
+  },
+  "small/small": {
+   "designs": 11,
+   "buildable": 1,
+   "buildable_one_piece": 1,
+   "nearly": 0,
+   "nearly_one_piece_if_bought": 0,
+   "within_10": 1
+  },
+  "medium/all": {
+   "designs": 43,
+   "buildable": 4,
+   "buildable_one_piece": 4,
+   "nearly": 4,
+   "nearly_one_piece_if_bought": 4,
+   "within_10": 12
+  },
+  "medium/standard": {
+   "designs": 32,
+   "buildable": 2,
+   "buildable_one_piece": 2,
    "nearly": 2,
+   "nearly_one_piece_if_bought": 2,
    "within_10": 5
   },
-  "large": {
-   "buildable": 6,
-   "nearly": 0,
+  "medium/small": {
+   "designs": 11,
+   "buildable": 2,
+   "buildable_one_piece": 2,
+   "nearly": 2,
+   "nearly_one_piece_if_bought": 2,
    "within_10": 7
+  },
+  "large/all": {
+   "designs": 43,
+   "buildable": 15,
+   "buildable_one_piece": 15,
+   "nearly": 1,
+   "nearly_one_piece_if_bought": 1,
+   "within_10": 17
+  },
+  "large/standard": {
+   "designs": 32,
+   "buildable": 6,
+   "buildable_one_piece": 6,
+   "nearly": 0,
+   "nearly_one_piece_if_bought": 0,
+   "within_10": 7
+  },
+  "large/small": {
+   "designs": 11,
+   "buildable": 9,
+   "buildable_one_piece": 9,
+   "nearly": 1,
+   "nearly_one_piece_if_bought": 1,
+   "within_10": 10
   }
  },
  "pile_bricks": {
@@ -30,26 +106,89 @@
  "rows": [
   {
    "id": "train-s44",
+   "tag": "standard",
    "bricks": 8,
    "real_pile": {
     "covered": 7,
-    "missing": 1
+    "missing": 1,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    },
    "small": {
     "covered": 8,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    },
    "medium": {
     "covered": 8,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    },
    "large": {
     "covered": 8,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
+   "id": "train-small-s44",
+   "tag": "small",
+   "bricks": 8,
+   "real_pile": {
+    "covered": 7,
+    "missing": 1,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   },
+   "small": {
+    "covered": 8,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   },
+   "medium": {
+    "covered": 8,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   },
+   "large": {
+    "covered": 8,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    }
   },
   {
    "id": "guitar-s43",
+   "tag": "standard",
    "bricks": 18,
    "real_pile": {
     "covered": 8,
@@ -61,15 +200,26 @@
    },
    "medium": {
     "covered": 14,
-    "missing": 4
+    "missing": 4,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": false,
+     "tries": 300
+    }
    },
    "large": {
     "covered": 18,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    }
   },
   {
    "id": "guitar-s42",
+   "tag": "standard",
    "bricks": 19,
    "real_pile": {
     "covered": 8,
@@ -81,15 +231,119 @@
    },
    "medium": {
     "covered": 19,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    },
    "large": {
     "covered": 19,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
+   "id": "guitar-small-s42",
+   "tag": "small",
+   "bricks": 22,
+   "real_pile": {
+    "covered": 8,
+    "missing": 14
+   },
+   "small": {
+    "covered": 9,
+    "missing": 13
+   },
+   "medium": {
+    "covered": 22,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   },
+   "large": {
+    "covered": 22,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
+   "id": "guitar-small-s43",
+   "tag": "small",
+   "bricks": 24,
+   "real_pile": {
+    "covered": 9,
+    "missing": 15
+   },
+   "small": {
+    "covered": 11,
+    "missing": 13
+   },
+   "medium": {
+    "covered": 23,
+    "missing": 1,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 5
+    }
+   },
+   "large": {
+    "covered": 24,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
+   "id": "bench-small-s42",
+   "tag": "small",
+   "bricks": 28,
+   "real_pile": {
+    "covered": 9,
+    "missing": 19
+   },
+   "small": {
+    "covered": 9,
+    "missing": 19
+   },
+   "medium": {
+    "covered": 25,
+    "missing": 3,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 4
+    }
+   },
+   "large": {
+    "covered": 28,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    }
   },
   {
    "id": "guitar-s44",
+   "tag": "standard",
    "bricks": 30,
    "real_pile": {
     "covered": 9,
@@ -101,15 +355,78 @@
    },
    "medium": {
     "covered": 25,
-    "missing": 5
+    "missing": 5,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 4
+    }
    },
    "large": {
     "covered": 30,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
+   "id": "bus-small-s43",
+   "tag": "small",
+   "bricks": 33,
+   "real_pile": {
+    "covered": 9,
+    "missing": 24
+   },
+   "small": {
+    "covered": 9,
+    "missing": 24
+   },
+   "medium": {
+    "covered": 26,
+    "missing": 7
+   },
+   "large": {
+    "covered": 33,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
+   "id": "train-small-s43",
+   "tag": "small",
+   "bricks": 33,
+   "real_pile": {
+    "covered": 10,
+    "missing": 23
+   },
+   "small": {
+    "covered": 10,
+    "missing": 23
+   },
+   "medium": {
+    "covered": 25,
+    "missing": 8
+   },
+   "large": {
+    "covered": 33,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    }
   },
   {
    "id": "bench-s42",
+   "tag": "standard",
    "bricks": 35,
    "real_pile": {
     "covered": 9,
@@ -125,11 +442,69 @@
    },
    "large": {
     "covered": 35,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
+   "id": "bus-small-s44",
+   "tag": "small",
+   "bricks": 35,
+   "real_pile": {
+    "covered": 8,
+    "missing": 27
+   },
+   "small": {
+    "covered": 7,
+    "missing": 28
+   },
+   "medium": {
+    "covered": 23,
+    "missing": 12
+   },
+   "large": {
+    "covered": 35,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
+   "id": "bench-small-s43",
+   "tag": "small",
+   "bricks": 38,
+   "real_pile": {
+    "covered": 10,
+    "missing": 28
+   },
+   "small": {
+    "covered": 11,
+    "missing": 27
+   },
+   "medium": {
+    "covered": 32,
+    "missing": 6
+   },
+   "large": {
+    "covered": 38,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    }
   },
   {
    "id": "bus-s44",
+   "tag": "standard",
    "bricks": 40,
    "real_pile": {
     "covered": 9,
@@ -145,11 +520,17 @@
    },
    "large": {
     "covered": 40,
-    "missing": 0
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
    }
   },
   {
    "id": "bench-s43",
+   "tag": "standard",
    "bricks": 53,
    "real_pile": {
     "covered": 10,
@@ -169,7 +550,55 @@
    }
   },
   {
+   "id": "guitar-small-s44",
+   "tag": "small",
+   "bricks": 53,
+   "real_pile": {
+    "covered": 9,
+    "missing": 44
+   },
+   "small": {
+    "covered": 9,
+    "missing": 44
+   },
+   "medium": {
+    "covered": 27,
+    "missing": 26
+   },
+   "large": {
+    "covered": 39,
+    "missing": 14
+   }
+  },
+  {
+   "id": "chair-small-s44",
+   "tag": "small",
+   "bricks": 55,
+   "real_pile": {
+    "covered": 8,
+    "missing": 47
+   },
+   "small": {
+    "covered": 8,
+    "missing": 47
+   },
+   "medium": {
+    "covered": 28,
+    "missing": 27
+   },
+   "large": {
+    "covered": 55,
+    "missing": 0,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 1
+    }
+   }
+  },
+  {
    "id": "train-s43",
+   "tag": "standard",
    "bricks": 56,
    "real_pile": {
     "covered": 8,
@@ -189,7 +618,34 @@
    }
   },
   {
+   "id": "piano-small-s44",
+   "tag": "small",
+   "bricks": 57,
+   "real_pile": {
+    "covered": 11,
+    "missing": 46
+   },
+   "small": {
+    "covered": 12,
+    "missing": 45
+   },
+   "medium": {
+    "covered": 35,
+    "missing": 22
+   },
+   "large": {
+    "covered": 56,
+    "missing": 1,
+    "one_piece": {
+     "as_bought": true,
+     "as_built": true,
+     "tries": 3
+    }
+   }
+  },
+  {
    "id": "bus-s43",
+   "tag": "standard",
    "bricks": 64,
    "real_pile": {
     "covered": 9,
@@ -210,6 +666,7 @@
   },
   {
    "id": "tower-s44",
+   "tag": "standard",
    "bricks": 68,
    "real_pile": {
     "covered": 6,
@@ -230,6 +687,7 @@
   },
   {
    "id": "car-s44",
+   "tag": "standard",
    "bricks": 69,
    "real_pile": {
     "covered": 11,
@@ -250,6 +708,7 @@
   },
   {
    "id": "train-s42",
+   "tag": "standard",
    "bricks": 69,
    "real_pile": {
     "covered": 11,
@@ -270,6 +729,7 @@
   },
   {
    "id": "sofa-s44",
+   "tag": "standard",
    "bricks": 78,
    "real_pile": {
     "covered": 10,
@@ -290,6 +750,7 @@
   },
   {
    "id": "chair-s43",
+   "tag": "standard",
    "bricks": 79,
    "real_pile": {
     "covered": 11,
@@ -310,6 +771,7 @@
   },
   {
    "id": "chair-s44",
+   "tag": "standard",
    "bricks": 79,
    "real_pile": {
     "covered": 6,
@@ -330,6 +792,7 @@
   },
   {
    "id": "car-s43",
+   "tag": "standard",
    "bricks": 81,
    "real_pile": {
     "covered": 11,
@@ -350,6 +813,7 @@
   },
   {
    "id": "chair-s42",
+   "tag": "standard",
    "bricks": 83,
    "real_pile": {
     "covered": 9,
@@ -370,6 +834,7 @@
   },
   {
    "id": "table-s44",
+   "tag": "standard",
    "bricks": 83,
    "real_pile": {
     "covered": 7,
@@ -390,6 +855,7 @@
   },
   {
    "id": "piano-s42",
+   "tag": "standard",
    "bricks": 85,
    "real_pile": {
     "covered": 11,
@@ -410,6 +876,7 @@
   },
   {
    "id": "bed-s42",
+   "tag": "standard",
    "bricks": 89,
    "real_pile": {
     "covered": 10,
@@ -430,6 +897,7 @@
   },
   {
    "id": "table-s43",
+   "tag": "standard",
    "bricks": 92,
    "real_pile": {
     "covered": 10,
@@ -450,6 +918,7 @@
   },
   {
    "id": "tower-s43",
+   "tag": "standard",
    "bricks": 99,
    "real_pile": {
     "covered": 3,
@@ -470,6 +939,7 @@
   },
   {
    "id": "sofa-s42",
+   "tag": "standard",
    "bricks": 100,
    "real_pile": {
     "covered": 11,
@@ -490,6 +960,7 @@
   },
   {
    "id": "bookshelf-s42",
+   "tag": "standard",
    "bricks": 110,
    "real_pile": {
     "covered": 9,
@@ -510,6 +981,7 @@
   },
   {
    "id": "piano-s44",
+   "tag": "standard",
    "bricks": 115,
    "real_pile": {
     "covered": 11,
@@ -530,6 +1002,7 @@
   },
   {
    "id": "birdhouse-s44",
+   "tag": "standard",
    "bricks": 133,
    "real_pile": {
     "covered": 11,
@@ -550,6 +1023,7 @@
   },
   {
    "id": "tower-s42",
+   "tag": "standard",
    "bricks": 138,
    "real_pile": {
     "covered": 11,
@@ -570,6 +1044,7 @@
   },
   {
    "id": "bookshelf-s44",
+   "tag": "standard",
    "bricks": 147,
    "real_pile": {
     "covered": 7,
@@ -590,6 +1065,7 @@
   },
   {
    "id": "sofa-s43",
+   "tag": "standard",
    "bricks": 157,
    "real_pile": {
     "covered": 11,
@@ -610,6 +1086,7 @@
   },
   {
    "id": "piano-s43",
+   "tag": "standard",
    "bricks": 162,
    "real_pile": {
     "covered": 11,
@@ -630,6 +1107,7 @@
   },
   {
    "id": "table-s42",
+   "tag": "standard",
    "bricks": 191,
    "real_pile": {
     "covered": 11,
@@ -650,6 +1128,7 @@
   },
   {
    "id": "bookshelf-s43",
+   "tag": "standard",
    "bricks": 294,
    "real_pile": {
     "covered": 11,

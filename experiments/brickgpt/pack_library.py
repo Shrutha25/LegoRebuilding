@@ -68,13 +68,13 @@ def main():
         (GALLERY / f"{gid}.mpd").write_text(lib.pack(text))
         (GALLERY / f"{gid}.lite.mpd").write_text(lib.pack(text, drop_conditional=True))
         run = {k: v for k, v in rec.items() if k != "brick_list"}
-        meta = {"kind": "ai", "title": f"AI design: {rec['category']} (seed {rec['seed']})", "description": rec["prompt"], "attribution": None,
+        meta = {"kind": "ai", "title": f"AI design: {rec['category']} ({rec.get('tag', 'standard')}, seed {rec['seed']})", "description": rec["prompt"], "attribution": None,
                 "repairs": [], "warnings": [], "id": f"brickgpt-{gid}", "steps": step_meta(bricks, [COLOUR] * len(bricks), steps, ld),
                 "step_count": len(steps), "part_count": len(bricks), "missing_files": [],
                 "model_url": f"/brickgpt-files/{gid}.mpd", "lite_model_url": f"/brickgpt-files/{gid}.lite.mpd", "run": run}
         (GALLERY / f"{gid}.meta.json").write_text(json.dumps(meta, indent=1))
         thumbnail(bricks, GALLERY / f"{gid}.png")
-        index.append({**run, "gid": gid, "thumb": f"/brickgpt-files/{gid}.png"})
+        index.append({**run, "tag": rec.get("tag", "standard"), "gid": gid, "thumb": f"/brickgpt-files/{gid}.png"})
     (GALLERY / "library-index.json").write_text(json.dumps(index, indent=1))
     print("packed", len(index), "one-piece designs")
 

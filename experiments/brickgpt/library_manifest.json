@@ -1,0 +1,65 @@
+{
+ "dataset": "AvaLovelace/StableText2Brick",
+ "splits": {
+  "test": 4785,
+  "train": 42604
+ },
+ "indexed": {
+  "dataset": 47389,
+  "brickgpt_generated": 54,
+  "skipped_unsupported": null
+ },
+ "dataset_structures_with_total_bricks_at_most": {
+  "40": 4474,
+  "50": 6764,
+  "60": 9843,
+  "80": 18171
+ },
+ "within_max_bricks": {
+  "max_bricks": 60,
+  "dataset": 9843,
+  "dataset_single_piece": 9057
+ },
+ "shortlist": {
+  "total": 400,
+  "by_source": {
+   "dataset": 382,
+   "brickgpt_generated": 18
+  },
+  "by_category": {
+   "basket": 3,
+   "bed": 5,
+   "bench": 30,
+   "birdhouse": 10,
+   "bookshelf": 30,
+   "bottle": 5,
+   "bus": 30,
+   "camera": 1,
+   "car": 30,
+   "chair": 30,
+   "flowerpot": 19,
+   "guitar": 30,
+   "jar": 5,
+   "piano": 30,
+   "sofa": 30,
+   "table": 30,
+   "tower": 22,
+   "train": 30,
+   "watercraft": 30
+  }
+ },
+ "config": {
+  "max_bricks": 60,
+  "max_bbox": [
+   20,
+   20,
+   20
+  ],
+  "analyse_max_bricks": 80,
+  "min_stability": null,
+  "dedupe": {
+   "bbox_tolerance": 1
+  },
+  "shortlist_max": 400
+ }
+}
