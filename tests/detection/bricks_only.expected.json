@@ -1,0 +1,115 @@
+{
+ "photo": "bricks_only.jpeg",
+ "source": "bricks_only.txt (hand-checked): 16 bricks",
+ "pieces_total": 16,
+ "pieces": [
+  {
+   "part_id": "2456",
+   "colour": "Red",
+   "qty": 2,
+   "txt": "2x6 red brick"
+  },
+  {
+   "part_id": "3001",
+   "colour": "Red",
+   "qty": 2,
+   "txt": "2x4 red brick"
+  },
+  {
+   "part_id": "2456",
+   "colour": "Dark Bluish Gray",
+   "qty": 1,
+   "txt": "2x6 grey brick"
+  },
+  {
+   "part_id": "3001",
+   "colour": "Blue",
+   "qty": 1,
+   "txt": "2x4 blue brick"
+  },
+  {
+   "part_id": "3010",
+   "colour": "Medium Azure",
+   "qty": 1,
+   "txt": "1x4 medium azure brick"
+  },
+  {
+   "part_id": "3002",
+   "colour": "Lime",
+   "qty": 1,
+   "txt": "2x3 lime brick"
+  },
+  {
+   "part_id": "3622",
+   "colour": "Yellow",
+   "qty": 1,
+   "txt": "1x3 yellow brick"
+  },
+  {
+   "part_id": "3003",
+   "colour": "Bright Light Yellow",
+   "qty": 1,
+   "txt": "2x2 bright yellow brick"
+  },
+  {
+   "part_id": "3003",
+   "colour": "Reddish Brown",
+   "qty": 1,
+   "txt": "2x2 brown brick"
+  },
+  {
+   "part_id": "3004",
+   "colour": "Yellowish Green",
+   "qty": 1,
+   "txt": "1x2 yellowish green brick"
+  },
+  {
+   "part_id": "87087",
+   "colour": null,
+   "qty": 1,
+   "txt": "1x1 modified with stud on side"
+  },
+  {
+   "part_id": "11211",
+   "colour": null,
+   "qty": 1,
+   "txt": "1x2 modified with studs on 1 side"
+  },
+  {
+   "part_id": "3700",
+   "colour": null,
+   "qty": 1,
+   "txt": "1x2 technic, brick with hole"
+  },
+  {
+   "part_id": "3009",
+   "colour": "Yellow",
+   "qty": 1,
+   "txt": "1x6 yellow brick"
+  }
+ ],
+ "known_failures": [
+  {
+   "id": "grey-2x6-split",
+   "status": "open, belongs with the split/merge work (not to be fixed here)",
+   "what": "the grey 2x6 is detected as three overlapping pieces: the 2x6 itself, an extra 2x4 (Light Bluish Gray) and an extra Wedge 10x2x2 Left (77180, score 0.41, flagged for review)",
+   "recorded": "18 detections for 16 bricks"
+  }
+ ],
+ "known_colour_errors": [
+  {
+   "piece": "2x4 blue",
+   "expected": "Blue",
+   "scanned": "Medium Azure",
+   "status": "logged only, colour code not changed"
+  },
+  {
+   "piece": "2x2 brown",
+   "expected": "Reddish Brown",
+   "scanned": "Orange",
+   "status": "logged only, colour code not changed",
+   "likely_cause": "the colour is averaged over shiny highlight pixels",
+   "idea": "ignore glare pixels (very bright, low saturation) and take the median of the rest"
+  }
+ ]
+}
