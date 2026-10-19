@@ -155,12 +155,13 @@ def test_warm_up_builds_the_nearby_and_omr_indexes_before_the_first_request(tmp_
     monkeypatch.setattr(builds_api, "_matcher", None)
     monkeypatch.setitem(builds_api._omr, "index", None)
     monkeypatch.setattr(builds_api, "_service", None)
-    monkeypatch.setattr(builds_api, "_warm", {"nearby": False, "omr": False, "service": False, "seconds": {}})
+    monkeypatch.setattr(builds_api, "_warm", {"nearby": False, "omr": False, "service": False, "examples": False, "seconds": {}})
+    monkeypatch.setattr(builds_api, "_load_examples", lambda: None)
     monkeypatch.setitem(builds_api._deps, "store", store)
     builds_api.warm_indexes(store, wait=5)
     st = builds_api.warm_status()
     assert st["nearby"] and st["omr"] and builds_api._matcher is not None and st["omr_sub_builds"] == 2
-    assert set(st["seconds"]) == {"nearby", "omr", "service"}
+    assert set(st["seconds"]) == {"nearby", "omr", "service", "examples"}
 
 
 def test_a_post_right_after_start_up_does_not_build_anything(client, monkeypatch):

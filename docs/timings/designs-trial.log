@@ -1,0 +1,48 @@
+server ready: {'nearby': True, 'omr': True, 'service': True, 'examples': True, 'omr_sub_builds': 5504, 'seconds': {'nearby': 1.43, 'service': 0.14, 'omr': 0.26, 'examples': 0.0}}
+== bench_photos/photo1.jpg
+   scan_ms=3140  scan_status=done  pieces=18  resolve_ms=47  match_ms=59  nearby_ms=89  subbuilds_ms=86  instant_sources_ms=91  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=10889
+   designs: kept 0 of 4, first 2839 ms, last 5128 ms, done 7582 ms, gemini calls 2  ['No design fit this pile this time.']
+== bench_photos/photo2.jpg
+   scan_ms=2408  scan_status=done  pieces=6  resolve_ms=2  match_ms=20  nearby_ms=62  subbuilds_ms=60  instant_sources_ms=64  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=6314
+   designs: kept 0 of 0, first None ms, last None ms, done 3838 ms, gemini calls 2  ['No design fit this pile this time.']
+== bench_photos/photo3.jpg
+   scan_ms=2720  scan_status=done  pieces=8  resolve_ms=3  match_ms=50  nearby_ms=92  subbuilds_ms=89  instant_sources_ms=94  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=9302
+   designs: kept 0 of 4, first 1959 ms, last 4459 ms, done 6460 ms, gemini calls 3  ['No design fit this pile this time.']
+
+server-side timing for this run (p50 / p95):
+request                               n    p50 ms    p95 ms    max ms   gemini calls p50/max
+designs_stream                        3      6459      7169      7247   2/3
+    gemini.build.stream               3      3476      3746      3776
+    designs.round1                    3      2507      4548      4774
+    look_check                        2      2227      2431      2454
+    gemini.build                      2      2222      2427      2450
+    solver                            3      2176      5045      5364
+    gemini.build.first_chunk          3      1811      1966      1983
+    designs.repair                    2      1791      1917      1930
+    thumbnail                         2       103       118       120
+    ldr.pack                          2        28        38        39
+    gemini.budget_wait                3        12        20        20
+    checks                            2         2         3         3
+    ldr                               2         0         0         0
+    designs.inventory                 3         0         0         0
+scan_job                              3      2708      3083      3125   0/0
+    brickognize                       3      5321      9050      9464
+    detect                            3      1377      1521      1537
+    identify                          3       940      1350      1395
+    crops                             3       142       158       160
+    save_crops                        3       138       184       189
+    tiebreak                          1         0         0         0
+/api/sets/nearby                      3        71        81        82   0/0
+    nearby.match                      3        42        43        43
+    nearby.index                      3         2         3         3
+    nearby.rank                       3         1         1         2
+/api/subbuilds                        3        54        67        69   0/0
+    subbuilds.rows                    3        36        36        36
+    subbuilds.match                   3         4         6         6
+    subbuilds.map                     3         3         7         7
+/api/match                            3        47        55        56   0/0
+    sets.match                        3        43        48        48
+    sets.rank                         3         2         5         5
+    map_parts                         3         0         0         0
+/api/scan                             3        12        12        12   0/0
+/api/parts/resolve                    3         1        41        45   0/0

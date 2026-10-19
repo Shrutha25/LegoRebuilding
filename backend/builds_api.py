@@ -8,6 +8,7 @@
     POST /api/builds/recipes               recipe builds (backend/recipes): designs the code generates from the pieces, named by Gemini
     GET  /api/builds/{id}/thumb.png        isometric thumbnail of a recipe build
     POST /api/sets/nearby                  sets the pieces can build now, and sets that are almost there (with the missing parts)
+    POST /api/designs/stream               "Designed for your pile": concepts from Gemini, fitted by the local solver, streamed (server-sent events)
     POST /api/subbuilds                    real LEGO sub-builds (OMR) the pieces can build now, and ones missing 1-2 parts
     POST /api/subbuilds/build              the 3D viewer build of one of them
     POST /api/sets/instructions            which instructions each set has (3D model / official LEGO link / none); pending ones fill in later
@@ -24,7 +25,7 @@ import time
 
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.concurrency import run_in_threadpool
-from fastapi.responses import PlainTextResponse, Response
+from fastapi.responses import PlainTextResponse, Response, StreamingResponse
 from pydantic import BaseModel, Field
 
 from backend import config, timing
@@ -105,9 +106,17 @@ class BuildPartIn(BaseModel):
     name: str | None = Field(default=None, max_length=100)
 
 
+class IdeaPieceIn(BaseModel):
+    part_num: str = Field(max_length=40)
+    qty: int = Field(ge=1, le=999)
+    colour: str = Field(default="", max_length=40)
+
+
 class IdeaIn(BaseModel):
     name: str = Field(default="", max_length=120)
     description: str = Field(default="", max_length=400)
+    pieces_used: list[IdeaPieceIn] = Field(default_factory=list, max_length=60)   # the pieces the idea card lists: the 3D build must use these
+    steps: list[str] = Field(default_factory=list, max_length=12)                  # the card's steps: the 3D build follows them
 
 
 class AiBuildIn(BaseModel):
@@ -267,8 +276,8 @@ async def sets_instructions(body: InstructionsIn):
 
 
 _matcher = None
-_omr = {"index": None, "error": None}                       # the OMR sub-build index (backend/core/omr_index.py), built at start-up
-_warm = {"nearby": False, "omr": False, "service": False, "seconds": {}}
+_omr = {"index": None, "error": None, "bank": None}                       # the OMR sub-build index (backend/core/omr_index.py), built at start-up
+_warm = {"nearby": False, "omr": False, "service": False, "examples": False, "seconds": {}}
 
 
 def warm_indexes(store, wait=600):
@@ -279,7 +288,7 @@ def warm_indexes(store, wait=600):
         time.sleep(0.2)
     if not (store.data_loaded and store.parts_loaded):
         return
-    for name, fn in (("nearby", lambda: _get_matcher(store)), ("service", get_service), ("omr", lambda: _load_omr(store))):   # the OMR index needs the LDraw library
+    for name, fn in (("nearby", lambda: _get_matcher(store)), ("service", get_service), ("omr", lambda: _load_omr(store)), ("examples", lambda: _load_examples())):   # these need the LDraw library
         t = time.time()
         try:
             fn()
@@ -311,6 +320,15 @@ def _load_omr(store):
         pass
     _omr["index"] = OmrIndex.load(config.BUILD_CACHE_DIR / "omr", config.BUILD_CACHE_DIR / "omr_index.pkl", names, canon, key)
     return _omr["index"]
+
+
+def _load_examples():
+    from backend.designs.examples import ExampleBank
+    svc = get_service()
+    zip_path = config.LDRAW_DIR / DEFAULT_ZIP
+    _omr["bank"] = ExampleBank.load(_omr["index"], svc.lib, config.BUILD_CACHE_DIR / "omr", config.BUILD_CACHE_DIR / "omr_examples.pkl", svc.canon,
+                                    (zip_path.stat().st_mtime_ns, zip_path.stat().st_size))
+    return _omr["bank"]
 
 
 def warm_status():
@@ -350,6 +368,44 @@ async def sets_nearby(body: SetBuildIn):
         for m in row["missing"]:
             m["color"] = m["colour"]
     return result
+
+
+class DesignsIn(BaseModel):
+    parts: list[BuildPartIn] = Field(min_length=1, max_length=500)
+    match_color: bool = True
+
+
+def _design_llm():
+    """The Gemini client for the concept call: the app's one, or a separate Flash-tier model when GEMINI_DESIGN_MODEL differs from GEMINI_MODEL."""
+    llm = _deps["get_llm"]()
+    if config.GEMINI_DESIGN_MODEL != getattr(llm, "model", None):
+        from backend.core import gemini_budget
+        from backend.core.ideas import GeminiLLM
+        return GeminiLLM(config.GEMINI_API_KEY, config.GEMINI_DESIGN_MODEL, timeout=90.0, budget=gemini_budget.get_budget())
+    return llm
+
+
+@router.post("/api/designs/stream")
+async def designs_stream(body: DesignsIn):
+    """"Designed for your pile". The answer is a stream of server-sent events (text/event-stream): start, design (one per design that passed the checks,
+    as soon as it is ready), verdict (the look check removes designs), note, done. At most 3 Gemini calls per request."""
+    from backend.designs.pipeline import stream_designs
+    svc = get_service()
+    try:
+        llm = _design_llm()
+    except IdeasError:
+        llm = None
+    try:
+        look_llm = _deps["get_llm"]()                  # the look check always uses the app's own model, whatever GEMINI_DESIGN_MODEL is
+    except IdeasError:
+        look_llm = None
+    parts = _named_parts(body.parts)
+
+    async def events():
+        async with _deps["slots"]:
+            async for chunk in stream_designs(svc, parts, llm, body.match_color, bank=_omr["bank"], look_llm=look_llm):
+                yield chunk
+    return StreamingResponse(events(), media_type="text/event-stream", headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
 class SubBuildsIn(BaseModel):

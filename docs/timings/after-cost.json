@@ -1,0 +1,1257 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 2453,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 25,
+   "match_ms": 45,
+   "nearby_ms": 68,
+   "subbuilds_ms": 57,
+   "instant_sources_ms": 70,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Campfire Log",
+     "id": "ai-902817121ff7",
+     "parts": 12,
+     "removed": false,
+     "label": "photo1#1",
+     "type": "plant",
+     "concept_sketch": {
+      "layers": [
+       [
+        ".#.",
+        ".#."
+       ],
+       [
+        "###",
+        "###"
+       ],
+       [
+        ".#.",
+        ".#."
+       ]
+      ]
+     },
+     "verdict": null,
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.892,
+     "coverage": 0.963,
+     "thumb_url": "/api/builds/ai-902817121ff7/thumb.png"
+    },
+    {
+     "title": "Fire Engine",
+     "id": "ai-e91504e4c170",
+     "parts": 11,
+     "removed": false,
+     "label": "photo1#2",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ]
+      ]
+     },
+     "verdict": null,
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.834,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-e91504e4c170/thumb.png"
+    },
+    {
+     "title": "Garden Beetle",
+     "id": "ai-b4641e798c54",
+     "parts": 12,
+     "removed": false,
+     "label": "photo1#3",
+     "type": "animal",
+     "concept_sketch": {
+      "layers": [
+       [
+        "####",
+        "####"
+       ],
+       [
+        "####",
+        "####"
+       ],
+       [
+        "##..",
+        "##.."
+       ]
+      ]
+     },
+     "verdict": null,
+     "outline_iou": 1.0,
+     "rescued": true,
+     "use_share": 0.869,
+     "coverage": 0.938,
+     "thumb_url": "/api/builds/ai-b4641e798c54/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 3,
+     "designs_kept": 3,
+     "removed": 0,
+     "first_design_ms": 3674,
+     "last_design_ms": 4422,
+     "done_ms": 4422,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 5,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 3670,
+      "concept_out_chars": 2330,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 1,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 5,
+      "dup_dropped": 2,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional"
+      ],
+      "first_design_ms": 3460,
+      "last_design_ms": 4208
+     },
+     "failures": [
+      {
+       "concept": "Carrot Patch",
+       "why": "the pile can fill only 73% of the sketch (22 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Harbor Tugboat",
+       "why": "its sketch is the same shape as 'Sunny Bungalow'"
+      },
+      {
+       "concept": "Neon Robot",
+       "why": "its sketch is the same shape as 'Fire Engine'"
+      },
+      {
+       "concept": "Sunny Bungalow",
+       "why": "the pile can fill only 65% of the sketch (60 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Campfire Log",
+      "Fire Engine",
+      "Garden Beetle"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 3970,
+   "recipes": {
+    "status": 200,
+    "builds": 0,
+    "titles": [],
+    "ai_used": true,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2910,
+   "ideas": {
+    "status": 200,
+    "detail": null
+   },
+   "total_ms": 13867
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 1901,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 1,
+   "match_ms": 13,
+   "nearby_ms": 38,
+   "subbuilds_ms": 36,
+   "instant_sources_ms": 39,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 2671,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 3,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 3254,
+      "concept_out_chars": 2182,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 2,
+      "dup_dropped": 4,
+      "examples": [
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Marsh Frog",
+       "why": "the pile can fill only 41% of the sketch (31 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 38% of the sketch (28 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "River Raft",
+       "why": "its sketch is the same shape as 'Marsh Frog'"
+      },
+      {
+       "concept": "Mossy Rock",
+       "why": "its sketch is the same shape as 'Marsh Frog'"
+      },
+      {
+       "concept": "Park Table",
+       "why": "its sketch is the same shape as 'Garden Bench'"
+      },
+      {
+       "concept": "Little Turtle",
+       "why": "the pile can fill only 58% of the sketch (32 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 3236,
+   "recipes": {
+    "status": 200,
+    "builds": 0,
+    "titles": [],
+    "ai_used": true,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2841,
+   "ideas": {
+    "status": 200,
+    "detail": null
+   },
+   "total_ms": 10692
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2076,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 1,
+   "match_ms": 22,
+   "nearby_ms": 46,
+   "subbuilds_ms": 44,
+   "instant_sources_ms": 47,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 1365,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 1,
+      "sketch_ok": 0,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 3433,
+      "concept_out_chars": 810,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 1,
+      "undersized": 0,
+      "dup_dropped": 0,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "40013-1 Halloween Ghost"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Courtyard Fountain",
+       "why": "the sketch fills 88 cells but the pile only has 68: it must fill 51 to 68"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 3816,
+   "recipes": {
+    "status": 200,
+    "builds": 0,
+    "titles": [],
+    "ai_used": true,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2589,
+   "ideas": {
+    "status": 200,
+    "detail": null
+   },
+   "total_ms": 9896
+  },
+  {
+   "photo": "bench_photos/photo4.jpg",
+   "scan_ms": 1853,
+   "scan_status": "done",
+   "pieces": 13,
+   "detector": "opencv",
+   "rows": 10,
+   "pieces_identified": 13,
+   "resolve_ms": 2,
+   "match_ms": 45,
+   "nearby_ms": 66,
+   "subbuilds_ms": 64,
+   "instant_sources_ms": 67,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 5444,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 4,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 3288,
+      "concept_out_chars": 2551,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 4,
+      "dup_dropped": 3,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Garden Apple",
+       "why": "the pile can fill only 56% of the sketch (50 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Red Barn",
+       "why": "its sketch is the same shape as 'Garden Apple'"
+      },
+      {
+       "concept": "Steep Hillside",
+       "why": "its sketch is the same shape as 'Cargo Lorry'"
+      },
+      {
+       "concept": "Park Bench",
+       "why": "its sketch is the same shape as 'Cargo Lorry'"
+      },
+      {
+       "concept": "Red Postbox",
+       "why": "the pile can fill only 58% of the sketch (48 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Snowy Cabin",
+       "why": "the pile can fill only 58% of the sketch (48 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 24437,
+   "recipes": {
+    "status": 200,
+    "builds": 1,
+    "titles": [
+     "Potted Fern"
+    ],
+    "ai_used": true,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 3593,
+   "ideas": {
+    "status": 200,
+    "detail": null
+   },
+   "total_ms": 35397
+  },
+  {
+   "photo": "bench_photos/photo5.jpg",
+   "scan_ms": 2067,
+   "scan_status": "done",
+   "pieces": 14,
+   "detector": "opencv",
+   "rows": 12,
+   "pieces_identified": 14,
+   "resolve_ms": 2,
+   "match_ms": 43,
+   "nearby_ms": 68,
+   "subbuilds_ms": 60,
+   "instant_sources_ms": 70,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 3060,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 1,
+      "sketch_ok": 1,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 3341,
+      "concept_out_chars": 482,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 0,
+      "dup_dropped": 0,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Garden Apple",
+       "why": "the pile can fill only 76% of the sketch (54 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 4380,
+   "recipes": {
+    "status": 200,
+    "builds": 0,
+    "titles": [],
+    "ai_used": true,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2864,
+   "ideas": {
+    "status": 200,
+    "detail": null
+   },
+   "total_ms": 12444
+  },
+  {
+   "photo": "bench_photos/photo6.jpg",
+   "scan_ms": 2305,
+   "scan_status": "done",
+   "pieces": 17,
+   "detector": "opencv",
+   "rows": 16,
+   "pieces_identified": 17,
+   "resolve_ms": 2,
+   "match_ms": 70,
+   "nearby_ms": 70,
+   "subbuilds_ms": 68,
+   "instant_sources_ms": 71,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "City Bus",
+     "id": "ai-5cb47bf1f811",
+     "parts": 5,
+     "removed": false,
+     "label": "photo6#1",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "##....",
+        "##...."
+       ],
+       [
+        "#.....",
+        "#....."
+       ]
+      ]
+     },
+     "verdict": null,
+     "outline_iou": 0.833,
+     "rescued": true,
+     "use_share": 0.481,
+     "coverage": 0.944,
+     "thumb_url": "/api/builds/ai-5cb47bf1f811/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 1,
+     "designs_kept": 1,
+     "removed": 0,
+     "first_design_ms": 1683,
+     "last_design_ms": 1683,
+     "done_ms": 4411,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 4,
+      "solver_ok": 1,
+      "checks_ok": 1,
+      "diverse_ok": 1,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 3596,
+      "concept_out_chars": 3154,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 1,
+      "outline_rejected": 1,
+      "fill_rejected": 0,
+      "undersized": 4,
+      "dup_dropped": 3,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional"
+      ],
+      "first_design_ms": 1682,
+      "last_design_ms": 1682
+     },
+     "failures": [
+      {
+       "concept": "Barn House",
+       "why": "the pile can fill only 55% of the sketch (44 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Bench",
+       "why": "its sketch is the same shape as 'City Bus'"
+      },
+      {
+       "concept": "Friendly Robot",
+       "why": "its sketch is the same shape as 'Barn House'"
+      },
+      {
+       "concept": "Garden Flower",
+       "why": "the pile can fill only 64% of the sketch (56 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Cozy Cabin",
+       "why": "its sketch is the same shape as 'Barn House'"
+      },
+      {
+       "concept": "Country Tractor",
+       "why": "the pile can fill 86% of the sketch but the outline is lost (outline match 75%): draw a simpler shape the sizes can make"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "City Bus"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 4478,
+   "recipes": {
+    "status": 200,
+    "builds": 1,
+    "titles": [
+     "Weeping Bonsai"
+    ],
+    "ai_used": true,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2686,
+   "ideas": {
+    "status": 200,
+    "detail": null
+   },
+   "total_ms": 13962
+  },
+  {
+   "photo": "bench_photos/photo7.jpg",
+   "scan_ms": 2173,
+   "scan_status": "done",
+   "pieces": 16,
+   "detector": "opencv",
+   "rows": 13,
+   "pieces_identified": 16,
+   "resolve_ms": 1,
+   "match_ms": 37,
+   "nearby_ms": 63,
+   "subbuilds_ms": 61,
+   "instant_sources_ms": 64,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Garden Flower",
+     "id": "ai-f5239228fe32",
+     "parts": 5,
+     "removed": false,
+     "label": "photo7#1",
+     "type": "plant",
+     "concept_sketch": {
+      "layers": [
+       [
+        "##....",
+        "##...."
+       ],
+       [
+        "##....",
+        "##...."
+       ],
+       [
+        "##....",
+        "##...."
+       ],
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ]
+      ]
+     },
+     "verdict": null,
+     "outline_iou": 0.944,
+     "rescued": true,
+     "use_share": 0.472,
+     "coverage": 0.944,
+     "thumb_url": "/api/builds/ai-f5239228fe32/thumb.png"
+    },
+    {
+     "title": "Cargo Hauler",
+     "id": "ai-24ffb16ae20c",
+     "parts": 10,
+     "removed": false,
+     "label": "photo7#2",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "##########",
+        "##########"
+       ],
+       [
+        "##########",
+        "##########"
+       ],
+       [
+        "##########",
+        "##########"
+       ],
+       [
+        "####......",
+        "####......"
+       ]
+      ]
+     },
+     "verdict": null,
+     "outline_iou": 0.971,
+     "rescued": true,
+     "use_share": 0.889,
+     "coverage": 0.941,
+     "thumb_url": "/api/builds/ai-24ffb16ae20c/thumb.png"
+    },
+    {
+     "title": "Pond Turtle",
+     "id": "ai-0ce0da90a7f0",
+     "parts": 10,
+     "removed": false,
+     "label": "photo7#3",
+     "type": "animal",
+     "concept_sketch": {
+      "layers": [
+       [
+        "########",
+        "########"
+       ],
+       [
+        "######..",
+        "######.."
+       ],
+       [
+        "##......",
+        "##......"
+       ]
+      ]
+     },
+     "verdict": null,
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.889,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-0ce0da90a7f0/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 3,
+     "designs_kept": 3,
+     "removed": 0,
+     "first_design_ms": 1685,
+     "last_design_ms": 11717,
+     "done_ms": 11718,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 4,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 3492,
+      "concept_out_chars": 3592,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 2,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 3,
+      "dup_dropped": 3,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional"
+      ],
+      "first_design_ms": 1684,
+      "last_design_ms": 11715
+     },
+     "failures": [
+      {
+       "concept": "Camp Fire",
+       "why": "the pile can fill only 61% of the sketch (56 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mountain Cabin",
+       "why": "its sketch is the same shape as 'Cargo Hauler'"
+      },
+      {
+       "concept": "Robot Watcher",
+       "why": "its bounding box 6 x 2 x 5 is the same as 'Garden Flower': use a different one"
+      },
+      {
+       "concept": "Harbor Lighthouse",
+       "why": "its sketch is the same shape as 'Camp Fire'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Garden Flower",
+      "Cargo Hauler",
+      "Pond Turtle"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 2681,
+   "recipes": {
+    "status": 200,
+    "builds": 3,
+    "titles": [
+     "Pine Sapling",
+     "Flowering Bush",
+     "Potted Fern"
+    ],
+    "ai_used": true,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 13742,
+   "ideas": {
+    "status": 200,
+    "detail": null
+   },
+   "total_ms": 30394
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 7,
+   "p50": 9.8,
+   "p95": 11.08,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 7,
+   "p50": 2067.2,
+   "p95": 2396.82,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 819.9,
+     "p95": 1012.1899999999998,
+     "n": 7
+    },
+    "crops": {
+     "p50": 76.3,
+     "p95": 90.92999999999999,
+     "n": 7
+    },
+    "brickognize": {
+     "p50": 7623.4,
+     "p95": 9796.39,
+     "n": 7
+    },
+    "identify": {
+     "p50": 1066.1,
+     "p95": 1356.04,
+     "n": 7
+    },
+    "tiebreak": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 86.4,
+     "p95": 99.36999999999999,
+     "n": 7
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 7,
+   "p50": 0.5,
+   "p95": 16.699999999999985,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/match": {
+   "n": 7,
+   "p50": 36.9,
+   "p95": 59.55999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 7
+    },
+    "sets.match": {
+     "p50": 34.8,
+     "p95": 39.410000000000004,
+     "n": 7
+    },
+    "sets.rank": {
+     "p50": 0.9,
+     "p95": 18.389999999999986,
+     "n": 7
+    }
+   }
+  },
+  "/api/subbuilds": {
+   "n": 7,
+   "p50": 25.5,
+   "p95": 60.74999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "subbuilds.map": {
+     "p50": 1.5,
+     "p95": 28.26999999999997,
+     "n": 7
+    },
+    "subbuilds.match": {
+     "p50": 3.5,
+     "p95": 4.1499999999999995,
+     "n": 7
+    },
+    "subbuilds.rows": {
+     "p50": 19.7,
+     "p95": 21.09,
+     "n": 7
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 7,
+   "p50": 39.0,
+   "p95": 63.78999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 1.0,
+     "p95": 27.57999999999997,
+     "n": 7
+    },
+    "nearby.match": {
+     "p50": 24.6,
+     "p95": 27.64,
+     "n": 7
+    },
+    "nearby.rank": {
+     "p50": 0.3,
+     "p95": 16.319999999999986,
+     "n": 7
+    }
+   }
+  },
+  "designs_stream": {
+   "n": 7,
+   "p50": 4208.8,
+   "p95": 9833.909999999996,
+   "gemini_calls": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "stages": {
+    "designs.inventory": {
+     "p50": 0.0,
+     "p95": 0.1,
+     "n": 7
+    },
+    "gemini.budget_wait": {
+     "p50": 4.6,
+     "p95": 6.039999999999999,
+     "n": 7
+    },
+    "gemini.build.first_chunk": {
+     "p50": 862.1,
+     "p95": 3541.5399999999972,
+     "n": 7
+    },
+    "solver": {
+     "p50": 2620.45,
+     "p95": 7132.475,
+     "n": 6
+    },
+    "gemini.build.stream": {
+     "p50": 2694.2,
+     "p95": 9323.849999999997,
+     "n": 7
+    },
+    "checks": {
+     "p50": 1.0,
+     "p95": 1.63,
+     "n": 3
+    },
+    "ldr": {
+     "p50": 0.2,
+     "p95": 0.29,
+     "n": 3
+    },
+    "ldr.pack": {
+     "p50": 17.0,
+     "p95": 21.32,
+     "n": 3
+    },
+    "thumbnail": {
+     "p50": 42.4,
+     "p95": 55.089999999999996,
+     "n": 3
+    },
+    "designs.round1": {
+     "p50": 4208.1,
+     "p95": 9833.419999999996,
+     "n": 7
+    }
+   }
+  },
+  "/api/builds/recipes": {
+   "n": 7,
+   "p50": 3968.0,
+   "p95": 18447.639999999985,
+   "gemini_calls": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "stages": {
+    "recipes.inventory": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 7
+    },
+    "gemini.budget_wait": {
+     "p50": 9.9,
+     "p95": 14952.269999999984,
+     "n": 7
+    },
+    "gemini.build": {
+     "p50": 3201.2,
+     "p95": 3893.7299999999996,
+     "n": 7
+    },
+    "concepts": {
+     "p50": 3456.8,
+     "p95": 18174.619999999984,
+     "n": 7
+    },
+    "solver": {
+     "p50": 403.8,
+     "p95": 699.0599999999998,
+     "n": 7
+    },
+    "recipes.suggest": {
+     "p50": 3962.2,
+     "p95": 18427.439999999988,
+     "n": 7
+    },
+    "recipes.finalize": {
+     "p50": 0.0,
+     "p95": 0.1,
+     "n": 7
+    },
+    "recipes.store": {
+     "p50": 0.0,
+     "p95": 26.269999999999992,
+     "n": 7
+    },
+    "checks": {
+     "p50": 0.5,
+     "p95": 0.6799999999999999,
+     "n": 3
+    },
+    "ldr": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 3
+    },
+    "ldr.pack": {
+     "p50": 4.6,
+     "p95": 11.799999999999999,
+     "n": 3
+    },
+    "thumbnail": {
+     "p50": 14.7,
+     "p95": 16.05,
+     "n": 3
+    }
+   }
+  },
+  "/api/ideas": {
+   "n": 7,
+   "p50": 2862.4,
+   "p95": 10695.439999999993,
+   "gemini_calls": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "stages": {
+    "gemini.budget_wait": {
+     "p50": 5.7,
+     "p95": 7228.869999999993,
+     "n": 7
+    },
+    "gemini.build": {
+     "p50": 2833.8,
+     "p95": 3497.0899999999992,
+     "n": 7
+    },
+    "ideas": {
+     "p50": 2861.7,
+     "p95": 10694.669999999991,
+     "n": 7
+    }
+   }
+  }
+ }
+}

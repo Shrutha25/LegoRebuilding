@@ -12,7 +12,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from backend import builds_api, config, jobs, timing
-from backend.core import gemini_budget, idmap
+from backend.core import aibuild, gemini_budget, idmap
 from backend.core.gemini_detect import GeminiDetector
 from backend.core.ideas import GeminiLLM, IdeasError, generate_ideas
 from backend.core.index import DataStore
@@ -59,8 +59,8 @@ app.add_middleware(CORSMiddleware,
 @app.middleware("http")
 async def time_requests(request, call_next):
     """One timing trace per POST under /api (the scan, match, ideas and build requests); see backend/timing.py."""
-    if request.method != "POST" or not request.url.path.startswith("/api/"):
-        return await call_next(request)
+    if request.method != "POST" or not request.url.path.startswith("/api/") or request.url.path == "/api/designs/stream":
+        return await call_next(request)        # the designs stream writes its own trace: the body is produced after the headers
     trace, token = timing.begin(request.url.path)
     try:
         response = await call_next(request)
@@ -313,6 +313,7 @@ async def image_proxy(url: str):
 class IdeasIn(BaseModel):
     parts: list[PartIn] = Field(min_length=1, max_length=500)
     match_color: bool = True          # "Consider color": ideas are checked by (part, colour); off = by part only, tagged "Mixed colors"
+    exclude: list[str] = Field(default_factory=list, max_length=200)   # names of builds already shown: never suggested again
 
 
 _llm = None
@@ -329,6 +330,19 @@ def get_llm():
     return _llm
 
 
+async def _buildable_parts(parts):
+    """Only the pieces the 3D builder can place, so every idea card can be shown exactly in 3D. Unfiltered if that cannot be told."""
+    try:
+        svc = builds_api.get_service()
+        for p in parts:
+            await svc.parts.ldraw_id_async(str(p["part_num"]))
+        inv, _ = aibuild.build_inventory(parts, svc.parts, svc.colours)
+        ok = {i.part_id.lower() for i in inv.parts()}
+        return [p for p in parts if str(p["part_num"]).lower() in ok] or parts
+    except Exception:                                  # noqa: BLE001  no LDraw library / mapping: fall back to every piece
+        return parts
+
+
 @app.post("/api/ideas")
 async def ideas(body: IdeasIn):
     names = store.part_names()
@@ -337,10 +351,11 @@ async def ideas(body: IdeasIn):
         rid = idmap.resolve_local(p.part_num, store.known_ids) if store.known_ids else None
         parts.append({"part_num": p.part_num, "color": p.color, "qty": p.qty,
                       "name": p.name or (names.get(rid) if rid else None)})
+    parts = await _buildable_parts(parts)
     try:
         async with _llm_slots:
             with timing.stage("ideas"):
-                result = await generate_ideas(parts, get_llm(), body.match_color)
+                result = await generate_ideas(parts, get_llm(), body.match_color, body.exclude)
     except IdeasError as e:
         raise HTTPException(e.status, str(e))
     for idea in result["ideas"]:                      # add images where the catalogue has them

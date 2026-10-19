@@ -36,6 +36,8 @@ export type BuildMeta = {
   thumb_url?: string;
   /** True when the build was made with "Consider color" off: pieces were counted by part only and coloured afterwards. */
   mixed_colours?: boolean;
+  /** Present on builds from "Designed for your pile": the concept, how much of its sketch was filled and how much of the pile it uses. */
+  design?: { concept: string; coverage: number; use_share: number; low_use: boolean };
   look_check?: "yes" | "partly" | "no";
 };
 

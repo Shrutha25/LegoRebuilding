@@ -1,0 +1,1306 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 2931,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 43,
+   "match_ms": 59,
+   "nearby_ms": 95,
+   "subbuilds_ms": 94,
+   "instant_sources_ms": 96,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Harbor Tug",
+     "id": "ai-ce2bfd40e1c6",
+     "parts": 6,
+     "removed": false,
+     "label": "photo1#1",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######",
+        "######",
+        "######"
+       ],
+       [
+        "..####",
+        "..####",
+        "..####",
+        "......"
+       ],
+       [
+        "...##.",
+        "...##.",
+        "...##.",
+        "......"
+       ],
+       [
+        "...##.",
+        "......",
+        "......",
+        "......"
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Harbor Tug",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 0.818,
+     "rescued": true,
+     "use_share": 0.452,
+     "coverage": 0.886,
+     "thumb_url": "/api/builds/ai-ce2bfd40e1c6/thumb.png"
+    },
+    {
+     "title": "Coast Lookout",
+     "id": "ai-a0c4d59b020d",
+     "parts": 9,
+     "removed": false,
+     "label": "photo1#2",
+     "type": "building",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######",
+        "######"
+       ],
+       [
+        "####..",
+        "####..",
+        "####.."
+       ],
+       [
+        "####..",
+        "####..",
+        "####.."
+       ],
+       [
+        "..##..",
+        "..##..",
+        "......"
+       ],
+       [
+        "..##..",
+        "..##..",
+        "......"
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Coast Lookout",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.568,
+     "coverage": 0.98,
+     "thumb_url": "/api/builds/ai-a0c4d59b020d/thumb.png"
+    },
+    {
+     "title": "Meadow Snail",
+     "id": "ai-76b9560db860",
+     "parts": 9,
+     "removed": false,
+     "label": "photo1#3",
+     "type": "animal",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "..##..",
+        "..##.."
+       ],
+       [
+        "..####",
+        "..####"
+       ],
+       [
+        "...##.",
+        "...##."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Meadow Snail",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.649,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-76b9560db860/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 3,
+     "designs_kept": 3,
+     "removed": 0,
+     "first_design_ms": 3764,
+     "last_design_ms": 81585,
+     "done_ms": 84364,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 7,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 3,
+      "look_ok": 3,
+      "look_ok_choice": 3,
+      "look_ok_child": 3,
+      "concept_in_chars": 13974,
+      "concept_out_chars": 4410,
+      "look_in_chars": 962,
+      "look_out_chars": 284,
+      "rescued": 1,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 6,
+      "dup_dropped": 4,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "4911-1 Designer Set",
+       "1631-1 Black Racer"
+      ],
+      "first_design_ms": 3472,
+      "last_design_ms": 81292
+     },
+     "failures": [
+      {
+       "concept": "Freight Hauler",
+       "why": "the pile can fill only 84% of the sketch (56 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Duckling",
+       "why": "its sketch is the same shape as 'Harbor Tug'"
+      },
+      {
+       "concept": "Garden Pagoda",
+       "why": "its sketch is the same shape as 'Harbor Tug'"
+      },
+      {
+       "concept": "Cargo Lifter",
+       "why": "its sketch is the same shape as 'Coast Lookout'"
+      },
+      {
+       "concept": "Canyon Arch",
+       "why": "the pile can fill only 77% of the sketch (90 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Canal Barge",
+       "why": "its sketch is the same shape as 'Meadow Snail'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Harbor Tug",
+      "Coast Lookout",
+      "Meadow Snail"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 87457
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 2093,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 2,
+   "match_ms": 23,
+   "nearby_ms": 37,
+   "subbuilds_ms": 34,
+   "instant_sources_ms": 57,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 92284,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 4,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12487,
+      "concept_out_chars": 3942,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 2,
+      "undersized": 0,
+      "dup_dropped": 5,
+      "examples": [
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "7271-1 Apple - Suntory Promotional",
+       "7278-1 Melon - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Harbor Pier",
+       "why": "the pile can fill only 47% of the sketch (44 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Paddle Steamer",
+       "why": "the pile can fill only 47% of the sketch (44 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Picnic Meadow",
+       "why": "its bounding box 7 x 4 x 3 is the same as 'Harbor Pier': use a different one"
+      },
+      {
+       "concept": "Crawl Caterpillar",
+       "why": "its sketch is the same shape as 'Paddle Steamer'"
+      },
+      {
+       "concept": "Coast Guard Boat",
+       "why": "the sketch fills 49 cells but the pile only has 44: it must fill 33 to 44"
+      },
+      {
+       "concept": "Lakeside Cabin",
+       "why": "the pile can fill only 49% of the sketch (42 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 94438
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2668,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 2,
+   "match_ms": 37,
+   "nearby_ms": 63,
+   "subbuilds_ms": 53,
+   "instant_sources_ms": 64,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 61528,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 6,
+      "sketch_ok": 1,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 6367,
+      "concept_out_chars": 2537,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 1,
+      "undersized": 0,
+      "dup_dropped": 4,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "40013-1 Halloween Ghost",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Harbor Tug",
+       "why": "its sketch is the same shape as 'Garden Cottage'"
+      },
+      {
+       "concept": "Garden Cottage",
+       "why": "the pile can fill only 62% of the sketch (50 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Playground Slide",
+       "why": "its sketch is the same shape as 'Garden Cottage'"
+      },
+      {
+       "concept": "Park Lookout",
+       "why": "its sketch is the same shape as 'Garden Cottage'"
+      },
+      {
+       "concept": "Reef Fish",
+       "why": "its sketch is the same shape as 'Garden Cottage'"
+      },
+      {
+       "concept": "Modern Sofa",
+       "why": "the sketch fills 74 cells but the pile only has 68: it must fill 51 to 68"
+      }
+     ],
+     "notes": [
+      "AI designs are unavailable right now (502 The AI service is having trouble right now. Please try again.)."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 64264
+  },
+  {
+   "photo": "bench_photos/photo4.jpg",
+   "scan_ms": 1930,
+   "scan_status": "done",
+   "pieces": 13,
+   "detector": "opencv",
+   "rows": 10,
+   "pieces_identified": 13,
+   "resolve_ms": 2,
+   "match_ms": 36,
+   "nearby_ms": 60,
+   "subbuilds_ms": 58,
+   "instant_sources_ms": 61,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Harbor Tugboat",
+     "id": "ai-b7e25e12f04b",
+     "parts": 5,
+     "removed": false,
+     "label": "photo4#1",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ],
+       [
+        "..##..",
+        "..##.."
+       ],
+       [
+        "..##..",
+        "......"
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Harbor Tugboat",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 0.889,
+     "rescued": false,
+     "use_share": 0.667,
+     "coverage": 0.952,
+     "thumb_url": "/api/builds/ai-b7e25e12f04b/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 1,
+     "designs_kept": 1,
+     "removed": 0,
+     "first_design_ms": 6128,
+     "last_design_ms": 6128,
+     "done_ms": 17064,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 4,
+      "solver_ok": 1,
+      "checks_ok": 1,
+      "diverse_ok": 1,
+      "look_checked": 1,
+      "look_ok": 1,
+      "look_ok_choice": 1,
+      "look_ok_child": 1,
+      "concept_in_chars": 12581,
+      "concept_out_chars": 3946,
+      "look_in_chars": 896,
+      "look_out_chars": 111,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 2,
+      "dup_dropped": 7,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "7278-1 Melon - Suntory Promotional"
+      ],
+      "first_design_ms": 6116,
+      "last_design_ms": 6116
+     },
+     "failures": [
+      {
+       "concept": "Woodland Snail",
+       "why": "its sketch is the same shape as 'Harbor Tugboat'"
+      },
+      {
+       "concept": "Standing Robot",
+       "why": "its sketch is the same shape as 'Harbor Tugboat'"
+      },
+      {
+       "concept": "Cottage Chimney",
+       "why": "its sketch is the same shape as 'Harbor Tugboat'"
+      },
+      {
+       "concept": "Watchtower Fortress",
+       "why": "the pile can fill only 38% of the sketch (42 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 74% of the sketch (38 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Cargo Hauler",
+       "why": "its sketch is the same shape as 'Harbor Tugboat'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Harbor Tugboat"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 19067
+  },
+  {
+   "photo": "bench_photos/photo5.jpg",
+   "scan_ms": 2087,
+   "scan_status": "done",
+   "pieces": 14,
+   "detector": "opencv",
+   "rows": 12,
+   "pieces_identified": 14,
+   "resolve_ms": 2,
+   "match_ms": 69,
+   "nearby_ms": 70,
+   "subbuilds_ms": 68,
+   "instant_sources_ms": 71,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 14079,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 4,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12865,
+      "concept_out_chars": 4235,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 3,
+      "dup_dropped": 7,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "40013-1 Halloween Ghost"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Harbor Tug",
+       "why": "the pile can fill only 84% of the sketch (38 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Bench and Tree",
+       "why": "the pile can fill only 72% of the sketch (32 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Cargo Train Engine",
+       "why": "its sketch is the same shape as 'Harbor Tug'"
+      },
+      {
+       "concept": "Watchtower Outpost",
+       "why": "its sketch is the same shape as 'Harbor Tug'"
+      },
+      {
+       "concept": "Playful Puppy",
+       "why": "its sketch is the same shape as 'Garden Cottage'"
+      },
+      {
+       "concept": "Garden Cottage",
+       "why": "the pile can fill only 73% of the sketch (45 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 16245
+  },
+  {
+   "photo": "bench_photos/photo6.jpg",
+   "scan_ms": 2683,
+   "scan_status": "done",
+   "pieces": 17,
+   "detector": "opencv",
+   "rows": 16,
+   "pieces_identified": 17,
+   "resolve_ms": 3,
+   "match_ms": 117,
+   "nearby_ms": 117,
+   "subbuilds_ms": 114,
+   "instant_sources_ms": 119,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Cliffside Watchtower",
+     "id": "ai-c05fa8699721",
+     "parts": 6,
+     "removed": false,
+     "label": "photo6#1",
+     "type": "tall",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "####..",
+        "####.."
+       ],
+       [
+        "####..",
+        "####.."
+       ],
+       [
+        "..##..",
+        "..##.."
+       ],
+       [
+        "..##..",
+        "..##.."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Cliffside Watchtower",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.509,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-c05fa8699721/thumb.png"
+    },
+    {
+     "title": "Coast Patrol Cutter",
+     "id": "ai-746ecacdb7d9",
+     "parts": 4,
+     "removed": false,
+     "label": "photo6#2",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ],
+       [
+        "..####",
+        "..####"
+       ],
+       [
+        "...##.",
+        "...##."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Coast Patrol Cutter",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.509,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-746ecacdb7d9/thumb.png"
+    },
+    {
+     "title": "Garden Wheelbarrow",
+     "id": "ai-a0dcc28f22ec",
+     "parts": 7,
+     "removed": false,
+     "label": "photo6#3",
+     "type": "wide",
+     "concept_sketch": {
+      "layers": [
+       [
+        "..######..",
+        "..######.."
+       ],
+       [
+        "..######..",
+        "..######.."
+       ],
+       [
+        "##########",
+        "##########"
+       ],
+       [
+        "..######..",
+        ".........."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Garden Wheelbarrow",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 0.964,
+     "rescued": false,
+     "use_share": 0.679,
+     "coverage": 0.96,
+     "thumb_url": "/api/builds/ai-a0dcc28f22ec/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 3,
+     "designs_kept": 3,
+     "removed": 0,
+     "first_design_ms": 13330,
+     "last_design_ms": 19999,
+     "done_ms": 22655,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 3,
+      "look_ok": 3,
+      "look_ok_choice": 3,
+      "look_ok_child": 3,
+      "concept_in_chars": 13401,
+      "concept_out_chars": 4423,
+      "look_in_chars": 1006,
+      "look_out_chars": 306,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 2,
+      "dup_dropped": 6,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": 13318,
+      "last_design_ms": 19986
+     },
+     "failures": [
+      {
+       "concept": "Cargo Hauler",
+       "why": "its sketch is the same shape as 'Coast Patrol Cutter'"
+      },
+      {
+       "concept": "Baby Giraffe",
+       "why": "its sketch is the same shape as 'Coast Patrol Cutter'"
+      },
+      {
+       "concept": "Harbor Crane",
+       "why": "its sketch is the same shape as 'Coast Patrol Cutter'"
+      },
+      {
+       "concept": "Meadow Mushroom",
+       "why": "its sketch is the same shape as 'Coast Patrol Cutter'"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 58% of the sketch (56 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Playful Puppy",
+       "why": "its sketch is the same shape as 'Cliffside Watchtower'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Cliffside Watchtower",
+      "Coast Patrol Cutter",
+      "Garden Wheelbarrow"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 25479
+  },
+  {
+   "photo": "bench_photos/photo7.jpg",
+   "scan_ms": 2750,
+   "scan_status": "done",
+   "pieces": 16,
+   "detector": "opencv",
+   "rows": 13,
+   "pieces_identified": 16,
+   "resolve_ms": 3,
+   "match_ms": 112,
+   "nearby_ms": 112,
+   "subbuilds_ms": 110,
+   "instant_sources_ms": 114,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Harbor Tugboat",
+     "id": "ai-6a42a1beac9b",
+     "parts": 4,
+     "removed": false,
+     "label": "photo7#1",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ],
+       [
+        "..##..",
+        "..##.."
+       ],
+       [
+        "..##..",
+        "..##.."
+       ],
+       [
+        "..#...",
+        "......"
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Harbor Tugboat",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 0.889,
+     "rescued": false,
+     "use_share": 0.444,
+     "coverage": 0.97,
+     "thumb_url": "/api/builds/ai-6a42a1beac9b/thumb.png"
+    },
+    {
+     "title": "Castle Sentry",
+     "id": "ai-7ca71184ef81",
+     "parts": 7,
+     "removed": false,
+     "label": "photo7#2",
+     "type": "figure",
+     "concept_sketch": {
+      "layers": [
+       [
+        "####",
+        "####"
+       ],
+       [
+        "####",
+        "####"
+       ],
+       [
+        "####",
+        "####"
+       ],
+       [
+        "####",
+        "..##"
+       ],
+       [
+        "..##",
+        "..##"
+       ],
+       [
+        "..##",
+        "...."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Castle Sentry",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 0.909,
+     "rescued": true,
+     "use_share": 0.472,
+     "coverage": 0.944,
+     "thumb_url": "/api/builds/ai-7ca71184ef81/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 2,
+     "designs_kept": 2,
+     "removed": 0,
+     "first_design_ms": 2400,
+     "last_design_ms": 13089,
+     "done_ms": 15481,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 2,
+      "look_ok_choice": 2,
+      "look_ok_child": 2,
+      "concept_in_chars": 13023,
+      "concept_out_chars": 4021,
+      "look_in_chars": 934,
+      "look_out_chars": 200,
+      "rescued": 1,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 4,
+      "dup_dropped": 6,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": 2383,
+      "last_design_ms": 13063
+     },
+     "failures": [
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 63% of the sketch (38 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Watchtower Cottage",
+       "why": "its sketch is the same shape as 'Harbor Tugboat'"
+      },
+      {
+       "concept": "Playful Dinosaur",
+       "why": "its sketch is the same shape as 'Harbor Tugboat'"
+      },
+      {
+       "concept": "Cargo Forklift",
+       "why": "its sketch is the same shape as 'Harbor Tugboat'"
+      },
+      {
+       "concept": "Park Gateway",
+       "why": "its sketch is the same shape as 'Garden Bench'"
+      },
+      {
+       "concept": "Friendly Robot",
+       "why": "its sketch is the same shape as 'Harbor Tugboat'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Harbor Tugboat",
+      "Castle Sentry"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 18373
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 7,
+   "p50": 11.3,
+   "p95": 21.709999999999997,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 7,
+   "p50": 2658.1,
+   "p95": 2864.0299999999997,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 1205.2,
+     "p95": 1378.7099999999998,
+     "n": 7
+    },
+    "crops": {
+     "p50": 131.7,
+     "p95": 149.07999999999998,
+     "n": 7
+    },
+    "brickognize": {
+     "p50": 7531.4,
+     "p95": 9228.319999999998,
+     "n": 7
+    },
+    "identify": {
+     "p50": 1103.2,
+     "p95": 1311.7699999999998,
+     "n": 7
+    },
+    "tiebreak": {
+     "p50": 0.2,
+     "p95": 0.2,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 123.9,
+     "p95": 182.67,
+     "n": 7
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 7,
+   "p50": 0.7,
+   "p95": 28.85999999999997,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/match": {
+   "n": 7,
+   "p50": 52.7,
+   "p95": 112.98,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 7
+    },
+    "sets.match": {
+     "p50": 39.9,
+     "p95": 100.25999999999998,
+     "n": 7
+    },
+    "sets.rank": {
+     "p50": 1.5,
+     "p95": 29.989999999999995,
+     "n": 7
+    }
+   }
+  },
+  "/api/subbuilds": {
+   "n": 7,
+   "p50": 64.4,
+   "p95": 91.52,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "subbuilds.map": {
+     "p50": 17.5,
+     "p95": 53.949999999999996,
+     "n": 7
+    },
+    "subbuilds.match": {
+     "p50": 4.2,
+     "p95": 28.32999999999998,
+     "n": 7
+    },
+    "subbuilds.rows": {
+     "p50": 25.6,
+     "p95": 33.339999999999996,
+     "n": 7
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 7,
+   "p50": 68.0,
+   "p95": 111.94,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 16.9,
+     "p95": 52.67999999999999,
+     "n": 7
+    },
+    "nearby.match": {
+     "p50": 29.7,
+     "p95": 77.30999999999996,
+     "n": 7
+    },
+    "nearby.rank": {
+     "p50": 0.3,
+     "p95": 27.65999999999997,
+     "n": 7
+    }
+   }
+  },
+  "designs_stream": {
+   "n": 7,
+   "p50": 22642.2,
+   "p95": 89811.19,
+   "gemini_calls": [
+    3,
+    2,
+    1,
+    3,
+    2,
+    3,
+    3
+   ],
+   "stages": {
+    "designs.inventory": {
+     "p50": 0.1,
+     "p95": 0.16999999999999993,
+     "n": 7
+    },
+    "gemini.budget_wait": {
+     "p50": 13.6,
+     "p95": 19.08,
+     "n": 7
+    },
+    "gemini.build.first_chunk": {
+     "p50": 5108.5,
+     "p95": 26124.20999999999,
+     "n": 7
+    },
+    "solver": {
+     "p50": 1012.4,
+     "p95": 4744.659999999999,
+     "n": 7
+    },
+    "checks": {
+     "p50": 0.75,
+     "p95": 1.6799999999999997,
+     "n": 4
+    },
+    "ldr": {
+     "p50": 0.0,
+     "p95": 0.16999999999999993,
+     "n": 4
+    },
+    "ldr.pack": {
+     "p50": 11.8,
+     "p95": 24.839999999999996,
+     "n": 4
+    },
+    "thumbnail": {
+     "p50": 40.8,
+     "p95": 145.37499999999997,
+     "n": 4
+    },
+    "gemini.build.stream": {
+     "p50": 19219.3,
+     "p95": 88396.84,
+     "n": 7
+    },
+    "designs.round1": {
+     "p50": 9090.3,
+     "p95": 58978.51999999999,
+     "n": 7
+    },
+    "designs.repair": {
+     "p50": 5794.25,
+     "p95": 70774.17499999999,
+     "n": 6
+    },
+    "gemini.build": {
+     "p50": 2502.6000000000004,
+     "p95": 5819.7649999999985,
+     "n": 4
+    },
+    "look_check": {
+     "p50": 2509.1,
+     "p95": 5824.424999999999,
+     "n": 4
+    }
+   }
+  }
+ }
+}

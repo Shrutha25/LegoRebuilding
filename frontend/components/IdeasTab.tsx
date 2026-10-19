@@ -5,7 +5,7 @@ import { createAiBuild, getIdeas } from "@/lib/api";
 import type { BuildMeta } from "@/lib/build";
 import type { Idea, IdeaPart } from "@/lib/types";
 import BuildViewer from "./BuildViewerLazy";
-import RecipeBuilds from "./RecipeBuilds";
+import DesignedBuilds from "./DesignedBuilds";
 import Thumb from "./Thumb";
 
 type State =
@@ -21,13 +21,15 @@ export default function IdeasTab({ parts, active, matchColour }: { parts: IdeaPa
   const [viewing, setViewing] = useState<BuildMeta | null>(null); // the 3D build that is open
   const considerColour = matchColour;
   const started = useRef(false);
+  const shown = useRef<string[]>([]); // every idea name already shown, so "Get new ideas" never repeats one
 
   const generate = useCallback(async () => {
     setState({ kind: "loading" });
     setSlow(false);
     const timer = setTimeout(() => setSlow(true), 12000);
     try {
-      const r = await getIdeas(parts, considerColour);
+      const r = await getIdeas(parts, considerColour, shown.current);
+      shown.current = [...shown.current, ...r.ideas.map((i) => i.name)];
       setState({ kind: "done", ideas: r.ideas });
     } catch (e) {
       setState({ kind: "error", message: e instanceof Error ? e.message : "Something went wrong." });
@@ -57,7 +59,7 @@ export default function IdeasTab({ parts, active, matchColour }: { parts: IdeaPa
 
   return (
     <div>
-      <RecipeBuilds parts={parts} active={active} matchColour={considerColour} />
+      <DesignedBuilds parts={parts} active={active} matchColour={considerColour} />
       {state.kind !== "idle" && (
         <h2 className="title-display mb-1 text-2xl">
           More <span>ideas</span>
@@ -133,11 +135,12 @@ function IdeaCard({ idea, parts, onOpen, matchColour }: { idea: Idea; parts: Ide
       </h4>
       <ul className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
         {idea.pieces_used.map((p) => (
-          <li key={p.part_num} className="flex items-center gap-2 rounded-xl bg-zinc-50 p-2">
+          <li key={`${p.part_num}|${p.colour ?? ""}`} className="flex items-center gap-2 rounded-xl bg-zinc-50 p-2">
             <Thumb srcs={[p.image]} label={p.name} className="h-10 w-10" />
             <span className="min-w-0 text-xs">
               <span className="block font-semibold">
                 {p.qty} × {p.name}
+                {p.colour ? ` (${p.colour})` : ""}
               </span>
               <span className="block text-zinc-500">{p.part_num}</span>
             </span>

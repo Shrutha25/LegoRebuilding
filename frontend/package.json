@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "node --test tests/review.test.ts tests/ldrawModel.test.ts tests/instructions.test.ts"
+    "test": "node --test tests/review.test.ts tests/ldrawModel.test.ts tests/instructions.test.ts tests/designs.test.ts"
   },
   "dependencies": {
     "@types/three": "^0.186.0",

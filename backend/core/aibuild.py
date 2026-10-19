@@ -115,6 +115,18 @@ def build_inventory(parts, part_mapper, colour_mapper):
 
 
 # ---------------------------------------------------------------- prompt
+def _idea_pieces(inv, idea):
+    """[(InvItem, qty)] for the pieces the idea card lists that are usable here (matched by part, and by colour when it names one)."""
+    out = []
+    for p in (idea or {}).get("pieces_used") or []:
+        pn, colour = str(p.get("part_num") or "").lower(), str(p.get("colour") or "").lower()
+        for it in inv.parts():
+            if it.part_id.lower() == pn and (not colour or it.colour.lower() == colour):
+                out.append((it, min(int(p.get("qty") or 0), it.qty)))
+                break
+    return [(it, q) for it, q in out if q > 0]
+
+
 def build_user_prompt(inv, idea=None, max_parts=None, problems=None):
     lines = []
     for it in inv.parts():
@@ -127,8 +139,18 @@ def build_user_prompt(inv, idea=None, max_parts=None, problems=None):
     else:
         text += "Design one small original model.\n"
     total = sum(i.qty for i in inv.parts())
-    most = min(max_parts or config.BUILD_MAX_PARTS, total)
-    text += f"Use between {min(12, most)} and {most} parts: a real model, not a token one."
+    chosen = _idea_pieces(inv, idea)
+    if chosen:
+        n = sum(q for _, q in chosen)
+        text += ("Build exactly what this idea describes, using exactly these pieces, every one of them in these quantities, and no others "
+                 f"({n} parts in all):\n"
+                 + "\n".join(f"- {q} x {it.part_id} {it.name} ({it.colour})" for it, q in chosen) + "\n")
+        steps = [str(s)[:200] for s in (idea.get("steps") or [])[:12]]
+        if steps:
+            text += "Follow these build steps:\n" + "\n".join(f"{i}. {s}" for i, s in enumerate(steps, 1)) + "\n"
+    else:
+        most = min(max_parts or config.BUILD_MAX_PARTS, total)
+        text += f"Use up to {most} parts."
     if problems:
         text += "\n\nYour previous attempt had these problems, fix them:\n" + "\n".join(f"- {m}" for m in problems[:10])
     return text
@@ -181,26 +203,55 @@ def finish(build, inv, step_size=None):
     return res
 
 
+def idea_mismatch(parts, inv, idea):
+    """What the card lists that the build does not show: ["need 2 x 3001 Brick 2 x 4 (Red), have 1", ...] (extra parts count too)."""
+    chosen = _idea_pieces(inv, idea)
+    if not chosen:
+        return []
+    want, label = {}, {}
+    for it, q in chosen:
+        want[(it.part_id.lower(), it.colour.lower())] = q
+        label[(it.part_id.lower(), it.colour.lower())] = f"{it.part_id} {it.name} ({it.colour})"
+    card_has_colour = any(str(p.get("colour") or "") for p in (idea.get("pieces_used") or []))
+    have = {}
+    for p in parts:
+        key = (p.part_id.lower(), p.colour.lower())
+        if not card_has_colour:                                            # card names parts only: any colour of that part counts
+            key = next((k for k in want if k[0] == key[0]), key)
+        have[key] = have.get(key, 0) + 1
+    out = []
+    for key in want.keys() | have.keys():
+        if want.get(key, 0) != have.get(key, 0):
+            name = label.get(key) or f"{key[0]} ({key[1]})"
+            out.append(f"the idea needs {want.get(key, 0)} x {name} but the build has {have.get(key, 0)}")
+    return out
+
+
 async def generate_build(inv, idea, llm, max_drop=None, max_parts=None, step_size=None):
-    """Ask the model for a build, repair it locally, retry ONCE (with the problems listed) when too much had to be dropped."""
+    """Ask the model for a build, repair it locally, retry ONCE (with the problems listed) when too much had to be dropped
+    or, for an idea, when the build does not show exactly the card's pieces. An idea build that still differs is refused."""
     if not inv.parts():
         raise BuildError("None of your pieces are plain bricks, plates or tiles, so no 3D build can be made from them.", 400)
     max_drop = config.BUILD_MAX_DROP_FRACTION if max_drop is None else max_drop
     text = await llm.complete(SYSTEM_PROMPT, build_user_prompt(inv, idea, max_parts), SCHEMA)
     first = parse_build(text)
     result = finish(first, inv, step_size)
-    if bm.drop_fraction(result.original_count, len(result.build.parts)) > max_drop:
-        problems = [i.message for i in bm.validate(first, inv).errors]
-        log.info("aibuild: %d of %d parts dropped, retrying once", result.dropped, result.original_count)
+    off = idea_mismatch(result.build.parts, inv, idea)
+    if off or bm.drop_fraction(result.original_count, len(result.build.parts)) > max_drop:
+        problems = off + [i.message for i in bm.validate(first, inv).errors]
+        log.info("aibuild: %d of %d parts dropped, %d idea mismatches, retrying once", result.dropped, result.original_count, len(off))
         try:
             text2 = await llm.complete(SYSTEM_PROMPT, build_user_prompt(inv, idea, max_parts, problems), SCHEMA)
             second = finish(parse_build(text2), inv, step_size)
             second.retried = True
-            if len(second.build.parts) > len(result.build.parts):
-                result = second
+            off2 = idea_mismatch(second.build.parts, inv, idea)
+            if (len(off2), -len(second.build.parts)) < (len(off), -len(result.build.parts)):
+                result, off = second, off2
             else:
                 result.retried = True
         except Exception as e:                                                # noqa: BLE001  keep the first attempt
             log.warning("aibuild: retry failed (%s); using the first attempt", e)
             result.retried = True
+    if off:
+        raise BuildError("The 3D model could not be made to match this idea's pieces exactly, so it was not shown. Try again.", 422)
     return result

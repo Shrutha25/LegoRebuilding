@@ -41,3 +41,12 @@ def no_background_warmup(monkeypatch):
     """The app's start-up warm-up (nearby-sets, OMR and LDraw indexes) is tested on its own; other tests must not load the real ones."""
     from backend import builds_api
     monkeypatch.setattr(builds_api, "start_warmup", lambda store: None)
+
+
+@pytest.fixture(autouse=True)
+def gemini_never_live(monkeypatch):
+    """Tests never call Gemini: every genai.Client is a tape client that replays tests/fixtures/gemini_tape (backend/core/gemini_tape.py) and raises
+    NoRecording for anything not recorded. Live calls only with GEMINI_LIVE=1, at most 5 per run."""
+    from google import genai
+    from backend.core import gemini_tape
+    monkeypatch.setattr(genai, "Client", gemini_tape.client_factory(genai.Client))

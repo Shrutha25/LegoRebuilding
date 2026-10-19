@@ -1,0 +1,525 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 3140,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 47,
+   "match_ms": 59,
+   "nearby_ms": 89,
+   "subbuilds_ms": 86,
+   "instant_sources_ms": 91,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Garden Mushroom",
+     "id": "ai-7aab7eafcc6a",
+     "parts": 9,
+     "removed": true,
+     "use_share": 0.544,
+     "coverage": 0.904,
+     "thumb_url": "/api/builds/ai-7aab7eafcc6a/thumb.png"
+    },
+    {
+     "title": "Stepping Stork",
+     "id": "ai-7f3df1f4c61f",
+     "parts": 4,
+     "removed": true,
+     "use_share": 0.347,
+     "coverage": 0.682,
+     "thumb_url": "/api/builds/ai-7f3df1f4c61f/thumb.png"
+    },
+    {
+     "title": "River Tugboat",
+     "id": "ai-88e0ba33e0da",
+     "parts": 5,
+     "removed": true,
+     "use_share": 0.382,
+     "coverage": 0.917,
+     "thumb_url": "/api/builds/ai-88e0ba33e0da/thumb.png"
+    },
+    {
+     "title": "Harbour Beacon",
+     "id": "ai-24f742bf4995",
+     "parts": 13,
+     "removed": true,
+     "use_share": 0.938,
+     "coverage": 0.964,
+     "thumb_url": "/api/builds/ai-24f742bf4995/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 4,
+     "designs_kept": 0,
+     "removed": 4,
+     "first_design_ms": 2839,
+     "last_design_ms": 5128,
+     "done_ms": 7582,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 4,
+      "checks_ok": 4,
+      "diverse_ok": 4,
+      "look_checked": 4,
+      "look_ok": 0,
+      "first_design_ms": 2504,
+      "last_design_ms": 4774
+     },
+     "failures": [
+      {
+       "concept": "Mountain Cabin",
+       "why": "the pile can fill only 60% of the sketch (52 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Window Planter",
+       "why": "its sketch is the same shape as 'River Tugboat'"
+      },
+      {
+       "concept": "Park Bench",
+       "why": "the pile can fill only 47% of the sketch (64 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": [
+      "Garden Mushroom",
+      "Stepping Stork",
+      "River Tugboat",
+      "Harbour Beacon"
+     ]
+    }
+   ],
+   "total_ms": 10889
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 2408,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 2,
+   "match_ms": 20,
+   "nearby_ms": 62,
+   "subbuilds_ms": 60,
+   "instant_sources_ms": 64,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 3838,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 7,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Marshland Pier",
+       "why": "the pile can fill only 22% of the sketch (36 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Rustic Garden Bench",
+       "why": "the pile can fill only 44% of the sketch (29 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Desert Oasis Platform",
+       "why": "none of the pile's parts fit into the sketch"
+      },
+      {
+       "concept": "Forest Lookout Deck",
+       "why": "its sketch is the same shape as 'Desert Oasis Platform'"
+      },
+      {
+       "concept": "Stepping Stone Path",
+       "why": "none of the pile's parts fit into the sketch"
+      },
+      {
+       "concept": "Low River Bridge",
+       "why": "its sketch is the same shape as 'Marshland Pier'"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 6314
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2720,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 3,
+   "match_ms": 50,
+   "nearby_ms": 92,
+   "subbuilds_ms": 89,
+   "instant_sources_ms": 94,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Pond Duck",
+     "id": "ai-4d73c91e4368",
+     "parts": 4,
+     "removed": true,
+     "use_share": 0.498,
+     "coverage": 0.654,
+     "thumb_url": "/api/builds/ai-4d73c91e4368/thumb.png"
+    },
+    {
+     "title": "Roadside Mailbox",
+     "id": "ai-c99708b61fbf",
+     "parts": 5,
+     "removed": true,
+     "use_share": 0.541,
+     "coverage": 0.925,
+     "thumb_url": "/api/builds/ai-c99708b61fbf/thumb.png"
+    },
+    {
+     "title": "Mountain Cabin",
+     "id": "ai-f72ee0062e86",
+     "parts": 4,
+     "removed": true,
+     "use_share": 0.424,
+     "coverage": 0.806,
+     "thumb_url": "/api/builds/ai-f72ee0062e86/thumb.png"
+    },
+    {
+     "title": "Harbour Jetty",
+     "id": "ai-eaa7c07d4225",
+     "parts": 5,
+     "removed": true,
+     "use_share": 0.541,
+     "coverage": 0.771,
+     "thumb_url": "/api/builds/ai-eaa7c07d4225/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 4,
+     "designs_kept": 0,
+     "removed": 4,
+     "first_design_ms": 1959,
+     "last_design_ms": 4459,
+     "done_ms": 6460,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 9,
+      "solver_ok": 4,
+      "checks_ok": 4,
+      "diverse_ok": 4,
+      "look_checked": 4,
+      "look_ok": 0,
+      "first_design_ms": 1957,
+      "last_design_ms": 4438
+     },
+     "failures": [
+      {
+       "concept": "Park Bench",
+       "why": "the pile can fill only 42% of the sketch (38 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Tulip",
+       "why": "the pile can fill only 6% of the sketch (54 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Camping Tent",
+       "why": "its sketch is the same shape as 'Pond Duck'"
+      },
+      {
+       "concept": "Micro Lighthouse",
+       "why": "the pile can fill only 47% of the sketch (60 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Classic Sailboat",
+       "why": "the pile can fill only 48% of the sketch (64 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Forest Mushroom",
+       "why": "the pile can fill only 22% of the sketch (36 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": [
+      "Pond Duck",
+      "Roadside Mailbox",
+      "Mountain Cabin",
+      "Harbour Jetty"
+     ]
+    }
+   ],
+   "total_ms": 9302
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 3,
+   "p50": 11.9,
+   "p95": 12.26,
+   "gemini_calls": [
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 3,
+   "p50": 2708.3,
+   "p95": 3083.15,
+   "gemini_calls": [
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 1376.8,
+     "p95": 1521.16,
+     "n": 3
+    },
+    "crops": {
+     "p50": 141.8,
+     "p95": 157.73,
+     "n": 3
+    },
+    "brickognize": {
+     "p50": 5320.7,
+     "p95": 9050.029999999999,
+     "n": 3
+    },
+    "identify": {
+     "p50": 940.4,
+     "p95": 1349.72,
+     "n": 3
+    },
+    "tiebreak": {
+     "p50": 0.2,
+     "p95": 0.2,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 137.5,
+     "p95": 184.02999999999997,
+     "n": 3
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 3,
+   "p50": 1.0,
+   "p95": 40.51,
+   "gemini_calls": [
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/match": {
+   "n": 3,
+   "p50": 47.0,
+   "p95": 55.28,
+   "gemini_calls": [
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 3
+    },
+    "sets.match": {
+     "p50": 43.2,
+     "p95": 47.879999999999995,
+     "n": 3
+    },
+    "sets.rank": {
+     "p50": 1.6,
+     "p95": 4.75,
+     "n": 3
+    }
+   }
+  },
+  "/api/subbuilds": {
+   "n": 3,
+   "p50": 54.3,
+   "p95": 67.16999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "subbuilds.map": {
+     "p50": 2.6,
+     "p95": 6.92,
+     "n": 3
+    },
+    "subbuilds.match": {
+     "p50": 4.0,
+     "p95": 5.71,
+     "n": 3
+    },
+    "subbuilds.rows": {
+     "p50": 36.0,
+     "p95": 36.36,
+     "n": 3
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 3,
+   "p50": 70.9,
+   "p95": 81.25,
+   "gemini_calls": [
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 1.6,
+     "p95": 2.95,
+     "n": 3
+    },
+    "nearby.match": {
+     "p50": 42.2,
+     "p95": 42.739999999999995,
+     "n": 3
+    },
+    "nearby.rank": {
+     "p50": 0.7,
+     "p95": 1.42,
+     "n": 3
+    }
+   }
+  },
+  "designs_stream": {
+   "n": 3,
+   "p50": 6458.7,
+   "p95": 7168.53,
+   "gemini_calls": [
+    2,
+    2,
+    3
+   ],
+   "stages": {
+    "designs.inventory": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 3
+    },
+    "gemini.budget_wait": {
+     "p50": 12.4,
+     "p95": 19.689999999999998,
+     "n": 3
+    },
+    "gemini.build.first_chunk": {
+     "p50": 1811.0,
+     "p95": 1965.8899999999999,
+     "n": 3
+    },
+    "solver": {
+     "p50": 2176.1,
+     "p95": 5045.48,
+     "n": 3
+    },
+    "checks": {
+     "p50": 2.4,
+     "p95": 3.21,
+     "n": 2
+    },
+    "ldr": {
+     "p50": 0.25,
+     "p95": 0.385,
+     "n": 2
+    },
+    "ldr.pack": {
+     "p50": 28.25,
+     "p95": 38.285,
+     "n": 2
+    },
+    "thumbnail": {
+     "p50": 103.4,
+     "p95": 117.89,
+     "n": 2
+    },
+    "gemini.build.stream": {
+     "p50": 3476.2,
+     "p95": 3746.02,
+     "n": 3
+    },
+    "designs.round1": {
+     "p50": 2507.1,
+     "p95": 4547.669999999999,
+     "n": 3
+    },
+    "gemini.build": {
+     "p50": 2221.7,
+     "p95": 2427.2599999999998,
+     "n": 2
+    },
+    "look_check": {
+     "p50": 2227.15,
+     "p95": 2431.135,
+     "n": 2
+    },
+    "designs.repair": {
+     "p50": 1790.8,
+     "p95": 1916.53,
+     "n": 2
+    }
+   }
+  }
+ }
+}

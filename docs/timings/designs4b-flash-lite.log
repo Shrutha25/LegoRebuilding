@@ -1,0 +1,75 @@
+server ready: {'nearby': True, 'omr': True, 'service': True, 'examples': True, 'omr_sub_builds': 5504, 'seconds': {'nearby': 1.21, 'service': 0.1, 'omr': 0.17, 'examples': 0.0}}
+== bench_photos/photo1.jpg
+   scan_ms=3187  scan_status=done  pieces=18  resolve_ms=41  match_ms=67  nearby_ms=98  subbuilds_ms=96  instant_sources_ms=100  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=71513
+   designs: kept 2 of 2, first 3164 ms, last 4326 ms, done 43728 ms, gemini calls 3  
+   designs: kept 0 of 0, first None ms, last None ms, done 4402 ms, gemini calls 1  ['No design fit this pile this time.']
+   designs: kept 3 of 3, first 3461 ms, last 5235 ms, done 20038 ms, gemini calls 3  
+== bench_photos/photo2.jpg
+   scan_ms=2067  scan_status=done  pieces=6  resolve_ms=2  match_ms=27  nearby_ms=62  subbuilds_ms=59  instant_sources_ms=63  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=36750
+   designs: kept 0 of 0, first None ms, last None ms, done 6507 ms, gemini calls 2  ['With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again.']
+   designs: kept 0 of 0, first None ms, last None ms, done 8567 ms, gemini calls 2  ['With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again.']
+   designs: kept 0 of 0, first None ms, last None ms, done 19539 ms, gemini calls 2  ['With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again.']
+== bench_photos/photo3.jpg
+   scan_ms=2495  scan_status=done  pieces=8  resolve_ms=3  match_ms=83  nearby_ms=84  subbuilds_ms=82  instant_sources_ms=86  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=84196
+   designs: kept 0 of 0, first None ms, last None ms, done 49667 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 0 of 0, first None ms, last None ms, done 20082 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 0 of 0, first None ms, last None ms, done 11857 ms, gemini calls 2  ['No design fit this pile this time.']
+== bench_photos/photo4.jpg
+   scan_ms=2432  scan_status=done  pieces=13  resolve_ms=2  match_ms=112  nearby_ms=113  subbuilds_ms=109  instant_sources_ms=114  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=52673
+   designs: kept 0 of 0, first None ms, last None ms, done 10138 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 0 of 1, first 10984 ms, last 10984 ms, done 16363 ms, gemini calls 3  ['No design fit this pile this time.']
+   designs: kept 1 of 2, first 5215 ms, last 6056 ms, done 23622 ms, gemini calls 3  
+== bench_photos/photo5.jpg
+concept call failed: IdeasError: The AI service took too long. Please try again.
+   scan_ms=2344  scan_status=done  pieces=14  resolve_ms=2  match_ms=76  nearby_ms=100  subbuilds_ms=98  instant_sources_ms=102  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=74308
+   designs: kept 0 of 0, first None ms, last None ms, done 45101 ms, gemini calls 1  ['AI designs are unavailable right now (504 The AI service took too long. Please try again.).']
+   designs: kept 0 of 0, first None ms, last None ms, done 12996 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 0 of 0, first None ms, last None ms, done 13759 ms, gemini calls 2  ['No design fit this pile this time.']
+== bench_photos/photo6.jpg
+   scan_ms=2710  scan_status=done  pieces=17  resolve_ms=3  match_ms=89  nearby_ms=119  subbuilds_ms=95  instant_sources_ms=120  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=87211
+   designs: kept 2 of 2, first 5015 ms, last 6621 ms, done 17407 ms, gemini calls 3  
+   designs: kept 3 of 3, first 5240 ms, last 6582 ms, done 16131 ms, gemini calls 2  
+   designs: kept 2 of 2, first 6310 ms, last 6995 ms, done 50820 ms, gemini calls 3  
+== bench_photos/photo7.jpg
+   scan_ms=2873  scan_status=done  pieces=16  resolve_ms=4  match_ms=103  nearby_ms=104  subbuilds_ms=100  instant_sources_ms=105  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=94766
+   designs: kept 0 of 0, first None ms, last None ms, done 5317 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 2 of 2, first 27967 ms, last 28795 ms, done 65066 ms, gemini calls 3  
+   designs: kept 1 of 1, first 2392 ms, last 2392 ms, done 21389 ms, gemini calls 3  
+
+server-side timing for this run (p50 / p95):
+request                               n    p50 ms    p95 ms    max ms   gemini calls p50/max
+designs_stream                       21     17406     50818     65062   2/4
+    gemini.build.stream              21     10895     49650     62506
+    gemini.build.first_chunk         21      7495     17953     28457
+    designs.round1                   21      6054     45099     60356
+    look_check                        9      5518     12131     13241
+    designs.repair                   18      5509     37095     38983
+    gemini.build                      9      5372     12126     13235
+    solver                           16      2226      8571      8769
+    thumbnail                         9        40        78        92
+    gemini.budget_wait               21        14      5208     11510
+    ldr.pack                          9        11        33        34
+    checks                            9         1         2         2
+    ldr                               9         0         0         0
+    designs.inventory                21         0         0         0
+scan_job                              7      2462      3083      3177   0/0
+    brickognize                       7      6852     10768     11623
+    detect                            7      1234      1412      1438
+    identify                          7      1033      1497      1616
+    save_crops                        7       134       174       182
+    crops                             7       130       164       169
+    tiebreak                          1         0         0         0
+/api/match                            7        81       106       109   0/0
+    sets.match                        7        58        99       107
+    sets.rank                         7         2        32        43
+    map_parts                         7         0         0         0
+/api/sets/nearby                      7        74       107       110   0/0
+    nearby.match                      7        38        72        83
+    nearby.index                      7         8        39        43
+    nearby.rank                       7         1         2         2
+/api/subbuilds                        7        71       100       103   0/0
+    subbuilds.rows                    7        32        57        65
+    subbuilds.map                     7         6        32        33
+    subbuilds.match                   7         5        10        11
+/api/scan                             7        13        18        18   0/0
+/api/parts/resolve                    7         1        28        39   0/0

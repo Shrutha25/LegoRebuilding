@@ -147,6 +147,13 @@ def components(parts, inv, occ):
     for i in range(n):
         for j in supporters(i, parts, inv, occ):
             parent[find(i)] = find(j)
+    wheel = [i for i in range(n) if (_dims(inv, parts[i]) is not None and _dims(inv, parts[i]).kind in ("wheelbase", "tyre", "rim"))]
+    for a in wheel:                                                 # a wheel set is held together by its pins: holder, rims and tyres touching each other
+        ca = {(cx, cz) for cx, cz in cells(parts[a], _dims(inv, parts[a]))}
+        for b in wheel:
+            if b > a and (parts[a].y == parts[b].y):
+                if any((cx + dx, cz + dz) in ca for cx, cz in cells(parts[b], _dims(inv, parts[b])) for dx, dz in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1))):
+                    parent[find(a)] = find(b)
     groups = {}
     for i in range(n):
         if _dims(inv, parts[i]) is not None:

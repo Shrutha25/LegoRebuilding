@@ -5,6 +5,7 @@ The LLM sits behind a one-method interface (`complete`) so tests can stub it.
 """
 
 import json
+import random
 import re
 from dataclasses import dataclass, field
 
@@ -15,6 +16,7 @@ REQUESTED_IDEAS = 4        # ask for a spare so that dropping one invalid idea s
 RETURNED_IDEAS = 3
 MAX_DISTINCT_PARTS = 150   # keeps the prompt small
 MAX_STEPS = 12
+MAX_EXCLUDED = 60          # previously shown names kept in the prompt
 
 SYSTEM_PROMPT = (
     "You design small original LEGO models for people who only have a specific handful of pieces. "
@@ -97,8 +99,18 @@ def aggregate_parts(parts):
     return owned
 
 
-def build_user_prompt(owned, match_color=False):
-    """The user's exact parts list (one line per part and colour)."""
+FORMS = ("vehicle", "animal", "building or landmark", "robot or creature", "furniture or household item",
+         "tool or gadget", "plant or scenery", "food or treat", "toy or game", "musical instrument",
+         "boat, plane or spacecraft", "sculpture or abstract art", "character or figure", "machine with moving parts")
+
+
+def pick_forms(n=REQUESTED_IDEAS, rng=random):
+    """A different mix of model types per request, so the ideas vary in kind and not just in name."""
+    return rng.sample(FORMS, n)
+
+
+def build_user_prompt(owned, match_color=False, exclude=(), forms=()):
+    """The user's exact parts list (one line per part and colour), plus what not to suggest again."""
     lines = []
     for o in list(owned.values())[:MAX_DISTINCT_PARTS]:
         if o.colors:
@@ -106,9 +118,12 @@ def build_user_prompt(owned, match_color=False):
                 lines.append(f"- {q} x {o.name} ({color}), part {o.part_num}")
         else:
             lines.append(f"- {o.qty} x {o.name}, part {o.part_num}")
+    avoid = [_clean(n, 60) for n in list(exclude)[-MAX_EXCLUDED:] if _clean(n, 60)]
     return (
         "I have exactly these LEGO pieces:\n" + "\n".join(lines) + "\n\n"
         f"Suggest {REQUESTED_IDEAS} different small original models I could build using ONLY these pieces."
+        + (f" Make them different kinds of model, one each of: {', '.join(forms)}." if forms else "")
+        + (f" I have already seen these, so do not suggest them or close variants of them: {'; '.join(avoid)}." if avoid else "")
         + (' Colours matter: give every piece the colour it has in my list (field "colour") and never use more of a colour than I have.'
            if match_color else " Colours do not matter, only the part numbers.")
     )
@@ -167,25 +182,29 @@ def _validate_one(idea, owned, match_color=False):
     return {
         "name": name.strip(),
         "description": desc.strip(),
-        "pieces_used": [{"part_num": owned[k].part_num, "name": owned[k].name, "qty": q}
-                        for k, q in used.items()],
+        "pieces_used": ([{"part_num": owned[k].part_num, "name": owned[k].name, "qty": q, **({"colour": c} if c else {})}
+                         for (k, c), q in coloured.items()] if match_color else
+                        [{"part_num": owned[k].part_num, "name": owned[k].name, "qty": q} for k, q in used.items()]),
         "mixed_colours": not match_color,
         "steps": [s.strip() for s in steps[:MAX_STEPS]],
     }, None
 
 
-def validate_ideas(raw, owned, limit=RETURNED_IDEAS, match_color=False):
-    """Keep only ideas that use pieces the user owns in sufficient quantity.
+def validate_ideas(raw, owned, limit=RETURNED_IDEAS, match_color=False, exclude=()):
+    """Keep only ideas that use pieces the user owns in sufficient quantity and are not in `exclude`.
     Returns (valid ideas (at most `limit`), list of (idea name, reason) that were dropped)."""
     ideas = raw.get("ideas") if isinstance(raw, dict) else raw
     if not isinstance(ideas, list):
         return [], [("-", "response had no ideas list")]
+    excluded = {str(n).strip().lower() for n in exclude}
     valid, dropped, seen = [], [], set()
     for idea in ideas:
         cleaned, reason = _validate_one(idea, owned, match_color)
         label = idea.get("name", "?") if isinstance(idea, dict) else "?"
         if cleaned is None:
             dropped.append((label, reason))
+        elif cleaned["name"].lower() in excluded:
+            dropped.append((label, "already suggested"))
         elif cleaned["name"].lower() in seen:
             dropped.append((label, "duplicate name"))
         else:
@@ -208,6 +227,17 @@ class GeminiLLM:
         self.model = model
         self.budget = budget
 
+    _stream_ok = "unset"
+
+    def _stream_levels(self):
+        """Thinking levels to try, preferred first: GEMINI_THINKING (default "minimal"), then none. The answer is a plain list, so thinking only adds cost and
+        delay before the first token. Not every model accepts every level: the one that worked is remembered."""
+        if self._stream_ok != "unset":
+            return [self._stream_ok]
+        from backend import config
+        want = None if config.GEMINI_THINKING in ("none", "off", "") else config.GEMINI_THINKING
+        return [want, None] if want else [None]
+
     async def complete(self, system, user, schema):
         return await self._run(system, user, schema)
 
@@ -215,6 +245,44 @@ class GeminiLLM:
         """Like complete(), with PNG images (bytes) in front of the text; used by the "does it look like its name?" check."""
         parts = [self._types.Part.from_bytes(data=img, mime_type="image/png") for img in images]
         return await self._run(system, parts + [user], schema)
+
+    async def stream(self, system, user, max_tokens=8192, schema=None):
+        """Async generator of the answer's text, piece by piece (plain text, no schema). Raises IdeasError like complete()."""
+        types, errors, httpx = self._types, self._errors, self._httpx
+        try:
+            for level in self._stream_levels():
+                cfg = dict(system_instruction=system, max_output_tokens=max_tokens)
+                if schema is not None:
+                    cfg.update(response_mime_type="application/json", response_json_schema=schema)
+                if level:
+                    cfg["thinking_config"] = types.ThinkingConfig(thinking_level=level)
+                started = False
+                try:
+                    async for chunk in gemini_budget.generate_stream(self.client, self.budget, gemini_budget.BUILD, self.model, retries=1, contents=user,
+                                                                     config=types.GenerateContentConfig(**cfg)):
+                        started = True
+                        try:
+                            text = chunk.text
+                        except Exception:                                    # a chunk without text (a safety block ...)
+                            text = None
+                        if text:
+                            yield text
+                except errors.APIError as e:
+                    if not started and getattr(e, "code", None) == 400 and "thinking" in (getattr(e, "message", "") or "").lower():
+                        continue                                             # this model does not take that level: try the next
+                    raise
+                self._stream_ok = level
+                break
+        except BudgetRefused as e:
+            raise IdeasError("The AI service is at its usage limit right now. Please try again in a minute"
+                             + (f" (about {int(e.retry_after) + 1}s)." if e.retry_after and e.retry_after < 120 else
+                                ", or tomorrow if the daily limit is used up."), 429)
+        except errors.APIError as e:
+            raise _map_api_error(e)
+        except (httpx.TimeoutException, TimeoutError):
+            raise IdeasError("The AI service took too long. Please try again.", 504)
+        except httpx.TransportError:
+            raise IdeasError("Could not reach the AI service. Please try again.", 502)
 
     async def _run(self, system, contents, schema):
         types, errors, httpx = self._types, self._errors, self._httpx
@@ -274,18 +342,19 @@ def _map_api_error(e):
     return IdeasError(f"The AI service returned an error ({code}).", 502)
 
 
-async def generate_ideas(parts, llm, match_color=False):
-    """parts: [{part_num, name?, color?, qty}]. Returns {"ideas": [...], "dropped": [...]}.
+async def generate_ideas(parts, llm, match_color=False, exclude=()):
+    """parts: [{part_num, name?, color?, qty}]; exclude: names of builds already shown.
+    Returns {"ideas": [...], "dropped": [...]}.
     Raises IdeasError for service-level failures; invalid ideas are dropped, not raised."""
     owned = aggregate_parts(parts)
     if not owned:
         raise IdeasError("Add at least one piece first.", 400)
-    text = await llm.complete(SYSTEM_PROMPT, build_user_prompt(owned, match_color), SCHEMA)
+    text = await llm.complete(SYSTEM_PROMPT, build_user_prompt(owned, match_color, exclude, pick_forms()), SCHEMA)
     try:
         raw = json.loads(text)
     except (TypeError, ValueError):
         raise IdeasError("The AI response was not valid JSON. Please try again.", 502)
-    ideas, dropped = validate_ideas(raw, owned, match_color=match_color)
+    ideas, dropped = validate_ideas(raw, owned, match_color=match_color, exclude=exclude)
     if not ideas:
         raise IdeasError("The AI could not come up with a build that fits your pieces. "
                          "Try again, or add more pieces.", 502)

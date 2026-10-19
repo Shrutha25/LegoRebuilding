@@ -491,3 +491,19 @@ then `python suggest_builds.py parts_list.csv` (they now import from `backend/co
 Every OpenCV detection is a mask (`backend/core/segment.py`). A connected region is one piece unless a split rule has evidence (seam, stud grids, colour, shape, size); neighbours that are really one piece are merged and re-checked; a split the evidence only just supports is flagged and settled by a Brickognize tie-break (at most `SEG_MAX_TIEBREAKS` per scan), otherwise shown as "check this". In the review screen, "Merge" and "Split" fix what is left; each correction is stored in `corrections/` (git-ignored) for the test set. All thresholds, with defaults, are in `docs/detection/metrics.md` and can be overridden with `SEG_<NAME>` environment variables. Before/after metrics and debug overlays: `python -m tests.detection.report`.
 
 The detector engine is chosen with `DETECT_ENGINE`: `mask` (the default: the mask pipeline above, `analyse_masks`) or `legacy` (the earlier box logic). Merge / Split in the review screen work with both.
+
+
+## Designed for your pile
+
+`POST /api/designs/stream` (server-sent events) builds new models for the pile in `backend/designs/`:
+
+1. one streamed Gemini call (`concepts.py`) returns 6-8 concepts as JSON objects: a name, a description and a coarse layer-by-layer voxel sketch (small, iconic shapes; the prompt says a typical pile is 6-20 pieces with 1-2 of each part). Three short examples from the OMR index inspire it;
+2. each concept is solved locally as its line arrives (`solver.py`, OR-Tools CP-SAT, 2 s): the sketch is enlarged to use at least 70% of the pile's volume (never more than it has), then the real bricks, slopes, round parts and wheel sets (4600 holder + 2 rims + 2 tyres, only when the pile has them) are fitted with exact counts, no overlap, support and one connected piece;
+3. `can_build`, structure and a duplicate check run at once and each passing design is streamed (`design` events);
+4. with `DESIGN_MAX_CALLS=3` a batched contact-sheet look check runs in the background and removes designs that a child could not see as their name (`verdict` events). With `DESIGN_MAX_CALLS=3` there is also at most one repair call, only if fewer than 3 designs passed. The default is ONE Gemini call per request (no repair, no look check).
+
+Benchmark: `GEMINI_MODEL=gemini-flash-lite-latest GEMINI_RPD=400 python -m backend.bench bench_photos/*.jpg --repeat 3 --designs-dir docs/designs` queues requests behind the per-minute limit (`BUILD_MAX_WAIT`) instead of being refused, and writes per-photo and combined contact sheets.
+
+### Tests never call Gemini
+
+`tests/conftest.py` replaces the SDK client with a tape client (`backend/core/gemini_tape.py`): answers are replayed from `tests/fixtures/gemini_tape/`, keyed by a hash of the model, prompts, schema and settings, and a request with no recording raises `NoRecording`. To record a real answer once: `GEMINI_LIVE=1 python -m pytest tests/test_designs_cost.py -k recorded` (needs `GEMINI_API_KEY`; hard cap of 5 real requests per run). Quota: a 429 marks that model exhausted until the daily reset (`gemini_budget`) and nothing else is tried; detection has one fallback model, used only on 503/504.

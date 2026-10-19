@@ -114,6 +114,23 @@ def test_a_good_ai_build_needs_no_repair_and_one_call():
     assert len(res.build.parts) == 12 and "Build this: Truck" in llm.prompts[0] and "3001 Brick 2 x 4 (Red): 4x2 studs, 3 plates tall" in llm.prompts[0]
 
 
+def test_idea_prompt_lists_card_pieces_and_steps_without_a_minimum():
+    first = INV.parts()[0]
+    idea = {"name": "Truck", "description": "A truck.", "steps": ["Stack two bricks."],
+            "pieces_used": [{"part_num": first.part_id, "qty": 1, "colour": first.colour}]}
+    prompt = aibuild.build_user_prompt(INV, idea)
+    assert f"1 x {first.part_id} {first.name} ({first.colour})" in prompt and "1. Stack two bricks." in prompt and "Use between" not in prompt
+
+
+def test_idea_mismatch_is_empty_only_when_the_build_shows_exactly_the_card_pieces():
+    first = INV.parts()[0]
+    idea = {"pieces_used": [{"part_num": first.part_id, "qty": 2, "colour": first.colour}]}
+    mk = lambda n: [aibuild.Placement(first.part_id, first.colour, 0, 0, 0, 0, 1) for _ in range(n)]
+    assert aibuild.idea_mismatch(mk(2), INV, idea) == []
+    assert len(aibuild.idea_mismatch(mk(1), INV, idea)) == 1 and len(aibuild.idea_mismatch(mk(3), INV, idea)) == 1
+    assert aibuild.idea_mismatch(mk(5), INV, None) == []
+
+
 def test_a_broken_build_is_repaired_without_a_second_call_when_little_is_lost():
     data = json.loads(fixture_json())
     data["build"]["parts"][4]["x"] = 5.0                         # a float coordinate: snapped

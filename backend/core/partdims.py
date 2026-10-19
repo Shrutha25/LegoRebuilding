@@ -31,6 +31,7 @@ class Dims:
     shape: str = "rect"            # rect | round | cone | slope (what the part looks like; the grid only needs its footprint)
     box: tuple | None = None       # (x0, x1, z0, z1) in LDU at rotation 0 for parts whose LDraw origin is NOT the middle of the footprint
     descent: str | None = None     # slopes: the direction ("-z") the surface falls towards at rotation 0
+    oy: int | None = None          # wheels: LDU from the bottom of the part up to its LDraw origin (the origin is the wheel's centre, not the top)
 
     def footprint(self, rotation):
         """(studs along X, studs along Z) for a rotation of 0/90/180/270 degrees."""
@@ -124,6 +125,18 @@ KNOWN = {
 # Slopes: origin on the high stud row, so they carry their LDraw box. 3040b 2x1 is 1 stud wide in LDraw's x, 2 deep in z.
 KNOWN.update({"3040b": _slope(1, 2), "3039": _slope(2, 2), "3037": _slope(4, 2), "3038": _slope(3, 2), "3298": _slope(2, 3),
               "4286": _slope(1, 3)})
+
+# Wheels. A wheel set is one 4600-style holder + two rims + two tyres standing on the ground, 4 studs wide and 2 deep (geometry from OMR 1478-1,
+# verified against LDraw in tests/test_wheels.py). The holder's plate sits 3 plates up with a wheel on each side of it, so in the grid:
+#   holder  2 x 2 studs, 3 plates tall (the empty space under its plate is reserved), studs on top, origin at the top of its plate
+#   tyre    1 stud wide, 2 deep, 5 plates tall (36 LDU in reality), origin = its centre, 18 LDU above the ground; its axle runs along X at rotation 0
+#   rim     the same cells as its tyre and no height of its own (it sits inside the tyre)
+WHEEL_HOLDER_PLATES, WHEEL_PLATES = 3, 5
+_WHEEL_BOX = (-20, 20, -10, 10)
+KNOWN.update({"4600": Dims(2, 2, WHEEL_HOLDER_PLATES, True, "wheelbase"),
+              "3641": Dims(2, 1, WHEEL_PLATES, False, "tyre", "wheel", _WHEEL_BOX, None, 18),
+              "4624": Dims(2, 1, 0, False, "rim", "wheel", _WHEEL_BOX, None, 18)})
+WHEEL_KINDS = ("wheelbase", "tyre", "rim")
 
 _NAME = re.compile(r"^(Brick|Plate|Tile)\s+(\d+)\s*x\s*(\d+)(\s+with Groove)?$", re.I)
 MAX_SIDE = 16

@@ -76,7 +76,7 @@ export type SetMatch = {
 
 export type MatchPart = { part_num: string; color: string | null; qty: number };
 
-export type IdeaPiece = { part_num: string; name: string; qty: number; image: string | null };
+export type IdeaPiece = { part_num: string; name: string; qty: number; image: string | null; colour?: string };
 
 export type Idea = {
   name: string;

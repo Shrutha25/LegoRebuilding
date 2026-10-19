@@ -24,6 +24,8 @@ def parse_detector(raw, default="opencv"):
 
 
 DETECTOR = parse_detector(os.environ.get("DETECTOR"))
+# the concept call of "Designed for your pile" (streamed): a Flash-tier model; defaults to GEMINI_MODEL
+GEMINI_DESIGN_MODEL = os.environ.get("GEMINI_DESIGN_MODEL") or GEMINI_MODEL
 GEMINI_DETECT_MODEL = os.environ.get("GEMINI_DETECT_MODEL", "gemini-3.1-flash-lite")        # separate from the ideas model
 GEMINI_DETECT_FALLBACK_MODEL = os.environ.get("GEMINI_DETECT_FALLBACK_MODEL", "gemini-3.1-flash-lite")  # used on 503/504
 
@@ -82,10 +84,15 @@ def _flag(raw, default=False):
 AI_FREEFORM_BUILDS = _flag(os.environ.get("AI_FREEFORM_BUILDS"))             # old free-form Gemini placement, only as a fallback (default off)
 RECIPE_AI_TIMEOUT = _float(os.environ.get("RECIPE_AI_TIMEOUT"), 25.0)         # seconds the pick/name call may take before templates are used
 RECIPE_SHOW = _int(os.environ.get("RECIPE_SHOW"), 5)                          # builds shown per request (3-5)
+# Gemini calls a "build suggestions" request may make. 1 = the concept call only (no repair call, no look check): the cheap default. 3 allows one repair
+# call and one batched look check (backend/designs/pipeline.py).
+DESIGN_MAX_CALLS = max(1, min(3, _int(os.environ.get("DESIGN_MAX_CALLS"), 1)))
+# Thinking for text generation: "minimal" (or "low", "none"). Build suggestions want a quick list, not reasoning; models that reject the level fall back to none.
+GEMINI_THINKING = os.environ.get("GEMINI_THINKING", "minimal").strip().lower()
 RECIPE_GALLERY = _flag(os.environ.get("RECIPE_GALLERY"))                      # dev page /recipe-gallery needs this endpoint
 RECIPE_CONCEPTS = _int(os.environ.get("RECIPE_CONCEPTS"), 12)                 # concepts asked from Gemini per request (10-15)
 RECIPE_LIBRARY_DIR = Path(os.environ.get("RECIPE_LIBRARY_DIR", ROOT / "recipe_library"))   # recipes generated on demand that passed every check
-RECIPE_GEN_PER_REQUEST = _int(os.environ.get("RECIPE_GEN_PER_REQUEST"), 1)    # new recipes Gemini may write per request when nothing fits (0 = never)
+RECIPE_GEN_PER_REQUEST = _int(os.environ.get("RECIPE_GEN_PER_REQUEST"), 0)    # new recipes Gemini may write per request when nothing fits (0 = never)
 RECIPE_GEN_TIMEOUT = _float(os.environ.get("RECIPE_GEN_TIMEOUT"), 90.0)       # seconds for one on-demand recipe including its repairs
 RECIPE_RECOGNISE = _flag(os.environ.get("RECIPE_RECOGNISE"), True)            # vision check ("what is this model?") on generated recipes
 

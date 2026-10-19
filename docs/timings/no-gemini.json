@@ -1,0 +1,664 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 2370,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 27,
+   "match_ms": 45,
+   "nearby_ms": 69,
+   "subbuilds_ms": 66,
+   "instant_sources_ms": 70,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 46,
+     "gemini_calls": 0,
+     "stats": {},
+     "failures": [],
+     "notes": [
+      "AI designs need a GEMINI_API_KEY."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 339,
+   "recipes": {
+    "status": 200,
+    "builds": 1,
+    "titles": [
+     "Little Evergreen"
+    ],
+    "ai_used": false,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2,
+   "ideas": {
+    "status": 503,
+    "detail": "AI ideas need a GEMINI_API_KEY in the server's .env."
+   },
+   "total_ms": 2855
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 1604,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 2,
+   "match_ms": 12,
+   "nearby_ms": 35,
+   "subbuilds_ms": 31,
+   "instant_sources_ms": 36,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 2,
+     "gemini_calls": 0,
+     "stats": {},
+     "failures": [],
+     "notes": [
+      "AI designs need a GEMINI_API_KEY."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 117,
+   "recipes": {
+    "status": 200,
+    "builds": 0,
+    "titles": [],
+    "ai_used": false,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2,
+   "ideas": {
+    "status": 503,
+    "detail": "AI ideas need a GEMINI_API_KEY in the server's .env."
+   },
+   "total_ms": 1763
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2148,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 2,
+   "match_ms": 46,
+   "nearby_ms": 46,
+   "subbuilds_ms": 39,
+   "instant_sources_ms": 48,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 2,
+     "gemini_calls": 0,
+     "stats": {},
+     "failures": [],
+     "notes": [
+      "AI designs need a GEMINI_API_KEY."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 323,
+   "recipes": {
+    "status": 200,
+    "builds": 0,
+    "titles": [],
+    "ai_used": false,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2,
+   "ideas": {
+    "status": 503,
+    "detail": "AI ideas need a GEMINI_API_KEY in the server's .env."
+   },
+   "total_ms": 2525
+  },
+  {
+   "photo": "bench_photos/photo4.jpg",
+   "scan_ms": 1891,
+   "scan_status": "done",
+   "pieces": 13,
+   "detector": "opencv",
+   "rows": 10,
+   "pieces_identified": 13,
+   "resolve_ms": 1,
+   "match_ms": 61,
+   "nearby_ms": 61,
+   "subbuilds_ms": 59,
+   "instant_sources_ms": 62,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 2,
+     "gemini_calls": 0,
+     "stats": {},
+     "failures": [],
+     "notes": [
+      "AI designs need a GEMINI_API_KEY."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 153,
+   "recipes": {
+    "status": 200,
+    "builds": 1,
+    "titles": [
+     "Lone Spruce"
+    ],
+    "ai_used": false,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2,
+   "ideas": {
+    "status": 503,
+    "detail": "AI ideas need a GEMINI_API_KEY in the server's .env."
+   },
+   "total_ms": 2112
+  },
+  {
+   "photo": "bench_photos/photo5.jpg",
+   "scan_ms": 1929,
+   "scan_status": "done",
+   "pieces": 14,
+   "detector": "opencv",
+   "rows": 12,
+   "pieces_identified": 14,
+   "resolve_ms": 1,
+   "match_ms": 66,
+   "nearby_ms": 66,
+   "subbuilds_ms": 63,
+   "instant_sources_ms": 68,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 2,
+     "gemini_calls": 0,
+     "stats": {},
+     "failures": [],
+     "notes": [
+      "AI designs need a GEMINI_API_KEY."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 211,
+   "recipes": {
+    "status": 200,
+    "builds": 0,
+    "titles": [],
+    "ai_used": false,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2,
+   "ideas": {
+    "status": 503,
+    "detail": "AI ideas need a GEMINI_API_KEY in the server's .env."
+   },
+   "total_ms": 2213
+  },
+  {
+   "photo": "bench_photos/photo6.jpg",
+   "scan_ms": 2151,
+   "scan_status": "done",
+   "pieces": 17,
+   "detector": "opencv",
+   "rows": 16,
+   "pieces_identified": 17,
+   "resolve_ms": 1,
+   "match_ms": 67,
+   "nearby_ms": 67,
+   "subbuilds_ms": 65,
+   "instant_sources_ms": 68,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 2,
+     "gemini_calls": 0,
+     "stats": {},
+     "failures": [],
+     "notes": [
+      "AI designs need a GEMINI_API_KEY."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 254,
+   "recipes": {
+    "status": 200,
+    "builds": 1,
+    "titles": [
+     "Winter Pine"
+    ],
+    "ai_used": false,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2,
+   "ideas": {
+    "status": 503,
+    "detail": "AI ideas need a GEMINI_API_KEY in the server's .env."
+   },
+   "total_ms": 2479
+  },
+  {
+   "photo": "bench_photos/photo7.jpg",
+   "scan_ms": 2249,
+   "scan_status": "done",
+   "pieces": 16,
+   "detector": "opencv",
+   "rows": 13,
+   "pieces_identified": 16,
+   "resolve_ms": 2,
+   "match_ms": 64,
+   "nearby_ms": 64,
+   "subbuilds_ms": 62,
+   "instant_sources_ms": 66,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 2,
+     "gemini_calls": 0,
+     "stats": {},
+     "failures": [],
+     "notes": [
+      "AI designs need a GEMINI_API_KEY."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "recipes_ms": 207,
+   "recipes": {
+    "status": 200,
+    "builds": 1,
+    "titles": [
+     "Little Evergreen"
+    ],
+    "ai_used": false,
+    "ai_note": "",
+    "generated": []
+   },
+   "ideas_ms": 2,
+   "ideas": {
+    "status": 503,
+    "detail": "AI ideas need a GEMINI_API_KEY in the server's .env."
+   },
+   "total_ms": 2528
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 7,
+   "p50": 8.9,
+   "p95": 10.41,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 7,
+   "p50": 2087.7,
+   "p95": 2306.11,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 809.6,
+     "p95": 1027.6,
+     "n": 7
+    },
+    "crops": {
+     "p50": 77.1,
+     "p95": 89.55,
+     "n": 7
+    },
+    "brickognize": {
+     "p50": 6881.4,
+     "p95": 8909.24,
+     "n": 7
+    },
+    "identify": {
+     "p50": 1070.4,
+     "p95": 1236.32,
+     "n": 7
+    },
+    "tiebreak": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 84.9,
+     "p95": 98.88999999999999,
+     "n": 7
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 7,
+   "p50": 0.5,
+   "p95": 18.37999999999998,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/match": {
+   "n": 7,
+   "p50": 58.5,
+   "p95": 64.42,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 7
+    },
+    "sets.match": {
+     "p50": 37.4,
+     "p95": 62.77,
+     "n": 7
+    },
+    "sets.rank": {
+     "p50": 1.3,
+     "p95": 22.64,
+     "n": 7
+    }
+   }
+  },
+  "/api/subbuilds": {
+   "n": 7,
+   "p50": 38.3,
+   "p95": 58.7,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "subbuilds.map": {
+     "p50": 7.7,
+     "p95": 8.21,
+     "n": 7
+    },
+    "subbuilds.match": {
+     "p50": 3.8,
+     "p95": 25.51999999999999,
+     "n": 7
+    },
+    "subbuilds.rows": {
+     "p50": 19.5,
+     "p95": 40.51,
+     "n": 7
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 7,
+   "p50": 62.3,
+   "p95": 65.82000000000001,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 7.8,
+     "p95": 9.04,
+     "n": 7
+    },
+    "nearby.match": {
+     "p50": 49.2,
+     "p95": 55.98,
+     "n": 7
+    },
+    "nearby.rank": {
+     "p50": 0.5,
+     "p95": 16.459999999999987,
+     "n": 7
+    }
+   }
+  },
+  "designs_stream": {
+   "n": 7,
+   "p50": 0.3,
+   "p95": 0.7799999999999998,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "designs.inventory": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 7
+    }
+   }
+  },
+  "/api/builds/recipes": {
+   "n": 7,
+   "p50": 209.0,
+   "p95": 332.63,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "recipes.inventory": {
+     "p50": 0.0,
+     "p95": 0.1,
+     "n": 7
+    },
+    "concepts": {
+     "p50": 0.0,
+     "p95": 0.1,
+     "n": 7
+    },
+    "solver": {
+     "p50": 192.8,
+     "p95": 311.87,
+     "n": 7
+    },
+    "checks": {
+     "p50": 0.3,
+     "p95": 0.3,
+     "n": 4
+    },
+    "recipes.suggest": {
+     "p50": 208.2,
+     "p95": 326.21999999999997,
+     "n": 7
+    },
+    "recipes.finalize": {
+     "p50": 0.0,
+     "p95": 0.06999999999999994,
+     "n": 7
+    },
+    "ldr": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 4
+    },
+    "ldr.pack": {
+     "p50": 4.25,
+     "p95": 4.569999999999999,
+     "n": 4
+    },
+    "recipes.store": {
+     "p50": 2.8,
+     "p95": 4.64,
+     "n": 7
+    }
+   }
+  },
+  "/api/ideas": {
+   "n": 7,
+   "p50": 0.5,
+   "p95": 0.7099999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "ideas": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 7
+    }
+   }
+  }
+ }
+}

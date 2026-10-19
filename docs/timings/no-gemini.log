@@ -1,0 +1,67 @@
+server ready: {'nearby': True, 'omr': True, 'service': True, 'examples': True, 'omr_sub_builds': 5504, 'seconds': {'nearby': 1.26, 'service': 0.1, 'omr': 0.18, 'examples': 0.0}}
+== bench_photos/photo1.jpg
+   scan_ms=2370  scan_status=done  pieces=18  resolve_ms=27  match_ms=45  nearby_ms=69  subbuilds_ms=66  instant_sources_ms=70  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=339  ideas_ms=2  total_ms=2855
+   recipes: {'status': 200, 'builds': 1, 'titles': ['Little Evergreen'], 'ai_used': False, 'ai_note': '', 'generated': []}  ideas: {'status': 503, 'detail': "AI ideas need a GEMINI_API_KEY in the server's .env."}
+   designs: kept 0 of 0, first None ms, last None ms, done 46 ms, gemini calls 0  ['AI designs need a GEMINI_API_KEY.']
+== bench_photos/photo2.jpg
+   scan_ms=1604  scan_status=done  pieces=6  resolve_ms=2  match_ms=12  nearby_ms=35  subbuilds_ms=31  instant_sources_ms=36  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=117  ideas_ms=2  total_ms=1763
+   recipes: {'status': 200, 'builds': 0, 'titles': [], 'ai_used': False, 'ai_note': '', 'generated': []}  ideas: {'status': 503, 'detail': "AI ideas need a GEMINI_API_KEY in the server's .env."}
+   designs: kept 0 of 0, first None ms, last None ms, done 2 ms, gemini calls 0  ['AI designs need a GEMINI_API_KEY.']
+== bench_photos/photo3.jpg
+   scan_ms=2148  scan_status=done  pieces=8  resolve_ms=2  match_ms=46  nearby_ms=46  subbuilds_ms=39  instant_sources_ms=48  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=323  ideas_ms=2  total_ms=2525
+   recipes: {'status': 200, 'builds': 0, 'titles': [], 'ai_used': False, 'ai_note': '', 'generated': []}  ideas: {'status': 503, 'detail': "AI ideas need a GEMINI_API_KEY in the server's .env."}
+   designs: kept 0 of 0, first None ms, last None ms, done 2 ms, gemini calls 0  ['AI designs need a GEMINI_API_KEY.']
+== bench_photos/photo4.jpg
+   scan_ms=1891  scan_status=done  pieces=13  resolve_ms=1  match_ms=61  nearby_ms=61  subbuilds_ms=59  instant_sources_ms=62  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=153  ideas_ms=2  total_ms=2112
+   recipes: {'status': 200, 'builds': 1, 'titles': ['Lone Spruce'], 'ai_used': False, 'ai_note': '', 'generated': []}  ideas: {'status': 503, 'detail': "AI ideas need a GEMINI_API_KEY in the server's .env."}
+   designs: kept 0 of 0, first None ms, last None ms, done 2 ms, gemini calls 0  ['AI designs need a GEMINI_API_KEY.']
+== bench_photos/photo5.jpg
+   scan_ms=1929  scan_status=done  pieces=14  resolve_ms=1  match_ms=66  nearby_ms=66  subbuilds_ms=63  instant_sources_ms=68  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=211  ideas_ms=2  total_ms=2213
+   recipes: {'status': 200, 'builds': 0, 'titles': [], 'ai_used': False, 'ai_note': '', 'generated': []}  ideas: {'status': 503, 'detail': "AI ideas need a GEMINI_API_KEY in the server's .env."}
+   designs: kept 0 of 0, first None ms, last None ms, done 2 ms, gemini calls 0  ['AI designs need a GEMINI_API_KEY.']
+== bench_photos/photo6.jpg
+   scan_ms=2151  scan_status=done  pieces=17  resolve_ms=1  match_ms=67  nearby_ms=67  subbuilds_ms=65  instant_sources_ms=68  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=254  ideas_ms=2  total_ms=2479
+   recipes: {'status': 200, 'builds': 1, 'titles': ['Winter Pine'], 'ai_used': False, 'ai_note': '', 'generated': []}  ideas: {'status': 503, 'detail': "AI ideas need a GEMINI_API_KEY in the server's .env."}
+   designs: kept 0 of 0, first None ms, last None ms, done 2 ms, gemini calls 0  ['AI designs need a GEMINI_API_KEY.']
+== bench_photos/photo7.jpg
+   scan_ms=2249  scan_status=done  pieces=16  resolve_ms=2  match_ms=64  nearby_ms=64  subbuilds_ms=62  instant_sources_ms=66  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=207  ideas_ms=2  total_ms=2528
+   recipes: {'status': 200, 'builds': 1, 'titles': ['Little Evergreen'], 'ai_used': False, 'ai_note': '', 'generated': []}  ideas: {'status': 503, 'detail': "AI ideas need a GEMINI_API_KEY in the server's .env."}
+   designs: kept 0 of 0, first None ms, last None ms, done 2 ms, gemini calls 0  ['AI designs need a GEMINI_API_KEY.']
+
+server-side timing for this run (p50 / p95):
+request                               n    p50 ms    p95 ms    max ms   gemini calls p50/max
+scan_job                              7      2088      2306      2334   0/0
+    brickognize                       7      6881      8909      9056
+    identify                          7      1070      1236      1258
+    detect                            7       810      1028      1084
+    save_crops                        7        85        99       101
+    crops                             7        77        90        92
+    tiebreak                          1         0         0         0
+/api/builds/recipes                   7       209       333       337   0/0
+    recipes.suggest                   7       208       326       328
+    solver                            7       193       312       316
+    ldr.pack                          4         4         5         5
+    recipes.store                     7         3         5         5
+    checks                            4         0         0         0
+    recipes.inventory                 7         0         0         0
+    concepts                          7         0         0         0
+    recipes.finalize                  7         0         0         0
+    ldr                               4         0         0         0
+/api/sets/nearby                      7        62        66        66   0/0
+    nearby.match                      7        49        56        56
+    nearby.index                      7         8         9         9
+    nearby.rank                       7         0        16        23
+/api/match                            7        58        64        65   0/0
+    sets.match                        7        37        63        63
+    sets.rank                         7         1        23        23
+    map_parts                         7         0         0         0
+/api/subbuilds                        7        38        59        60   0/0
+    subbuilds.rows                    7        20        41        43
+    subbuilds.map                     7         8         8         8
+    subbuilds.match                   7         4        26        29
+/api/scan                             7         9        10        10   0/0
+/api/parts/resolve                    7         0        18        26   0/0
+/api/ideas                            7         0         1         1   0/0
+    ideas                             7         0         0         0
+designs_stream                        7         0         1         1   0/0
+    designs.inventory                 7         0         0         0

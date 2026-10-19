@@ -12,3 +12,4 @@ python-dotenv
 pytest-asyncio
 pydantic>=2
 pillow
+ortools

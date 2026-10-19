@@ -1,0 +1,81 @@
+server ready: {'nearby': True, 'omr': True, 'service': True, 'examples': True, 'omr_sub_builds': 5504, 'seconds': {'nearby': 1.21, 'service': 0.09, 'omr': 0.18, 'examples': 0.0}}
+== bench_photos/photo1.jpg
+   scan_ms=2453  scan_status=done  pieces=18  resolve_ms=25  match_ms=45  nearby_ms=68  subbuilds_ms=57  instant_sources_ms=70  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=3970  ideas_ms=2910  total_ms=13867
+   recipes: {'status': 200, 'builds': 0, 'titles': [], 'ai_used': True, 'ai_note': '', 'generated': []}  ideas: {'status': 200, 'detail': None}
+   designs: kept 3 of 3, first 3674 ms, last 4422 ms, done 4422 ms, gemini calls 1  
+== bench_photos/photo2.jpg
+   scan_ms=1901  scan_status=done  pieces=6  resolve_ms=1  match_ms=13  nearby_ms=38  subbuilds_ms=36  instant_sources_ms=39  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=3236  ideas_ms=2841  total_ms=10692
+   recipes: {'status': 200, 'builds': 0, 'titles': [], 'ai_used': True, 'ai_note': '', 'generated': []}  ideas: {'status': 200, 'detail': None}
+   designs: kept 0 of 0, first None ms, last None ms, done 2671 ms, gemini calls 1  ['With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again.']
+== bench_photos/photo3.jpg
+   scan_ms=2076  scan_status=done  pieces=8  resolve_ms=1  match_ms=22  nearby_ms=46  subbuilds_ms=44  instant_sources_ms=47  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=3816  ideas_ms=2589  total_ms=9896
+   recipes: {'status': 200, 'builds': 0, 'titles': [], 'ai_used': True, 'ai_note': '', 'generated': []}  ideas: {'status': 200, 'detail': None}
+   designs: kept 0 of 0, first None ms, last None ms, done 1365 ms, gemini calls 1  ['No design fit this pile this time.']
+== bench_photos/photo4.jpg
+   scan_ms=1853  scan_status=done  pieces=13  resolve_ms=2  match_ms=45  nearby_ms=66  subbuilds_ms=64  instant_sources_ms=67  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=24437  ideas_ms=3593  total_ms=35397
+   recipes: {'status': 200, 'builds': 1, 'titles': ['Potted Fern'], 'ai_used': True, 'ai_note': '', 'generated': []}  ideas: {'status': 200, 'detail': None}
+   designs: kept 0 of 0, first None ms, last None ms, done 5444 ms, gemini calls 1  ['No design fit this pile this time.']
+== bench_photos/photo5.jpg
+   scan_ms=2067  scan_status=done  pieces=14  resolve_ms=2  match_ms=43  nearby_ms=68  subbuilds_ms=60  instant_sources_ms=70  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=4380  ideas_ms=2864  total_ms=12444
+   recipes: {'status': 200, 'builds': 0, 'titles': [], 'ai_used': True, 'ai_note': '', 'generated': []}  ideas: {'status': 200, 'detail': None}
+   designs: kept 0 of 0, first None ms, last None ms, done 3060 ms, gemini calls 1  ['No design fit this pile this time.']
+== bench_photos/photo6.jpg
+   scan_ms=2305  scan_status=done  pieces=17  resolve_ms=2  match_ms=70  nearby_ms=70  subbuilds_ms=68  instant_sources_ms=71  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=4478  ideas_ms=2686  total_ms=13962
+   recipes: {'status': 200, 'builds': 1, 'titles': ['Weeping Bonsai'], 'ai_used': True, 'ai_note': '', 'generated': []}  ideas: {'status': 200, 'detail': None}
+   designs: kept 1 of 1, first 1683 ms, last 1683 ms, done 4411 ms, gemini calls 1  
+== bench_photos/photo7.jpg
+   scan_ms=2173  scan_status=done  pieces=16  resolve_ms=1  match_ms=37  nearby_ms=63  subbuilds_ms=61  instant_sources_ms=64  sets=0  subbuilds={'buildable': 0, 'almost': 0}  recipes_ms=2681  ideas_ms=13742  total_ms=30394
+   recipes: {'status': 200, 'builds': 3, 'titles': ['Pine Sapling', 'Flowering Bush', 'Potted Fern'], 'ai_used': True, 'ai_note': '', 'generated': []}  ideas: {'status': 200, 'detail': None}
+   designs: kept 3 of 3, first 1685 ms, last 11717 ms, done 11718 ms, gemini calls 1  
+
+server-side timing for this run (p50 / p95):
+request                               n    p50 ms    p95 ms    max ms   gemini calls p50/max
+designs_stream                        7      4209      9834     11716   1/1
+    designs.round1                    7      4208      9833     11715
+    gemini.build.stream               7      2694      9324     11075
+    solver                            6      2620      7132      8145
+    gemini.build.first_chunk          7       862      3542      4602
+    thumbnail                         3        42        55        56
+    ldr.pack                          3        17        21        22
+    gemini.budget_wait                7         5         6         6
+    checks                            3         1         2         2
+    ldr                               3         0         0         0
+    designs.inventory                 7         0         0         0
+/api/builds/recipes                   7      3968     18448     24435   1/1
+    recipes.suggest                   7      3962     18427     24415
+    concepts                          7      3457     18175     24211
+    gemini.build                      7      3201      3894      4084
+    solver                            7       404       699       760
+    thumbnail                         3        15        16        16
+    gemini.budget_wait                7        10     14952     21009
+    ldr.pack                          3         5        12        13
+    checks                            3         0         1         1
+    recipes.inventory                 7         0         0         0
+    recipes.finalize                  7         0         0         0
+    recipes.store                     7         0        26        29
+    ldr                               3         0         0         0
+/api/ideas                            7      2862     10695     13740   1/1
+    ideas                             7      2862     10695     13739
+    gemini.build                      7      2834      3497      3752
+    gemini.budget_wait                7         6      7229      9987
+scan_job                              7      2067      2397      2443   0/0
+    brickognize                       7      7623      9796      9968
+    identify                          7      1066      1356      1372
+    detect                            7       820      1012      1054
+    save_crops                        7        86        99       101
+    crops                             7        76        91        92
+    tiebreak                          1         0         0         0
+/api/sets/nearby                      7        39        64        67   0/0
+    nearby.match                      7        25        28        28
+    nearby.index                      7         1        28        39
+    nearby.rank                       7         0        16        23
+/api/match                            7        37        60        67   0/0
+    sets.match                        7        35        39        40
+    sets.rank                         7         1        18        25
+    map_parts                         7         0         0         0
+/api/subbuilds                        7        26        61        64   0/0
+    subbuilds.rows                    7        20        21        21
+    subbuilds.match                   7         4         4         4
+    subbuilds.map                     7         2        28        39
+/api/scan                             7        10        11        11   0/0
+/api/parts/resolve                    7         0        17        24   0/0

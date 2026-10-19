@@ -1,0 +1,1982 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 3187,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 41,
+   "match_ms": 67,
+   "nearby_ms": 98,
+   "subbuilds_ms": 96,
+   "instant_sources_ms": 100,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Cargo Van",
+     "id": "ai-a5312ada959f",
+     "parts": 7,
+     "removed": false,
+     "label": "photo1#1",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ],
+       [
+        "##....",
+        "##...."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Cargo Van",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.649,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-a5312ada959f/thumb.png"
+    },
+    {
+     "title": "Cute Cat",
+     "id": "ai-a7ffec3d72b5",
+     "parts": 12,
+     "removed": false,
+     "label": "photo1#2",
+     "type": "animal",
+     "concept_sketch": {
+      "layers": [
+       [
+        "###",
+        "###",
+        "#.#"
+       ],
+       [
+        "###",
+        "###",
+        "..."
+       ],
+       [
+        "###",
+        "###",
+        "..."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Cute Cat",
+      "child_yes": true,
+      "ok_choice": true,
+      "ok_child": true
+     },
+     "outline_iou": 1.0,
+     "rescued": false,
+     "use_share": 0.915,
+     "coverage": 0.988,
+     "thumb_url": "/api/builds/ai-a7ffec3d72b5/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 2,
+     "designs_kept": 2,
+     "removed": 0,
+     "first_design_ms": 3164,
+     "last_design_ms": 4326,
+     "done_ms": 43728,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 8,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 2,
+      "look_ok_choice": 2,
+      "look_ok_child": 2,
+      "concept_in_chars": 14103,
+      "concept_out_chars": 2907,
+      "look_in_chars": 914,
+      "look_out_chars": 190,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 8,
+      "dup_dropped": 3,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "4911-1 Designer Set",
+       "1631-1 Black Racer"
+      ],
+      "first_design_ms": 2822,
+      "last_design_ms": 3984
+     },
+     "failures": [
+      {
+       "concept": "Park Tree",
+       "why": "the pile can fill only 5% of the sketch (44 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Street Lamp",
+       "why": "the pile can fill only 50% of the sketch (54 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Red Mushroom",
+       "why": "its sketch is the same shape as 'Park Tree'"
+      },
+      {
+       "concept": "Small Cottage",
+       "why": "the pile can fill only 78% of the sketch (50 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 73% of the sketch (64 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mail Boat",
+       "why": "its sketch is the same shape as 'Cargo Van'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Cargo Van",
+      "Cute Cat"
+     ],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 4402,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 0,
+      "sketch_ok": 0,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 7108,
+      "concept_out_chars": 1914,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 0,
+      "dup_dropped": 0,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "4911-1 Designer Set",
+       "1631-1 Black Racer"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 3,
+     "designs_kept": 3,
+     "removed": 0,
+     "first_design_ms": 3461,
+     "last_design_ms": 5235,
+     "done_ms": 20038,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 7,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 3,
+      "look_ok": 3,
+      "look_ok_choice": 1,
+      "look_ok_child": 3,
+      "concept_in_chars": 13850,
+      "concept_out_chars": 2882,
+      "look_in_chars": 948,
+      "look_out_chars": 277,
+      "rescued": 2,
+      "outline_rejected": 1,
+      "fill_rejected": 0,
+      "undersized": 7,
+      "dup_dropped": 4,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "4911-1 Designer Set",
+       "1631-1 Black Racer"
+      ],
+      "first_design_ms": 3459,
+      "last_design_ms": 5233
+     },
+     "failures": [
+      {
+       "concept": "Tiny Cottage",
+       "why": "its sketch is the same shape as 'Mail Van'"
+      },
+      {
+       "concept": "Road Roller",
+       "why": "its sketch is the same shape as 'Sunset Bird'"
+      },
+      {
+       "concept": "Simple Tug",
+       "why": "its sketch is the same shape as 'Mail Van'"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill 85% of the sketch but the outline is lost (outline match 67%): draw a simpler shape the sizes can make"
+      },
+      {
+       "concept": "Garden Snail",
+       "why": "its sketch is the same shape as 'Mail Van'"
+      },
+      {
+       "concept": "Coffee Mug",
+       "why": "the pile can fill only 33% of the sketch (46 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Mail Van",
+      "Sunset Bird",
+      "Park Tree"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 71513
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 2067,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 2,
+   "match_ms": 27,
+   "nearby_ms": 62,
+   "subbuilds_ms": 59,
+   "instant_sources_ms": 63,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 6507,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12543,
+      "concept_out_chars": 3010,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 4,
+      "dup_dropped": 6,
+      "examples": [
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "7271-1 Apple - Suntory Promotional",
+       "7278-1 Melon - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Lawn Mower",
+       "why": "the pile can fill only 58% of the sketch (32 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 33% of the sketch (32 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mini Pond",
+       "why": "the pile can fill only 55% of the sketch (23 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Tiny Shed",
+       "why": "the pile can fill only 55% of the sketch (23 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Table",
+       "why": "the pile can fill only 42% of the sketch (44 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Bush Sprout",
+       "why": "its sketch is the same shape as 'Lawn Mower'"
+      }
+     ],
+     "notes": [
+      "With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 8567,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12483,
+      "concept_out_chars": 3395,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 2,
+      "undersized": 4,
+      "dup_dropped": 4,
+      "examples": [
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "7271-1 Apple - Suntory Promotional",
+       "7278-1 Melon - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Meadow Bench",
+       "why": "the pile can fill only 42% of the sketch (44 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Turtle",
+       "why": "the pile can fill only 42% of the sketch (30 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Pavilion",
+       "why": "its sketch is the same shape as 'Meadow Bench'"
+      },
+      {
+       "concept": "Cargo Float",
+       "why": "its sketch is the same shape as 'Meadow Bench'"
+      },
+      {
+       "concept": "Spring Sprout",
+       "why": "the pile can fill only 40% of the sketch (32 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Azure Cabin",
+       "why": "the pile can fill only 29% of the sketch (44 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 19539,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 2,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12481,
+      "concept_out_chars": 4472,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 0,
+      "dup_dropped": 0,
+      "examples": [
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "7271-1 Apple - Suntory Promotional",
+       "7278-1 Melon - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Marshland Dock",
+       "why": "the sketch is 12 wide, 6 deep and 2 layers tall; the limits are 11 x 11 x 7"
+      },
+      {
+       "concept": "Canal Boat",
+       "why": "the sketch is 12 wide, 2 deep and 3 layers tall; the limits are 11 x 11 x 7"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the sketch is 12 wide, 2 deep and 3 layers tall; the limits are 11 x 11 x 7"
+      },
+      {
+       "concept": "River Raft",
+       "why": "the pile can fill only 32% of the sketch (40 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Pond",
+       "why": "the sketch is 12 wide, 3 deep and 2 layers tall; the limits are 11 x 11 x 7"
+      },
+      {
+       "concept": "Field Tractor",
+       "why": "the pile can fill only 57% of the sketch (36 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "With only 6 pieces there is not enough to build a recognisable model yet. Add a few more pieces (8 to 10 or more works best) and try again."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 36750
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2495,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 3,
+   "match_ms": 83,
+   "nearby_ms": 84,
+   "subbuilds_ms": 82,
+   "instant_sources_ms": 86,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 49667,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 0,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12816,
+      "concept_out_chars": 8959,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 11,
+      "undersized": 0,
+      "dup_dropped": 0,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "40013-1 Halloween Ghost",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Park Bench",
+       "why": "the sketch fills 144 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Garden Shed",
+       "why": "the sketch fills 360 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Mail Van",
+       "why": "the sketch fills 180 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Tall Tree",
+       "why": "the sketch fills 114 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Speed Boat",
+       "why": "the sketch fills 112 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Picnic Table",
+       "why": "the sketch fills 140 cells but the pile only has 68: it must fill 51 to 68"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 20082,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 0,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12816,
+      "concept_out_chars": 8043,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 11,
+      "undersized": 0,
+      "dup_dropped": 0,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "40013-1 Halloween Ghost",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Garden Bench",
+       "why": "the sketch fills 102 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Mail Van",
+       "why": "the sketch fills 252 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Picnic Table",
+       "why": "the sketch fills 252 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Speed Boat",
+       "why": "the sketch fills 252 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Park Bridge",
+       "why": "the sketch fills 252 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Field Tractor",
+       "why": "the sketch fills 252 cells but the pile only has 68: it must fill 51 to 68"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 11857,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 0,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12815,
+      "concept_out_chars": 5608,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 11,
+      "undersized": 0,
+      "dup_dropped": 0,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "40013-1 Halloween Ghost",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Garden Bench",
+       "why": "the sketch fills 108 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Mail Van",
+       "why": "the sketch fills 156 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Picnic Table",
+       "why": "the sketch fills 120 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Park Bridge",
+       "why": "the sketch fills 96 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Flower Bed",
+       "why": "the sketch fills 78 cells but the pile only has 68: it must fill 51 to 68"
+      },
+      {
+       "concept": "Cargo Barge",
+       "why": "the sketch fills 104 cells but the pile only has 68: it must fill 51 to 68"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 84196
+  },
+  {
+   "photo": "bench_photos/photo4.jpg",
+   "scan_ms": 2432,
+   "scan_status": "done",
+   "pieces": 13,
+   "detector": "opencv",
+   "rows": 10,
+   "pieces_identified": 13,
+   "resolve_ms": 2,
+   "match_ms": 112,
+   "nearby_ms": 113,
+   "subbuilds_ms": 109,
+   "instant_sources_ms": 114,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 10138,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12565,
+      "concept_out_chars": 3140,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 1,
+      "fill_rejected": 1,
+      "undersized": 5,
+      "dup_dropped": 5,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "7278-1 Melon - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Mail Van",
+       "why": "its bounding box 6 x 2 x 3 is the same as 'Garden Bench': use a different one"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 64% of the sketch (44 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Tree",
+       "why": "none of the pile's parts fit into the sketch"
+      },
+      {
+       "concept": "Red Bird",
+       "why": "the pile can fill 86% of the sketch but the outline is lost (outline match 67%): draw a simpler shape the sizes can make"
+      },
+      {
+       "concept": "Speed Boat",
+       "why": "its sketch is the same shape as 'Red Bird'"
+      },
+      {
+       "concept": "Cozy Cottage",
+       "why": "the pile can fill only 54% of the sketch (52 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 1,
+     "designs_kept": 0,
+     "removed": 1,
+     "first_design_ms": 10984,
+     "last_design_ms": 10984,
+     "done_ms": 16363,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 7,
+      "solver_ok": 1,
+      "checks_ok": 1,
+      "diverse_ok": 1,
+      "look_checked": 1,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12603,
+      "concept_out_chars": 3178,
+      "look_in_chars": 888,
+      "look_out_chars": 111,
+      "rescued": 0,
+      "outline_rejected": 1,
+      "fill_rejected": 0,
+      "undersized": 4,
+      "dup_dropped": 4,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "7278-1 Melon - Suntory Promotional"
+      ],
+      "first_design_ms": 10976,
+      "last_design_ms": 10976
+     },
+     "failures": [
+      {
+       "concept": "Garden Bench",
+       "why": "none of the pile's parts fit into the sketch"
+      },
+      {
+       "concept": "Tiny House",
+       "why": "the pile can fill only 67% of the sketch (42 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mail Van",
+       "why": "the pile can fill 89% of the sketch but the outline is lost (outline match 77%): draw a simpler shape the sizes can make"
+      },
+      {
+       "concept": "Red Bird",
+       "why": "the pile can fill only 44% of the sketch (54 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Lime Cart",
+       "why": "the pile can fill only 78% of the sketch (36 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Tree",
+       "why": "none of the pile's parts fit into the sketch"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": [
+      "Cargo Raft"
+     ]
+    },
+    {
+     "designs_produced": 2,
+     "designs_kept": 1,
+     "removed": 1,
+     "first_design_ms": 5215,
+     "last_design_ms": 6056,
+     "done_ms": 23622,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 7,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 1,
+      "look_ok_choice": 2,
+      "look_ok_child": 1,
+      "concept_in_chars": 12593,
+      "concept_out_chars": 3138,
+      "look_in_chars": 930,
+      "look_out_chars": 199,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 5,
+      "dup_dropped": 4,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "7278-1 Melon - Suntory Promotional"
+      ],
+      "first_design_ms": 5213,
+      "last_design_ms": 6054
+     },
+     "failures": [
+      {
+       "concept": "Forest Bug",
+       "why": "the pile can fill only 52% of the sketch (54 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 55% of the sketch (44 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Red Mailbox",
+       "why": "the pile can fill only 56% of the sketch (50 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Tiny Tugboat",
+       "why": "its sketch is the same shape as 'Garden Bench'"
+      },
+      {
+       "concept": "Red House",
+       "why": "its sketch is the same shape as 'Red Mailbox'"
+      },
+      {
+       "concept": "Cargo Van",
+       "why": "the pile can fill only 85% of the sketch (52 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Little Mushroom"
+     ],
+     "removed_titles": [
+      "Green Leaf"
+     ]
+    }
+   ],
+   "total_ms": 52673
+  },
+  {
+   "photo": "bench_photos/photo5.jpg",
+   "scan_ms": 2344,
+   "scan_status": "done",
+   "pieces": 14,
+   "detector": "opencv",
+   "rows": 12,
+   "pieces_identified": 14,
+   "resolve_ms": 2,
+   "match_ms": 76,
+   "nearby_ms": 100,
+   "subbuilds_ms": 98,
+   "instant_sources_ms": 102,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 45101,
+     "gemini_calls": 1,
+     "stats": {
+      "concepts": 1,
+      "sketch_ok": 0,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 6366,
+      "concept_out_chars": 683,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 1,
+      "undersized": 0,
+      "dup_dropped": 0,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "40013-1 Halloween Ghost"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Garden Bench",
+       "why": "the sketch fills 96 cells but the pile only has 63: it must fill 48 to 63"
+      }
+     ],
+     "notes": [
+      "AI designs are unavailable right now (504 The AI service took too long. Please try again.)."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 12996,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 8,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12979,
+      "concept_out_chars": 3507,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 1,
+      "fill_rejected": 1,
+      "undersized": 8,
+      "dup_dropped": 2,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "40013-1 Halloween Ghost"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Forest Mushroom",
+       "why": "the pile can fill only 24% of the sketch (33 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 18% of the sketch (44 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mail Box",
+       "why": "the pile can fill only 78% of the sketch (37 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Red Bird",
+       "why": "the pile can fill only 75% of the sketch (32 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Study Desk",
+       "why": "its sketch is the same shape as 'Road Roller'"
+      },
+      {
+       "concept": "Fire Hydrant",
+       "why": "its sketch is the same shape as 'Mail Box'"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 13759,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 9,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 13059,
+      "concept_out_chars": 2833,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 9,
+      "dup_dropped": 2,
+      "examples": [
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional",
+       "40013-1 Halloween Ghost"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Park Bench",
+       "why": "the pile can fill only 50% of the sketch (42 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Mushroom",
+       "why": "the pile can fill only 25% of the sketch (32 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mail Van",
+       "why": "the pile can fill only 76% of the sketch (42 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Watchtower",
+       "why": "its sketch is the same shape as 'Garden Mushroom'"
+      },
+      {
+       "concept": "Red Bird",
+       "why": "the pile can fill only 63% of the sketch (30 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Country Cottage",
+       "why": "the pile can fill only 71% of the sketch (50 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 74308
+  },
+  {
+   "photo": "bench_photos/photo6.jpg",
+   "scan_ms": 2710,
+   "scan_status": "done",
+   "pieces": 17,
+   "detector": "opencv",
+   "rows": 16,
+   "pieces_identified": 17,
+   "resolve_ms": 3,
+   "match_ms": 89,
+   "nearby_ms": 119,
+   "subbuilds_ms": 95,
+   "instant_sources_ms": 120,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Mail Van",
+     "id": "ai-7a03a763a63f",
+     "parts": 8,
+     "removed": false,
+     "label": "photo6#1",
+     "type": "vehicle",
+     "concept_sketch": {
+      "layers": [
+       [
+        "######",
+        "######"
+       ],
+       [
+        "######",
+        "######"
+       ],
+       [
+        "#.....",
+        "#....."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Street Lamp",
+      "child_yes": true,
+      "ok_choice": false,
+      "ok_child": true
+     },
+     "outline_iou": 0.833,
+     "rescued": false,
+     "use_share": 0.708,
+     "coverage": 0.962,
+     "thumb_url": "/api/builds/ai-7a03a763a63f/thumb.png"
+    },
+    {
+     "title": "Street Lamp",
+     "id": "ai-ff57497c2184",
+     "parts": 5,
+     "removed": false,
+     "label": "photo6#2",
+     "type": "plant",
+     "concept_sketch": {
+      "layers": [
+       [
+        "#",
+        "#",
+        "#",
+        "#"
+       ],
+       [
+        "#",
+        "#",
+        "#",
+        "#"
+       ],
+       [
+        "#",
+        "#",
+        ".",
+        "."
+       ]
+      ]
+     },
+     "verdict": {
+      "ok": true,
+      "choice": "Mail Van",
+      "child_yes": true,
+      "ok_choice": false,
+      "ok_child": true
+     },
+     "outline_iou": 0.9,
+     "rescued": true,
+     "use_share": 0.509,
+     "coverage": 0.9,
+     "thumb_url": "/api/builds/ai-ff57497c2184/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 2,
+     "designs_kept": 2,
+     "removed": 0,
+     "first_design_ms": 5015,
+     "last_design_ms": 6621,
+     "done_ms": 17407,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 5,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 2,
+      "look_ok_choice": 0,
+      "look_ok_child": 2,
+      "concept_in_chars": 13547,
+      "concept_out_chars": 3468,
+      "look_in_chars": 918,
+      "look_out_chars": 192,
+      "rescued": 1,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 5,
+      "dup_dropped": 2,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": 5014,
+      "last_design_ms": 6619
+     },
+     "failures": [
+      {
+       "concept": "City Bench",
+       "why": "the pile can fill only 53% of the sketch (60 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Reading Desk",
+       "why": "its bounding box 4 x 3 x 3 is the same as 'Garden Tulip': use a different one"
+      },
+      {
+       "concept": "Speed Boat",
+       "why": "its bounding box 6 x 2 x 3 is the same as 'Mail Van': use a different one"
+      },
+      {
+       "concept": "Hedgehog",
+       "why": "the pile can fill only 57% of the sketch (42 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Tulip",
+       "why": "the pile can fill only 82% of the sketch (64 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Mail Van",
+      "Street Lamp"
+     ],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 3,
+     "designs_kept": 3,
+     "removed": 0,
+     "first_design_ms": 5240,
+     "last_design_ms": 6582,
+     "done_ms": 16131,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 3,
+      "look_ok": 3,
+      "look_ok_choice": 3,
+      "look_ok_child": 3,
+      "concept_in_chars": 6672,
+      "concept_out_chars": 1786,
+      "look_in_chars": 950,
+      "look_out_chars": 278,
+      "rescued": 2,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 6,
+      "dup_dropped": 1,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": 5238,
+      "last_design_ms": 6581
+     },
+     "failures": [
+      {
+       "concept": "Coffee Mug",
+       "why": "its bounding box 3 x 2 x 3 is the same as 'Garden Bench': use a different one"
+      },
+      {
+       "concept": "Traffic Light",
+       "why": "the pile can fill only 22% of the sketch (27 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Little Bird",
+       "why": "the pile can fill only 63% of the sketch (52 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Pocket Radio",
+       "why": "the pile can fill only 72% of the sketch (54 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Mail Van",
+      "Park Tree",
+      "Garden Bench"
+     ],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 2,
+     "designs_kept": 2,
+     "removed": 0,
+     "first_design_ms": 6310,
+     "last_design_ms": 6995,
+     "done_ms": 50820,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 6,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 2,
+      "look_ok_choice": 2,
+      "look_ok_child": 2,
+      "concept_in_chars": 13443,
+      "concept_out_chars": 2643,
+      "look_in_chars": 926,
+      "look_out_chars": 196,
+      "rescued": 1,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 6,
+      "dup_dropped": 5,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": 6308,
+      "last_design_ms": 6993
+     },
+     "failures": [
+      {
+       "concept": "Mail Van",
+       "why": "its sketch is the same shape as 'Park Bench'"
+      },
+      {
+       "concept": "Cute Cat",
+       "why": "its bounding box 4 x 3 x 3 is the same as 'Garden Flower': use a different one"
+      },
+      {
+       "concept": "Table Lamp",
+       "why": "the pile can fill only 78% of the sketch (36 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Tool Crate",
+       "why": "its sketch is the same shape as 'Park Bench'"
+      },
+      {
+       "concept": "Bird House",
+       "why": "the pile can fill only 23% of the sketch (52 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Speed Boat",
+       "why": "its bounding box 6 x 2 x 3 is the same as 'Park Bench': use a different one"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Garden Flower",
+      "Park Bench"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 87211
+  },
+  {
+   "photo": "bench_photos/photo7.jpg",
+   "scan_ms": 2873,
+   "scan_status": "done",
+   "pieces": 16,
+   "detector": "opencv",
+   "rows": 13,
+   "pieces_identified": 16,
+   "resolve_ms": 4,
+   "match_ms": 103,
+   "nearby_ms": 104,
+   "subbuilds_ms": 100,
+   "instant_sources_ms": 105,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 5317,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 5,
+      "sketch_ok": 3,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "look_ok_choice": 0,
+      "look_ok_child": 0,
+      "concept_in_chars": 12534,
+      "concept_out_chars": 4014,
+      "look_in_chars": 0,
+      "look_out_chars": 0,
+      "rescued": 0,
+      "outline_rejected": 1,
+      "fill_rejected": 1,
+      "undersized": 1,
+      "dup_dropped": 1,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Park Bench",
+       "why": "the pile can fill only 38% of the sketch (68 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Shed",
+       "why": "the sketch fills 76 cells but the pile only has 72: it must fill 54 to 72"
+      },
+      {
+       "concept": "Farm Tractor",
+       "why": "its sketch is the same shape as 'Cargo Wagon'"
+      },
+      {
+       "concept": "Cargo Wagon",
+       "why": "the pile can fill 87% of the sketch but the outline is lost (outline match 71%): draw a simpler shape the sizes can make"
+      },
+      {
+       "concept": "Tall Pine",
+       "why": "the pile can fill only 51% of the sketch (67 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 2,
+     "designs_kept": 2,
+     "removed": 0,
+     "first_design_ms": 27967,
+     "last_design_ms": 28795,
+     "done_ms": 65066,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 2,
+      "look_ok_choice": 2,
+      "look_ok_child": 2,
+      "concept_in_chars": 13178,
+      "concept_out_chars": 2952,
+      "look_in_chars": 916,
+      "look_out_chars": 191,
+      "rescued": 1,
+      "outline_rejected": 1,
+      "fill_rejected": 0,
+      "undersized": 6,
+      "dup_dropped": 1,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": 27966,
+      "last_design_ms": 28793
+     },
+     "failures": [
+      {
+       "concept": "Garden Tulip",
+       "why": "the pile can fill only 53% of the sketch (64 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Hedgehog",
+       "why": "its sketch is the same shape as 'Tiny Cottage'"
+      },
+      {
+       "concept": "River Skiff",
+       "why": "the pile can fill 90% of the sketch but the outline is lost (outline match 75%): draw a simpler shape the sizes can make"
+      },
+      {
+       "concept": "Tiny Cottage",
+       "why": "the pile can fill only 65% of the sketch (52 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Desk Lamp",
+       "why": "the pile can fill only 61% of the sketch (56 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Park Bench",
+      "Mail Van"
+     ],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 1,
+     "designs_kept": 1,
+     "removed": 0,
+     "first_design_ms": 2392,
+     "last_design_ms": 2392,
+     "done_ms": 21389,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 6,
+      "solver_ok": 1,
+      "checks_ok": 1,
+      "diverse_ok": 1,
+      "look_checked": 1,
+      "look_ok": 1,
+      "look_ok_choice": 1,
+      "look_ok_child": 1,
+      "concept_in_chars": 13202,
+      "concept_out_chars": 3357,
+      "look_in_chars": 892,
+      "look_out_chars": 109,
+      "rescued": 1,
+      "outline_rejected": 0,
+      "fill_rejected": 0,
+      "undersized": 5,
+      "dup_dropped": 5,
+      "examples": [
+       "40013-1 Halloween Ghost",
+       "7271-1 Apple - Suntory Promotional",
+       "7276-1 Mango - Suntory Promotional",
+       "7274-1 Orange - Suntory Promotional"
+      ],
+      "first_design_ms": 2389,
+      "last_design_ms": 2389
+     },
+     "failures": [
+      {
+       "concept": "Delivery Van",
+       "why": "its bounding box 6 x 2 x 3 is the same as 'Garden Bench': use a different one"
+      },
+      {
+       "concept": "Cottage Roof",
+       "why": "the pile can fill only 71% of the sketch (48 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Little Tugboat",
+       "why": "its bounding box 6 x 2 x 3 is the same as 'Garden Bench': use a different one"
+      },
+      {
+       "concept": "Park Mushroom",
+       "why": "its sketch is the same shape as 'Park Tree'"
+      },
+      {
+       "concept": "Park Tree",
+       "why": "the pile can fill only 80% of the sketch (60 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Red Bird",
+       "why": "the pile can fill only 25% of the sketch (64 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Garden Bench"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 94766
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 7,
+   "p50": 12.9,
+   "p95": 17.59,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 7,
+   "p50": 2462.3,
+   "p95": 3082.5899999999997,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 1233.8,
+     "p95": 1412.42,
+     "n": 7
+    },
+    "crops": {
+     "p50": 130.2,
+     "p95": 164.27999999999997,
+     "n": 7
+    },
+    "brickognize": {
+     "p50": 6852.2,
+     "p95": 10767.549999999997,
+     "n": 7
+    },
+    "identify": {
+     "p50": 1033.0,
+     "p95": 1496.9199999999996,
+     "n": 7
+    },
+    "tiebreak": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 133.7,
+     "p95": 174.45,
+     "n": 7
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 7,
+   "p50": 1.0,
+   "p95": 27.619999999999976,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/match": {
+   "n": 7,
+   "p50": 80.6,
+   "p95": 105.53999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 7
+    },
+    "sets.match": {
+     "p50": 58.2,
+     "p95": 99.35999999999999,
+     "n": 7
+    },
+    "sets.rank": {
+     "p50": 1.9,
+     "p95": 31.669999999999973,
+     "n": 7
+    }
+   }
+  },
+  "/api/subbuilds": {
+   "n": 7,
+   "p50": 70.7,
+   "p95": 100.27,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "subbuilds.map": {
+     "p50": 5.9,
+     "p95": 31.899999999999995,
+     "n": 7
+    },
+    "subbuilds.match": {
+     "p50": 5.3,
+     "p95": 9.579999999999998,
+     "n": 7
+    },
+    "subbuilds.rows": {
+     "p50": 31.8,
+     "p95": 57.36999999999998,
+     "n": 7
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 7,
+   "p50": 73.6,
+   "p95": 106.55,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 8.1,
+     "p95": 39.40999999999999,
+     "n": 7
+    },
+    "nearby.match": {
+     "p50": 37.9,
+     "p95": 71.82999999999997,
+     "n": 7
+    },
+    "nearby.rank": {
+     "p50": 0.6,
+     "p95": 1.8699999999999999,
+     "n": 7
+    }
+   }
+  },
+  "designs_stream": {
+   "n": 21,
+   "p50": 17405.5,
+   "p95": 50818.1,
+   "gemini_calls": [
+    3,
+    1,
+    3,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    4,
+    1,
+    2,
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    3
+   ],
+   "stages": {
+    "designs.inventory": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 21
+    },
+    "gemini.budget_wait": {
+     "p50": 14.0,
+     "p95": 5208.0,
+     "n": 21
+    },
+    "gemini.build.first_chunk": {
+     "p50": 7494.7,
+     "p95": 17952.7,
+     "n": 21
+    },
+    "solver": {
+     "p50": 2226.1000000000004,
+     "p95": 8570.975,
+     "n": 16
+    },
+    "gemini.build.stream": {
+     "p50": 10894.9,
+     "p95": 49650.2,
+     "n": 21
+    },
+    "checks": {
+     "p50": 0.6,
+     "p95": 1.5399999999999998,
+     "n": 9
+    },
+    "ldr": {
+     "p50": 0.2,
+     "p95": 0.31999999999999995,
+     "n": 9
+    },
+    "ldr.pack": {
+     "p50": 11.3,
+     "p95": 33.28,
+     "n": 9
+    },
+    "thumbnail": {
+     "p50": 39.6,
+     "p95": 77.93999999999998,
+     "n": 9
+    },
+    "designs.round1": {
+     "p50": 6054.3,
+     "p95": 45099.4,
+     "n": 21
+    },
+    "designs.repair": {
+     "p50": 5508.7,
+     "p95": 37094.954999999994,
+     "n": 18
+    },
+    "gemini.build": {
+     "p50": 5371.5,
+     "p95": 12125.779999999999,
+     "n": 9
+    },
+    "look_check": {
+     "p50": 5517.6,
+     "p95": 12130.919999999998,
+     "n": 9
+    }
+   }
+  }
+ }
+}

@@ -217,6 +217,8 @@ def test_every_table_entry_matches_the_real_part_geometry():
     from backend.core.ldraw_lib import part_bounds
     lib = _library()
     for part, d in KNOWN.items():
+        if d.oy is not None or d.kind == "wheelbase":                          # wheel sets: tests/test_wheels.py
+            continue
         bb = part_bounds(lib, part)
         assert bb is not None, part
         lo, hi = bb

@@ -266,6 +266,45 @@ async def generate(client, budget, purpose, model, *, retries=0, **kwargs):
             raise
 
 
+async def generate_stream(client, budget, purpose, model, *, retries=0, **kwargs):
+    """Like `generate`, for `client.aio.models.generate_content_stream`: an async generator of the response chunks, as they arrive.
+
+    One budget slot per attempt (taken before the request); a transient 5xx before the first chunk is retried, one after it is raised. The time to the
+    first chunk and the whole stream are timing stages (gemini.<purpose>.first_chunk, gemini.<purpose>.stream)."""
+    import time as _time
+    from backend import timing
+    attempt = 0
+    while True:
+        if budget is not None:
+            with timing.stage("gemini.budget_wait", purpose=purpose):
+                await budget.acquire_async(purpose, model)
+        timing.count("gemini_calls")
+        timing.count(f"gemini_calls.{purpose}")
+        trace, t0, first = timing.current(), _time.perf_counter(), False
+        try:
+            stream = await client.aio.models.generate_content_stream(model=model, **kwargs)
+            async for chunk in stream:
+                if not first:
+                    first = True
+                    if trace is not None:
+                        trace.add(f"gemini.{purpose}.first_chunk", t0, _time.perf_counter(), {"model": model, "attempt": attempt})
+                yield chunk
+            return
+        except Exception as e:
+            if budget is not None and is_quota_error(e):
+                delay = parse_retry_delay(e)
+                if delay is None and "perminute" in str(e).lower().replace(" ", "").replace("_", ""):
+                    delay = WINDOW_SECONDS
+                budget.mark_exhausted(model, budget.clock() + delay if delay is not None else None)
+            elif attempt < retries and not first and getattr(e, "code", None) in _TRANSIENT:
+                attempt += 1
+                continue
+            raise
+        finally:
+            if trace is not None:
+                trace.add(f"gemini.{purpose}.stream", t0, _time.perf_counter(), {"model": model, "attempt": attempt, "streamed": first})
+
+
 # ---------------------------------------------------------------- process-wide instance
 _budget = None
 

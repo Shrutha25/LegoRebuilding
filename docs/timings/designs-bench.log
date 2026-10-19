@@ -1,0 +1,74 @@
+server ready: {'nearby': True, 'omr': True, 'service': True, 'examples': True, 'omr_sub_builds': 5504, 'seconds': {'nearby': 1.22, 'service': 0.1, 'omr': 0.17, 'examples': 0.0}}
+== bench_photos/photo1.jpg
+   scan_ms=2422  scan_status=done  pieces=18  resolve_ms=26  match_ms=47  nearby_ms=71  subbuilds_ms=71  instant_sources_ms=72  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=26930
+   designs: kept 2 of 3, first 2024 ms, last 3894 ms, done 11756 ms, gemini calls 2  
+   designs: kept 2 of 4, first 1392 ms, last 3239 ms, done 5326 ms, gemini calls 2  
+   designs: kept 4 of 4, first 2085 ms, last 4731 ms, done 7308 ms, gemini calls 2  
+== bench_photos/photo2.jpg
+   scan_ms=1895  scan_status=done  pieces=6  resolve_ms=1  match_ms=12  nearby_ms=13  subbuilds_ms=48  instant_sources_ms=50  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=41776
+   designs: kept 0 of 0, first None ms, last None ms, done 3674 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 0 of 0, first None ms, last None ms, done 3237 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 0 of 0, first None ms, last None ms, done 32915 ms, gemini calls 2  ['No design fit this pile this time.']
+== bench_photos/photo3.jpg
+   scan_ms=2291  scan_status=done  pieces=8  resolve_ms=2  match_ms=51  nearby_ms=52  subbuilds_ms=50  instant_sources_ms=53  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=27934
+   designs: kept 0 of 6, first 4752 ms, last 5686 ms, done 9102 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 1 of 2, first 1379 ms, last 5589 ms, done 10550 ms, gemini calls 3  
+   designs: kept 0 of 3, first 1539 ms, last 4029 ms, done 5903 ms, gemini calls 3  ['No design fit this pile this time.']
+== bench_photos/photo4.jpg
+   scan_ms=2011  scan_status=done  pieces=13  resolve_ms=2  match_ms=44  nearby_ms=65  subbuilds_ms=51  instant_sources_ms=66  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=60066
+   designs: kept 1 of 2, first 26123 ms, last 26561 ms, done 38356 ms, gemini calls 3  
+   designs: kept 2 of 2, first 1716 ms, last 2430 ms, done 9181 ms, gemini calls 3  
+   designs: kept 3 of 3, first 3853 ms, last 5309 ms, done 10435 ms, gemini calls 2  
+== bench_photos/photo5.jpg
+   scan_ms=1934  scan_status=done  pieces=14  resolve_ms=2  match_ms=39  nearby_ms=56  subbuilds_ms=27  instant_sources_ms=65  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=49412
+   designs: kept 2 of 2, first 3842 ms, last 4654 ms, done 26703 ms, gemini calls 3  
+   designs: kept 2 of 4, first 3681 ms, last 5784 ms, done 11399 ms, gemini calls 2  
+   designs: kept 0 of 1, first 4859 ms, last 4859 ms, done 9296 ms, gemini calls 3  ['No design fit this pile this time.']
+== bench_photos/photo6.jpg
+   scan_ms=2628  scan_status=done  pieces=17  resolve_ms=1  match_ms=38  nearby_ms=62  subbuilds_ms=28  instant_sources_ms=65  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=55273
+   designs: kept 1 of 3, first 3139 ms, last 7081 ms, done 12108 ms, gemini calls 3  
+   designs: kept 0 of 1, first 3212 ms, last 3212 ms, done 28994 ms, gemini calls 3  ['No design fit this pile this time.']
+   designs: kept 1 of 4, first 7398 ms, last 8547 ms, done 11460 ms, gemini calls 2  
+== bench_photos/photo7.jpg
+   scan_ms=2214  scan_status=done  pieces=16  resolve_ms=1  match_ms=63  nearby_ms=64  subbuilds_ms=62  instant_sources_ms=65  sets=0  subbuilds={'buildable': 0, 'almost': 0}  total_ms=23137
+   designs: kept 3 of 4, first 1787 ms, last 3924 ms, done 6158 ms, gemini calls 2  
+   designs: kept 0 of 4, first 1703 ms, last 3530 ms, done 5700 ms, gemini calls 2  ['No design fit this pile this time.']
+   designs: kept 2 of 5, first 4261 ms, last 5961 ms, done 8974 ms, gemini calls 2  
+
+server-side timing for this run (p50 / p95):
+request                               n    p50 ms    p95 ms    max ms   gemini calls p50/max
+designs_stream                       21      9294     32914     38354   2/3
+    look_check                       18      3789     10438     22048
+    designs.round1                   21      3562     26990     29504
+    gemini.budget_wait               21      3277     29048     31544
+    gemini.build.stream              21      2888      4145      4286
+    gemini.build                     18      2360      5423      7126
+    designs.repair                   11      2267     13456     21707
+    solver                           21      2147      7623      8022
+    gemini.build.first_chunk         21      1354      2327      2418
+    thumbnail                        18        50        95        99
+    ldr.pack                         18        18        63       110
+    checks                           18         1         2         2
+    designs.inventory                21         0         0         0
+    ldr                              18         0         0         0
+scan_job                              7      2204      2556      2618   0/0
+    brickognize                       7      7421     10880     11362
+    identify                          7      1089      1534      1618
+    detect                            7       848      1021      1060
+    save_crops                        7        84       100       103
+    crops                             7        78        89        89
+    tiebreak                          1         0         0         0
+/api/sets/nearby                      7        49        64        68   0/0
+    nearby.match                      7        25        31        32
+    nearby.index                      7         8        25        26
+    nearby.rank                       7         0        18        25
+/api/match                            7        38        57        61   0/0
+    sets.match                        7        36        39        39
+    sets.rank                         7         1         4         5
+    map_parts                         7         0         0         0
+/api/subbuilds                        7        30        62        67   0/0
+    subbuilds.rows                    7        19        21        21
+    subbuilds.match                   7         4         4         4
+    subbuilds.map                     7         2        36        43
+/api/scan                             7        10        10        10   0/0
+/api/parts/resolve                    7         0        17        24   0/0

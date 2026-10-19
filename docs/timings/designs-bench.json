@@ -1,0 +1,1643 @@
+{
+ "photos": [
+  {
+   "photo": "bench_photos/photo1.jpg",
+   "scan_ms": 2422,
+   "scan_status": "done",
+   "pieces": 18,
+   "detector": "opencv",
+   "rows": 17,
+   "pieces_identified": 18,
+   "resolve_ms": 26,
+   "match_ms": 47,
+   "nearby_ms": 71,
+   "subbuilds_ms": 71,
+   "instant_sources_ms": 72,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Autumn Mushroom",
+     "id": "ai-ba098d0a181d",
+     "parts": 8,
+     "removed": false,
+     "use_share": 0.579,
+     "coverage": 0.625,
+     "thumb_url": "/api/builds/ai-ba098d0a181d/thumb.png"
+    },
+    {
+     "title": "Garden Tulip",
+     "id": "ai-2c4f1723079e",
+     "parts": 8,
+     "removed": true,
+     "use_share": 0.429,
+     "coverage": 0.685,
+     "thumb_url": "/api/builds/ai-2c4f1723079e/thumb.png"
+    },
+    {
+     "title": "Park Bench",
+     "id": "ai-9d4911c911f3",
+     "parts": 10,
+     "removed": false,
+     "use_share": 0.834,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-9d4911c911f3/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 3,
+     "designs_kept": 2,
+     "removed": 1,
+     "first_design_ms": 2024,
+     "last_design_ms": 3894,
+     "done_ms": 11756,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 4,
+      "checks_ok": 4,
+      "diverse_ok": 3,
+      "look_checked": 3,
+      "look_ok": 2,
+      "first_design_ms": 1707,
+      "last_design_ms": 3577
+     },
+     "failures": [
+      {
+       "concept": "Bough Tree",
+       "why": "its sketch is the same shape as 'Autumn Mushroom'"
+      },
+      {
+       "concept": "Mini Lighthouse",
+       "why": "the pile can fill only 38% of the sketch (72 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Pond Duck",
+       "why": "the pile can fill only 54% of the sketch (72 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Cottage Chimney",
+       "why": "it has the same shape as 'Park Bench'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Autumn Mushroom",
+      "Park Bench"
+     ],
+     "removed_titles": [
+      "Garden Tulip"
+     ]
+    },
+    {
+     "designs_produced": 4,
+     "designs_kept": 2,
+     "removed": 2,
+     "first_design_ms": 1392,
+     "last_design_ms": 3239,
+     "done_ms": 5326,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 4,
+      "solver_ok": 4,
+      "checks_ok": 4,
+      "diverse_ok": 4,
+      "look_checked": 4,
+      "look_ok": 2,
+      "first_design_ms": 1391,
+      "last_design_ms": 3221
+     },
+     "failures": [
+      {
+       "concept": "Garden Tulip",
+       "why": "its sketch is the same shape as 'Autumn Leaf'"
+      },
+      {
+       "concept": "Pier Lighthouse",
+       "why": "its sketch is the same shape as 'Cozy Chimney Cottage'"
+      },
+      {
+       "concept": "Pond Duck",
+       "why": "its sketch is the same shape as 'Park Bench'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Autumn Leaf",
+      "Cozy Chimney Cottage"
+     ],
+     "removed_titles": [
+      "Sailing Dinghy",
+      "Park Bench"
+     ]
+    },
+    {
+     "designs_produced": 4,
+     "designs_kept": 4,
+     "removed": 0,
+     "first_design_ms": 2085,
+     "last_design_ms": 4731,
+     "done_ms": 7308,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 5,
+      "checks_ok": 5,
+      "diverse_ok": 4,
+      "look_checked": 4,
+      "look_ok": 4,
+      "first_design_ms": 2083,
+      "last_design_ms": 4713
+     },
+     "failures": [
+      {
+       "concept": "Cozy Hearth",
+       "why": "the pile can fill only 12% of the sketch (74 cells; the pile's volume is 86 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Tulip",
+       "why": "its sketch is the same shape as 'Anchor Post'"
+      },
+      {
+       "concept": "Anchor Post",
+       "why": "it has the same shape as 'Sunset Sailboat'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Autumn Mushroom",
+      "Pond Frog",
+      "Sunset Sailboat",
+      "Coffee Mug"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 26930
+  },
+  {
+   "photo": "bench_photos/photo2.jpg",
+   "scan_ms": 1895,
+   "scan_status": "done",
+   "pieces": 6,
+   "detector": "opencv",
+   "rows": 5,
+   "pieces_identified": 6,
+   "resolve_ms": 1,
+   "match_ms": 12,
+   "nearby_ms": 13,
+   "subbuilds_ms": 48,
+   "instant_sources_ms": 50,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [],
+   "designs_runs": [
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 3674,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 7,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Covered Bridge",
+       "why": "the pile can fill only 24% of the sketch (34 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Bench",
+       "why": "none of the pile's parts fit into the sketch"
+      },
+      {
+       "concept": "Garden Pond",
+       "why": "the pile can fill only 44% of the sketch (29 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Stepping Stones",
+       "why": "the pile can fill only 42% of the sketch (44 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Terraced Hill",
+       "why": "its sketch is the same shape as 'Garden Pond'"
+      },
+      {
+       "concept": "Pier at Sunset",
+       "why": "its sketch is the same shape as 'Garden Pond'"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 3237,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Mossy Forest Outpost",
+       "why": "the pile can fill only 58% of the sketch (32 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Azure Pier",
+       "why": "none of the pile's parts fit into the sketch"
+      },
+      {
+       "concept": "Canopy Lookout",
+       "why": "its sketch is the same shape as 'Mossy Forest Outpost'"
+      },
+      {
+       "concept": "Field Shelter",
+       "why": "its sketch is the same shape as 'Mossy Forest Outpost'"
+      },
+      {
+       "concept": "Grassy Hillock",
+       "why": "its sketch is the same shape as 'Azure Pier'"
+      },
+      {
+       "concept": "Forest Monument",
+       "why": "its sketch is the same shape as 'Mossy Forest Outpost'"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 0,
+     "designs_kept": 0,
+     "removed": 0,
+     "first_design_ms": null,
+     "last_design_ms": null,
+     "done_ms": 32915,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 6,
+      "solver_ok": 0,
+      "checks_ok": 0,
+      "diverse_ok": 0,
+      "look_checked": 0,
+      "look_ok": 0,
+      "first_design_ms": null,
+      "last_design_ms": null
+     },
+     "failures": [
+      {
+       "concept": "Azure Pond",
+       "why": "the pile can fill only 45% of the sketch (28 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mossy Deck",
+       "why": "the pile can fill only 47% of the sketch (27 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Forest Lookout",
+       "why": "the pile can fill only 32% of the sketch (40 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Azure Pier",
+       "why": "its sketch is the same shape as 'Azure Pond'"
+      },
+      {
+       "concept": "Sunken Ruin",
+       "why": "the pile can fill only 58% of the sketch (32 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Bench",
+       "why": "the pile can fill only 40% of the sketch (32 cells; the pile's volume is 45 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 41776
+  },
+  {
+   "photo": "bench_photos/photo3.jpg",
+   "scan_ms": 2291,
+   "scan_status": "done",
+   "pieces": 8,
+   "detector": "opencv",
+   "rows": 8,
+   "pieces_identified": 8,
+   "resolve_ms": 2,
+   "match_ms": 51,
+   "nearby_ms": 52,
+   "subbuilds_ms": 50,
+   "instant_sources_ms": 53,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Garden Tulip",
+     "id": "ai-e893bbf8add2",
+     "parts": 5,
+     "removed": true,
+     "use_share": 0.541,
+     "coverage": 0.925,
+     "thumb_url": "/api/builds/ai-e893bbf8add2/thumb.png"
+    },
+    {
+     "title": "Forest Mushroom",
+     "id": "ai-6cbca632d623",
+     "parts": 5,
+     "removed": true,
+     "use_share": 0.541,
+     "coverage": 0.925,
+     "thumb_url": "/api/builds/ai-6cbca632d623/thumb.png"
+    },
+    {
+     "title": "Park Bench",
+     "id": "ai-3d9f15d5f081",
+     "parts": 6,
+     "removed": true,
+     "use_share": 0.571,
+     "coverage": 0.609,
+     "thumb_url": "/api/builds/ai-3d9f15d5f081/thumb.png"
+    },
+    {
+     "title": "Pond Duck",
+     "id": "ai-a0dd50a02f96",
+     "parts": 5,
+     "removed": true,
+     "use_share": 0.541,
+     "coverage": 0.771,
+     "thumb_url": "/api/builds/ai-a0dd50a02f96/thumb.png"
+    },
+    {
+     "title": "Traffic Light",
+     "id": "ai-b9a09eec861c",
+     "parts": 4,
+     "removed": true,
+     "use_share": 0.424,
+     "coverage": 0.806,
+     "thumb_url": "/api/builds/ai-b9a09eec861c/thumb.png"
+    },
+    {
+     "title": "Azure Butterfly",
+     "id": "ai-efcc308b80e5",
+     "parts": 5,
+     "removed": true,
+     "use_share": 0.541,
+     "coverage": 0.661,
+     "thumb_url": "/api/builds/ai-efcc308b80e5/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 6,
+     "designs_kept": 0,
+     "removed": 6,
+     "first_design_ms": 4752,
+     "last_design_ms": 5686,
+     "done_ms": 9102,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 7,
+      "solver_ok": 6,
+      "checks_ok": 6,
+      "diverse_ok": 6,
+      "look_checked": 6,
+      "look_ok": 0,
+      "first_design_ms": 4751,
+      "last_design_ms": 5663
+     },
+     "failures": [
+      {
+       "concept": "Cottage Chimney",
+       "why": "the pile can fill only 44% of the sketch (48 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": [
+      "Garden Tulip",
+      "Forest Mushroom",
+      "Park Bench",
+      "Pond Duck",
+      "Traffic Light",
+      "Azure Butterfly"
+     ]
+    },
+    {
+     "designs_produced": 2,
+     "designs_kept": 1,
+     "removed": 1,
+     "first_design_ms": 1379,
+     "last_design_ms": 5589,
+     "done_ms": 10550,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 4,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 1,
+      "first_design_ms": 1378,
+      "last_design_ms": 5587
+     },
+     "failures": [
+      {
+       "concept": "Garden Tulip",
+       "why": "the sketch fills only 3 cells; it needs at least 4"
+      },
+      {
+       "concept": "Mailbox Post",
+       "why": "the sketch fills only 3 cells; it needs at least 4"
+      },
+      {
+       "concept": "Rowboat Hull",
+       "why": "the sketch fills only 2 cells; it needs at least 4"
+      },
+      {
+       "concept": "Traffic Signal",
+       "why": "the sketch fills only 3 cells; it needs at least 4"
+      },
+      {
+       "concept": "Stepping Stool",
+       "why": "its sketch is the same shape as 'Park Bench'"
+      },
+      {
+       "concept": "Miniature House",
+       "why": "the sketch fills only 2 cells; it needs at least 4"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Picnic Table"
+     ],
+     "removed_titles": [
+      "Park Bench"
+     ]
+    },
+    {
+     "designs_produced": 3,
+     "designs_kept": 0,
+     "removed": 3,
+     "first_design_ms": 1539,
+     "last_design_ms": 4029,
+     "done_ms": 5903,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 3,
+      "look_ok": 0,
+      "first_design_ms": 1537,
+      "last_design_ms": 4018
+     },
+     "failures": [
+      {
+       "concept": "Pond Duck",
+       "why": "its sketch is the same shape as 'Park Bench'"
+      },
+      {
+       "concept": "Garden Tulip",
+       "why": "the pile can fill only 38% of the sketch (56 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Cottage Chimney",
+       "why": "its sketch is the same shape as 'Park Bench'"
+      },
+      {
+       "concept": "Pine Sapling",
+       "why": "its sketch is the same shape as 'Garden Tulip'"
+      },
+      {
+       "concept": "Traffic Signal",
+       "why": "the pile can fill only 14% of the sketch (36 cells; the pile's volume is 68 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mailbox Post",
+       "why": "its sketch is the same shape as 'Garden Tulip'"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": [
+      "Park Bench",
+      "Campfire Log",
+      "Red Roof House"
+     ]
+    }
+   ],
+   "total_ms": 27934
+  },
+  {
+   "photo": "bench_photos/photo4.jpg",
+   "scan_ms": 2011,
+   "scan_status": "done",
+   "pieces": 13,
+   "detector": "opencv",
+   "rows": 10,
+   "pieces_identified": 13,
+   "resolve_ms": 2,
+   "match_ms": 44,
+   "nearby_ms": 65,
+   "subbuilds_ms": 51,
+   "instant_sources_ms": 66,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Autumn Mushroom",
+     "id": "ai-fad8babccef1",
+     "parts": 5,
+     "removed": false,
+     "use_share": 0.6,
+     "coverage": 0.6,
+     "thumb_url": "/api/builds/ai-fad8babccef1/thumb.png"
+    },
+    {
+     "title": "Garden Bird",
+     "id": "ai-ac3eba964cee",
+     "parts": 6,
+     "removed": true,
+     "use_share": 0.8,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-ac3eba964cee/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 2,
+     "designs_kept": 1,
+     "removed": 1,
+     "first_design_ms": 26123,
+     "last_design_ms": 26561,
+     "done_ms": 38356,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 1,
+      "first_design_ms": 26122,
+      "last_design_ms": 26560
+     },
+     "failures": [
+      {
+       "concept": "Campfire Log",
+       "why": "the pile can fill only 29% of the sketch (56 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Bench",
+       "why": "its sketch is the same shape as 'Garden Bird'"
+      },
+      {
+       "concept": "Traffic Cone",
+       "why": "the pile can fill only 25% of the sketch (48 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Red Chimney House",
+       "why": "its sketch is the same shape as 'Autumn Mushroom'"
+      },
+      {
+       "concept": "Forest Sprout",
+       "why": "its sketch is the same shape as 'Autumn Mushroom'"
+      },
+      {
+       "concept": "Patio Table",
+       "why": "the pile can fill only 8% of the sketch (52 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Autumn Mushroom"
+     ],
+     "removed_titles": [
+      "Garden Bird"
+     ]
+    },
+    {
+     "designs_produced": 2,
+     "designs_kept": 2,
+     "removed": 0,
+     "first_design_ms": 1716,
+     "last_design_ms": 2430,
+     "done_ms": 9181,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 2,
+      "first_design_ms": 1714,
+      "last_design_ms": 2428
+     },
+     "failures": [
+      {
+       "concept": "Autumn Mushroom",
+       "why": "the pile can fill only 25% of the sketch (48 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Bird",
+       "why": "the pile can fill only 58% of the sketch (48 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Bench",
+       "why": "its sketch is the same shape as \"Woodcutter's Cabin\""
+      },
+      {
+       "concept": "Potted Flower",
+       "why": "the sketch fills only 3 cells; it needs at least 4"
+      },
+      {
+       "concept": "Traffic Totem",
+       "why": "the sketch fills only 3 cells; it needs at least 4"
+      },
+      {
+       "concept": "Anchor Pier",
+       "why": "the pile can fill only 50% of the sketch (56 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Woodcutter's Cabin",
+      "Campfire Log"
+     ],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 3,
+     "designs_kept": 3,
+     "removed": 0,
+     "first_design_ms": 3853,
+     "last_design_ms": 5309,
+     "done_ms": 10435,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 5,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 3,
+      "look_ok": 3,
+      "first_design_ms": 3851,
+      "last_design_ms": 5296
+     },
+     "failures": [
+      {
+       "concept": "Garden Tulip",
+       "why": "the pile can fill only 25% of the sketch (48 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Forest Cabin",
+       "why": "its sketch is the same shape as 'Patio Bench'"
+      },
+      {
+       "concept": "Pond Duck",
+       "why": "its sketch is the same shape as 'Patio Bench'"
+      },
+      {
+       "concept": "Patio Bench",
+       "why": "the pile can fill only 55% of the sketch (44 cells; the pile's volume is 60 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Autumn Mushroom",
+      "Green Cactus",
+      "Campfire Log"
+     ],
+     "removed_titles": []
+    }
+   ],
+   "total_ms": 60066
+  },
+  {
+   "photo": "bench_photos/photo5.jpg",
+   "scan_ms": 1934,
+   "scan_status": "done",
+   "pieces": 14,
+   "detector": "opencv",
+   "rows": 12,
+   "pieces_identified": 14,
+   "resolve_ms": 2,
+   "match_ms": 39,
+   "nearby_ms": 56,
+   "subbuilds_ms": 27,
+   "instant_sources_ms": 65,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Porch Mailbox",
+     "id": "ai-51908824b333",
+     "parts": 5,
+     "removed": false,
+     "use_share": 0.455,
+     "coverage": 0.644,
+     "thumb_url": "/api/builds/ai-51908824b333/thumb.png"
+    },
+    {
+     "title": "Park Bench",
+     "id": "ai-a61f23c33c70",
+     "parts": 5,
+     "removed": false,
+     "use_share": 0.581,
+     "coverage": 0.685,
+     "thumb_url": "/api/builds/ai-a61f23c33c70/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 2,
+     "designs_kept": 2,
+     "removed": 0,
+     "first_design_ms": 3842,
+     "last_design_ms": 4654,
+     "done_ms": 26703,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 7,
+      "solver_ok": 2,
+      "checks_ok": 2,
+      "diverse_ok": 2,
+      "look_checked": 2,
+      "look_ok": 2,
+      "first_design_ms": 3841,
+      "last_design_ms": 4644
+     },
+     "failures": [
+      {
+       "concept": "Forest Mushroom",
+       "why": "none of the pile's parts fit into the sketch"
+      },
+      {
+       "concept": "Garden Tulip",
+       "why": "the pile can fill only 17% of the sketch (48 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mountain Cabin",
+       "why": "the pile can fill only 59% of the sketch (60 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Rustic Stool",
+       "why": "none of the pile's parts fit into the sketch"
+      },
+      {
+       "concept": "Dock Post",
+       "why": "the pile can fill only 36% of the sketch (36 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Campfire Box",
+       "why": "its sketch is the same shape as 'Mountain Cabin'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Porch Mailbox",
+      "Park Bench"
+     ],
+     "removed_titles": []
+    },
+    {
+     "designs_produced": 4,
+     "designs_kept": 2,
+     "removed": 2,
+     "first_design_ms": 3681,
+     "last_design_ms": 5784,
+     "done_ms": 11399,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 5,
+      "solver_ok": 4,
+      "checks_ok": 4,
+      "diverse_ok": 4,
+      "look_checked": 4,
+      "look_ok": 2,
+      "first_design_ms": 3680,
+      "last_design_ms": 5766
+     },
+     "failures": [
+      {
+       "concept": "Mountain Cabin",
+       "why": "the pile can fill only 40% of the sketch (42 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Woodcutter's Stump",
+       "why": "the sketch fills only 3 cells; it needs at least 4"
+      },
+      {
+       "concept": "Mushroom Cap",
+       "why": "its sketch is the same shape as 'Garden Tulip'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Backyard Bench",
+      "Patio Table"
+     ],
+     "removed_titles": [
+      "Garden Tulip",
+      "Lakeside Pier"
+     ]
+    },
+    {
+     "designs_produced": 1,
+     "designs_kept": 0,
+     "removed": 1,
+     "first_design_ms": 4859,
+     "last_design_ms": 4859,
+     "done_ms": 9296,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 4,
+      "solver_ok": 1,
+      "checks_ok": 1,
+      "diverse_ok": 1,
+      "look_checked": 1,
+      "look_ok": 0,
+      "first_design_ms": 4858,
+      "last_design_ms": 4858
+     },
+     "failures": [
+      {
+       "concept": "Mountain Cabin",
+       "why": "the pile can fill only 40% of the sketch (42 cells; the pile's volume is 64 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Mushroom",
+       "why": "its sketch is the same shape as 'Mountain Cabin'"
+      },
+      {
+       "concept": "Autumn Tree",
+       "why": "its sketch is the same shape as 'Mountain Cabin'"
+      },
+      {
+       "concept": "Pond Duck",
+       "why": "its sketch is the same shape as 'Mountain Cabin'"
+      },
+      {
+       "concept": "Retro Television",
+       "why": "its sketch is the same shape as 'Mountain Cabin'"
+      },
+      {
+       "concept": "Park Bench",
+       "why": "its sketch is the same shape as 'Mountain Cabin'"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": [
+      "Mailbox Post"
+     ]
+    }
+   ],
+   "total_ms": 49412
+  },
+  {
+   "photo": "bench_photos/photo6.jpg",
+   "scan_ms": 2628,
+   "scan_status": "done",
+   "pieces": 17,
+   "detector": "opencv",
+   "rows": 16,
+   "pieces_identified": 17,
+   "resolve_ms": 1,
+   "match_ms": 38,
+   "nearby_ms": 62,
+   "subbuilds_ms": 28,
+   "instant_sources_ms": 65,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Mountain Cabin",
+     "id": "ai-4907e39152ab",
+     "parts": 9,
+     "removed": false,
+     "use_share": 0.547,
+     "coverage": 0.806,
+     "thumb_url": "/api/builds/ai-4907e39152ab/thumb.png"
+    },
+    {
+     "title": "Pond Duck",
+     "id": "ai-894df9575099",
+     "parts": 9,
+     "removed": true,
+     "use_share": 0.547,
+     "coverage": 0.806,
+     "thumb_url": "/api/builds/ai-894df9575099/thumb.png"
+    },
+    {
+     "title": "Floating Cloud",
+     "id": "ai-ace5f18af2e2",
+     "parts": 7,
+     "removed": true,
+     "use_share": 0.679,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-ace5f18af2e2/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 3,
+     "designs_kept": 1,
+     "removed": 2,
+     "first_design_ms": 3139,
+     "last_design_ms": 7081,
+     "done_ms": 12108,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 3,
+      "checks_ok": 3,
+      "diverse_ok": 3,
+      "look_checked": 3,
+      "look_ok": 1,
+      "first_design_ms": 3137,
+      "last_design_ms": 7070
+     },
+     "failures": [
+      {
+       "concept": "Park Bench",
+       "why": "its sketch is the same shape as 'Mountain Cabin'"
+      },
+      {
+       "concept": "Garden Tulip",
+       "why": "the sketch fills only 2 cells; it needs at least 4"
+      },
+      {
+       "concept": "Street Lamp",
+       "why": "the sketch fills only 3 cells; it needs at least 4"
+      },
+      {
+       "concept": "Mini Lighthouse",
+       "why": "its sketch is the same shape as 'Pond Duck'"
+      },
+      {
+       "concept": "Forest Mushroom",
+       "why": "the pile can fill only 59% of the sketch (45 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Autumn Sapling",
+       "why": "its sketch is the same shape as 'Forest Mushroom'"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Mountain Cabin"
+     ],
+     "removed_titles": [
+      "Pond Duck",
+      "Floating Cloud"
+     ]
+    },
+    {
+     "designs_produced": 1,
+     "designs_kept": 0,
+     "removed": 1,
+     "first_design_ms": 3212,
+     "last_design_ms": 3212,
+     "done_ms": 28994,
+     "gemini_calls": 3,
+     "stats": {
+      "concepts": 11,
+      "sketch_ok": 5,
+      "solver_ok": 1,
+      "checks_ok": 1,
+      "diverse_ok": 1,
+      "look_checked": 1,
+      "look_ok": 0,
+      "first_design_ms": 3211,
+      "last_design_ms": 3211
+     },
+     "failures": [
+      {
+       "concept": "Mountain Cabin",
+       "why": "the pile can fill only 48% of the sketch (42 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Park Bench",
+       "why": "its sketch is the same shape as 'Pond Duck'"
+      },
+      {
+       "concept": "Traffic Cone",
+       "why": "its sketch is the same shape as 'Mountain Cabin'"
+      },
+      {
+       "concept": "Garden Flower",
+       "why": "the pile can fill only 51% of the sketch (63 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Campfire",
+       "why": "its sketch is the same shape as 'Pond Duck'"
+      },
+      {
+       "concept": "Table Lamp",
+       "why": "its sketch is the same shape as 'Garden Flower'"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": [
+      "Pond Duck"
+     ]
+    },
+    {
+     "designs_produced": 4,
+     "designs_kept": 1,
+     "removed": 3,
+     "first_design_ms": 7398,
+     "last_design_ms": 8547,
+     "done_ms": 11460,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 4,
+      "checks_ok": 4,
+      "diverse_ok": 4,
+      "look_checked": 4,
+      "look_ok": 1,
+      "first_design_ms": 7397,
+      "last_design_ms": 8530
+     },
+     "failures": [
+      {
+       "concept": "Garden Tulip",
+       "why": "the pile can fill only 59% of the sketch (54 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Mail Box",
+       "why": "the sketch fills only 3 cells; it needs at least 4"
+      },
+      {
+       "concept": "Mountain Cabin",
+       "why": "the pile can fill only 50% of the sketch (64 cells; the pile's volume is 71 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Park Bench"
+     ],
+     "removed_titles": [
+      "Red Mushroom",
+      "Traffic Cone",
+      "Pond Duck"
+     ]
+    }
+   ],
+   "total_ms": 55273
+  },
+  {
+   "photo": "bench_photos/photo7.jpg",
+   "scan_ms": 2214,
+   "scan_status": "done",
+   "pieces": 16,
+   "detector": "opencv",
+   "rows": 13,
+   "pieces_identified": 16,
+   "resolve_ms": 1,
+   "match_ms": 63,
+   "nearby_ms": 64,
+   "subbuilds_ms": 62,
+   "instant_sources_ms": 65,
+   "sets": 0,
+   "subbuilds": {
+    "buildable": 0,
+    "almost": 0
+   },
+   "designs_all": [
+    {
+     "title": "Garden Tulip",
+     "id": "ai-501de2a58866",
+     "parts": 6,
+     "removed": true,
+     "use_share": 0.444,
+     "coverage": 0.711,
+     "thumb_url": "/api/builds/ai-501de2a58866/thumb.png"
+    },
+    {
+     "title": "Mushroom Cottage",
+     "id": "ai-fb5e3afeb39c",
+     "parts": 10,
+     "removed": false,
+     "use_share": 0.889,
+     "coverage": 1.0,
+     "thumb_url": "/api/builds/ai-fb5e3afeb39c/thumb.png"
+    },
+    {
+     "title": "Pond Duck",
+     "id": "ai-224f50ade6bb",
+     "parts": 8,
+     "removed": false,
+     "use_share": 0.75,
+     "coverage": 0.964,
+     "thumb_url": "/api/builds/ai-224f50ade6bb/thumb.png"
+    },
+    {
+     "title": "Traffic Light",
+     "id": "ai-dd66fc845c90",
+     "parts": 11,
+     "removed": false,
+     "use_share": 0.944,
+     "coverage": 0.944,
+     "thumb_url": "/api/builds/ai-dd66fc845c90/thumb.png"
+    }
+   ],
+   "designs_runs": [
+    {
+     "designs_produced": 4,
+     "designs_kept": 3,
+     "removed": 1,
+     "first_design_ms": 1787,
+     "last_design_ms": 3924,
+     "done_ms": 6158,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 4,
+      "checks_ok": 4,
+      "diverse_ok": 4,
+      "look_checked": 4,
+      "look_ok": 3,
+      "first_design_ms": 1785,
+      "last_design_ms": 3906
+     },
+     "failures": [
+      {
+       "concept": "Park Bench",
+       "why": "the pile can fill only 45% of the sketch (44 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Campfire",
+       "why": "its sketch is the same shape as 'Traffic Light'"
+      },
+      {
+       "concept": "Watchtower",
+       "why": "the pile can fill only 32% of the sketch (68 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Mushroom Cottage",
+      "Pond Duck",
+      "Traffic Light"
+     ],
+     "removed_titles": [
+      "Garden Tulip"
+     ]
+    },
+    {
+     "designs_produced": 4,
+     "designs_kept": 0,
+     "removed": 4,
+     "first_design_ms": 1703,
+     "last_design_ms": 3530,
+     "done_ms": 5700,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 4,
+      "checks_ok": 4,
+      "diverse_ok": 4,
+      "look_checked": 4,
+      "look_ok": 0,
+      "first_design_ms": 1701,
+      "last_design_ms": 3513
+     },
+     "failures": [
+      {
+       "concept": "Park Bench",
+       "why": "the pile can fill only 14% of the sketch (44 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      },
+      {
+       "concept": "Garden Tulip",
+       "why": "layer 4, row 2: character ',' is not allowed; use '#' for filled, '.' for empty or a letter of the palette"
+      },
+      {
+       "concept": "Robot Face",
+       "why": "none of the pile's parts fit into the sketch"
+      }
+     ],
+     "notes": [
+      "No design fit this pile this time."
+     ],
+     "error": null,
+     "titles": [],
+     "removed_titles": [
+      "River Tugboat",
+      "Autumn Mushroom",
+      "Cottage Chimney",
+      "Road Barrier"
+     ]
+    },
+    {
+     "designs_produced": 5,
+     "designs_kept": 2,
+     "removed": 3,
+     "first_design_ms": 4261,
+     "last_design_ms": 5961,
+     "done_ms": 8974,
+     "gemini_calls": 2,
+     "stats": {
+      "concepts": 7,
+      "sketch_ok": 6,
+      "solver_ok": 5,
+      "checks_ok": 5,
+      "diverse_ok": 5,
+      "look_checked": 5,
+      "look_ok": 2,
+      "first_design_ms": 4259,
+      "last_design_ms": 5939
+     },
+     "failures": [
+      {
+       "concept": "Country Cottage",
+       "why": "its sketch is the same shape as 'Autumn Mushroom'"
+      },
+      {
+       "concept": "Fire Hydrant",
+       "why": "the pile can fill only 53% of the sketch (72 cells; the pile's volume is 72 cells and its sizes cannot make this shape)"
+      }
+     ],
+     "notes": [],
+     "error": null,
+     "titles": [
+      "Autumn Mushroom",
+      "Garden Tulip"
+     ],
+     "removed_titles": [
+      "Tugboat",
+      "Park Bench",
+      "Pond Duck"
+     ]
+    }
+   ],
+   "total_ms": 23137
+  }
+ ],
+ "server": {
+  "/api/scan": {
+   "n": 7,
+   "p50": 9.7,
+   "p95": 10.15,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "scan_job": {
+   "n": 7,
+   "p50": 2204.0,
+   "p95": 2556.29,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "detect": {
+     "p50": 847.6,
+     "p95": 1020.5999999999999,
+     "n": 7
+    },
+    "crops": {
+     "p50": 77.6,
+     "p95": 89.16,
+     "n": 7
+    },
+    "brickognize": {
+     "p50": 7420.9,
+     "p95": 10880.089999999998,
+     "n": 7
+    },
+    "identify": {
+     "p50": 1088.8,
+     "p95": 1534.2399999999998,
+     "n": 7
+    },
+    "tiebreak": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 1
+    },
+    "save_crops": {
+     "p50": 84.1,
+     "p95": 100.32,
+     "n": 7
+    }
+   }
+  },
+  "/api/parts/resolve": {
+   "n": 7,
+   "p50": 0.5,
+   "p95": 17.35999999999998,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {}
+  },
+  "/api/match": {
+   "n": 7,
+   "p50": 38.5,
+   "p95": 56.75999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "map_parts": {
+     "p50": 0.0,
+     "p95": 0.0,
+     "n": 7
+    },
+    "sets.match": {
+     "p50": 35.5,
+     "p95": 38.65,
+     "n": 7
+    },
+    "sets.rank": {
+     "p50": 0.8,
+     "p95": 4.289999999999999,
+     "n": 7
+    }
+   }
+  },
+  "/api/subbuilds": {
+   "n": 7,
+   "p50": 29.5,
+   "p95": 62.07999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "subbuilds.map": {
+     "p50": 1.6,
+     "p95": 36.389999999999986,
+     "n": 7
+    },
+    "subbuilds.match": {
+     "p50": 3.6,
+     "p95": 4.4399999999999995,
+     "n": 7
+    },
+    "subbuilds.rows": {
+     "p50": 19.3,
+     "p95": 20.759999999999998,
+     "n": 7
+    }
+   }
+  },
+  "/api/sets/nearby": {
+   "n": 7,
+   "p50": 49.2,
+   "p95": 63.76999999999999,
+   "gemini_calls": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "stages": {
+    "nearby.index": {
+     "p50": 8.5,
+     "p95": 24.569999999999997,
+     "n": 7
+    },
+    "nearby.match": {
+     "p50": 25.0,
+     "p95": 30.729999999999997,
+     "n": 7
+    },
+    "nearby.rank": {
+     "p50": 0.2,
+     "p95": 17.589999999999982,
+     "n": 7
+    }
+   }
+  },
+  "designs_stream": {
+   "n": 21,
+   "p50": 9293.9,
+   "p95": 32914.3,
+   "gemini_calls": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    3,
+    2,
+    3,
+    2,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2
+   ],
+   "stages": {
+    "designs.inventory": {
+     "p50": 0.1,
+     "p95": 0.1,
+     "n": 21
+    },
+    "gemini.budget_wait": {
+     "p50": 3276.8,
+     "p95": 29048.1,
+     "n": 21
+    },
+    "gemini.build.first_chunk": {
+     "p50": 1354.5,
+     "p95": 2326.6,
+     "n": 21
+    },
+    "solver": {
+     "p50": 2146.8,
+     "p95": 7622.6,
+     "n": 21
+    },
+    "checks": {
+     "p50": 1.0,
+     "p95": 1.6449999999999996,
+     "n": 18
+    },
+    "ldr": {
+     "p50": 0.0,
+     "p95": 0.3,
+     "n": 18
+    },
+    "ldr.pack": {
+     "p50": 18.15,
+     "p95": 62.81499999999992,
+     "n": 18
+    },
+    "thumbnail": {
+     "p50": 49.95,
+     "p95": 94.835,
+     "n": 18
+    },
+    "gemini.build.stream": {
+     "p50": 2888.4,
+     "p95": 4144.6,
+     "n": 21
+    },
+    "designs.round1": {
+     "p50": 3561.8,
+     "p95": 26989.6,
+     "n": 21
+    },
+    "gemini.build": {
+     "p50": 2359.8999999999996,
+     "p95": 5423.0949999999975,
+     "n": 18
+    },
+    "look_check": {
+     "p50": 3789.1000000000004,
+     "p95": 10438.14999999998,
+     "n": 18
+    },
+    "designs.repair": {
+     "p50": 2267.1,
+     "p95": 13456.3,
+     "n": 11
+    }
+   }
+  }
+ }
+}

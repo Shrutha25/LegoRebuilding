@@ -88,10 +88,11 @@ export const matchSets = (parts: MatchPart[], matchColor: boolean) =>
     json({ parts, match_color: matchColor, max_parts: 150 }),
   );
 
-export const getIdeas = (parts: IdeaPart[], matchColor = true) => call<{ ideas: Idea[] }>("/api/ideas", json({ parts, match_color: matchColor }));
+export const getIdeas = (parts: IdeaPart[], matchColor = true, exclude: string[] = []) =>
+  call<{ ideas: Idea[] }>("/api/ideas", json({ parts, match_color: matchColor, exclude }));
 
 /** A 3D build with step-by-step placement for the user's pieces (AI), optionally for a chosen idea. Takes 10-40 s. */
-export const createAiBuild = (parts: BuildPartIn[], idea?: { name: string; description: string }, matchColor = true) =>
+export const createAiBuild = (parts: BuildPartIn[], idea?: { name: string; description: string; pieces_used?: { part_num: string; qty: number; colour?: string }[]; steps?: string[] }, matchColor = true) =>
   call<BuildMeta>("/api/builds/ai", json({ parts, idea: idea ?? null, match_color: matchColor }));
 
 /** Builds the code designs from the user's pieces (recipes), named by the AI when it is available. Same pieces, same builds. */

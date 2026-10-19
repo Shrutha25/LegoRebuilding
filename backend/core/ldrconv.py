@@ -41,7 +41,7 @@ def build_to_ldr(build, inv, author="Brick Finder (AI-suggested build)"):
             ox, oz = d.origin(p.rotation)
             x = p.x * STUD_LDU + ox
             z = p.z * STUD_LDU + oz
-            y = -(p.y + d.height) * PLATE_LDU
+            y = -(p.y * PLATE_LDU + d.oy) if d.oy is not None else -(p.y + d.height) * PLATE_LDU
             m = " ".join(str(v) for v in _rotation(p.rotation))
             lines.append(f"1 {item.ld_colour} {_num(x)} {_num(y)} {_num(z)} {m} {item.ld_part}.dat")
         lines.append("0 STEP")
@@ -74,7 +74,7 @@ def ldr_to_build(text, inv, title="build"):
         rot = round(math.degrees(math.atan2(g, a))) % 360
         ox, oz = item.dims.origin(rot)
         parts.append(Placement(item.part_id, item.colour, round((x - ox) / STUD_LDU), round((z - oz) / STUD_LDU),
-                               round(-y / PLATE_LDU) - item.dims.height, rot, step))
+                               (round((-y - item.dims.oy) / PLATE_LDU) if item.dims.oy is not None else round(-y / PLATE_LDU) - item.dims.height), rot, step))
     return Build(title, "", parts)
 
 
