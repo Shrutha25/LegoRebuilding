@@ -1,0 +1,302 @@
+[
+  {
+    "id": "chair-strict-medium",
+    "prompt": "a chair",
+    "mode": "strict",
+    "inventory": "medium",
+    "inventory_bricks": 40,
+    "bricks": 40,
+    "steps": 17,
+    "end_reason": "ran_out",
+    "connected": true,
+    "seconds": 28.8,
+    "rollbacks": 2,
+    "rejections": 17,
+    "rejection_reasons": {
+      "collision": 4,
+      "already_rejected": 13
+    },
+    "types": {
+      "2456": 8,
+      "3001": 9,
+      "3003": 10,
+      "3004": 4,
+      "3005": 6,
+      "3009": 1,
+      "3010": 2
+    },
+    "colours": {
+      "Orange": 10,
+      "Lime": 6,
+      "Red": 14,
+      "Medium Azure": 8,
+      "Tan": 2
+    },
+    "over_stock": []
+  },
+  {
+    "id": "chair-strict-large",
+    "prompt": "a chair",
+    "mode": "strict",
+    "inventory": "large",
+    "inventory_bricks": 120,
+    "bricks": 63,
+    "steps": 25,
+    "end_reason": "finished",
+    "connected": true,
+    "seconds": 27.4,
+    "rollbacks": 1,
+    "rejections": 1,
+    "rejection_reasons": {
+      "collision": 1
+    },
+    "types": {
+      "2456": 4,
+      "3001": 9,
+      "3003": 14,
+      "3004": 11,
+      "3005": 12,
+      "3009": 1,
+      "3010": 12
+    },
+    "colours": {
+      "Orange": 17,
+      "Medium Azure": 9,
+      "Red": 17,
+      "Lime": 12,
+      "Tan": 8
+    },
+    "over_stock": []
+  },
+  {
+    "id": "bench-strict-medium",
+    "prompt": "a bench",
+    "mode": "strict",
+    "inventory": "medium",
+    "inventory_bricks": 40,
+    "bricks": 40,
+    "steps": 14,
+    "end_reason": "ran_out",
+    "connected": false,
+    "seconds": 27.5,
+    "rollbacks": 10,
+    "rejections": 5,
+    "rejection_reasons": {
+      "collision": 3,
+      "already_rejected": 2
+    },
+    "types": {
+      "2456": 8,
+      "3001": 9,
+      "3003": 10,
+      "3004": 4,
+      "3005": 6,
+      "3009": 1,
+      "3010": 2
+    },
+    "colours": {
+      "Red": 14,
+      "Orange": 10,
+      "Medium Azure": 8,
+      "Lime": 6,
+      "Tan": 2
+    },
+    "over_stock": []
+  },
+  {
+    "id": "bench-strict-large",
+    "prompt": "a bench",
+    "mode": "strict",
+    "inventory": "large",
+    "inventory_bricks": 120,
+    "bricks": 63,
+    "steps": 23,
+    "end_reason": "finished",
+    "connected": true,
+    "seconds": 53.8,
+    "rollbacks": 3,
+    "rejections": 16,
+    "rejection_reasons": {
+      "collision": 7,
+      "already_rejected": 6,
+      "out_of_bounds": 3
+    },
+    "types": {
+      "2456": 7,
+      "3001": 9,
+      "3003": 12,
+      "3004": 11,
+      "3005": 12,
+      "3009": 1,
+      "3010": 11
+    },
+    "colours": {
+      "Red": 20,
+      "Orange": 15,
+      "Medium Azure": 9,
+      "Lime": 12,
+      "Tan": 7
+    },
+    "over_stock": []
+  },
+  {
+    "id": "table-strict-medium",
+    "prompt": "a table",
+    "mode": "strict",
+    "inventory": "medium",
+    "inventory_bricks": 40,
+    "bricks": 40,
+    "steps": 16,
+    "end_reason": "ran_out",
+    "connected": true,
+    "seconds": 55.6,
+    "rollbacks": 7,
+    "rejections": 2,
+    "rejection_reasons": {
+      "collision": 2
+    },
+    "types": {
+      "2456": 8,
+      "3001": 9,
+      "3003": 10,
+      "3004": 4,
+      "3005": 6,
+      "3009": 1,
+      "3010": 2
+    },
+    "colours": {
+      "Orange": 10,
+      "Red": 14,
+      "Medium Azure": 8,
+      "Lime": 6,
+      "Tan": 2
+    },
+    "over_stock": []
+  },
+  {
+    "id": "table-strict-large",
+    "prompt": "a table",
+    "mode": "strict",
+    "inventory": "large",
+    "inventory_bricks": 120,
+    "bricks": 71,
+    "steps": 28,
+    "end_reason": "finished",
+    "connected": true,
+    "seconds": 122.1,
+    "rollbacks": 7,
+    "rejections": 64,
+    "rejection_reasons": {
+      "collision": 11,
+      "already_rejected": 53
+    },
+    "types": {
+      "2456": 18,
+      "3001": 9,
+      "3003": 8,
+      "3004": 11,
+      "3005": 12,
+      "3009": 1,
+      "3010": 12
+    },
+    "colours": {
+      "Orange": 11,
+      "Red": 31,
+      "Medium Azure": 9,
+      "Lime": 12,
+      "Tan": 8
+    },
+    "over_stock": []
+  },
+  {
+    "id": "bench-strict-small",
+    "prompt": "a bench",
+    "mode": "strict",
+    "inventory": "small",
+    "inventory_bricks": 12,
+    "bricks": 12,
+    "steps": 5,
+    "end_reason": "ran_out",
+    "connected": true,
+    "seconds": 3.3,
+    "rollbacks": 0,
+    "rejections": 0,
+    "rejection_reasons": {},
+    "types": {
+      "2456": 3,
+      "3001": 4,
+      "3003": 2,
+      "3004": 2,
+      "3009": 1
+    },
+    "colours": {
+      "Red": 6,
+      "Medium Azure": 4,
+      "Lime": 1,
+      "Orange": 1
+    },
+    "over_stock": []
+  },
+  {
+    "id": "desc-chair-free",
+    "prompt": "a simple chair with four legs, a flat seat and a tall backrest",
+    "mode": "unconstrained",
+    "inventory": null,
+    "inventory_bricks": null,
+    "bricks": 83,
+    "steps": 36,
+    "end_reason": "finished",
+    "connected": true,
+    "seconds": 34.2,
+    "rollbacks": 1,
+    "rejections": 1,
+    "rejection_reasons": {
+      "collision": 1
+    },
+    "types": {
+      "2456": 8,
+      "3001": 1,
+      "3003": 15,
+      "3004": 26,
+      "3005": 20,
+      "3008": 1,
+      "3009": 4,
+      "3010": 8
+    },
+    "colours": {
+      "Medium Lime": 83
+    },
+    "over_stock": []
+  },
+  {
+    "id": "desc-bench-free",
+    "prompt": "a long bench with a flat seat and four legs",
+    "mode": "unconstrained",
+    "inventory": null,
+    "inventory_bricks": null,
+    "bricks": 35,
+    "steps": 15,
+    "end_reason": "finished",
+    "connected": true,
+    "seconds": 15.3,
+    "rollbacks": 1,
+    "rejections": 10,
+    "rejection_reasons": {
+      "collision": 2,
+      "already_rejected": 8
+    },
+    "types": {
+      "2456": 5,
+      "3001": 2,
+      "3003": 8,
+      "3004": 11,
+      "3005": 6,
+      "3008": 2,
+      "3010": 1
+    },
+    "colours": {
+      "Medium Lime": 35
+    },
+    "over_stock": []
+  }
+]

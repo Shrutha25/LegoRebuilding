@@ -1,0 +1,73 @@
+{
+ "source": "tests/detection/bricks_only.txt (hand-checked ground truth), not a scan",
+ "total_bricks_in_photo": 16,
+ "rows": [
+  {
+   "part": "2456",
+   "colour": "Red",
+   "qty": 2
+  },
+  {
+   "part": "3001",
+   "colour": "Red",
+   "qty": 2
+  },
+  {
+   "part": "2456",
+   "colour": "Dark Bluish Gray",
+   "qty": 1
+  },
+  {
+   "part": "3001",
+   "colour": "Blue",
+   "qty": 1
+  },
+  {
+   "part": "3010",
+   "colour": "Medium Azure",
+   "qty": 1
+  },
+  {
+   "part": "3003",
+   "colour": "Bright Light Yellow",
+   "qty": 1
+  },
+  {
+   "part": "3003",
+   "colour": "Reddish Brown",
+   "qty": 1
+  },
+  {
+   "part": "3004",
+   "colour": "Yellowish Green",
+   "qty": 1
+  },
+  {
+   "part": "3009",
+   "colour": "Yellow",
+   "qty": 1
+  }
+ ],
+ "other": [
+  {
+   "line": "2x3 lime brick- 1",
+   "qty": 1
+  },
+  {
+   "line": "1x3 yellow brick- 1",
+   "qty": 1
+  },
+  {
+   "line": "1x1 modified with stud on side- 1",
+   "qty": 1
+  },
+  {
+   "line": "1x2 modified with studs on 1 side- 1",
+   "qty": 1
+  },
+  {
+   "line": "1x2 technic, brick with hole- 1",
+   "qty": 1
+  }
+ ]
+}

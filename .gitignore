@@ -28,3 +28,10 @@ timings.jsonl
 prof.out
 bench_photos/
 docs/timings/*.jsonl
+
+# BrickGPT experiment: its own venv, the cloned repo, logs and generated gallery files
+experiments/brickgpt/venv/
+experiments/brickgpt/repo/
+experiments/brickgpt/gallery/
+experiments/brickgpt/*.log
+experiments/brickgpt/library/

@@ -1,0 +1,173 @@
+{
+ "bench": {
+  "bricks": 25,
+  "small": {
+   "missing_total": 17,
+   "by_type": {
+    "2456": 3,
+    "3003": 4,
+    "3004": 3,
+    "3005": 4,
+    "3008": 2,
+    "3010": 1
+   },
+   "inventory_bricks": 12
+  },
+  "medium": {
+   "missing_total": 3,
+   "by_type": {
+    "3004": 1,
+    "3008": 2
+   },
+   "inventory_bricks": 40
+  },
+  "large": {
+   "missing_total": 2,
+   "by_type": {
+    "3008": 2
+   },
+   "inventory_bricks": 120
+  }
+ },
+ "car": {
+  "bricks": 127,
+  "small": {
+   "missing_total": 115,
+   "by_type": {
+    "2456": 18,
+    "3001": 7,
+    "3003": 10,
+    "3004": 28,
+    "3005": 30,
+    "3008": 5,
+    "3009": 9,
+    "3010": 8
+   },
+   "inventory_bricks": 12
+  },
+  "medium": {
+   "missing_total": 87,
+   "by_type": {
+    "2456": 13,
+    "3001": 2,
+    "3003": 2,
+    "3004": 26,
+    "3005": 24,
+    "3008": 5,
+    "3009": 9,
+    "3010": 6
+   },
+   "inventory_bricks": 40
+  },
+  "large": {
+   "missing_total": 51,
+   "by_type": {
+    "3004": 19,
+    "3005": 18,
+    "3008": 5,
+    "3009": 9
+   },
+   "inventory_bricks": 120
+  }
+ },
+ "chair": {
+  "bricks": 110,
+  "small": {
+   "missing_total": 99,
+   "by_type": {
+    "2456": 9,
+    "3003": 17,
+    "3004": 34,
+    "3005": 27,
+    "3008": 2,
+    "3009": 6,
+    "3010": 4
+   },
+   "inventory_bricks": 12
+  },
+  "medium": {
+   "missing_total": 76,
+   "by_type": {
+    "2456": 4,
+    "3003": 9,
+    "3004": 32,
+    "3005": 21,
+    "3008": 2,
+    "3009": 6,
+    "3010": 2
+   },
+   "inventory_bricks": 40
+  },
+  "large": {
+   "missing_total": 48,
+   "by_type": {
+    "3004": 25,
+    "3005": 15,
+    "3008": 2,
+    "3009": 6
+   },
+   "inventory_bricks": 120
+  }
+ },
+ "guitar": {
+  "bricks": 23,
+  "small": {
+   "missing_total": 14,
+   "by_type": {
+    "3001": 1,
+    "3003": 11,
+    "3004": 2
+   },
+   "inventory_bricks": 12
+  },
+  "medium": {
+   "missing_total": 3,
+   "by_type": {
+    "3003": 3
+   },
+   "inventory_bricks": 40
+  },
+  "large": {
+   "missing_total": 0,
+   "by_type": {},
+   "inventory_bricks": 120
+  }
+ },
+ "table": {
+  "bricks": 62,
+  "small": {
+   "missing_total": 51,
+   "by_type": {
+    "2456": 21,
+    "3003": 1,
+    "3004": 7,
+    "3005": 8,
+    "3008": 4,
+    "3009": 7,
+    "3010": 3
+   },
+   "inventory_bricks": 12
+  },
+  "medium": {
+   "missing_total": 35,
+   "by_type": {
+    "2456": 16,
+    "3004": 5,
+    "3005": 2,
+    "3008": 4,
+    "3009": 7,
+    "3010": 1
+   },
+   "inventory_bricks": 40
+  },
+  "large": {
+   "missing_total": 13,
+   "by_type": {
+    "2456": 2,
+    "3008": 4,
+    "3009": 7
+   },
+   "inventory_bricks": 120
+  }
+ }
+}

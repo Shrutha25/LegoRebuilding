@@ -1,0 +1,14 @@
+[
+ {"id": "chair", "category": "chair", "prompt": "a simple chair with four legs, a flat seat and a tall backrest"},
+ {"id": "bench", "category": "bench", "prompt": "a long bench with a flat seat and four legs"},
+ {"id": "table", "category": "table", "prompt": "a small square table with four straight legs and a flat top"},
+ {"id": "sofa", "category": "sofa", "prompt": "a sofa with a wide flat seat, a tall backrest and two armrests"},
+ {"id": "bookshelf", "category": "bookshelf", "prompt": "a bookshelf with two tall vertical sides and three flat horizontal shelves"},
+ {"id": "bed", "category": "bed", "prompt": "a bed with a flat mattress, a tall headboard at one end and four short legs"},
+ {"id": "car", "category": "car", "prompt": "a simple car with a long flat body, four wheels and a small cabin on top"},
+ {"id": "bus", "category": "bus", "prompt": "a long bus with a flat roof, a flat front and four wheels"},
+ {"id": "train", "category": "train", "prompt": "a simple train with a long flat body, a taller cab at the front and small wheels along the bottom"},
+ {"id": "tower", "category": "tower", "prompt": "a tall tower with a square base, straight walls and a wider flat top"},
+ {"id": "guitar", "category": "guitar", "prompt": "a guitar with a wide body, a long thin neck and a small head at the top"},
+ {"id": "piano", "category": "piano", "prompt": "a piano with a wide rectangular body, a flat top and three short legs"}
+]

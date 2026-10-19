@@ -1,0 +1,115 @@
+{
+  "model_load_s": 88.5,
+  "results": [
+    {
+      "prompt": "a chair",
+      "seed": 42,
+      "seconds": 68.8,
+      "bricks": 110,
+      "brick_types": {
+        "1x1": 27,
+        "1x2": 36,
+        "1x4": 4,
+        "1x6": 7,
+        "1x8": 2,
+        "2x2": 19,
+        "2x4": 3,
+        "2x6": 12
+      },
+      "connected": true,
+      "rollbacks": 2,
+      "rejections": 7,
+      "rejection_reasons": {
+        "collision": 5,
+        "already_rejected": 2
+      },
+      "peak_vram_gb": 5.36
+    },
+    {
+      "prompt": "a car",
+      "seed": 42,
+      "seconds": 106.0,
+      "bricks": 127,
+      "brick_types": {
+        "1x1": 30,
+        "1x2": 30,
+        "1x4": 8,
+        "1x6": 10,
+        "1x8": 5,
+        "2x2": 12,
+        "2x4": 11,
+        "2x6": 21
+      },
+      "connected": true,
+      "rollbacks": 4,
+      "rejections": 21,
+      "rejection_reasons": {
+        "collision": 14,
+        "already_rejected": 7
+      },
+      "peak_vram_gb": 5.61
+    },
+    {
+      "prompt": "a table",
+      "seed": 42,
+      "seconds": 17.3,
+      "bricks": 62,
+      "brick_types": {
+        "1x1": 8,
+        "1x2": 9,
+        "1x4": 3,
+        "1x6": 8,
+        "1x8": 4,
+        "2x2": 3,
+        "2x4": 3,
+        "2x6": 24
+      },
+      "connected": true,
+      "rollbacks": 0,
+      "rejections": 1,
+      "rejection_reasons": {
+        "collision": 1
+      },
+      "peak_vram_gb": 5.25
+    },
+    {
+      "prompt": "a guitar",
+      "seed": 42,
+      "seconds": 6.3,
+      "bricks": 23,
+      "brick_types": {
+        "1x2": 4,
+        "2x2": 13,
+        "2x4": 5,
+        "2x6": 1
+      },
+      "connected": true,
+      "rollbacks": 0,
+      "rejections": 0,
+      "rejection_reasons": {},
+      "peak_vram_gb": 5.12
+    },
+    {
+      "prompt": "a bench",
+      "seed": 42,
+      "seconds": 37.4,
+      "bricks": 25,
+      "brick_types": {
+        "1x1": 4,
+        "1x2": 5,
+        "1x4": 1,
+        "1x8": 2,
+        "2x2": 6,
+        "2x4": 1,
+        "2x6": 6
+      },
+      "connected": true,
+      "rollbacks": 4,
+      "rejections": 1,
+      "rejection_reasons": {
+        "collision": 1
+      },
+      "peak_vram_gb": 5.08
+    }
+  ]
+}

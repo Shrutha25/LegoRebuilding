@@ -1,0 +1,672 @@
+{
+ "summary": {
+  "real_pile": {
+   "buildable": 0,
+   "nearly": 1,
+   "within_10": 2
+  },
+  "small": {
+   "buildable": 1,
+   "nearly": 0,
+   "within_10": 3
+  },
+  "medium": {
+   "buildable": 2,
+   "nearly": 2,
+   "within_10": 5
+  },
+  "large": {
+   "buildable": 6,
+   "nearly": 0,
+   "within_10": 7
+  }
+ },
+ "pile_bricks": {
+  "real_pile": 11,
+  "small": 12,
+  "medium": 40,
+  "large": 120
+ },
+ "rows": [
+  {
+   "id": "train-s44",
+   "bricks": 8,
+   "real_pile": {
+    "covered": 7,
+    "missing": 1
+   },
+   "small": {
+    "covered": 8,
+    "missing": 0
+   },
+   "medium": {
+    "covered": 8,
+    "missing": 0
+   },
+   "large": {
+    "covered": 8,
+    "missing": 0
+   }
+  },
+  {
+   "id": "guitar-s43",
+   "bricks": 18,
+   "real_pile": {
+    "covered": 8,
+    "missing": 10
+   },
+   "small": {
+    "covered": 9,
+    "missing": 9
+   },
+   "medium": {
+    "covered": 14,
+    "missing": 4
+   },
+   "large": {
+    "covered": 18,
+    "missing": 0
+   }
+  },
+  {
+   "id": "guitar-s42",
+   "bricks": 19,
+   "real_pile": {
+    "covered": 8,
+    "missing": 11
+   },
+   "small": {
+    "covered": 9,
+    "missing": 10
+   },
+   "medium": {
+    "covered": 19,
+    "missing": 0
+   },
+   "large": {
+    "covered": 19,
+    "missing": 0
+   }
+  },
+  {
+   "id": "guitar-s44",
+   "bricks": 30,
+   "real_pile": {
+    "covered": 9,
+    "missing": 21
+   },
+   "small": {
+    "covered": 10,
+    "missing": 20
+   },
+   "medium": {
+    "covered": 25,
+    "missing": 5
+   },
+   "large": {
+    "covered": 30,
+    "missing": 0
+   }
+  },
+  {
+   "id": "bench-s42",
+   "bricks": 35,
+   "real_pile": {
+    "covered": 9,
+    "missing": 26
+   },
+   "small": {
+    "covered": 9,
+    "missing": 26
+   },
+   "medium": {
+    "covered": 26,
+    "missing": 9
+   },
+   "large": {
+    "covered": 35,
+    "missing": 0
+   }
+  },
+  {
+   "id": "bus-s44",
+   "bricks": 40,
+   "real_pile": {
+    "covered": 9,
+    "missing": 31
+   },
+   "small": {
+    "covered": 10,
+    "missing": 30
+   },
+   "medium": {
+    "covered": 29,
+    "missing": 11
+   },
+   "large": {
+    "covered": 40,
+    "missing": 0
+   }
+  },
+  {
+   "id": "bench-s43",
+   "bricks": 53,
+   "real_pile": {
+    "covered": 10,
+    "missing": 43
+   },
+   "small": {
+    "covered": 11,
+    "missing": 42
+   },
+   "medium": {
+    "covered": 31,
+    "missing": 22
+   },
+   "large": {
+    "covered": 47,
+    "missing": 6
+   }
+  },
+  {
+   "id": "train-s43",
+   "bricks": 56,
+   "real_pile": {
+    "covered": 8,
+    "missing": 48
+   },
+   "small": {
+    "covered": 8,
+    "missing": 48
+   },
+   "medium": {
+    "covered": 26,
+    "missing": 30
+   },
+   "large": {
+    "covered": 44,
+    "missing": 12
+   }
+  },
+  {
+   "id": "bus-s43",
+   "bricks": 64,
+   "real_pile": {
+    "covered": 9,
+    "missing": 55
+   },
+   "small": {
+    "covered": 9,
+    "missing": 55
+   },
+   "medium": {
+    "covered": 31,
+    "missing": 33
+   },
+   "large": {
+    "covered": 51,
+    "missing": 13
+   }
+  },
+  {
+   "id": "tower-s44",
+   "bricks": 68,
+   "real_pile": {
+    "covered": 6,
+    "missing": 62
+   },
+   "small": {
+    "covered": 6,
+    "missing": 62
+   },
+   "medium": {
+    "covered": 13,
+    "missing": 55
+   },
+   "large": {
+    "covered": 33,
+    "missing": 35
+   }
+  },
+  {
+   "id": "car-s44",
+   "bricks": 69,
+   "real_pile": {
+    "covered": 11,
+    "missing": 58
+   },
+   "small": {
+    "covered": 11,
+    "missing": 58
+   },
+   "medium": {
+    "covered": 33,
+    "missing": 36
+   },
+   "large": {
+    "covered": 52,
+    "missing": 17
+   }
+  },
+  {
+   "id": "train-s42",
+   "bricks": 69,
+   "real_pile": {
+    "covered": 11,
+    "missing": 58
+   },
+   "small": {
+    "covered": 12,
+    "missing": 57
+   },
+   "medium": {
+    "covered": 36,
+    "missing": 33
+   },
+   "large": {
+    "covered": 58,
+    "missing": 11
+   }
+  },
+  {
+   "id": "sofa-s44",
+   "bricks": 78,
+   "real_pile": {
+    "covered": 10,
+    "missing": 68
+   },
+   "small": {
+    "covered": 10,
+    "missing": 68
+   },
+   "medium": {
+    "covered": 33,
+    "missing": 45
+   },
+   "large": {
+    "covered": 63,
+    "missing": 15
+   }
+  },
+  {
+   "id": "chair-s43",
+   "bricks": 79,
+   "real_pile": {
+    "covered": 11,
+    "missing": 68
+   },
+   "small": {
+    "covered": 11,
+    "missing": 68
+   },
+   "medium": {
+    "covered": 34,
+    "missing": 45
+   },
+   "large": {
+    "covered": 68,
+    "missing": 11
+   }
+  },
+  {
+   "id": "chair-s44",
+   "bricks": 79,
+   "real_pile": {
+    "covered": 6,
+    "missing": 73
+   },
+   "small": {
+    "covered": 7,
+    "missing": 72
+   },
+   "medium": {
+    "covered": 23,
+    "missing": 56
+   },
+   "large": {
+    "covered": 48,
+    "missing": 31
+   }
+  },
+  {
+   "id": "car-s43",
+   "bricks": 81,
+   "real_pile": {
+    "covered": 11,
+    "missing": 70
+   },
+   "small": {
+    "covered": 12,
+    "missing": 69
+   },
+   "medium": {
+    "covered": 35,
+    "missing": 46
+   },
+   "large": {
+    "covered": 60,
+    "missing": 21
+   }
+  },
+  {
+   "id": "chair-s42",
+   "bricks": 83,
+   "real_pile": {
+    "covered": 9,
+    "missing": 74
+   },
+   "small": {
+    "covered": 9,
+    "missing": 74
+   },
+   "medium": {
+    "covered": 32,
+    "missing": 51
+   },
+   "large": {
+    "covered": 57,
+    "missing": 26
+   }
+  },
+  {
+   "id": "table-s44",
+   "bricks": 83,
+   "real_pile": {
+    "covered": 7,
+    "missing": 76
+   },
+   "small": {
+    "covered": 7,
+    "missing": 76
+   },
+   "medium": {
+    "covered": 27,
+    "missing": 56
+   },
+   "large": {
+    "covered": 66,
+    "missing": 17
+   }
+  },
+  {
+   "id": "piano-s42",
+   "bricks": 85,
+   "real_pile": {
+    "covered": 11,
+    "missing": 74
+   },
+   "small": {
+    "covered": 12,
+    "missing": 73
+   },
+   "medium": {
+    "covered": 37,
+    "missing": 48
+   },
+   "large": {
+    "covered": 61,
+    "missing": 24
+   }
+  },
+  {
+   "id": "bed-s42",
+   "bricks": 89,
+   "real_pile": {
+    "covered": 10,
+    "missing": 79
+   },
+   "small": {
+    "covered": 10,
+    "missing": 79
+   },
+   "medium": {
+    "covered": 33,
+    "missing": 56
+   },
+   "large": {
+    "covered": 56,
+    "missing": 33
+   }
+  },
+  {
+   "id": "table-s43",
+   "bricks": 92,
+   "real_pile": {
+    "covered": 10,
+    "missing": 82
+   },
+   "small": {
+    "covered": 11,
+    "missing": 81
+   },
+   "medium": {
+    "covered": 30,
+    "missing": 62
+   },
+   "large": {
+    "covered": 69,
+    "missing": 23
+   }
+  },
+  {
+   "id": "tower-s43",
+   "bricks": 99,
+   "real_pile": {
+    "covered": 3,
+    "missing": 96
+   },
+   "small": {
+    "covered": 3,
+    "missing": 96
+   },
+   "medium": {
+    "covered": 13,
+    "missing": 86
+   },
+   "large": {
+    "covered": 35,
+    "missing": 64
+   }
+  },
+  {
+   "id": "sofa-s42",
+   "bricks": 100,
+   "real_pile": {
+    "covered": 11,
+    "missing": 89
+   },
+   "small": {
+    "covered": 12,
+    "missing": 88
+   },
+   "medium": {
+    "covered": 36,
+    "missing": 64
+   },
+   "large": {
+    "covered": 69,
+    "missing": 31
+   }
+  },
+  {
+   "id": "bookshelf-s42",
+   "bricks": 110,
+   "real_pile": {
+    "covered": 9,
+    "missing": 101
+   },
+   "small": {
+    "covered": 10,
+    "missing": 100
+   },
+   "medium": {
+    "covered": 28,
+    "missing": 82
+   },
+   "large": {
+    "covered": 91,
+    "missing": 19
+   }
+  },
+  {
+   "id": "piano-s44",
+   "bricks": 115,
+   "real_pile": {
+    "covered": 11,
+    "missing": 104
+   },
+   "small": {
+    "covered": 12,
+    "missing": 103
+   },
+   "medium": {
+    "covered": 35,
+    "missing": 80
+   },
+   "large": {
+    "covered": 83,
+    "missing": 32
+   }
+  },
+  {
+   "id": "birdhouse-s44",
+   "bricks": 133,
+   "real_pile": {
+    "covered": 11,
+    "missing": 122
+   },
+   "small": {
+    "covered": 12,
+    "missing": 121
+   },
+   "medium": {
+    "covered": 40,
+    "missing": 93
+   },
+   "large": {
+    "covered": 83,
+    "missing": 50
+   }
+  },
+  {
+   "id": "tower-s42",
+   "bricks": 138,
+   "real_pile": {
+    "covered": 11,
+    "missing": 127
+   },
+   "small": {
+    "covered": 12,
+    "missing": 126
+   },
+   "medium": {
+    "covered": 33,
+    "missing": 105
+   },
+   "large": {
+    "covered": 64,
+    "missing": 74
+   }
+  },
+  {
+   "id": "bookshelf-s44",
+   "bricks": 147,
+   "real_pile": {
+    "covered": 7,
+    "missing": 140
+   },
+   "small": {
+    "covered": 8,
+    "missing": 139
+   },
+   "medium": {
+    "covered": 24,
+    "missing": 123
+   },
+   "large": {
+    "covered": 64,
+    "missing": 83
+   }
+  },
+  {
+   "id": "sofa-s43",
+   "bricks": 157,
+   "real_pile": {
+    "covered": 11,
+    "missing": 146
+   },
+   "small": {
+    "covered": 12,
+    "missing": 145
+   },
+   "medium": {
+    "covered": 39,
+    "missing": 118
+   },
+   "large": {
+    "covered": 95,
+    "missing": 62
+   }
+  },
+  {
+   "id": "piano-s43",
+   "bricks": 162,
+   "real_pile": {
+    "covered": 11,
+    "missing": 151
+   },
+   "small": {
+    "covered": 12,
+    "missing": 150
+   },
+   "medium": {
+    "covered": 36,
+    "missing": 126
+   },
+   "large": {
+    "covered": 88,
+    "missing": 74
+   }
+  },
+  {
+   "id": "table-s42",
+   "bricks": 191,
+   "real_pile": {
+    "covered": 11,
+    "missing": 180
+   },
+   "small": {
+    "covered": 11,
+    "missing": 180
+   },
+   "medium": {
+    "covered": 34,
+    "missing": 157
+   },
+   "large": {
+    "covered": 79,
+    "missing": 112
+   }
+  },
+  {
+   "id": "bookshelf-s43",
+   "bricks": 294,
+   "real_pile": {
+    "covered": 11,
+    "missing": 283
+   },
+   "small": {
+    "covered": 12,
+    "missing": 282
+   },
+   "medium": {
+    "covered": 40,
+    "missing": 254
+   },
+   "large": {
+    "covered": 100,
+    "missing": 194
+   }
+  }
+ ]
+}
